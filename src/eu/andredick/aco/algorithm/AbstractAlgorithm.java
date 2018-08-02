@@ -6,6 +6,9 @@ package eu.andredick.aco.algorithm;
  */
 public abstract class AbstractAlgorithm implements Runnable {
 
+    /**
+     * Start- und Endzeit für die Messung der Laufdauer des Algorithmus
+     */
     protected Long timeStart;
     protected Long timeEnd;
 
