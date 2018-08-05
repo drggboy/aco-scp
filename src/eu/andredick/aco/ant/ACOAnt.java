@@ -1,4 +1,4 @@
-package eu.andredick.aco.algorithm;
+package eu.andredick.aco.ant;
 
 import eu.andredick.aco.construct.AbstractConstructionStrategy;
 import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;

@@ -1,4 +1,4 @@
-package eu.andredick.aco.algorithm;
+package eu.andredick.aco.ant;
 
 import eu.andredick.scp.Solution;
 

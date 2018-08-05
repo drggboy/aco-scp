@@ -1,9 +1,9 @@
 package eu.andredick.configuration;
 
 import eu.andredick.aco.algorithm.ACOAlgorithm;
-import eu.andredick.aco.algorithm.ACOAnt;
+import eu.andredick.aco.ant.ACOAnt;
 import eu.andredick.aco.algorithm.AbstractAlgorithm;
-import eu.andredick.aco.algorithm.AbstractAnt;
+import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.combination.CombinationFactor;
 import eu.andredick.aco.construct.AbstractConstructionStrategy;
 import eu.andredick.aco.construct.ConstructionFromSubsets;

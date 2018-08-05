@@ -1,6 +1,6 @@
 package eu.andredick.aco.masterprocess;
 
-import eu.andredick.aco.algorithm.AbstractAnt;
+import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.pheromonassociation.AbstractPheromone;
 import eu.andredick.aco.termination.AbstractTermCriterion;
 

@@ -10,7 +10,6 @@ import java.util.NoSuchElementException;
 /**
  * Die abstrakte Klasse dient als Schablone für Konfigurationsfabriken
  * von Algorithmen mit unterschiedlichen Komponenten.
- * <p>
  * Sie hält eine Paramterliste vor, die durch ableitende Klassen zu füllen ist.
  * Über die zu implementierende Methode create() wird ein konfigurierter Algorithmus
  * instanziiert und zurückgegeben, damit dieser ausserhalb dieser Klasse ausgeführt
@@ -43,8 +42,9 @@ public abstract class AbstractAlgorithmConfiguration {
      * Erzeugt auf Basis der Konfiguration inkl. der Parameter eine Instanz des Algorithmus
      *
      * @param problem: SCP-Instanz
-     * @return: Algorithmus-Instanz
+     * @return Algorithmus-Instanz
      */
+
     public abstract AbstractAlgorithm create(SCProblem problem);
 
     /**
@@ -75,7 +75,7 @@ public abstract class AbstractAlgorithmConfiguration {
      * Liefert die Objektreferenz auf den Parameter
      *
      * @param name: Name des Parameters
-     * @return: Objektreferenz auf den Parameter
+     * @return Objektreferenz auf den Parameter
      */
     public ConfigurationParameter getParameter(String name) {
         // Finden des Parameters unter den vorhandenen
@@ -88,7 +88,7 @@ public abstract class AbstractAlgorithmConfiguration {
     /**
      * Liefert die komplette Parameterliste
      *
-     * @return: Parameterliste
+     * @return Parameterliste
      */
     public List<ConfigurationParameter> getParameters() {
         return this.configurationParameters;
