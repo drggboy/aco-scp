@@ -10,8 +10,8 @@ public abstract class AbstractPheromonePerception {
     /**
      * Berechnet den wahrgenommenen Wert
      *
-     * @param pheromoneConcentration: tatsächliche Konzentration des Pheromons
-     * @return: wahrgenommenen Konzentration des Pheromons
+     * @param pheromoneConcentration tatsächliche Konzentration des Pheromons
+     * @return wahrgenommenen Konzentration des Pheromons
      */
     public abstract float getValue(float pheromoneConcentration);
 

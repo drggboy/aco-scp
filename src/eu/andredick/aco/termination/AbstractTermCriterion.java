@@ -11,9 +11,9 @@ public abstract class AbstractTermCriterion {
 
     /**
      * Prüfen, ob die Abbruchbedingung erfüllt ist
-     * @param iteration: Zähler der Iterationen
-     * @param statistics: Statistiken zum Verlauf der Iteration
-     * @return: Wahr, wenn Abbruchbedingungen NICHT erfüllt
+     * @param iteration Zähler der Iterationen
+     * @param statistics Statistiken zum Verlauf der Iteration
+     * @return Wahr, wenn Abbruchbedingungen NICHT erfüllt
      */
     public abstract boolean checkTermination(int iteration, Statistics statistics);
 

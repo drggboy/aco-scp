@@ -10,8 +10,8 @@ public class PerceptionSimple extends AbstractPheromonePerception {
     /**
      * Identische Wahrnehmung des Pheromons mit der tatsächlichen Konzentration
      *
-     * @param pheromoneConcentration: tatsächliche Konzentration des Pheromons
-     * @return: tatsächliche Konzentration des Pheromons
+     * @param pheromoneConcentration tatsächliche Konzentration des Pheromons
+     * @return tatsächliche Konzentration des Pheromons
      */
     @Override
     public float getValue(float pheromoneConcentration) {

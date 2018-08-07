@@ -41,7 +41,7 @@ public abstract class AbstractAlgorithmConfiguration {
      * Wichtigste Methode der Klasse.
      * Erzeugt auf Basis der Konfiguration inkl. der Parameter eine Instanz des Algorithmus
      *
-     * @param problem: SCP-Instanz
+     * @param problem SCP-Instanz
      * @return Algorithmus-Instanz
      */
 
@@ -58,7 +58,7 @@ public abstract class AbstractAlgorithmConfiguration {
     /**
      * Fügt einen Parameter zur internen Parameter-Liste hinzu
      *
-     * @param parameter
+     * @param parameter Parameter
      */
     public void addConfigurationParameter(ConfigurationParameter parameter) {
         // Prüfen, ob der Parameter bereits vorhanden ist
@@ -74,7 +74,7 @@ public abstract class AbstractAlgorithmConfiguration {
     /**
      * Liefert die Objektreferenz auf den Parameter
      *
-     * @param name: Name des Parameters
+     * @param name Name des Parameters
      * @return Objektreferenz auf den Parameter
      */
     public ConfigurationParameter getParameter(String name) {

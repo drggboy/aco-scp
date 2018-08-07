@@ -27,9 +27,9 @@ public class NextStepStrategyOnSubsetsDeterministic extends
     /**
      * Bestimmt deterministisch die Auswahl, liefert die Alternative mit dem maximalen Wert
      *
-     * @param solution:         partiale Lösung der Ameise
-     * @param availableSubsets: verfügbare Alternativen
-     * @return
+     * @param solution         partiale Lösung der Ameise
+     * @param availableSubsets verfügbare Alternativen
+     * @return Ergebnis der Auswahl
      */
     @Override
     public Integer chooseSubset(Solution solution, List<Integer> availableSubsets) {

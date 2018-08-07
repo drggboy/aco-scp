@@ -158,7 +158,7 @@ public class Solution {
     /**
      * Liefert die Auswahl der Teilmengen
      *
-     * @return:
+     * @return Auswahl der Teilmengen
      */
     public List<Integer> getSubsets() {
         return this.subsetsList;
@@ -177,7 +177,7 @@ public class Solution {
     /**
      * Ist die Lösung zulässig?
      *
-     * @return: Ergebnis der Bewertung
+     * @return Ergebnis der Bewertung
      */
     public boolean isPermissible() {
         for (int i = 0; i < this.problem.getStructure().elementsSize(); i++) {

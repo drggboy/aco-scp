@@ -49,7 +49,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * einmal betrachtet und nach Möglichkeit optimiert wurde, wird die
      * verbesserte Lösung zurückgegeben.
      *
-     * @param solution - Die von einer Ameise konstruierte, zu verbessernde Ausgangslösung der lokalen Suche
+     * @param solution Die von einer Ameise konstruierte, zu verbessernde Ausgangslösung der lokalen Suche
      * @return Die durch die lokale Suche verbesserte Lösung
      */
     @Override
@@ -158,7 +158,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * Methode zum initialisieren der statischen Klassenvariablen sortedColumns
      * und bestColumns. Synchronisiert für parallele ACO-Algorithmen.
      *
-     * @param problem - Das zugrunde liegende SCP
+     * @param problem Das zugrunde liegende SCP
      */
     private synchronized void initStaticFields(SCProblem problem) {
         if (!staticFieldsReady) {
@@ -172,7 +172,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * Methode zum Initialisieren der statischen Klassenvariable sortedColumns.
      * Wird von initStaticFields aufgerufen.
      *
-     * @param problem - Das zugrunde liegende SCP
+     * @param problem Das zugrunde liegende SCP
      */
     private synchronized void initSortedColumns(SCProblem problem) {
         if (sortedColumns == null) {
@@ -190,7 +190,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * Methode zum Initialisieren der statischen Klassenvariable bestColumns.
      * Wird von initStaticFields aufgerufen.
      *
-     * @param problem - Das zugrunde liegende SCP
+     * @param problem Das zugrunde liegende SCP
      */
     private synchronized void initBestColumns(SCProblem problem) {
         if (bestCoveringColumns == null) {
@@ -231,8 +231,8 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * Methode, um die Spalten der Ausgangslösung nach Güte zu sortieren. Diese
      * werden dafür als WeightedColumn-Objekte sortiert in ein TreeSet eingefügt.
      *
-     * @param problem  - Das zugrunde liegende SCP
-     * @param solution - Die zu sortierende Ausgangslösung
+     * @param problem Das zugrunde liegende SCP
+     * @param solution Die zu sortierende Ausgangslösung
      * @return Die Ausgangslösung als nach Güte sortiertes WeightedColumn-TreeSet
      */
     private TreeSet<WeightedColumn> sortSolution(SCProblem problem, Solution solution) {
@@ -248,8 +248,8 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * Methode, die für jede Zeile der Strukturmatrix die Anzahl der sie überdeckenden
      * Lösungsspalten aus der übergebenen Lösung solution bestimmt.
      *
-     * @param problem  - Das zugrunde liegende SCP
-     * @param solution - Die betrachtete Lösung
+     * @param problem Das zugrunde liegende SCP
+     * @param solution Die betrachtete Lösung
      * @return int-Array, der unter dem Index i die Anzahl der Lösungsspalten hält, von denen Zeile i überdeckt wird
      */
     private int[] getNrOfCoveringColumns(SCProblem problem, Solution solution) {
@@ -348,7 +348,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
          * Die Vergleichsmethode. Wird auf einem WeightedColumn-Objekt thisColumn aufgerufen.
          *
          * @param otherColumn - die Spalte, mit der die aufrufende Spalte verglichen werden soll
-         * @return -1, falls thisColumn besser als otherColumn<br />0, falls thisColumn = otherColumn<br />1, falls thisColumn schlechter als otherColumn
+         * @return -1, falls thisColumn besser als otherColumn<br>0, falls thisColumn = otherColumn<br>1, falls thisColumn schlechter als otherColumn
          */
         public int compareTo(WeightedColumn otherColumn) {
             int result;

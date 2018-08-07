@@ -23,8 +23,8 @@ public class TermCriterionNew extends AbstractTermCriterion {
     /**
      * Konstruktor
      *
-     * @param maxIterations: Maximale Anzahl der Itarationen
-     * @param bestValueAgo:  Maximale Anzahl der Iterationen, seit dem keine bessere Lösunge gefunden wurde.
+     * @param maxIterations Maximale Anzahl der Itarationen
+     * @param bestValueAgo  Maximale Anzahl der Iterationen, seit dem keine bessere Lösunge gefunden wurde.
      */
     public TermCriterionNew(int maxIterations, int bestValueAgo) {
         this.maxIterations = maxIterations;
@@ -36,9 +36,9 @@ public class TermCriterionNew extends AbstractTermCriterion {
      * Abbruchbedingung ist erfüllt, wenn Anzahl der Iterationen ein Maximum überschreitet <br>
      * ODER die maximale Anzahl der Iterationen seit bester Lösunge überschritten wird.
      *
-     * @param iteration:  Zähler der Iterationen
-     * @param statistics: Statistiken zum Verlauf der Iteration
-     * @return: Wahr, wenn Anzahl der Iterationen NICHT über Maximum
+     * @param iteration  Zähler der Iterationen
+     * @param statistics Statistiken zum Verlauf der Iteration
+     * @return Wahr, wenn Anzahl der Iterationen NICHT über Maximum
      */
     @Override
     public boolean checkTermination(int iteration, Statistics statistics) {

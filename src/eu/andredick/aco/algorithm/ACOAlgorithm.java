@@ -19,7 +19,7 @@ public class ACOAlgorithm extends AbstractAlgorithm {
     /**
      * Kostruktor
      *
-     * @param masterProcess
+     * @param masterProcess Ausprägung der Komponente Masterprozess
      */
     public ACOAlgorithm(AbstractMasterProcess masterProcess) {
         this.masterProcess = masterProcess;

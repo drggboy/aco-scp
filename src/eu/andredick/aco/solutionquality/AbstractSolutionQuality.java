@@ -11,8 +11,8 @@ public abstract class AbstractSolutionQuality {
 
     /**
      * Liefert die Güte der Lösung
-     * @param solution: zu bewertende Lösung
-     * @return: Güte der Lösung
+     * @param solution zu bewertende Lösung
+     * @return Güte der Lösung
      */
     public abstract float getQuality(Solution solution);
 

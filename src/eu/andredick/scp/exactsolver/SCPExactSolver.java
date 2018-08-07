@@ -44,8 +44,8 @@ public class SCPExactSolver {
     /**
      * Methode zum Lösen einer SCP-Instanz
      *
-     * @param problem: Die SCP-Instanz
-     * @return: Lösung
+     * @param problem Die SCP-Instanz
+     * @return Lösung
      */
     public Solution solve(SCProblem problem) {
 
@@ -77,7 +77,7 @@ public class SCPExactSolver {
     /**
      * Private Methode, um die den "Google Or Tools"-Solver mit der SCP-Instanz zu initiieren
      *
-     * @param problem: Die SCP-Instanz
+     * @param problem Die SCP-Instanz
      */
     private void initSolver(SCProblem problem) {
 
@@ -113,8 +113,8 @@ public class SCPExactSolver {
     /**
      * Verwendung des "Google Or Tools"-Solver zum konvertieren der SCP-Instanzen in das MPS-Format
      *
-     * @param problem
-     * @return
+     * @param problem SCP-Problem
+     * @return das SCP-Problem im MPS-Format
      */
     public String getMPSformat(SCProblem problem) {
         initSolver(problem);
@@ -126,8 +126,8 @@ public class SCPExactSolver {
     /**
      * Verwendung des "Google Or Tools"-Solver zum konvertieren der SCP-Instanzen in das LP-Format
      *
-     * @param problem
-     * @return
+     * @param problem SCP-Problem
+     * @return das SCP-Problem im LP-Format
      */
     public String getLPformat(SCProblem problem) {
         initSolver(problem);

@@ -13,7 +13,7 @@ import java.util.List;
  * Abstrakte Komponente der Alternativenauswahl
  * Wird von Konstruktionsheuristik verwendet, um die Alternativenauswahl zu treffen
  */
-public abstract class AbstractNextStepStrategy<E extends AbstractPheromone> {
+public abstract class  AbstractNextStepStrategy<E extends AbstractPheromone> {
 
     protected E pheromoneStructure;
     protected AbstractPheromonePerception perceptionRule;
@@ -24,10 +24,10 @@ public abstract class AbstractNextStepStrategy<E extends AbstractPheromone> {
     /**
      * Konsturktor
      *
-     * @param pheromoneStructure: Pheromonassoziation
-     * @param perceptionRule:     Pheromon-Wahrnehmung
-     * @param heuristics:         heuristische Informationen
-     * @param combinationRule:    Kombinationsfunktion
+     * @param pheromoneStructure Pheromonassoziation
+     * @param perceptionRule     Pheromon-Wahrnehmung
+     * @param heuristics         heuristische Informationen
+     * @param combinationRule    Kombinationsfunktion
      */
     public AbstractNextStepStrategy(E pheromoneStructure,
                                     AbstractPheromonePerception perceptionRule,
@@ -43,9 +43,9 @@ public abstract class AbstractNextStepStrategy<E extends AbstractPheromone> {
     /**
      * Schnittstelle zur Konstruktionsheuristic (AbstractConstructionStrategy)
      *
-     * @param solution:         partiale Lösung der Ameise
-     * @param availableSubsets: verfügbare Alternativen
-     * @return: gewählte Alternative
+     * @param solution         partiale Lösung der Ameise
+     * @param availableSubsets verfügbare Alternativen
+     * @return gewählte Alternative
      */
     public abstract Integer chooseSubset(Solution solution, List<Integer> availableSubsets);
 }

@@ -24,11 +24,11 @@ public class NextStepStrategyOnSubsets extends
     /**
      * Konsturktor
      *
-     * @param pheromonesStructure: Pheromonassoziation
-     * @param perceptionRule:     Pheromon-Wahrnehmung
-     * @param heuristics:         heuristische Informationen
-     * @param combinationRule:    Kombinationsfunktion
-     * @param q0_parameter:       Parameter, der den Einfluss der probabilistischen und deterministischen Komponente regelt
+     * @param pheromonesStructure Pheromonassoziation
+     * @param perceptionRule     Pheromon-Wahrnehmung
+     * @param heuristics         heuristische Informationen
+     * @param combinationRule    Kombinationsfunktion
+     * @param q0_parameter       Parameter, der den Einfluss der probabilistischen und deterministischen Komponente regelt
      */
     public NextStepStrategyOnSubsets(PheromoneOnSubsets pheromonesStructure,
                                      AbstractPheromonePerception perceptionRule,
@@ -51,9 +51,9 @@ public class NextStepStrategyOnSubsets extends
      * Liefert in abhängigkeit des realisierten Wertes einer Zufallszahl und des Parameters q0
      * die probabilistische oder die deterministische Ergebnisse der Alternativenauswahl
      *
-     * @param solution:         partiale Lösung der Ameise
-     * @param availableSubsets: verfügbare Alternativen
-     * @return
+     * @param solution         partiale Lösung der Ameise
+     * @param availableSubsets verfügbare Alternativen
+     * @return Ergebnis der Auswahl
      */
     @Override
     public Integer chooseSubset(Solution solution, List<Integer> availableSubsets) {

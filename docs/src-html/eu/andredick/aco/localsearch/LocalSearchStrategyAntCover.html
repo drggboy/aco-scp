@@ -58,7 +58,7 @@
 <span class="sourceLineNo">049</span><a id="line.49">     * einmal betrachtet und nach Möglichkeit optimiert wurde, wird die</a>
 <span class="sourceLineNo">050</span><a id="line.50">     * verbesserte Lösung zurückgegeben.</a>
 <span class="sourceLineNo">051</span><a id="line.51">     *</a>
-<span class="sourceLineNo">052</span><a id="line.52">     * @param solution - Die von einer Ameise konstruierte, zu verbessernde Ausgangslösung der lokalen Suche</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * @param solution Die von einer Ameise konstruierte, zu verbessernde Ausgangslösung der lokalen Suche</a>
 <span class="sourceLineNo">053</span><a id="line.53">     * @return Die durch die lokale Suche verbesserte Lösung</a>
 <span class="sourceLineNo">054</span><a id="line.54">     */</a>
 <span class="sourceLineNo">055</span><a id="line.55">    @Override</a>
@@ -167,7 +167,7 @@
 <span class="sourceLineNo">158</span><a id="line.158">     * Methode zum initialisieren der statischen Klassenvariablen sortedColumns</a>
 <span class="sourceLineNo">159</span><a id="line.159">     * und bestColumns. Synchronisiert für parallele ACO-Algorithmen.</a>
 <span class="sourceLineNo">160</span><a id="line.160">     *</a>
-<span class="sourceLineNo">161</span><a id="line.161">     * @param problem - Das zugrunde liegende SCP</a>
+<span class="sourceLineNo">161</span><a id="line.161">     * @param problem Das zugrunde liegende SCP</a>
 <span class="sourceLineNo">162</span><a id="line.162">     */</a>
 <span class="sourceLineNo">163</span><a id="line.163">    private synchronized void initStaticFields(SCProblem problem) {</a>
 <span class="sourceLineNo">164</span><a id="line.164">        if (!staticFieldsReady) {</a>
@@ -181,7 +181,7 @@
 <span class="sourceLineNo">172</span><a id="line.172">     * Methode zum Initialisieren der statischen Klassenvariable sortedColumns.</a>
 <span class="sourceLineNo">173</span><a id="line.173">     * Wird von initStaticFields aufgerufen.</a>
 <span class="sourceLineNo">174</span><a id="line.174">     *</a>
-<span class="sourceLineNo">175</span><a id="line.175">     * @param problem - Das zugrunde liegende SCP</a>
+<span class="sourceLineNo">175</span><a id="line.175">     * @param problem Das zugrunde liegende SCP</a>
 <span class="sourceLineNo">176</span><a id="line.176">     */</a>
 <span class="sourceLineNo">177</span><a id="line.177">    private synchronized void initSortedColumns(SCProblem problem) {</a>
 <span class="sourceLineNo">178</span><a id="line.178">        if (sortedColumns == null) {</a>
@@ -199,7 +199,7 @@
 <span class="sourceLineNo">190</span><a id="line.190">     * Methode zum Initialisieren der statischen Klassenvariable bestColumns.</a>
 <span class="sourceLineNo">191</span><a id="line.191">     * Wird von initStaticFields aufgerufen.</a>
 <span class="sourceLineNo">192</span><a id="line.192">     *</a>
-<span class="sourceLineNo">193</span><a id="line.193">     * @param problem - Das zugrunde liegende SCP</a>
+<span class="sourceLineNo">193</span><a id="line.193">     * @param problem Das zugrunde liegende SCP</a>
 <span class="sourceLineNo">194</span><a id="line.194">     */</a>
 <span class="sourceLineNo">195</span><a id="line.195">    private synchronized void initBestColumns(SCProblem problem) {</a>
 <span class="sourceLineNo">196</span><a id="line.196">        if (bestCoveringColumns == null) {</a>
@@ -240,8 +240,8 @@
 <span class="sourceLineNo">231</span><a id="line.231">     * Methode, um die Spalten der Ausgangslösung nach Güte zu sortieren. Diese</a>
 <span class="sourceLineNo">232</span><a id="line.232">     * werden dafür als WeightedColumn-Objekte sortiert in ein TreeSet eingefügt.</a>
 <span class="sourceLineNo">233</span><a id="line.233">     *</a>
-<span class="sourceLineNo">234</span><a id="line.234">     * @param problem  - Das zugrunde liegende SCP</a>
-<span class="sourceLineNo">235</span><a id="line.235">     * @param solution - Die zu sortierende Ausgangslösung</a>
+<span class="sourceLineNo">234</span><a id="line.234">     * @param problem Das zugrunde liegende SCP</a>
+<span class="sourceLineNo">235</span><a id="line.235">     * @param solution Die zu sortierende Ausgangslösung</a>
 <span class="sourceLineNo">236</span><a id="line.236">     * @return Die Ausgangslösung als nach Güte sortiertes WeightedColumn-TreeSet</a>
 <span class="sourceLineNo">237</span><a id="line.237">     */</a>
 <span class="sourceLineNo">238</span><a id="line.238">    private TreeSet&lt;WeightedColumn&gt; sortSolution(SCProblem problem, Solution solution) {</a>
@@ -257,8 +257,8 @@
 <span class="sourceLineNo">248</span><a id="line.248">     * Methode, die für jede Zeile der Strukturmatrix die Anzahl der sie überdeckenden</a>
 <span class="sourceLineNo">249</span><a id="line.249">     * Lösungsspalten aus der übergebenen Lösung solution bestimmt.</a>
 <span class="sourceLineNo">250</span><a id="line.250">     *</a>
-<span class="sourceLineNo">251</span><a id="line.251">     * @param problem  - Das zugrunde liegende SCP</a>
-<span class="sourceLineNo">252</span><a id="line.252">     * @param solution - Die betrachtete Lösung</a>
+<span class="sourceLineNo">251</span><a id="line.251">     * @param problem Das zugrunde liegende SCP</a>
+<span class="sourceLineNo">252</span><a id="line.252">     * @param solution Die betrachtete Lösung</a>
 <span class="sourceLineNo">253</span><a id="line.253">     * @return int-Array, der unter dem Index i die Anzahl der Lösungsspalten hält, von denen Zeile i überdeckt wird</a>
 <span class="sourceLineNo">254</span><a id="line.254">     */</a>
 <span class="sourceLineNo">255</span><a id="line.255">    private int[] getNrOfCoveringColumns(SCProblem problem, Solution solution) {</a>
@@ -357,7 +357,7 @@
 <span class="sourceLineNo">348</span><a id="line.348">         * Die Vergleichsmethode. Wird auf einem WeightedColumn-Objekt thisColumn aufgerufen.</a>
 <span class="sourceLineNo">349</span><a id="line.349">         *</a>
 <span class="sourceLineNo">350</span><a id="line.350">         * @param otherColumn - die Spalte, mit der die aufrufende Spalte verglichen werden soll</a>
-<span class="sourceLineNo">351</span><a id="line.351">         * @return -1, falls thisColumn besser als otherColumn&lt;br /&gt;0, falls thisColumn = otherColumn&lt;br /&gt;1, falls thisColumn schlechter als otherColumn</a>
+<span class="sourceLineNo">351</span><a id="line.351">         * @return -1, falls thisColumn besser als otherColumn&lt;br&gt;0, falls thisColumn = otherColumn&lt;br&gt;1, falls thisColumn schlechter als otherColumn</a>
 <span class="sourceLineNo">352</span><a id="line.352">         */</a>
 <span class="sourceLineNo">353</span><a id="line.353">        public int compareTo(WeightedColumn otherColumn) {</a>
 <span class="sourceLineNo">354</span><a id="line.354">            int result;</a>

@@ -33,11 +33,11 @@
 <span class="sourceLineNo">024</span><a id="line.24">    /**</a>
 <span class="sourceLineNo">025</span><a id="line.25">     * Konsturktor</a>
 <span class="sourceLineNo">026</span><a id="line.26">     *</a>
-<span class="sourceLineNo">027</span><a id="line.27">     * @param pheromonesStructure: Pheromonassoziation</a>
-<span class="sourceLineNo">028</span><a id="line.28">     * @param perceptionRule:     Pheromon-Wahrnehmung</a>
-<span class="sourceLineNo">029</span><a id="line.29">     * @param heuristics:         heuristische Informationen</a>
-<span class="sourceLineNo">030</span><a id="line.30">     * @param combinationRule:    Kombinationsfunktion</a>
-<span class="sourceLineNo">031</span><a id="line.31">     * @param q0_parameter:       Parameter, der den Einfluss der probabilistischen und deterministischen Komponente regelt</a>
+<span class="sourceLineNo">027</span><a id="line.27">     * @param pheromonesStructure Pheromonassoziation</a>
+<span class="sourceLineNo">028</span><a id="line.28">     * @param perceptionRule     Pheromon-Wahrnehmung</a>
+<span class="sourceLineNo">029</span><a id="line.29">     * @param heuristics         heuristische Informationen</a>
+<span class="sourceLineNo">030</span><a id="line.30">     * @param combinationRule    Kombinationsfunktion</a>
+<span class="sourceLineNo">031</span><a id="line.31">     * @param q0_parameter       Parameter, der den Einfluss der probabilistischen und deterministischen Komponente regelt</a>
 <span class="sourceLineNo">032</span><a id="line.32">     */</a>
 <span class="sourceLineNo">033</span><a id="line.33">    public NextStepStrategyOnSubsets(PheromoneOnSubsets pheromonesStructure,</a>
 <span class="sourceLineNo">034</span><a id="line.34">                                     AbstractPheromonePerception perceptionRule,</a>
@@ -60,9 +60,9 @@
 <span class="sourceLineNo">051</span><a id="line.51">     * Liefert in abhängigkeit des realisierten Wertes einer Zufallszahl und des Parameters q0</a>
 <span class="sourceLineNo">052</span><a id="line.52">     * die probabilistische oder die deterministische Ergebnisse der Alternativenauswahl</a>
 <span class="sourceLineNo">053</span><a id="line.53">     *</a>
-<span class="sourceLineNo">054</span><a id="line.54">     * @param solution:         partiale Lösung der Ameise</a>
-<span class="sourceLineNo">055</span><a id="line.55">     * @param availableSubsets: verfügbare Alternativen</a>
-<span class="sourceLineNo">056</span><a id="line.56">     * @return</a>
+<span class="sourceLineNo">054</span><a id="line.54">     * @param solution         partiale Lösung der Ameise</a>
+<span class="sourceLineNo">055</span><a id="line.55">     * @param availableSubsets verfügbare Alternativen</a>
+<span class="sourceLineNo">056</span><a id="line.56">     * @return Ergebnis der Auswahl</a>
 <span class="sourceLineNo">057</span><a id="line.57">     */</a>
 <span class="sourceLineNo">058</span><a id="line.58">    @Override</a>
 <span class="sourceLineNo">059</span><a id="line.59">    public Integer chooseSubset(Solution solution, List&lt;Integer&gt; availableSubsets) {</a>
