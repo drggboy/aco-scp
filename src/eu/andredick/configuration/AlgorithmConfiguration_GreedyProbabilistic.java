@@ -14,8 +14,8 @@ import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;
 import eu.andredick.aco.localsearch.LocalSearchStrategyNone;
 import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 import eu.andredick.aco.masterprocess.MasterProcessBasic;
-import eu.andredick.aco.nextstep.AbstractNextStepRule;
-import eu.andredick.aco.nextstep.NextStepRuleOnSubsets;
+import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
+import eu.andredick.aco.nextstep.NextStepStrategyOnSubsets;
 import eu.andredick.aco.pheromonassociation.PheromoneOnSubsets;
 import eu.andredick.aco.pheromoneevaporation.AbstractPheromoneEvaporation;
 import eu.andredick.aco.pheromoneevaporation.PheromoneEvaporation;
@@ -97,8 +97,8 @@ public class AlgorithmConfiguration_GreedyProbabilistic extends AbstractAlgorith
 
         AbstractPheromonePerception perceptionRule = new PerceptionSimple();
 
-        AbstractNextStepRule nextStepRule =
-                new NextStepRuleOnSubsets(
+        AbstractNextStepStrategy nextStepRule =
+                new NextStepStrategyOnSubsets(
                         pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta), q0);
 
         AbstractConstructionStrategy constructionStrategy =

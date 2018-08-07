@@ -1,6 +1,6 @@
 package eu.andredick.aco.construct;
 
-import eu.andredick.aco.nextstep.AbstractNextStepRule;
+import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
 import eu.andredick.scp.SCProblem;
 import eu.andredick.scp.Solution;
 import eu.andredick.scp.Structure;
@@ -11,26 +11,30 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Konstruktionsmechanismus einer zulässigen Lösung, von Grundelementen ausgehend.
- * Basiert auf der Pherromonassoziation mit Teilmengen.
+ * <b>Realisierung der Komponente Konstruktionsheuristik.</b><br>
+ * Kapitel 3.3.4, S. 30, Konstruktionsheuristik<br>
+ * <br>
+ * Die Konstruktion der SCP-Lösung einer Ameise erfolgt erfolgt <b>ausgehend von den Grundelementen.</b><br>
+ * Die Konstruktionsheuristik wird von der Klasse ACOAnt (Ameise) verwendet, um neue Lösungen zu konstruieren.<br>
+ * <p><img src="{@docRoot}/images/Construction.svg" alt=""></p>
  */
 public class ConstructionFromElements extends AbstractConstructionStrategy {
 
-    public ConstructionFromElements(AbstractNextStepRule nextStepRule) {
+    public ConstructionFromElements(AbstractNextStepStrategy nextStepRule) {
         super(nextStepRule);
     }
 
     /**
-     * Die Konstruktion der Lösung erfolgt itarativ in folgenden Schritten:
-     * 1. zufällige Auswahl eines Grundelements, welches noch nicht überdeckt ist
-     * 2. bestimmen der Teilmengen, die das Grundelement enthalten und noch nicht in Lösung sind
-     * 3. Auswahl einer dieser Teilmengen über NextStep
-     * 4. bestimmen der Grundelemente, die in der ausgewählten Teilmenge enthalten sind
-     * 5. hinzufügen der bestimmten Grundelemente zur Menge bereits überdeckter Grundelemente
-     * 6. Zurück zu 1, wenn es weitere nicht überdeckte Grundelemente gibt
+     * <b>Die Konstruktion der Lösung erfolgt itarativ in folgenden Schritten:</b><br>
+     * 1. zufällige Auswahl eines Grundelements, welches noch nicht überdeckt ist<br>
+     * 2. bestimmen der Teilmengen, die das Grundelement enthalten und noch nicht in Lösung sind<br>
+     * 3. Auswahl einer dieser Teilmengen über NextStep<br>
+     * 4. bestimmen der Grundelemente, die in der ausgewählten Teilmenge enthalten sind<br>
+     * 5. hinzufügen der bestimmten Grundelemente zur Menge bereits überdeckter Grundelemente<br>
+     * 6. Zurück zu 1, wenn es weitere nicht überdeckte Grundelemente gibt<br>
      *
-     * @param problem: Das SCProblem, für das eine Lösung zu konstruieren ist
-     * @return: konstruierte zulässige Lösung
+     * @param problem Das SCProblem, für das eine Lösung zu konstruieren ist
+     * @return konstruierte zulässige Lösung
      */
     @Override
     public Solution construct(SCProblem problem) {

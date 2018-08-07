@@ -1,9 +1,13 @@
 package eu.andredick.aco.combination;
 
+import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
+
 /**
- * <b>Abstrakte Kombination-Funktion.</b><br>
+ * <b>Abstrakte Kombinationsfunktion.</b><br>
  * Kapitel 3.3.8, S. 36, Kombinationsfunktion<br>
- * Kombiniert den wahrgenommenen Pheromon mit heuristischen Informationen.
+ * <br>
+ * Kombiniert den wahrgenommenen Pheromon mit heuristischen Informationen.<br>
+ * Die Kombinationsfunktion wird durch die Komponente Alternativenauswahl verwendet (siehe {@link AbstractNextStepStrategy}).<br>
  * <p><img src="{@docRoot}/images/Combination.svg" alt=""></p>
  */
 public abstract class CombinationRule {

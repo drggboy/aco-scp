@@ -12,8 +12,8 @@ import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;
 import eu.andredick.aco.localsearch.LocalSearchStrategyNone;
 import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 import eu.andredick.aco.masterprocess.MasterProcessBasic;
-import eu.andredick.aco.nextstep.AbstractNextStepRule;
-import eu.andredick.aco.nextstep.NextStepRuleOnSubsetPairs;
+import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
+import eu.andredick.aco.nextstep.NextStepStrategyOnSubsetPairs;
 import eu.andredick.aco.pheromonassociation.PheromoneOnSubsetPairs;
 import eu.andredick.aco.pheromoneevaporation.AbstractPheromoneEvaporation;
 import eu.andredick.aco.pheromoneevaporation.PheromoneEvaporation;
@@ -76,8 +76,8 @@ public class AlgorithmConfiguration_SubsetPairs extends AbstractAlgorithmConfigu
         //heuristicInfoSet.addRule(new HeuristicRuleWeights());
         //heuristicInfoSet.addRule(new HeuristicRuleBestSubset());
 
-        AbstractNextStepRule nextStepRule =
-                new NextStepRuleOnSubsetPairs(pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta));
+        AbstractNextStepStrategy nextStepRule =
+                new NextStepStrategyOnSubsetPairs(pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta));
 
         AbstractConstructionStrategy constructionStrategy = new ConstructionFromSubsets(nextStepRule);
 

@@ -8,6 +8,7 @@ import eu.andredick.scp.Solution;
 
 /**
  * <b>Realisierung der Komponente Ameise</b> durch die Implementierung der abstrakten Methoden der Klasse {@link AbstractAnt}.<br>
+ * <br>
  * Stellt Methoden bereit, die von der Komponente MasterProzess (siehe {@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) verwendet werden.<br>
  * Entwurfsmuster Fassade, in dem Methoden mehrerer Klassen zentralisiert durch eine Schnittstelle angeboten werden.<br>
  * Die Ameise besitzt darüber hinaus Objektvariablen, die ihren Zustand definieren.<br>

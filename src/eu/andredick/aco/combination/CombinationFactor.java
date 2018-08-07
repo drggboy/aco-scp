@@ -3,6 +3,7 @@ package eu.andredick.aco.combination;
 /**
  * <b>Realisierung der Komponente Kombinationsfunktion mittels Multiplikation.</b><br>
  * Kapitel 3.3.8, S. 36, Kombinationsfunktion<br>
+ * <br>
  * Kombiniert den wahrgenommenen Pheromon mit heuristischen Informationen <b>durch Multiplikation</b>.<br>
  * Beide Faktoren werden durch zugehörige Exponenten alpha und beta relativ zueinander gewichtet.<br>
  * <p><img src="{@docRoot}/images/Combination.svg" alt=""></p>

@@ -13,7 +13,7 @@ import java.util.List;
  * Abstrakte Komponente der Alternativenauswahl
  * Wird von Konstruktionsheuristik verwendet, um die Alternativenauswahl zu treffen
  */
-public abstract class AbstractNextStepRule<E extends AbstractPheromone> {
+public abstract class AbstractNextStepStrategy<E extends AbstractPheromone> {
 
     protected E pheromoneStructure;
     protected AbstractPheromonePerception perceptionRule;
@@ -29,10 +29,10 @@ public abstract class AbstractNextStepRule<E extends AbstractPheromone> {
      * @param heuristics:         heuristische Informationen
      * @param combinationRule:    Kombinationsfunktion
      */
-    public AbstractNextStepRule(E pheromoneStructure,
-                                AbstractPheromonePerception perceptionRule,
-                                HeuristicInfoSet heuristics,
-                                CombinationRule combinationRule) {
+    public AbstractNextStepStrategy(E pheromoneStructure,
+                                    AbstractPheromonePerception perceptionRule,
+                                    HeuristicInfoSet heuristics,
+                                    CombinationRule combinationRule) {
 
         this.pheromoneStructure = pheromoneStructure;
         this.perceptionRule = perceptionRule;

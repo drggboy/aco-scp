@@ -13,13 +13,13 @@ import java.util.List;
  * Deterministische Auswahl - Ausprägung der Komponente der Alternativenauswahl
  * Wird von Konstruktionsheuristik verwendet, um die Alternativenauswahl zu treffen
  */
-public class NextStepRuleOnSubsetsDeterministic extends
-        AbstractNextStepRule<PheromoneOnSubsets> {
+public class NextStepStrategyOnSubsetsDeterministic extends
+        AbstractNextStepStrategy<PheromoneOnSubsets> {
 
-    public NextStepRuleOnSubsetsDeterministic(PheromoneOnSubsets pheromonesStructure,
-                                              AbstractPheromonePerception perceptionRule,
-                                              HeuristicInfoSet heuristics,
-                                              CombinationRule combinationRule) {
+    public NextStepStrategyOnSubsetsDeterministic(PheromoneOnSubsets pheromonesStructure,
+                                                  AbstractPheromonePerception perceptionRule,
+                                                  HeuristicInfoSet heuristics,
+                                                  CombinationRule combinationRule) {
 
         super(pheromonesStructure, perceptionRule, heuristics, combinationRule);
     }

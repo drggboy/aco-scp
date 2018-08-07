@@ -4,6 +4,7 @@ import eu.andredick.scp.Solution;
 
 /**
  * <b>Abstrakte Klasse für eine Ameise.</b><br>
+ * <br>
  * Definiert primär Schnittstellen, die von der Komponente MasterProzess (siehe {@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) verwendet werden.<br>
  * Entwurfsmuster Fassade, in dem Methoden mehrerer Klassen zentralisiert durch eine Schnittstelle angeboten werden.<br>
  * Weil alle Methoden abstrakt sind, dient diese Klassse zur Schnittstellendefinition und kann als Java-Interface realisiert sein.<br>

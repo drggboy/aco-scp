@@ -14,11 +14,11 @@ import java.util.concurrent.ThreadLocalRandom;
  * Gemischte Auswahl - Ausprägung der Komponente der Alternativenauswahl
  * Wird von Konstruktionsheuristik verwendet, um die Alternativenauswahl zu treffen
  */
-public class NextStepRuleOnSubsets extends
-        AbstractNextStepRule<PheromoneOnSubsets> {
+public class NextStepStrategyOnSubsets extends
+        AbstractNextStepStrategy<PheromoneOnSubsets> {
 
-    private NextStepRuleOnSubsetsDeterministic nextStepDeterministic;
-    private NextStepRuleOnSubsetsStochastic nextStepStochastic;
+    private NextStepStrategyOnSubsetsDeterministic nextStepDeterministic;
+    private NextStepStrategyOnSubsetsStochastic nextStepStochastic;
     private float q0_parameter;
 
     /**
@@ -30,21 +30,21 @@ public class NextStepRuleOnSubsets extends
      * @param combinationRule:    Kombinationsfunktion
      * @param q0_parameter:       Parameter, der den Einfluss der probabilistischen und deterministischen Komponente regelt
      */
-    public NextStepRuleOnSubsets(PheromoneOnSubsets pheromonesStructure,
-                                 AbstractPheromonePerception perceptionRule,
-                                 HeuristicInfoSet heuristics,
-                                 CombinationRule combinationRule,
-                                 float q0_parameter) {
+    public NextStepStrategyOnSubsets(PheromoneOnSubsets pheromonesStructure,
+                                     AbstractPheromonePerception perceptionRule,
+                                     HeuristicInfoSet heuristics,
+                                     CombinationRule combinationRule,
+                                     float q0_parameter) {
 
         super(pheromonesStructure, perceptionRule, heuristics, combinationRule);
 
         this.q0_parameter = q0_parameter;
 
         this.nextStepDeterministic =
-                new NextStepRuleOnSubsetsDeterministic(pheromonesStructure, perceptionRule, heuristics, combinationRule);
+                new NextStepStrategyOnSubsetsDeterministic(pheromonesStructure, perceptionRule, heuristics, combinationRule);
 
         this.nextStepStochastic =
-                new NextStepRuleOnSubsetsStochastic(pheromonesStructure, perceptionRule, heuristics, combinationRule);
+                new NextStepStrategyOnSubsetsStochastic(pheromonesStructure, perceptionRule, heuristics, combinationRule);
     }
 
     /**
