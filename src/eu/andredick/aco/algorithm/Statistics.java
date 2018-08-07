@@ -5,54 +5,91 @@ import eu.andredick.scp.Solution;
 import java.util.ArrayList;
 
 /**
- * In jedem Masterprozess, wird ein Objekt der Klasse Statistics erzeugt,
- * welches Daten über die Berechnungsergebnisse entlang des Iterationsverlaufes sammelt.
+ * <b>Statistiken zum Ablauf eines Algorithmus.</b><br>
+ * In jedem Masterprozess, wird ein Objekt der Klasse Statistics erzeugt,<br>
+ * welches Daten über die Berechnungsergebnisse entlang des Iterationsverlaufes sammelt.<br>
  */
 public class Statistics {
 
-    // Liste der minimalen z-Werte in jeder Iteration
+    /**
+     * Liste der minimalen Zielfunktionswerte in jeder Iteration
+     */
     private ArrayList<Float> iterationMinValues;
 
-    // Liste der maximalen z-Werte in jeder Iteration
+    /**
+     * Liste der maximalen Zielfunktionswerte in jeder Iteration
+     */
     private ArrayList<Float> iterationMaxValues;
 
-    // Niedrigster z-Wert aller Iterationen
+    /**
+     * Niedrigster Zielfunktionswert aller Iterationen
+     */
     private Float globalMinValue;
 
-    // Größter z-Wert aller Iterationen
+    /**
+     * Höchster Zielfunktionswert aller Iterationen
+     */
     private Float globalMaxValue;
 
-    // Lösung des niedrigsten z-Wertes aller Iterationen
+    /**
+     * Lösung des niedrigsten Zielfunktionswertes aller Iterationen
+     */
     private Solution globalMinSolution;
 
-    // Konstruktor
+    /**
+     * Konstruktor
+     */
     public Statistics() {
         this.iterationMinValues = new ArrayList<>(100);
         this.iterationMaxValues = new ArrayList<>(100);
     }
 
-    // Liefert niedrigsten z-Wert aller Iterationen
+    /**
+     * Liefert den niedrigsten Zielfunktionswert aller Iterationen.
+     *
+     * @return niedrigster Zielfunktionswert aller Iterationen
+     */
     public Float getGlobalMinValue() {
         return globalMinValue;
     }
 
-    // Liefert Lösung des niedrigsten z-Wertes aller Iterationen
+    /**
+     * Liefert Lösung des niedrigsten Zielfunktionswertes aller Iterationen.
+     *
+     * @return Lösung des niedrigsten Zielfunktionswertes aller Iterationen
+     */
     public Solution getGlobalMinSolution() {
         return globalMinSolution;
     }
 
-    // Liefert Liste der minimalen z-Werte in jeder Iteration
+    /**
+     * Liefert Liste der minimalen Zielfunktionswerte in jeder Iteration
+     *
+     * @return Liste der minimalen Zielfunktionswerte in jeder Iteration
+     */
     public float[] getIterationMinValuesArray() {
         return listToArray(this.iterationMinValues);
     }
 
-    // Liefert Liste der maximalen z-Werte in jeder Iteration
+    /**
+     * Liefert Liste der maximalen Zielfunktionswerte in jeder Iteration
+     *
+     * @return Liste der maximalen Zielfunktionswerte in jeder Iteration
+     */
     public float[] getIterationMaxValuesArray() {
         return listToArray(this.iterationMaxValues);
     }
 
-    // Schnittstellen-Methode zum Masterprozess
-    // Es wird für die Statistik in jeder Iteration jeder gefundenen Zielfunktonswert mit zugehöriger Lösung übergeben.
+    /**
+     * Methode zum Aufzeichnen der Zielfunktionswerte und ggf. zugehöriger Lösungen entlang der Iterationen.<br>
+     * Für die Statistik soll in jeder Iteration jeder gefundene Zielfunktonswert mit zugehöriger Lösung übergeben werden.<br>
+     * In dieser Methode werden die Listen für maximale und minimale Zielfunktionswerte aktualisiert.<br>
+     * Die Methode wird durch den Masterprozess aufgerufen.<br>
+     *
+     * @param iteration Index der Iteration
+     * @param value     Zielfunktionswert
+     * @param solution  zugehöriger Lösung
+     */
     public void setValue(int iteration, float value, Solution solution) {
         if (this.setIterationMinValue(iteration, value, solution)) {
             this.setGlobalMinValue(value, solution);
@@ -62,7 +99,14 @@ public class Statistics {
         }
     }
 
-    // Setzen des minimalen z-Wertes der Iteration und der zugehörigen Lösung
+    /**
+     * Setzen des <b>minimalen</b> Zielfunktonswertes der Iteration und der zugehörigen Lösung.
+     *
+     * @param iteration Index der Iteration
+     * @param value     Zielfunktionswert
+     * @param solution  zugehöriger Lösung
+     * @return Wahr, wenn das Setzen erfolgreich war
+     */
     private boolean setIterationMinValue(int iteration, float value, Solution solution) {
         Float oldValue = null;
         try {
@@ -79,7 +123,14 @@ public class Statistics {
         return false;
     }
 
-    // Setzen des maximalen z-Wertes der Iteration und der zugehörigen Lösung
+    /**
+     * Setzen des <b>maximalen</b> Zielfunktonswertes der Iteration und der zugehörigen Lösung.
+     *
+     * @param iteration Index der Iteration
+     * @param value     Zielfunktionswert
+     * @param solution  zugehöriger Lösung
+     * @return Wahr, wenn das Setzen erfolgreich war
+     */
     private boolean setIterationMaxValue(int iteration, float value, Solution solution) {
         Float oldValue = null;
         try {
@@ -96,7 +147,13 @@ public class Statistics {
         return false;
     }
 
-    // Setzen des maximalen z-Wertes aller Iterationen
+    /**
+     * Setzen des <b>maximalen</b> Zielfunktonswertes aller Iterationen
+     *
+     * @param value Zielfunktonswert
+     * @param solution zugehöriger Lösung
+     * @return Wahr, wenn das Setzen erfolgreich war
+     */
     private boolean setGlobalMaxValue(float value, Solution solution) {
         if (this.globalMaxValue == null || value > this.globalMaxValue) {
             this.globalMaxValue = value;
@@ -105,7 +162,13 @@ public class Statistics {
         return false;
     }
 
-    // Setzen des minimalen z-Wertes aller Iterationen
+    /**
+     * Setzen des <b>minimalen</b> Zielfunktonswertes aller Iterationen
+     *
+     * @param value Zielfunktonswert
+     * @param solution zugehöriger Lösung
+     * @return Wahr, wenn das Setzen erfolgreich war
+     */
     private boolean setGlobalMinValue(float value, Solution solution) {
         if (this.globalMinValue == null || value < this.globalMinValue) {
             this.globalMinValue = value;
@@ -115,7 +178,12 @@ public class Statistics {
         return false;
     }
 
-    // Umwandlung der Datenstruktur Liste in ein Array
+    /**
+     * Umwandlung der Datenstruktur Liste in ein Array
+     *
+     * @param list ArrayList aus Float-Elementen
+     * @return Array float[]
+     */
     private float[] listToArray(ArrayList<Float> list) {
         float[] values = new float[list.size()];
         for (int i = 0; i < values.length; i++) {

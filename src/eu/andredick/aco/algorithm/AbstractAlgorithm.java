@@ -1,23 +1,28 @@
 package eu.andredick.aco.algorithm;
 
 /**
- * Schablone für Algorithmen, deren Instanzen parallel ausgeführt werden können (Runnable).<br>
+ * <b>Schablone für Algorithmen, deren Instanzen parallel ausgeführt werden können (Runnable).</b><br>
  * Ein realer Algorithmus leitet diese abstrakte Klasse ab und <br>
- * implementiert in der Methode "go()" den Start seines Ablaufes.
+ * implementiert in der Methode {@link #go()} den Start seines Ablaufes.
+ * <p><img src="{@docRoot}/images/ACOAlgorithm.svg" alt=""></p>
  */
 public abstract class AbstractAlgorithm implements Runnable {
 
     /**
-     * Start- und Endzeit für die Messung der Laufdauer des Algorithmus
+     * Startzeit für die Messung der Laufdauer des Algorithmus
      */
     protected Long timeStart;
+
+    /**
+     * Endzeit für die Messung der Laufdauer des Algorithmus
+     */
     protected Long timeEnd;
 
     /**
      * Methode zum Starten des Algorithmus.<br>
-     * Zunächst werden vorbereitende Operationen durch "preprocessing()" ausgeführt.<br>
-     * Anschließend wird die zu implementierende Methode "go()" gestartet.<br>
-     * Schließlich werden durch "postprocessing()" nachbereitende Operationen ausgeführt.
+     * Zunächst werden vorbereitende Operationen durch {@link #preprocessing()} ausgeführt.<br>
+     * Anschließend wird die zu implementierende Methode {@link #go()} gestartet.<br>
+     * Schließlich werden durch {@link #postprocessing()} nachbereitende Operationen ausgeführt.
      */
     @Override
     public void run() {
@@ -58,6 +63,7 @@ public abstract class AbstractAlgorithm implements Runnable {
 
     /**
      * Liefert Statistiken zum Ablauf des Algorithmus
+     *
      * @return Statistiken zum Ablauf des Algorithmus
      */
     public abstract Statistics getStatistics();

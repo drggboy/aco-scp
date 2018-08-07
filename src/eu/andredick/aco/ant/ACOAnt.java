@@ -7,24 +7,48 @@ import eu.andredick.scp.SCProblem;
 import eu.andredick.scp.Solution;
 
 /**
- * Die Klasse ist eine Fassade, welche für den Masterprozess die Funktionen einer Ameise bereitstellt.
+ * <b>Realisierung der Komponente Ameise</b> durch die Implementierung der abstrakten Methoden der Klasse {@link AbstractAnt}.<br>
+ * Stellt Methoden bereit, die von der Komponente MasterProzess (siehe {@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) verwendet werden.<br>
+ * Entwurfsmuster Fassade, in dem Methoden mehrerer Klassen zentralisiert durch eine Schnittstelle angeboten werden.<br>
+ * Die Ameise besitzt darüber hinaus Objektvariablen, die ihren Zustand definieren.<br>
+ * <p><img src="{@docRoot}/images/ACOAnt.svg" alt=""></p>
  */
 public class ACOAnt extends AbstractAnt {
 
-    // gemeinsames SCP-Problem und der Ameise zugehörige Lösung
+    /**
+     * Das Problem, auf welchem die Lösung (Pfad) gefunden werden soll.
+     */
     protected SCProblem problem;
+
+    /**
+     * Aktuelle Lösung (Pfad) der Ameise.<br>
+     * Die Lösunge kann unvollständig sein.
+     */
     protected Solution solution;
 
-    // Beliebige Komponente für Pheromon-update
+    /**
+     * Beliebige Realisierung der Komponente für Pheromon-Markierung
+     */
     protected AbstractPheromoneUpdate updateRule;
 
-    // Beliebige Komponente für Lösungskonstruktion
+    /**
+     * Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
+     */
     protected AbstractConstructionStrategy constructionStrategy;
 
-    // Beliebige Komponente für Lokale Suche
+    /**
+     * Beliebige Realisierung der Komponente für Lokale Suche
+     */
     protected AbstractLocalSearchStrategy localSearchStrategy;
 
-    // Konstruktor
+    /**
+     * Konstruktor
+     *
+     * @param problem              Das Problem, auf welchem die Lösung bzw. Pfad gefunden werden soll.
+     * @param updateRule           Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
+     * @param constructionStrategy Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
+     * @param localSearchStrategy  Beliebige Realisierung der Komponente für Lokale Suche
+     */
     public ACOAnt(SCProblem problem,
                   AbstractPheromoneUpdate updateRule,
                   AbstractConstructionStrategy constructionStrategy,
@@ -37,31 +61,60 @@ public class ACOAnt extends AbstractAnt {
         this.localSearchStrategy = localSearchStrategy;
     }
 
-    // Lösungskonstruktion
+    /**
+     * Startet die Konstrukton einer Ameisenlösung.<br>
+     * Dazu wird die der Ameise zugewiesene Komponente der Konstruktionsheuristik genutzt.<br>
+     * Die Methode wird von dem Masterprozess aufgerufen.<br>
+     * Die von der Ameise erstellte Lösung soll als Objektvariable vorgehalten werden.
+     *
+     * @see AbstractConstructionStrategy#construct(SCProblem)
+     */
     @Override
     public void constructSolution() {
         this.solution = this.constructionStrategy.construct(this.problem);
     }
 
-    // Evaluation der Lösung
+    /**
+     * Liefert den Zielfunktionswert der Ameisenlösung.<br>
+     * Die Methode wird von dem Masterprozess aufgerufen.<br>
+     * Der Zustand der Ameise kann eine unvollständige Lösung beinhalten!<br>
+     *
+     * @return Zielfunktionswert der Ameisenlösung
+     */
     @Override
-    public float evaluateSolution() {
+    public Float evaluateSolution() {
         return this.solution.getValue();
     }
 
-    // Pheromon-Update
+    /**
+     * Startet die Markierung der Ameisen-Lösung auf den Entitäten des Problems.<br>
+     * Dazu wird die der Ameise zugewiesene Komponente der Pheromon-Markierung genutzt.<br>
+     * Die Methode wird von dem Masterprozess aufgerufen.<br>
+     *
+     * @see AbstractPheromoneUpdate#update(Solution)
+     */
     @Override
     public void markPheromone() {
         this.updateRule.update(this.solution);
     }
 
-    // Lokale Suche
+    /**
+     * Startet die Verbesserung der konstruierten Ameisenlösung durch Lokale Suche.<br>
+     * Dazu wird die der Ameise zugewiesene Komponente der Lokalen Suche genutzt. <br>
+     * Die Methode wird von dem Masterprozess aufgerufen. <br>
+     *
+     * @see AbstractLocalSearchStrategy#search(Solution)
+     */
     @Override
     public void localSearch() {
         this.solution = this.localSearchStrategy.search(this.solution);
     }
 
-    // Zurücksetzen des Zustandes der Ameise
+    /**
+     * Erneuert den Zustand der Ameise für die nächste Iteration. <br>
+     * Dazu wird die bisherige Ameisenlösung durch eine leere Lösung ersetzt. <br>
+     * Die Methode wird von dem Masterprozess aufgerufen.
+     */
     @Override
     public void resetAnt() {
         this.solution = new Solution(problem);

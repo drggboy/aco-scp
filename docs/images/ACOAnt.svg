@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export ACOAnt.svg Zeichenblatt-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		width="7.09988in" height="4.09113in" viewBox="0 0 511.191 294.561" xml:space="preserve" color-interpolation-filters="sRGB"
+		class="st12">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#f2f2f2;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st3 {fill:#000000;font-family:Calibri;font-size:1.00001em}
+		.st4 {fill:#ffffff;fill-opacity:0}
+		.st5 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;visibility:hidden}
+		.st6 {fill:#000000;font-family:Calibri;font-size:0.833336em}
+		.st7 {marker-end:url(#mrkr12-66);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st8 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.22935779816514}
+		.st9 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st10 {fill:#000000;font-family:Calibri;font-size:0.75em}
+		.st11 {marker-end:url(#mrkr14-120);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st12 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend12">
+			<path d="M 3 1 L 0 0 L 3 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr12-66" class="st8" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend12" transform="scale(-4.36,-4.36) "/>
+		</marker>
+		<g id="lend14">
+			<path d="M 3 -1 L 0 0 L 3 1 L 3 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr14-120" class="st8" refX="-13.08" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend14" transform="scale(-4.36,-4.36) "/>
+		</marker>
+	</defs>
+	<g>
+		<title>Zeichenblatt-1</title>
+		<g id="group1107-1" transform="translate(0.375,-0.375)">
+			<title>Tabelle.1107</title>
+			<g id="group1002-2" transform="translate(188.605,-151.057)">
+				<title>Klasse.3393</title>
+				<desc>Ant</desc>
+				<g id="shape1003-3">
+					<title>Tabelle.1003</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 276.89 L0 276.89 L0 294.56 Z" class="st1"/>
+				</g>
+				<g id="shape1004-5" transform="translate(0,-17.6693)">
+					<title>Tabelle.1004</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 251.66 L0 251.66 L0 294.56 Z" class="st2"/>
+				</g>
+				<g id="shape1006-7" transform="translate(114.467,-60.573)">
+					<title>Tabelle.1006</title>
+					<desc>Parameter</desc>
+				</g>
+				<g id="shape1002-8">
+					<text x="4" y="264.79" class="st3">Ant</text>				</g>
+			</g>
+			<g id="group1041-10" transform="translate(188.605,-151.057)">
+				<title>Klasse.3432</title>
+				<desc>ACOAnt</desc>
+				<g id="shape1042-11">
+					<title>Tabelle.1042</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 276.89 L0 276.89 L0 294.56 Z" class="st1"/>
+				</g>
+				<g id="shape1043-13" transform="translate(0,-17.6693)">
+					<title>Tabelle.1043</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 251.66 L0 251.66 L0 294.56 Z" class="st2"/>
+				</g>
+				<g id="shape1045-15" transform="translate(114.467,-60.573)">
+					<title>Tabelle.1045</title>
+					<desc>Parameter</desc>
+				</g>
+				<g id="shape1041-16">
+					<text x="4" y="264.79" class="st3">ACOAnt</text>				</g>
+			</g>
+			<g id="shape1046-18" transform="translate(191.44,-153.892)">
+				<title>Mitglied.3437</title>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st4"/>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st5"/>
+			</g>
+			<g id="group1047-21" transform="translate(387.47,-151.056)">
+				<title>Klasse.3438</title>
+				<desc>ConstructionStrategy</desc>
+				<g id="shape1048-22">
+					<title>Tabelle.1048</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 276.89 L0 276.89 L0 294.56 Z" class="st1"/>
+				</g>
+				<g id="shape1049-24" transform="translate(0,-17.6693)">
+					<title>Tabelle.1049</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 251.65 L0 251.65 L0 294.56 Z" class="st2"/>
+				</g>
+				<g id="shape1050-26" transform="translate(0,-44.573)">
+					<title>Tabelle.1050</title>
+					<desc>&#60;&#60;abstract&#62;&#62;</desc>
+					<text x="4" y="291.56" class="st6">&#60;&#60;abstract&#62;&#62;</text>				</g>
+				<g id="shape1051-28" transform="translate(114.467,-60.5766)">
+					<title>Tabelle.1051</title>
+					<desc>Parameter</desc>
+				</g>
+				<g id="shape1047-29">
+					<text x="4" y="264.79" class="st3">ConstructionStrategy</text>				</g>
+			</g>
+			<g id="shape1052-31" transform="translate(390.305,-153.89)">
+				<title>Mitglied.3443</title>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st4"/>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st5"/>
+			</g>
+			<g id="group1053-34" transform="translate(387.47,-76.0109)">
+				<title>Klasse.3444</title>
+				<desc>LocalSearchStrategy</desc>
+				<g id="shape1054-35">
+					<title>Tabelle.1054</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 276.89 L0 276.89 L0 294.56 Z" class="st1"/>
+				</g>
+				<g id="shape1055-37" transform="translate(0,-17.6693)">
+					<title>Tabelle.1055</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 251.65 L0 251.65 L0 294.56 Z" class="st2"/>
+				</g>
+				<g id="shape1056-39" transform="translate(0,-44.573)">
+					<title>Tabelle.1056</title>
+					<desc>&#60;&#60;abstract&#62;&#62;</desc>
+					<text x="4" y="291.56" class="st6">&#60;&#60;abstract&#62;&#62;</text>				</g>
+				<g id="shape1057-41" transform="translate(114.467,-60.5766)">
+					<title>Tabelle.1057</title>
+					<desc>Parameter</desc>
+				</g>
+				<g id="shape1053-42">
+					<text x="4" y="264.79" class="st3">LocalSearchStrategy</text>				</g>
+			</g>
+			<g id="shape1058-44" transform="translate(390.305,-78.8455)">
+				<title>Mitglied.3449</title>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st4"/>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st5"/>
+			</g>
+			<g id="group1059-47" transform="translate(387.47,5.68434E-14)">
+				<title>Klasse.3450</title>
+				<desc>PeromonUpdate</desc>
+				<g id="shape1060-48">
+					<title>Tabelle.1060</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 276.89 L0 276.89 L0 294.56 Z" class="st1"/>
+				</g>
+				<g id="shape1061-50" transform="translate(0,-17.6693)">
+					<title>Tabelle.1061</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 251.65 L0 251.65 L0 294.56 Z" class="st2"/>
+				</g>
+				<g id="shape1062-52" transform="translate(0,-44.573)">
+					<title>Tabelle.1062</title>
+					<desc>&#60;&#60;abstract&#62;&#62;</desc>
+					<text x="4" y="291.56" class="st6">&#60;&#60;abstract&#62;&#62;</text>				</g>
+				<g id="shape1063-54" transform="translate(114.467,-60.5766)">
+					<title>Tabelle.1063</title>
+					<desc>Parameter</desc>
+				</g>
+				<g id="shape1059-55">
+					<text x="4" y="264.79" class="st3">PeromonUpdate</text>				</g>
+			</g>
+			<g id="shape1064-57" transform="translate(390.305,-2.83465)">
+				<title>Mitglied.3455</title>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st4"/>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st5"/>
+			</g>
+			<g id="group1070-60" transform="translate(311.577,-188.431)">
+				<title>Gerichtete Assoziation.3461</title>
+				<g id="shape1070-61">
+					<path d="M0 301.65 L75.89 301.65" class="st7"/>
+				</g>
+			</g>
+			<g id="group1075-67" transform="translate(311.577,-181.344)">
+				<title>Gerichtete Assoziation.3466</title>
+				<g id="shape1075-68">
+					<path d="M0 294.56 L38.93 294.56 L38.93 369.61 L75.89 369.61" class="st7"/>
+				</g>
+			</g>
+			<g id="group1080-73" transform="translate(0,-151.03)">
+				<title>Klasse.3472</title>
+				<desc>MasterProcess</desc>
+				<g id="shape1081-74">
+					<title>Tabelle.1081</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 276.89 L0 276.89 L0 294.56 Z" class="st1"/>
+				</g>
+				<g id="shape1082-76" transform="translate(0,-17.6693)">
+					<title>Tabelle.1082</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 251.65 L0 251.65 L0 294.56 Z" class="st2"/>
+				</g>
+				<g id="shape1083-78" transform="translate(0,-44.573)">
+					<title>Tabelle.1083</title>
+					<desc>&#60;&#60;abstract&#62;&#62;</desc>
+					<text x="4" y="291.56" class="st6">&#60;&#60;abstract&#62;&#62;</text>				</g>
+				<g id="shape1084-80" transform="translate(114.467,-60.5766)">
+					<title>Tabelle.1084</title>
+					<desc>Parameter</desc>
+				</g>
+				<g id="shape1080-81">
+					<text x="4" y="264.79" class="st3">MasterProcess</text>				</g>
+			</g>
+			<g id="shape1085-83" transform="translate(2.83465,-153.864)">
+				<title>Mitglied.3477</title>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st4"/>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st5"/>
+			</g>
+			<g id="group1086-86" transform="translate(122.971,-174.244)">
+				<title>Gerichtete Assoziation.3478</title>
+				<desc>&#60;koordiniert&#62;</desc>
+				<g id="shape1086-87">
+					<path d="M0 287.49 L65.63 287.46" class="st7"/>
+					<rect x="7.8647" y="282.075" width="49.9043" height="10.7998" class="st9"/>
+					<text x="7.86" y="290.17" class="st10">&#60;koordiniert&#62;</text>				</g>
+			</g>
+			<g id="shape1091-94" transform="translate(311.577,-181.344)">
+				<title>Gerichtete Assoziation.1091</title>
+				<desc>&#60;benutzt&#62;</desc>
+				<path d="M0 294.56 L38.93 294.56 L38.93 445.62 L75.89 445.62" class="st7"/>
+				<rect x="20.3209" y="363.708" width="37.2129" height="10.7998" class="st9"/>
+				<text x="20.32" y="371.81" class="st10">&#60;benutzt&#62;</text>			</g>
+			<g id="group1096-101" transform="translate(188.478,-233.234)">
+				<title>Klasse.3096</title>
+				<desc>Ant</desc>
+				<g id="shape1097-102">
+					<title>Tabelle.1097</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 276.89 L0 276.89 L0 294.56 Z" class="st1"/>
+				</g>
+				<g id="shape1098-104" transform="translate(0,-17.6693)">
+					<title>Tabelle.1098</title>
+					<path d="M0 294.56 L122.97 294.56 L122.97 251.65 L0 251.65 L0 294.56 Z" class="st2"/>
+				</g>
+				<g id="shape1099-106" transform="translate(0,-44.573)">
+					<title>Tabelle.1099</title>
+					<desc>&#60;&#60;abstract&#62;&#62;</desc>
+					<text x="4" y="291.56" class="st6">&#60;&#60;abstract&#62;&#62;</text>				</g>
+				<g id="shape1100-108" transform="translate(114.467,-60.5766)">
+					<title>Tabelle.1100</title>
+					<desc>Parameter</desc>
+				</g>
+				<g id="shape1096-109">
+					<text x="4" y="264.79" class="st3">Ant</text>				</g>
+			</g>
+			<g id="shape1101-111" transform="translate(191.312,-236.069)">
+				<title>Mitglied.3101</title>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st4"/>
+				<rect x="0" y="282.561" width="117.302" height="12" class="st5"/>
+			</g>
+			<g id="group1102-114" transform="translate(257.114,-211.63)">
+				<title>Vererbung.1102</title>
+				<g id="shape1102-115">
+					<path d="M-7.02 294.56 L-7.09 282.77" class="st11"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
