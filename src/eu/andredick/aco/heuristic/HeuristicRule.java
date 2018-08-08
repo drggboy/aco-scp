@@ -10,6 +10,7 @@ import java.util.List;
  * <br>
  * Ausprägungen der Komponente der Heuristische Informationen müssen diese Schnittstelle implemenntieren.<br>
  * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
+ * <p><img src="{@docRoot}/images/Heuristics.svg" alt=""></p>
  */
 public interface HeuristicRule {
 

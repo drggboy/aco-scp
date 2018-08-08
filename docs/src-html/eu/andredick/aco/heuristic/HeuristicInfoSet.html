@@ -21,47 +21,48 @@
 <span class="sourceLineNo">012</span><a id="line.12"> * Die Klasse ist ein Behälter für unterschiedliche Heuristische Informationen,&lt;br&gt;</a>
 <span class="sourceLineNo">013</span><a id="line.13"> * die eine Ameise bei der Lösungskonsturktion verwenden soll.&lt;br&gt;</a>
 <span class="sourceLineNo">014</span><a id="line.14"> * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).&lt;br&gt;</a>
-<span class="sourceLineNo">015</span><a id="line.15"> */</a>
-<span class="sourceLineNo">016</span><a id="line.16">public class HeuristicInfoSet implements HeuristicRule{</a>
-<span class="sourceLineNo">017</span><a id="line.17"></a>
-<span class="sourceLineNo">018</span><a id="line.18">    /**</a>
-<span class="sourceLineNo">019</span><a id="line.19">     * Menge von Ausprägungen der Komponente Heuristischer Informationen</a>
-<span class="sourceLineNo">020</span><a id="line.20">     */</a>
-<span class="sourceLineNo">021</span><a id="line.21">    private ArrayList&lt;HeuristicRule&gt; rules;</a>
-<span class="sourceLineNo">022</span><a id="line.22"></a>
-<span class="sourceLineNo">023</span><a id="line.23">    /**</a>
-<span class="sourceLineNo">024</span><a id="line.24">     * Konstruktor</a>
-<span class="sourceLineNo">025</span><a id="line.25">     */</a>
-<span class="sourceLineNo">026</span><a id="line.26">    public HeuristicInfoSet() {</a>
-<span class="sourceLineNo">027</span><a id="line.27">        rules = new ArrayList&lt;&gt;();</a>
-<span class="sourceLineNo">028</span><a id="line.28">    }</a>
-<span class="sourceLineNo">029</span><a id="line.29"></a>
-<span class="sourceLineNo">030</span><a id="line.30">    /**</a>
-<span class="sourceLineNo">031</span><a id="line.31">     * Fügt eine Ausprägung von Heuristischen Information hinzu</a>
-<span class="sourceLineNo">032</span><a id="line.32">     *</a>
-<span class="sourceLineNo">033</span><a id="line.33">     * @param rule Ausprägung von Heuristischen Information</a>
-<span class="sourceLineNo">034</span><a id="line.34">     */</a>
-<span class="sourceLineNo">035</span><a id="line.35">    public void addRule(HeuristicRule rule) {</a>
-<span class="sourceLineNo">036</span><a id="line.36">        rules.add(rule);</a>
-<span class="sourceLineNo">037</span><a id="line.37">    }</a>
-<span class="sourceLineNo">038</span><a id="line.38"></a>
-<span class="sourceLineNo">039</span><a id="line.39">    /**</a>
-<span class="sourceLineNo">040</span><a id="line.40">     * Leitet die Anfrage zur Bereichnung der der Werte an alle enthaltenen Heuristiken weiter,&lt;br&gt;</a>
-<span class="sourceLineNo">041</span><a id="line.41">     * bildet ein Produkt der erhaltenen Werte und liefert diesen zurück.</a>
-<span class="sourceLineNo">042</span><a id="line.42">     *</a>
-<span class="sourceLineNo">043</span><a id="line.43">     * @param solution         partiale Lösung im Konstruktionsprozess der Ameise</a>
-<span class="sourceLineNo">044</span><a id="line.44">     * @param availableSubsets alle verfügbaren Alternativen</a>
-<span class="sourceLineNo">045</span><a id="line.45">     * @param subset           Alternative, für die die Heuristischen Informationen geliefert werden sollen</a>
-<span class="sourceLineNo">046</span><a id="line.46">     * @return Wert der Heuristischen Informationen</a>
-<span class="sourceLineNo">047</span><a id="line.47">     */</a>
-<span class="sourceLineNo">048</span><a id="line.48">    public float getValue(Solution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</a>
-<span class="sourceLineNo">049</span><a id="line.49">        float product = 1;</a>
-<span class="sourceLineNo">050</span><a id="line.50">        for (HeuristicRule rule : rules) {</a>
-<span class="sourceLineNo">051</span><a id="line.51">            product *= rule.getValue(solution, availableSubsets, subset);</a>
-<span class="sourceLineNo">052</span><a id="line.52">        }</a>
-<span class="sourceLineNo">053</span><a id="line.53">        return product;</a>
-<span class="sourceLineNo">054</span><a id="line.54">    }</a>
-<span class="sourceLineNo">055</span><a id="line.55">}</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Heuristics.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">016</span><a id="line.16"> */</a>
+<span class="sourceLineNo">017</span><a id="line.17">public class HeuristicInfoSet implements HeuristicRule {</a>
+<span class="sourceLineNo">018</span><a id="line.18"></a>
+<span class="sourceLineNo">019</span><a id="line.19">    /**</a>
+<span class="sourceLineNo">020</span><a id="line.20">     * Menge von Ausprägungen der Komponente Heuristischer Informationen</a>
+<span class="sourceLineNo">021</span><a id="line.21">     */</a>
+<span class="sourceLineNo">022</span><a id="line.22">    private ArrayList&lt;HeuristicRule&gt; rules;</a>
+<span class="sourceLineNo">023</span><a id="line.23"></a>
+<span class="sourceLineNo">024</span><a id="line.24">    /**</a>
+<span class="sourceLineNo">025</span><a id="line.25">     * Konstruktor</a>
+<span class="sourceLineNo">026</span><a id="line.26">     */</a>
+<span class="sourceLineNo">027</span><a id="line.27">    public HeuristicInfoSet() {</a>
+<span class="sourceLineNo">028</span><a id="line.28">        rules = new ArrayList&lt;&gt;();</a>
+<span class="sourceLineNo">029</span><a id="line.29">    }</a>
+<span class="sourceLineNo">030</span><a id="line.30"></a>
+<span class="sourceLineNo">031</span><a id="line.31">    /**</a>
+<span class="sourceLineNo">032</span><a id="line.32">     * Fügt eine Ausprägung von Heuristischen Information hinzu</a>
+<span class="sourceLineNo">033</span><a id="line.33">     *</a>
+<span class="sourceLineNo">034</span><a id="line.34">     * @param rule Ausprägung von Heuristischen Information</a>
+<span class="sourceLineNo">035</span><a id="line.35">     */</a>
+<span class="sourceLineNo">036</span><a id="line.36">    public void addRule(HeuristicRule rule) {</a>
+<span class="sourceLineNo">037</span><a id="line.37">        rules.add(rule);</a>
+<span class="sourceLineNo">038</span><a id="line.38">    }</a>
+<span class="sourceLineNo">039</span><a id="line.39"></a>
+<span class="sourceLineNo">040</span><a id="line.40">    /**</a>
+<span class="sourceLineNo">041</span><a id="line.41">     * Leitet die Anfrage zur Bereichnung der der Werte an alle enthaltenen Heuristiken weiter,&lt;br&gt;</a>
+<span class="sourceLineNo">042</span><a id="line.42">     * bildet ein Produkt der erhaltenen Werte und liefert diesen zurück.</a>
+<span class="sourceLineNo">043</span><a id="line.43">     *</a>
+<span class="sourceLineNo">044</span><a id="line.44">     * @param solution         partiale Lösung im Konstruktionsprozess der Ameise</a>
+<span class="sourceLineNo">045</span><a id="line.45">     * @param availableSubsets alle verfügbaren Alternativen</a>
+<span class="sourceLineNo">046</span><a id="line.46">     * @param subset           Alternative, für die die Heuristischen Informationen geliefert werden sollen</a>
+<span class="sourceLineNo">047</span><a id="line.47">     * @return Wert der Heuristischen Informationen</a>
+<span class="sourceLineNo">048</span><a id="line.48">     */</a>
+<span class="sourceLineNo">049</span><a id="line.49">    public float getValue(Solution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</a>
+<span class="sourceLineNo">050</span><a id="line.50">        float product = 1;</a>
+<span class="sourceLineNo">051</span><a id="line.51">        for (HeuristicRule rule : rules) {</a>
+<span class="sourceLineNo">052</span><a id="line.52">            product *= rule.getValue(solution, availableSubsets, subset);</a>
+<span class="sourceLineNo">053</span><a id="line.53">        }</a>
+<span class="sourceLineNo">054</span><a id="line.54">        return product;</a>
+<span class="sourceLineNo">055</span><a id="line.55">    }</a>
+<span class="sourceLineNo">056</span><a id="line.56">}</a>
 
 
 

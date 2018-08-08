@@ -11,6 +11,7 @@ import java.util.List;
  * <br>
  * Eine Ausprägung der heuristischen Information <b>H_stat</b><br>
  * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
+ * <p><img src="{@docRoot}/images/Heuristics.svg" alt=""></p>
  */
 public class HeuristicRuleWeights implements HeuristicRule {
 

@@ -9,8 +9,12 @@ import java.util.List;
 import java.util.TreeSet;
 
 /**
- * Kapitel 3.2.9	Lokale Suche
- * Implementiert die lokale Suche mit Ant-Cover-Suchstrategie.
+ * <b>Implementiert die lokale Suche mit Ant-Cover-Suchstrategie.</b><br>
+ * Kapitel 3.2.9 Lokale Suche<br>
+ * <br>
+ * Die Lokale Suche wird durch die Ameise in der Klasse {@link eu.andredick.aco.ant.ACOAnt} verwendet.<br>
+ * Die Lokale Suche erfolgt auf Basis der zuvor konstruierten Lösung und liefert ggf verbesserte Lösung als Ergebnis.
+ * <p><img src="{@docRoot}/images/LocalSearch.svg" alt=""></p>
  */
 public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
 
@@ -205,9 +209,8 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * überdeckende Spalte in sortedColumns und speichert diese als vergleichbares
      * WeightedColumn-Objekt in bestCoveringColumns[i].
      *
-     * @param i       - Index der Zeile in der Strukturmatrix, für die die beste überdeckende
-     *                Spalte gesetzt werden soll
-     * @param problem - Das zugrunde liegende SCP
+     * @param i       Index der Zeile in der Strukturmatrix, für die die beste überdeckende Spalte gesetzt werden soll
+     * @param problem Das zugrunde liegende SCP
      */
     private synchronized void setBestColumn(int i, SCProblem problem) {
         WeightedColumn column;
@@ -228,10 +231,10 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
     }
 
     /**
-     * Methode, um die Spalten der Ausgangslösung nach Güte zu sortieren. Diese
-     * werden dafür als WeightedColumn-Objekte sortiert in ein TreeSet eingefügt.
+     * Methode, um die Spalten der Ausgangslösung nach Güte zu sortieren.
+     * Diese werden dafür als WeightedColumn-Objekte sortiert in ein TreeSet eingefügt.
      *
-     * @param problem Das zugrunde liegende SCP
+     * @param problem  Das zugrunde liegende SCP
      * @param solution Die zu sortierende Ausgangslösung
      * @return Die Ausgangslösung als nach Güte sortiertes WeightedColumn-TreeSet
      */
@@ -248,7 +251,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * Methode, die für jede Zeile der Strukturmatrix die Anzahl der sie überdeckenden
      * Lösungsspalten aus der übergebenen Lösung solution bestimmt.
      *
-     * @param problem Das zugrunde liegende SCP
+     * @param problem  Das zugrunde liegende SCP
      * @param solution Die betrachtete Lösung
      * @return int-Array, der unter dem Index i die Anzahl der Lösungsspalten hält, von denen Zeile i überdeckt wird
      */
@@ -269,12 +272,10 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * solution entfernt, und im übergebenen Array den Wert aller von der entfernten
      * Spalte überdeckten Zeilen um 1 erniedrigt.
      *
-     * @param solution              - Die Lösung, aus der eine Spalte entfernt werden soll
-     * @param indexOfColumnToDelete - Der Index der Spalte, die entfernt werden soll
-     * @param nrOfCoveringColumns   - Array, der für alle Zeilen die Anzahl der sie
-     *                              überdeckenden Lösungsspalten der übergebenen Lösung hält
-     * @return Den aktualisierten Array, der für alle Zeilen die Anzahl der sie
-     * überdeckenden Lösungsspalten nach Entfernen der Spalte hält
+     * @param solution              Die Lösung, aus der eine Spalte entfernt werden soll
+     * @param indexOfColumnToDelete Der Index der Spalte, die entfernt werden soll
+     * @param nrOfCoveringColumns   Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten der übergebenen Lösung hält
+     * @return Den aktualisierten Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten nach Entfernen der Spalte hält
      */
     private int[] removeAndUpdate(Solution solution, int indexOfColumnToDelete, int[] nrOfCoveringColumns) {
 
@@ -293,12 +294,10 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * Index hinzufügt, und im übergebenen Array den Wert aller von der hinzugefügten
      * Spalte überdeckten Zeilen um 1 erhöht.
      *
-     * @param solution            - Die Lösung, zu der eine Spalte hinzugefügt werden soll
-     * @param indexOfColumnToAdd  - Der Index der Spalte, die hinzugefügt werden soll
-     * @param nrOfCoveringColumns - Array, der für alle Zeilen die Anzahl der sie
-     *                            überdeckenden Lösungsspalten der übergebenen Lösung hält
-     * @return Den aktualisierten Array, der für alle Zeilen die Anzahl der sie
-     * überdeckenden Lösungsspalten nach Hinzufügen der neuen Spalte hält
+     * @param solution            Die Lösung, zu der eine Spalte hinzugefügt werden soll
+     * @param indexOfColumnToAdd  Der Index der Spalte, die hinzugefügt werden soll
+     * @param nrOfCoveringColumns Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten der übergebenen Lösung hält
+     * @return Den aktualisierten Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten nach Hinzufügen der neuen Spalte hält
      */
     private int[] addAndUpdate(Solution solution, int indexOfColumnToAdd, int[] nrOfCoveringColumns) {
 
@@ -347,7 +346,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
         /**
          * Die Vergleichsmethode. Wird auf einem WeightedColumn-Objekt thisColumn aufgerufen.
          *
-         * @param otherColumn - die Spalte, mit der die aufrufende Spalte verglichen werden soll
+         * @param otherColumn die Spalte, mit der die aufrufende Spalte verglichen werden soll
          * @return -1, falls thisColumn besser als otherColumn<br>0, falls thisColumn = otherColumn<br>1, falls thisColumn schlechter als otherColumn
          */
         public int compareTo(WeightedColumn otherColumn) {

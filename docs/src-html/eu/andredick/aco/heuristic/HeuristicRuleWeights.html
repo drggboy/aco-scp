@@ -20,26 +20,27 @@
 <span class="sourceLineNo">011</span><a id="line.11"> * &lt;br&gt;</a>
 <span class="sourceLineNo">012</span><a id="line.12"> * Eine Ausprägung der heuristischen Information &lt;b&gt;H_stat&lt;/b&gt;&lt;br&gt;</a>
 <span class="sourceLineNo">013</span><a id="line.13"> * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).&lt;br&gt;</a>
-<span class="sourceLineNo">014</span><a id="line.14"> */</a>
-<span class="sourceLineNo">015</span><a id="line.15">public class HeuristicRuleWeights implements HeuristicRule {</a>
-<span class="sourceLineNo">016</span><a id="line.16"></a>
-<span class="sourceLineNo">017</span><a id="line.17">    /**</a>
-<span class="sourceLineNo">018</span><a id="line.18">     * Bestimmt die Kosten der Teilmenge &lt;i&gt;subset&lt;/i&gt;.&lt;br&gt;</a>
-<span class="sourceLineNo">019</span><a id="line.19">     * Die Kosten der Teilmengen sind durch den Kostenvektor der Zielfunktion des SCP definiert.</a>
-<span class="sourceLineNo">020</span><a id="line.20">     * @see ObjectiveFunction#getWeights()</a>
-<span class="sourceLineNo">021</span><a id="line.21">     *</a>
-<span class="sourceLineNo">022</span><a id="line.22">     * @param solution         partiale Lösung im Konstruktionsprozess der Ameise</a>
-<span class="sourceLineNo">023</span><a id="line.23">     * @param availableSubsets alle verfügbaren Teilmengen</a>
-<span class="sourceLineNo">024</span><a id="line.24">     * @param subset           die zu bewertende Teilmenge</a>
-<span class="sourceLineNo">025</span><a id="line.25">     * @return Kosten der Teilmenge</a>
-<span class="sourceLineNo">026</span><a id="line.26">     */</a>
-<span class="sourceLineNo">027</span><a id="line.27">    @Override</a>
-<span class="sourceLineNo">028</span><a id="line.28">    public float getValue(Solution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</a>
-<span class="sourceLineNo">029</span><a id="line.29"></a>
-<span class="sourceLineNo">030</span><a id="line.30">        return 1f / solution.getProblem().getObjectiveFunction().getWeights()[subset];</a>
-<span class="sourceLineNo">031</span><a id="line.31"></a>
-<span class="sourceLineNo">032</span><a id="line.32">    }</a>
-<span class="sourceLineNo">033</span><a id="line.33">}</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Heuristics.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">015</span><a id="line.15"> */</a>
+<span class="sourceLineNo">016</span><a id="line.16">public class HeuristicRuleWeights implements HeuristicRule {</a>
+<span class="sourceLineNo">017</span><a id="line.17"></a>
+<span class="sourceLineNo">018</span><a id="line.18">    /**</a>
+<span class="sourceLineNo">019</span><a id="line.19">     * Bestimmt die Kosten der Teilmenge &lt;i&gt;subset&lt;/i&gt;.&lt;br&gt;</a>
+<span class="sourceLineNo">020</span><a id="line.20">     * Die Kosten der Teilmengen sind durch den Kostenvektor der Zielfunktion des SCP definiert.</a>
+<span class="sourceLineNo">021</span><a id="line.21">     * @see ObjectiveFunction#getWeights()</a>
+<span class="sourceLineNo">022</span><a id="line.22">     *</a>
+<span class="sourceLineNo">023</span><a id="line.23">     * @param solution         partiale Lösung im Konstruktionsprozess der Ameise</a>
+<span class="sourceLineNo">024</span><a id="line.24">     * @param availableSubsets alle verfügbaren Teilmengen</a>
+<span class="sourceLineNo">025</span><a id="line.25">     * @param subset           die zu bewertende Teilmenge</a>
+<span class="sourceLineNo">026</span><a id="line.26">     * @return Kosten der Teilmenge</a>
+<span class="sourceLineNo">027</span><a id="line.27">     */</a>
+<span class="sourceLineNo">028</span><a id="line.28">    @Override</a>
+<span class="sourceLineNo">029</span><a id="line.29">    public float getValue(Solution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</a>
+<span class="sourceLineNo">030</span><a id="line.30"></a>
+<span class="sourceLineNo">031</span><a id="line.31">        return 1f / solution.getProblem().getObjectiveFunction().getWeights()[subset];</a>
+<span class="sourceLineNo">032</span><a id="line.32"></a>
+<span class="sourceLineNo">033</span><a id="line.33">    }</a>
+<span class="sourceLineNo">034</span><a id="line.34">}</a>
 
 
 

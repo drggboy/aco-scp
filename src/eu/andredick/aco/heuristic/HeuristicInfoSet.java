@@ -12,8 +12,9 @@ import java.util.List;
  * Die Klasse ist ein Behälter für unterschiedliche Heuristische Informationen,<br>
  * die eine Ameise bei der Lösungskonsturktion verwenden soll.<br>
  * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
+ * <p><img src="{@docRoot}/images/Heuristics.svg" alt=""></p>
  */
-public class HeuristicInfoSet implements HeuristicRule{
+public class HeuristicInfoSet implements HeuristicRule {
 
     /**
      * Menge von Ausprägungen der Komponente Heuristischer Informationen
