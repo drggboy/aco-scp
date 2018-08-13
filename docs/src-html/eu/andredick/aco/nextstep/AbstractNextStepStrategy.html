@@ -11,7 +11,7 @@
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.combination.CombinationRule;</a>
 <span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.heuristic.HeuristicInfoSet;</a>
-<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.pheromonassociation.AbstractPheromone;</a>
+<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.pheromonassociation.AbstractPheromoneAssociation;</a>
 <span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;</a>
 <span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.scp.Solution;</a>
 <span class="sourceLineNo">008</span><a id="line.8"></a>
@@ -22,7 +22,7 @@
 <span class="sourceLineNo">013</span><a id="line.13"> * Abstrakte Komponente der Alternativenauswahl</a>
 <span class="sourceLineNo">014</span><a id="line.14"> * Wird von Konstruktionsheuristik verwendet, um die Alternativenauswahl zu treffen</a>
 <span class="sourceLineNo">015</span><a id="line.15"> */</a>
-<span class="sourceLineNo">016</span><a id="line.16">public abstract class  AbstractNextStepStrategy&lt;E extends AbstractPheromone&gt; {</a>
+<span class="sourceLineNo">016</span><a id="line.16">public abstract class  AbstractNextStepStrategy&lt;E extends AbstractPheromoneAssociation&gt; {</a>
 <span class="sourceLineNo">017</span><a id="line.17"></a>
 <span class="sourceLineNo">018</span><a id="line.18">    protected E pheromoneStructure;</a>
 <span class="sourceLineNo">019</span><a id="line.19">    protected AbstractPheromonePerception perceptionRule;</a>

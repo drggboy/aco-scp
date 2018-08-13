@@ -2,7 +2,7 @@ package eu.andredick.aco.pheromonassociation;
 
 import eu.andredick.scp.Structure;
 
-public class PheromoneOnSubsets extends AbstractPheromone {
+public class PheromoneOnSubsets extends AbstractPheromoneAssociation {
 
     private float[] pheromoneValues;
 

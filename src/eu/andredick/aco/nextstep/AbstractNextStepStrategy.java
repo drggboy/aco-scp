@@ -2,7 +2,7 @@ package eu.andredick.aco.nextstep;
 
 import eu.andredick.aco.combination.CombinationRule;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
-import eu.andredick.aco.pheromonassociation.AbstractPheromone;
+import eu.andredick.aco.pheromonassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;
 import eu.andredick.scp.Solution;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * Abstrakte Komponente der Alternativenauswahl
  * Wird von Konstruktionsheuristik verwendet, um die Alternativenauswahl zu treffen
  */
-public abstract class  AbstractNextStepStrategy<E extends AbstractPheromone> {
+public abstract class AbstractNextStepStrategy<E extends AbstractPheromoneAssociation> {
 
     protected E pheromoneStructure;
     protected AbstractPheromonePerception perceptionRule;

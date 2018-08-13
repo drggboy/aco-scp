@@ -9,7 +9,7 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.pheromoneupdate;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
-<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.pheromonassociation.AbstractPheromone;</a>
+<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.pheromonassociation.AbstractPheromoneAssociation;</a>
 <span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.solutionquality.AbstractSolutionQuality;</a>
 <span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.scp.Solution;</a>
 <span class="sourceLineNo">006</span><a id="line.6"></a>
@@ -18,7 +18,7 @@
 <span class="sourceLineNo">009</span><a id="line.9"> * Pheromon-Markierung auf den assoziierten Entitäten des Problems, die in der zu markierenden Lösung enthalten sind. &lt;br&gt;</a>
 <span class="sourceLineNo">010</span><a id="line.10"> * @param &lt;E&gt;: Ausprägung der Pheromon-Assoziation</a>
 <span class="sourceLineNo">011</span><a id="line.11"> */</a>
-<span class="sourceLineNo">012</span><a id="line.12">public abstract class AbstractPheromoneUpdate&lt;E extends AbstractPheromone&gt; {</a>
+<span class="sourceLineNo">012</span><a id="line.12">public abstract class AbstractPheromoneUpdate&lt;E extends AbstractPheromoneAssociation&gt; {</a>
 <span class="sourceLineNo">013</span><a id="line.13"></a>
 <span class="sourceLineNo">014</span><a id="line.14">    /**</a>
 <span class="sourceLineNo">015</span><a id="line.15">     * Pheromon-Assoziationen als generische Refferenz</a>

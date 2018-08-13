@@ -4,13 +4,13 @@ import eu.andredick.aco.pheromoneevaporation.AbstractPheromoneEvaporation;
 import eu.andredick.aco.pheromoneinit.AbstractPheromoneInit;
 import eu.andredick.scp.Structure;
 
-public abstract class AbstractPheromone {
+public abstract class AbstractPheromoneAssociation {
 
     protected Structure structure;
     protected AbstractPheromoneEvaporation evaporationRule;
     protected AbstractPheromoneInit pheromoneInitRule;
 
-    public AbstractPheromone(Structure structure) {
+    public AbstractPheromoneAssociation(Structure structure) {
         this.structure = structure;
     }
 

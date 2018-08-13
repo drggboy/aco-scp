@@ -10,75 +10,114 @@
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.masterprocess;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.ant.AbstractAnt;</a>
-<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.pheromonassociation.AbstractPheromone;</a>
+<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.pheromonassociation.AbstractPheromoneAssociation;</a>
 <span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.termination.AbstractTermCriterion;</a>
 <span class="sourceLineNo">006</span><a id="line.6"></a>
 <span class="sourceLineNo">007</span><a id="line.7">import java.util.LinkedList;</a>
 <span class="sourceLineNo">008</span><a id="line.8">import java.util.List;</a>
 <span class="sourceLineNo">009</span><a id="line.9"></a>
 <span class="sourceLineNo">010</span><a id="line.10">/**</a>
-<span class="sourceLineNo">011</span><a id="line.11"> * Kapitel 3.2.2        Masterprozess</a>
-<span class="sourceLineNo">012</span><a id="line.12"> * Ausprägung der Komponente des Masterprozesses</a>
-<span class="sourceLineNo">013</span><a id="line.13"> */</a>
-<span class="sourceLineNo">014</span><a id="line.14">public class MasterProcessBasicParallel extends AbstractMasterProcess {</a>
-<span class="sourceLineNo">015</span><a id="line.15">    // Konstruktor</a>
-<span class="sourceLineNo">016</span><a id="line.16">    public MasterProcessBasicParallel(AbstractPheromone pheromoneStructure, AbstractAnt[] ants, AbstractTermCriterion termCriterion) {</a>
-<span class="sourceLineNo">017</span><a id="line.17">        super(pheromoneStructure, ants, termCriterion);</a>
-<span class="sourceLineNo">018</span><a id="line.18">    }</a>
-<span class="sourceLineNo">019</span><a id="line.19"></a>
-<span class="sourceLineNo">020</span><a id="line.20">    /**</a>
-<span class="sourceLineNo">021</span><a id="line.21">     * Logik des Masterprozeess-Basic</a>
-<span class="sourceLineNo">022</span><a id="line.22">     * Parallele Ausführung der Ameisen</a>
-<span class="sourceLineNo">023</span><a id="line.23">     */</a>
-<span class="sourceLineNo">024</span><a id="line.24">    @Override</a>
-<span class="sourceLineNo">025</span><a id="line.25">    public void start() {</a>
-<span class="sourceLineNo">026</span><a id="line.26">        this.pheromoneStructure.initPheromones();</a>
-<span class="sourceLineNo">027</span><a id="line.27"></a>
-<span class="sourceLineNo">028</span><a id="line.28">        for (int iteration = 0; termCriterion.checkTermination(iteration, statistics); iteration++) {</a>
-<span class="sourceLineNo">029</span><a id="line.29"></a>
-<span class="sourceLineNo">030</span><a id="line.30">            List&lt;Thread&gt; threads = new LinkedList&lt;&gt;();</a>
-<span class="sourceLineNo">031</span><a id="line.31">            for (AbstractAnt ant : this.ants) {</a>
-<span class="sourceLineNo">032</span><a id="line.32"></a>
-<span class="sourceLineNo">033</span><a id="line.33">                threads.add(new Thread(</a>
-<span class="sourceLineNo">034</span><a id="line.34">                        new Runnable() {</a>
-<span class="sourceLineNo">035</span><a id="line.35"></a>
-<span class="sourceLineNo">036</span><a id="line.36">                            @Override</a>
-<span class="sourceLineNo">037</span><a id="line.37">                            public void run() {</a>
-<span class="sourceLineNo">038</span><a id="line.38"></a>
-<span class="sourceLineNo">039</span><a id="line.39">                                ant.constructSolution();</a>
-<span class="sourceLineNo">040</span><a id="line.40"></a>
-<span class="sourceLineNo">041</span><a id="line.41">                                ant.localSearch();</a>
-<span class="sourceLineNo">042</span><a id="line.42"></a>
-<span class="sourceLineNo">043</span><a id="line.43">                            }</a>
-<span class="sourceLineNo">044</span><a id="line.44">                        }</a>
-<span class="sourceLineNo">045</span><a id="line.45">                ));</a>
-<span class="sourceLineNo">046</span><a id="line.46">            }</a>
-<span class="sourceLineNo">047</span><a id="line.47"></a>
-<span class="sourceLineNo">048</span><a id="line.48">            for (Thread thread : threads) {</a>
-<span class="sourceLineNo">049</span><a id="line.49">                thread.start();</a>
-<span class="sourceLineNo">050</span><a id="line.50">            }</a>
-<span class="sourceLineNo">051</span><a id="line.51"></a>
-<span class="sourceLineNo">052</span><a id="line.52">            for (Thread thread : threads) {</a>
-<span class="sourceLineNo">053</span><a id="line.53">                try {</a>
-<span class="sourceLineNo">054</span><a id="line.54">                    thread.join();</a>
-<span class="sourceLineNo">055</span><a id="line.55">                } catch (InterruptedException e) {</a>
-<span class="sourceLineNo">056</span><a id="line.56">                    e.printStackTrace();</a>
-<span class="sourceLineNo">057</span><a id="line.57">                }</a>
-<span class="sourceLineNo">058</span><a id="line.58">            }</a>
-<span class="sourceLineNo">059</span><a id="line.59"></a>
-<span class="sourceLineNo">060</span><a id="line.60">            this.pheromoneStructure.evaporatePheromones();</a>
+<span class="sourceLineNo">011</span><a id="line.11"> * &lt;b&gt;Masterprozess-Basic parallelisiert&lt;/b&gt; - Grundausprägung der Komponente des Masterprozesses mit Parallelausführung&lt;br&gt;</a>
+<span class="sourceLineNo">012</span><a id="line.12"> * Kapitel 3.2.2 Masterprozess&lt;br&gt;</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * &lt;br&gt;</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * Die Implementierung des Masterprozess bildet den übergeordneten Ablauf der ACO-Metaheuristik ab,&lt;br&gt;</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})&lt;br&gt;</a>
+<span class="sourceLineNo">016</span><a id="line.16"> * und die Population der Ameisen (siehe {@link AbstractAnt}) koordiniert wird.&lt;br&gt;</a>
+<span class="sourceLineNo">017</span><a id="line.17"> * &lt;br&gt;</a>
+<span class="sourceLineNo">018</span><a id="line.18"> * &lt;b&gt;Ablauf:&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">019</span><a id="line.19"> * 1 - Initiierung des Pheromons&lt;br&gt;</a>
+<span class="sourceLineNo">020</span><a
+            id="line.20"> * 2 - Konstruktion der Lösungen aller Ameisen - parallel&lt;br&gt;</a>
+<span class="sourceLineNo">021</span><a id="line.21"> * 3 - Lokale Suche auf konstruierten Lösungen aller Ameisen - parallel&lt;br&gt;</a>
+<span class="sourceLineNo">022</span><a id="line.22"> * 4 - Evaporation des Pheromons&lt;br&gt;</a>
+<span class="sourceLineNo">023</span><a id="line.23"> * 5 - Markierung des Pheromons durch &lt;b&gt;alle&lt;/b&gt; Ameisen&lt;br&gt;</a>
+<span class="sourceLineNo">024</span><a id="line.24"> * 6 - Zurücksetzen der Ameisengedächtnisse&lt;br&gt;</a>
+<span class="sourceLineNo">025</span><a id="line.25"> * 7 - Zurück zu 2., wenn Abbruchbedingungen nicht erfüllt.&lt;br&gt;</a>
+<span class="sourceLineNo">026</span><a id="line.26"> * &lt;br&gt;</a>
+<span class="sourceLineNo">027</span><a id="line.27"> * Ein Masterprozess wird im {@link eu.andredick.aco.algorithm.ACOAlgorithm} verwendet und dort gestartet.</a>
+<span class="sourceLineNo">028</span><a id="line.28"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Masterprocess-a.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">029</span><a id="line.29"> * &lt;hr&gt;</a>
+<span class="sourceLineNo">030</span><a id="line.30"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Masterprocess-b.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">031</span><a id="line.31"> */</a>
+<span class="sourceLineNo">032</span><a id="line.32">public class MasterProcessBasicParallel extends AbstractMasterProcess {</a>
+<span class="sourceLineNo">033</span><a id="line.33"></a>
+<span class="sourceLineNo">034</span><a id="line.34">    /**</a>
+<span class="sourceLineNo">035</span><a id="line.35">     * Konstruktor</a>
+<span class="sourceLineNo">036</span><a id="line.36">     *</a>
+<span class="sourceLineNo">037</span><a id="line.37">     * @param pheromoneStructure Pheromonassoziation mit dem zu lösnden Problem</a>
+<span class="sourceLineNo">038</span><a id="line.38">     * @param ants               Population der Ameisen</a>
+<span class="sourceLineNo">039</span><a
+            id="line.39">     * @param termCriterion      Abbruchkriterium für die Iteration</a>
+<span class="sourceLineNo">040</span><a id="line.40">     */</a>
+<span class="sourceLineNo">041</span><a id="line.41">    public MasterProcessBasicParallel(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTermCriterion termCriterion) {</a>
+<span class="sourceLineNo">042</span><a id="line.42">        super(pheromoneStructure, ants, termCriterion);</a>
+<span class="sourceLineNo">043</span><a id="line.43">    }</a>
+<span class="sourceLineNo">044</span><a id="line.44"></a>
+<span class="sourceLineNo">045</span><a id="line.45"></a>
+<span class="sourceLineNo">046</span><a id="line.46">    /**</a>
+<span class="sourceLineNo">047</span><a
+            id="line.47">     * &lt;b&gt;Logik des Masterprozeess-Basic&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">048</span><a id="line.48">     * &lt;br&gt;</a>
+<span class="sourceLineNo">049</span><a id="line.49">     * &lt;b&gt;Ablauf:&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">050</span><a id="line.50">     * 1 - Initiierung des Pheromons&lt;br&gt;</a>
+<span class="sourceLineNo">051</span><a id="line.51">     * 2 - Konstruktion der Lösungen aller Ameisen - parallel&lt;br&gt;</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * 3 - Lokale Suche auf konstruierten Lösungen aller Ameisen - parallel&lt;br&gt;</a>
+<span class="sourceLineNo">053</span><a id="line.53">     * 4 - Evaporation des Pheromons&lt;br&gt;</a>
+<span class="sourceLineNo">054</span><a
+            id="line.54">     * 5 - Markierung des Pheromons durch alle Ameisen&lt;br&gt;</a>
+<span class="sourceLineNo">055</span><a id="line.55">     * 6 - Zurücksetzen der Ameisengedächtnisse&lt;br&gt;</a>
+<span class="sourceLineNo">056</span><a id="line.56">     * 7 - Zurück zu 2., wenn Abbruchbedingungen nicht erfüllt.&lt;br&gt;</a>
+<span class="sourceLineNo">057</span><a id="line.57">     */</a>
+<span class="sourceLineNo">058</span><a id="line.58">    @Override</a>
+<span class="sourceLineNo">059</span><a id="line.59">    public void start() {</a>
+<span class="sourceLineNo">060</span><a id="line.60">        this.pheromoneStructure.initPheromones();</a>
 <span class="sourceLineNo">061</span><a id="line.61"></a>
-<span class="sourceLineNo">062</span><a id="line.62">            for (AbstractAnt ant : this.ants) {</a>
-<span class="sourceLineNo">063</span><a id="line.63">                float value = ant.evaluateSolution();</a>
-<span class="sourceLineNo">064</span><a id="line.64">                this.statistics.setValue(iteration, value, ant.getSolution());</a>
-<span class="sourceLineNo">065</span><a id="line.65">                ant.markPheromone();</a>
-<span class="sourceLineNo">066</span><a id="line.66">                ant.resetAnt();</a>
-<span class="sourceLineNo">067</span><a id="line.67">            }</a>
-<span class="sourceLineNo">068</span><a id="line.68"></a>
-<span class="sourceLineNo">069</span><a id="line.69">            System.out.println("MasterProcessBasic ... Interation: " + iteration);</a>
-<span class="sourceLineNo">070</span><a id="line.70">        }</a>
-<span class="sourceLineNo">071</span><a id="line.71">    }</a>
-<span class="sourceLineNo">072</span><a id="line.72">}</a>
+<span class="sourceLineNo">062</span><a id="line.62">        for (int iteration = 0; termCriterion.checkTermination(iteration, statistics); iteration++) {</a>
+<span class="sourceLineNo">063</span><a id="line.63"></a>
+<span class="sourceLineNo">064</span><a
+            id="line.64">            List&lt;Thread&gt; threads = new LinkedList&lt;&gt;();</a>
+<span class="sourceLineNo">065</span><a id="line.65">            for (AbstractAnt ant : this.ants) {</a>
+<span class="sourceLineNo">066</span><a id="line.66"></a>
+<span class="sourceLineNo">067</span><a id="line.67">                threads.add(new Thread(</a>
+<span class="sourceLineNo">068</span><a id="line.68">                        new Runnable() {</a>
+<span class="sourceLineNo">069</span><a id="line.69"></a>
+<span class="sourceLineNo">070</span><a id="line.70">                            @Override</a>
+<span class="sourceLineNo">071</span><a id="line.71">                            public void run() {</a>
+<span class="sourceLineNo">072</span><a id="line.72"></a>
+<span class="sourceLineNo">073</span><a id="line.73">                                ant.constructSolution();</a>
+<span class="sourceLineNo">074</span><a id="line.74"></a>
+<span class="sourceLineNo">075</span><a id="line.75">                                ant.localSearch();</a>
+<span class="sourceLineNo">076</span><a id="line.76"></a>
+<span class="sourceLineNo">077</span><a id="line.77">                            }</a>
+<span class="sourceLineNo">078</span><a id="line.78">                        }</a>
+<span class="sourceLineNo">079</span><a id="line.79">                ));</a>
+<span class="sourceLineNo">080</span><a id="line.80">            }</a>
+<span class="sourceLineNo">081</span><a id="line.81"></a>
+<span class="sourceLineNo">082</span><a id="line.82">            for (Thread thread : threads) {</a>
+<span class="sourceLineNo">083</span><a id="line.83">                thread.start();</a>
+<span class="sourceLineNo">084</span><a id="line.84">            }</a>
+<span class="sourceLineNo">085</span><a id="line.85"></a>
+<span class="sourceLineNo">086</span><a id="line.86">            for (Thread thread : threads) {</a>
+<span class="sourceLineNo">087</span><a id="line.87">                try {</a>
+<span class="sourceLineNo">088</span><a id="line.88">                    thread.join();</a>
+<span class="sourceLineNo">089</span><a id="line.89">                } catch (InterruptedException e) {</a>
+<span class="sourceLineNo">090</span><a id="line.90">                    e.printStackTrace();</a>
+<span class="sourceLineNo">091</span><a id="line.91">                }</a>
+<span class="sourceLineNo">092</span><a id="line.92">            }</a>
+<span class="sourceLineNo">093</span><a id="line.93"></a>
+<span class="sourceLineNo">094</span><a id="line.94">            this.pheromoneStructure.evaporatePheromones();</a>
+<span class="sourceLineNo">095</span><a id="line.95"></a>
+<span class="sourceLineNo">096</span><a id="line.96">            for (AbstractAnt ant : this.ants) {</a>
+<span class="sourceLineNo">097</span><a id="line.97">                float value = ant.evaluateSolution();</a>
+<span class="sourceLineNo">098</span><a id="line.98">                this.statistics.setValue(iteration, value, ant.getSolution());</a>
+<span class="sourceLineNo">099</span><a id="line.99">                ant.markPheromone();</a>
+<span class="sourceLineNo">100</span><a id="line.100">                ant.resetAnt();</a>
+<span class="sourceLineNo">101</span><a id="line.101">            }</a>
+<span class="sourceLineNo">102</span><a id="line.102"></a>
+<span class="sourceLineNo">103</span><a id="line.103">            System.out.println("MasterProcessBasicParallel... Interation: " + iteration);</a>
+<span class="sourceLineNo">104</span><a id="line.104">        }</a>
+<span class="sourceLineNo">105</span><a id="line.105">    }</a>
+<span class="sourceLineNo">106</span><a id="line.106">}</a>
 
 
 

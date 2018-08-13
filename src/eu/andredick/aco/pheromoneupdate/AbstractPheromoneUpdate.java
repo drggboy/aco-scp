@@ -1,6 +1,6 @@
 package eu.andredick.aco.pheromoneupdate;
 
-import eu.andredick.aco.pheromonassociation.AbstractPheromone;
+import eu.andredick.aco.pheromonassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.solutionquality.AbstractSolutionQuality;
 import eu.andredick.scp.Solution;
 
@@ -9,7 +9,7 @@ import eu.andredick.scp.Solution;
  * Pheromon-Markierung auf den assoziierten Entitäten des Problems, die in der zu markierenden Lösung enthalten sind. <br>
  * @param <E>: Ausprägung der Pheromon-Assoziation
  */
-public abstract class AbstractPheromoneUpdate<E extends AbstractPheromone> {
+public abstract class AbstractPheromoneUpdate<E extends AbstractPheromoneAssociation> {
 
     /**
      * Pheromon-Assoziationen als generische Refferenz
