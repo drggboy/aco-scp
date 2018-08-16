@@ -1,8 +1,8 @@
 package eu.andredick.aco.pheromoneupdate;
 
-import eu.andredick.aco.pheromonassociation.PheromoneOnSubsets;
+import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;
 import eu.andredick.aco.solutionquality.AbstractSolutionQuality;
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 /**
  *
@@ -16,7 +16,7 @@ public class PheromoneUpdateOnSubsets extends
     }
 
     @Override
-    public void update(Solution solution) {
+    public void update(SCPSolution solution) {
         float delta = this.solutionQuality.getQuality(solution);
         for (Integer subset : solution.getSubsets()) {
             this.pheromoneStructure.addPheromone(subset, delta);

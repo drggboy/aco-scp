@@ -1,7 +1,7 @@
 package eu.andredick.aco.masterprocess;
 
 import eu.andredick.aco.ant.AbstractAnt;
-import eu.andredick.aco.pheromonassociation.AbstractPheromoneAssociation;
+import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.termination.AbstractTermCriterion;
 
 import java.util.LinkedList;
@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * <b>Masterprozess-Elitist parallelisiert</b> - Ausprägung der Komponente des Masterprozesses mit Parallelausführung, bei der nur die iterationsbeste Ameise ihre Lösung mit Pheromon markieren darf.<br>
- * Kapitel 3.2.2 Masterprozess<br>
+ * Kapitel 3.3.2, S. 26, Masterprozess<br>
  * <br>
  * Die Implementierung des Masterprozess bildet den übergeordneten Ablauf der ACO-Metaheuristik ab,<br>
  * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})<br>

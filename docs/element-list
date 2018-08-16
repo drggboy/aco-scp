@@ -1,4 +1,5 @@
 eu.andredick
+eu.andredick.aco
 eu.andredick.aco.algorithm
 eu.andredick.aco.ant
 eu.andredick.aco.combination
@@ -7,7 +8,7 @@ eu.andredick.aco.heuristic
 eu.andredick.aco.localsearch
 eu.andredick.aco.masterprocess
 eu.andredick.aco.nextstep
-eu.andredick.aco.pheromonassociation
+eu.andredick.aco.pheromoneassociation
 eu.andredick.aco.pheromoneevaporation
 eu.andredick.aco.pheromoneinit
 eu.andredick.aco.pheromoneperception

@@ -1,12 +1,12 @@
 package eu.andredick.aco.heuristic;
 
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 import java.util.List;
 
 /**
  * <b>Ausprägung der Komponente der Heuristischen Informationen</b><br>
- * Kapitel 3.2.7 Heuristische Information<br>
+ * Kapitel 3.3.7, S. 34, Heuristische Information<br>
  * <br>
  * Eine Ausprägung der heuristischen Information  <b>H_dyn</b><br>
  * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
@@ -26,7 +26,7 @@ public class HeuristicRuleBestSubset implements HeuristicRule {
      * @return Summe der möglichen Neuüberdeckungen
      */
     @Override
-    public float getValue(Solution solution, List<Integer> availableSubsets, Integer subset) {
+    public float getValue(SCPSolution solution, List<Integer> availableSubsets, Integer subset) {
 
         // Bestimmen der Grundelemente, welche in der Teilmenge "subset" enthalten sind
         List<Integer> elementsInSubset = solution.getProblem().getStructure().getElementsInSubset(subset);

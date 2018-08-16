@@ -16,7 +16,7 @@ import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 import eu.andredick.aco.masterprocess.MasterProcessElitistParallel;
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
 import eu.andredick.aco.nextstep.NextStepStrategyOnSubsetsStochastic;
-import eu.andredick.aco.pheromonassociation.PheromoneOnSubsets;
+import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;
 import eu.andredick.aco.pheromoneevaporation.AbstractPheromoneEvaporation;
 import eu.andredick.aco.pheromoneevaporation.PheromoneEvaporation;
 import eu.andredick.aco.pheromoneinit.AbstractPheromoneInit;

@@ -1,8 +1,8 @@
 package eu.andredick.aco.construct;
 
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
+import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
-import eu.andredick.scp.Solution;
 import eu.andredick.scp.Structure;
 import eu.andredick.tools.ArrayTools;
 import eu.andredick.tools.Tools;
@@ -14,10 +14,10 @@ import java.util.List;
  * Kapitel 3.3.4, S. 30, Konstruktionsheuristik<br>
  * <br>
  * Die Konstruktion der SCP-Lösung einer Ameise erfolgt erfolgt <b>ausgehend von den Teilmengen.</b><br>
- * Die Konstruktionsheuristik wird von der Klasse ACOAnt (Ameise) verwendet, um neue Lösungen zu konstruieren.<br>
+ * Die Konstruktionsheuristik wird von der Klasse {@link eu.andredick.aco.ant.ACOAnt} (Ameise) verwendet, um neue Lösungen zu konstruieren.<br>
  * <p><img src="{@docRoot}/images/Construction.svg" alt=""></p>
  */
-public class ConstructionFromSubsets extends AbstractConstructionStrategy {
+public class ConstructionFromSubsets extends AbstractConstructionStrategy<AbstractNextStepStrategy<?>, SCProblem> {
 
     /**
      * Konstruktor
@@ -42,10 +42,10 @@ public class ConstructionFromSubsets extends AbstractConstructionStrategy {
      * @return konstruierte zulässige Lösung
      */
     @Override
-    public Solution construct(SCProblem problem) {
+    public SCPSolution construct(SCProblem problem) {
 
         Structure structure = problem.getStructure();
-        Solution solution = new Solution(problem);
+        SCPSolution solution = new SCPSolution(problem);
 
         // Bereitstellen eines Arrays mit Listen von Grundelementen, die in den Teilmengen enthalten sind
         List<Integer> subsets = Tools.getIndexList(structure.subsetsSize()); //geordnet

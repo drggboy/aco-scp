@@ -1,13 +1,13 @@
 package eu.andredick.aco.heuristic;
 
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * <b>Eine Menge für Heuristische Informationen</b><br>
- * Kapitel 3.2.7 Heuristische Information<br>
+ * Kapitel 3.3.7, S. 34, Heuristische Information<br>
  * <br>
  * Die Klasse ist ein Behälter für unterschiedliche Heuristische Informationen,<br>
  * die eine Ameise bei der Lösungskonsturktion verwenden soll.<br>
@@ -46,7 +46,7 @@ public class HeuristicInfoSet implements HeuristicRule {
      * @param subset           Alternative, für die die Heuristischen Informationen geliefert werden sollen
      * @return Wert der Heuristischen Informationen
      */
-    public float getValue(Solution solution, List<Integer> availableSubsets, Integer subset) {
+    public float getValue(SCPSolution solution, List<Integer> availableSubsets, Integer subset) {
         float product = 1;
         for (HeuristicRule rule : rules) {
             product *= rule.getValue(solution, availableSubsets, subset);

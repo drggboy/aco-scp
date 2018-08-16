@@ -1,12 +1,12 @@
 package eu.andredick.aco.heuristic;
 
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 import java.util.List;
 
 /**
  * <b>Schnittstelle für Klassen der Heuristischen Information</b><br>
- * Kapitel 3.2.7 Heuristische Information<br>
+ * Kapitel 3.3.7, S. 34, Heuristische Information<br>
  * <br>
  * Ausprägungen der Komponente der Heuristische Informationen müssen diese Schnittstelle implemenntieren.<br>
  * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
@@ -22,6 +22,6 @@ public interface HeuristicRule {
      * @param subset           Alternative, für die die Heuristischen Informationen geliefert werden sollen
      * @return Wert der Heuristischen Informationen
      */
-    public float getValue(Solution solution, List<Integer> availableSubsets, Integer subset);
+    public float getValue(SCPSolution solution, List<Integer> availableSubsets, Integer subset);
 
 }

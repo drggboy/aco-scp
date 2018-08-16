@@ -1,6 +1,6 @@
 package eu.andredick.aco.ant;
 
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 /**
  * <b>Abstrakte Klasse für eine Ameise.</b><br>
@@ -53,12 +53,12 @@ public abstract class AbstractAnt {
      *
      * @return Lösung einer Ameise
      */
-    public abstract Solution getSolution();
+    public abstract SCPSolution getSolution();
 
     /**
      * Setzt eine Lösung für die Ameise.<br>
      * Die Methode dient dazu, die Lösung einer Ameise mit einer neuen zu überschreiben.
      * @param solution neue Lösung
      */
-    public abstract void setSolution(Solution solution);
+    public abstract void setSolution(SCPSolution solution);
 }

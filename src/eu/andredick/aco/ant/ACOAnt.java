@@ -3,6 +3,8 @@ package eu.andredick.aco.ant;
 import eu.andredick.aco.construct.AbstractConstructionStrategy;
 import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;
 import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
+import eu.andredick.scp.Problem;
+import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
 import eu.andredick.scp.Solution;
 
@@ -25,7 +27,7 @@ public class ACOAnt extends AbstractAnt {
      * Aktuelle Lösung (Pfad) der Ameise.<br>
      * Die Lösunge kann unvollständig sein.
      */
-    protected Solution solution;
+    protected SCPSolution solution;
 
     /**
      * Beliebige Realisierung der Komponente für Pheromon-Markierung
@@ -68,7 +70,7 @@ public class ACOAnt extends AbstractAnt {
      * Die Methode wird von dem Masterprozess aufgerufen.<br>
      * Die von der Ameise erstellte Lösung soll als Objektvariable vorgehalten werden.
      *
-     * @see AbstractConstructionStrategy#construct(SCProblem)
+     * @see AbstractConstructionStrategy#construct(Problem)
      */
     @Override
     public void constructSolution() {
@@ -118,18 +120,18 @@ public class ACOAnt extends AbstractAnt {
      */
     @Override
     public void resetAnt() {
-        this.solution = new Solution(problem);
+        this.solution = new SCPSolution(problem);
     }
 
     // Liefert die Lösung der Ameise
     @Override
-    public Solution getSolution() {
+    public SCPSolution getSolution() {
         return this.solution;
     }
 
     // Schreibt eine Lösung ins Gedächtnis
     @Override
-    public void setSolution(Solution solution) {
+    public void setSolution(SCPSolution solution) {
         this.solution = solution;
     }
 

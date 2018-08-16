@@ -2,12 +2,12 @@ package eu.andredick.aco.masterprocess;
 
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.algorithm.Statistics;
-import eu.andredick.aco.pheromonassociation.AbstractPheromoneAssociation;
+import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.termination.AbstractTermCriterion;
 
 /**
  * <b>Abstrakte Komponente des Masterprozess</b><br>
- * Kapitel 3.2.2 Masterprozess<br>
+ * Kapitel 3.3.2, S. 26, Masterprozess<br>
  * <br>
  * Implementierung des Masterprozess bildet den übergeordneten Ablauf der ACO-Metaheuristik ab,<br>
  * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})<br>
@@ -27,7 +27,7 @@ public abstract class AbstractMasterProcess {
     protected AbstractAnt[] ants;
 
     /**
-     * Pheromonassoziation mit dem zu lösnden Problem
+     * Pheromonassoziation mit dem zu lösenden Problem
      */
     protected AbstractPheromoneAssociation pheromoneStructure;
 

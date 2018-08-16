@@ -39,7 +39,7 @@ public class ObjectiveFunction {
      * @param solution SCP-Lösung
      * @return Zielfunktionswert
      */
-    public float getValue(Solution solution) {
+    public float getValue(SCPSolution solution) {
         float value = 0f;
         boolean[] vars = solution.getVars();
         for (int j = 0; j < vars.length; j++) {

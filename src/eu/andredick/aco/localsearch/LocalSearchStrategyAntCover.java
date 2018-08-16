@@ -1,7 +1,7 @@
 package eu.andredick.aco.localsearch;
 
+import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
-import eu.andredick.scp.Solution;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,7 +10,7 @@ import java.util.TreeSet;
 
 /**
  * <b>Implementiert die lokale Suche mit Ant-Cover-Suchstrategie.</b><br>
- * Kapitel 3.2.9 Lokale Suche<br>
+ * Kapitel 3.3.9, S. 37, Lokale Suche<br>
  * <br>
  * Die Lokale Suche wird durch die Ameise in der Klasse {@link eu.andredick.aco.ant.ACOAnt} verwendet.<br>
  * Die Lokale Suche erfolgt auf Basis der zuvor konstruierten Lösung und liefert ggf verbesserte Lösung als Ergebnis.
@@ -57,7 +57,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * @return Die durch die lokale Suche verbesserte Lösung
      */
     @Override
-    public Solution search(Solution solution) {
+    public SCPSolution search(SCPSolution solution) {
 
         // das der übergebenen Lösung zugrunde liegende SCP
         SCProblem problem = solution.getProblem();
@@ -238,7 +238,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * @param solution Die zu sortierende Ausgangslösung
      * @return Die Ausgangslösung als nach Güte sortiertes WeightedColumn-TreeSet
      */
-    private TreeSet<WeightedColumn> sortSolution(SCProblem problem, Solution solution) {
+    private TreeSet<WeightedColumn> sortSolution(SCProblem problem, SCPSolution solution) {
         TreeSet<WeightedColumn> sortedSolution = new TreeSet<WeightedColumn>();
         float[] weights = problem.getObjectiveFunction().getWeights();
         List<Integer> columnsInSolution = solution.getSubsets();
@@ -255,7 +255,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * @param solution Die betrachtete Lösung
      * @return int-Array, der unter dem Index i die Anzahl der Lösungsspalten hält, von denen Zeile i überdeckt wird
      */
-    private int[] getNrOfCoveringColumns(SCProblem problem, Solution solution) {
+    private int[] getNrOfCoveringColumns(SCProblem problem, SCPSolution solution) {
         int nrOfRows = problem.getStructure().elementsSize();
         List<Integer> columnsInSolution = solution.getSubsets();
         int[] nrOfCoveringColumns = new int[nrOfRows];
@@ -277,7 +277,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * @param nrOfCoveringColumns   Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten der übergebenen Lösung hält
      * @return Den aktualisierten Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten nach Entfernen der Spalte hält
      */
-    private int[] removeAndUpdate(Solution solution, int indexOfColumnToDelete, int[] nrOfCoveringColumns) {
+    private int[] removeAndUpdate(SCPSolution solution, int indexOfColumnToDelete, int[] nrOfCoveringColumns) {
 
         // Spalte aus Lösung entfernen
         solution.removeSubset(indexOfColumnToDelete);
@@ -299,7 +299,7 @@ public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {
      * @param nrOfCoveringColumns Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten der übergebenen Lösung hält
      * @return Den aktualisierten Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten nach Hinzufügen der neuen Spalte hält
      */
-    private int[] addAndUpdate(Solution solution, int indexOfColumnToAdd, int[] nrOfCoveringColumns) {
+    private int[] addAndUpdate(SCPSolution solution, int indexOfColumnToAdd, int[] nrOfCoveringColumns) {
 
         // Spalte der Lösung hinzufügen
         solution.addSubset(indexOfColumnToAdd);

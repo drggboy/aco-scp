@@ -4,6 +4,7 @@ import com.google.ortools.linearsolver.MPConstraint;
 import com.google.ortools.linearsolver.MPObjective;
 import com.google.ortools.linearsolver.MPSolver;
 import com.google.ortools.linearsolver.MPVariable;
+import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
 import eu.andredick.scp.Solution;
 
@@ -49,7 +50,7 @@ public class SCPExactSolver {
      */
     public Solution solve(SCProblem problem) {
 
-        Solution solution = new Solution(problem);
+        SCPSolution solution = new SCPSolution(problem);
 
         this.initSolver(problem);
 

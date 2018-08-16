@@ -11,7 +11,7 @@
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.combination.CombinationRule;</a>
 <span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.heuristic.HeuristicInfoSet;</a>
-<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.pheromonassociation.PheromoneOnSubsets;</a>
+<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;</a>
 <span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;</a>
 <span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.scp.Solution;</a>
 <span class="sourceLineNo">008</span><a id="line.8"></a>
@@ -19,64 +19,95 @@
 <span class="sourceLineNo">010</span><a id="line.10">import java.util.concurrent.ThreadLocalRandom;</a>
 <span class="sourceLineNo">011</span><a id="line.11"></a>
 <span class="sourceLineNo">012</span><a id="line.12">/**</a>
-<span class="sourceLineNo">013</span><a id="line.13"> * Kapitel 3.2.5        Alternativenauswahl</a>
-<span class="sourceLineNo">014</span><a id="line.14"> * Gemischte Auswahl - Ausprägung der Komponente der Alternativenauswahl</a>
-<span class="sourceLineNo">015</span><a id="line.15"> * Wird von Konstruktionsheuristik verwendet, um die Alternativenauswahl zu treffen</a>
-<span class="sourceLineNo">016</span><a id="line.16"> */</a>
-<span class="sourceLineNo">017</span><a id="line.17">public class NextStepStrategyOnSubsets extends</a>
-<span class="sourceLineNo">018</span><a id="line.18">        AbstractNextStepStrategy&lt;PheromoneOnSubsets&gt; {</a>
-<span class="sourceLineNo">019</span><a id="line.19"></a>
-<span class="sourceLineNo">020</span><a id="line.20">    private NextStepStrategyOnSubsetsDeterministic nextStepDeterministic;</a>
-<span class="sourceLineNo">021</span><a id="line.21">    private NextStepStrategyOnSubsetsStochastic nextStepStochastic;</a>
-<span class="sourceLineNo">022</span><a id="line.22">    private float q0_parameter;</a>
-<span class="sourceLineNo">023</span><a id="line.23"></a>
-<span class="sourceLineNo">024</span><a id="line.24">    /**</a>
-<span class="sourceLineNo">025</span><a id="line.25">     * Konsturktor</a>
-<span class="sourceLineNo">026</span><a id="line.26">     *</a>
-<span class="sourceLineNo">027</span><a id="line.27">     * @param pheromonesStructure Pheromonassoziation</a>
-<span class="sourceLineNo">028</span><a id="line.28">     * @param perceptionRule     Pheromon-Wahrnehmung</a>
-<span class="sourceLineNo">029</span><a id="line.29">     * @param heuristics         heuristische Informationen</a>
-<span class="sourceLineNo">030</span><a id="line.30">     * @param combinationRule    Kombinationsfunktion</a>
-<span class="sourceLineNo">031</span><a id="line.31">     * @param q0_parameter       Parameter, der den Einfluss der probabilistischen und deterministischen Komponente regelt</a>
-<span class="sourceLineNo">032</span><a id="line.32">     */</a>
-<span class="sourceLineNo">033</span><a id="line.33">    public NextStepStrategyOnSubsets(PheromoneOnSubsets pheromonesStructure,</a>
-<span class="sourceLineNo">034</span><a id="line.34">                                     AbstractPheromonePerception perceptionRule,</a>
-<span class="sourceLineNo">035</span><a id="line.35">                                     HeuristicInfoSet heuristics,</a>
-<span class="sourceLineNo">036</span><a id="line.36">                                     CombinationRule combinationRule,</a>
-<span class="sourceLineNo">037</span><a id="line.37">                                     float q0_parameter) {</a>
-<span class="sourceLineNo">038</span><a id="line.38"></a>
-<span class="sourceLineNo">039</span><a id="line.39">        super(pheromonesStructure, perceptionRule, heuristics, combinationRule);</a>
-<span class="sourceLineNo">040</span><a id="line.40"></a>
-<span class="sourceLineNo">041</span><a id="line.41">        this.q0_parameter = q0_parameter;</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * &lt;b&gt;Gemischte Alternativen-Auswahl&lt;/b&gt; aus stochastischer und deterministischer Alternativenauswahl&lt;br&gt;</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * Kapitel 3.3.5, S. 32, Alternativenauswahl&lt;br&gt;</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * &lt;br&gt;</a>
+<span class="sourceLineNo">016</span><a id="line.16"> * Die Gemischte Alternativenauswahl liefert entweder das Ergebnis der stochastischen</a>
+<span class="sourceLineNo">017</span><a id="line.17"> * (siehe {@link NextStepStrategyOnSubsetsStochastic}) oder der deterministischen</a>
+<span class="sourceLineNo">018</span><a id="line.18"> * Alternativenauswahl (siehe {@link NextStepStrategyOnSubsetsDeterministic}).&lt;br&gt;</a>
+<span class="sourceLineNo">019</span><a id="line.19"> * Dies wird durch die Realisierung einer Zufallszahl {@code 0.0 &lt;= q &lt;= 1.0} bestimmt, welche in Bezug auf einen</a>
+<span class="sourceLineNo">020</span><a id="line.20"> * festgelegten Parameter {@code q0} entweder unterhalb {@code (q &lt; q0)} oder oberhalb {@code (q0 &lt;= q)} liegt.&lt;br&gt;</a>
+<span class="sourceLineNo">021</span><a id="line.21"> * Die Komponente besitzt einen Parameter.&lt;br&gt;</a>
+<span class="sourceLineNo">022</span><a id="line.22"> * &lt;br&gt;</a>
+<span class="sourceLineNo">023</span><a id="line.23"> * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link eu.andredick.aco.construct.AbstractConstructionStrategy}</a>
+<span class="sourceLineNo">024</span><a id="line.24"> * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.&lt;br&gt;</a>
+<span class="sourceLineNo">025</span><a id="line.25"> * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und</a>
+<span class="sourceLineNo">026</span><a id="line.26"> * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.&lt;br&gt;</a>
+<span class="sourceLineNo">027</span><a id="line.27"> * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.&lt;br&gt;</a>
+<span class="sourceLineNo">028</span><a id="line.28"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Nextstep.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">029</span><a id="line.29"> */</a>
+<span class="sourceLineNo">030</span><a id="line.30">public class NextStepStrategyOnSubsets extends</a>
+<span class="sourceLineNo">031</span><a id="line.31">        AbstractNextStepStrategy&lt;PheromoneOnSubsets&gt; {</a>
+<span class="sourceLineNo">032</span><a id="line.32"></a>
+<span class="sourceLineNo">033</span><a id="line.33">    /**</a>
+<span class="sourceLineNo">034</span><a id="line.34">     * Deterministische Alternativenauswahl (Referenz auf ein eigenes Objekt)</a>
+<span class="sourceLineNo">035</span><a id="line.35">     */</a>
+<span class="sourceLineNo">036</span><a id="line.36">    private NextStepStrategyOnSubsetsDeterministic nextStepDeterministic;</a>
+<span class="sourceLineNo">037</span><a id="line.37"></a>
+<span class="sourceLineNo">038</span><a id="line.38">    /**</a>
+<span class="sourceLineNo">039</span><a id="line.39">     * Stochastische Alternativenauswahl (Referenz auf ein eigenes Objekt)</a>
+<span class="sourceLineNo">040</span><a id="line.40">     */</a>
+<span class="sourceLineNo">041</span><a
+            id="line.41">    private NextStepStrategyOnSubsetsStochastic nextStepStochastic;</a>
 <span class="sourceLineNo">042</span><a id="line.42"></a>
-<span class="sourceLineNo">043</span><a id="line.43">        this.nextStepDeterministic =</a>
-<span class="sourceLineNo">044</span><a id="line.44">                new NextStepStrategyOnSubsetsDeterministic(pheromonesStructure, perceptionRule, heuristics, combinationRule);</a>
-<span class="sourceLineNo">045</span><a id="line.45"></a>
-<span class="sourceLineNo">046</span><a id="line.46">        this.nextStepStochastic =</a>
-<span class="sourceLineNo">047</span><a id="line.47">                new NextStepStrategyOnSubsetsStochastic(pheromonesStructure, perceptionRule, heuristics, combinationRule);</a>
-<span class="sourceLineNo">048</span><a id="line.48">    }</a>
-<span class="sourceLineNo">049</span><a id="line.49"></a>
-<span class="sourceLineNo">050</span><a id="line.50">    /**</a>
-<span class="sourceLineNo">051</span><a id="line.51">     * Liefert in abhängigkeit des realisierten Wertes einer Zufallszahl und des Parameters q0</a>
-<span class="sourceLineNo">052</span><a id="line.52">     * die probabilistische oder die deterministische Ergebnisse der Alternativenauswahl</a>
-<span class="sourceLineNo">053</span><a id="line.53">     *</a>
-<span class="sourceLineNo">054</span><a id="line.54">     * @param solution         partiale Lösung der Ameise</a>
-<span class="sourceLineNo">055</span><a id="line.55">     * @param availableSubsets verfügbare Alternativen</a>
-<span class="sourceLineNo">056</span><a id="line.56">     * @return Ergebnis der Auswahl</a>
-<span class="sourceLineNo">057</span><a id="line.57">     */</a>
-<span class="sourceLineNo">058</span><a id="line.58">    @Override</a>
-<span class="sourceLineNo">059</span><a id="line.59">    public Integer chooseSubset(Solution solution, List&lt;Integer&gt; availableSubsets) {</a>
-<span class="sourceLineNo">060</span><a id="line.60"></a>
-<span class="sourceLineNo">061</span><a id="line.61">        float q = ThreadLocalRandom.current().nextFloat();</a>
+<span class="sourceLineNo">043</span><a id="line.43">    /**</a>
+<span class="sourceLineNo">044</span><a id="line.44">     * Parameter, der den jeweiligen Einfluss der stochastischen und deterministischen Alternativenauswahl bestimmt</a>
+<span class="sourceLineNo">045</span><a id="line.45">     */</a>
+<span class="sourceLineNo">046</span><a id="line.46">    private float q0_parameter;</a>
+<span class="sourceLineNo">047</span><a id="line.47"></a>
+<span class="sourceLineNo">048</span><a id="line.48">    /**</a>
+<span class="sourceLineNo">049</span><a id="line.49">     * Konsturktor</a>
+<span class="sourceLineNo">050</span><a id="line.50">     *</a>
+<span class="sourceLineNo">051</span><a id="line.51">     * @param pheromonesStructure Pheromonassoziation</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * @param perceptionRule      Pheromon-Wahrnehmung</a>
+<span class="sourceLineNo">053</span><a id="line.53">     * @param heuristics          heuristische Informationen</a>
+<span class="sourceLineNo">054</span><a id="line.54">     * @param combinationRule     Kombinationsfunktion</a>
+<span class="sourceLineNo">055</span><a id="line.55">     * @param q0_parameter        Parameter, der den Einfluss der stochastischen und deterministischen Komponente regelt</a>
+<span class="sourceLineNo">056</span><a id="line.56">     */</a>
+<span class="sourceLineNo">057</span><a id="line.57">    public NextStepStrategyOnSubsets(PheromoneOnSubsets pheromonesStructure,</a>
+<span class="sourceLineNo">058</span><a id="line.58">                                     AbstractPheromonePerception perceptionRule,</a>
+<span class="sourceLineNo">059</span><a
+            id="line.59">                                     HeuristicInfoSet heuristics,</a>
+<span class="sourceLineNo">060</span><a id="line.60">                                     CombinationRule combinationRule,</a>
+<span class="sourceLineNo">061</span><a id="line.61">                                     float q0_parameter) {</a>
 <span class="sourceLineNo">062</span><a id="line.62"></a>
-<span class="sourceLineNo">063</span><a id="line.63">        if (q &lt; q0_parameter) {</a>
-<span class="sourceLineNo">064</span><a id="line.64">            return this.nextStepStochastic.chooseSubset(solution, availableSubsets);</a>
-<span class="sourceLineNo">065</span><a id="line.65">        } else {</a>
-<span class="sourceLineNo">066</span><a id="line.66">            return this.nextStepDeterministic.chooseSubset(solution, availableSubsets);</a>
-<span class="sourceLineNo">067</span><a id="line.67">        }</a>
-<span class="sourceLineNo">068</span><a id="line.68">    }</a>
+<span class="sourceLineNo">063</span><a id="line.63">        super(pheromonesStructure, perceptionRule, heuristics, combinationRule);</a>
+<span class="sourceLineNo">064</span><a id="line.64"></a>
+<span class="sourceLineNo">065</span><a id="line.65">        this.q0_parameter = q0_parameter;</a>
+<span class="sourceLineNo">066</span><a id="line.66"></a>
+<span class="sourceLineNo">067</span><a id="line.67">        this.nextStepDeterministic =</a>
+<span class="sourceLineNo">068</span><a id="line.68">                new NextStepStrategyOnSubsetsDeterministic(pheromonesStructure, perceptionRule, heuristics, combinationRule);</a>
 <span class="sourceLineNo">069</span><a id="line.69"></a>
-<span class="sourceLineNo">070</span><a id="line.70">}</a>
+<span class="sourceLineNo">070</span><a id="line.70">        this.nextStepStochastic =</a>
+<span class="sourceLineNo">071</span><a id="line.71">                new NextStepStrategyOnSubsetsStochastic(pheromonesStructure, perceptionRule, heuristics, combinationRule);</a>
+<span class="sourceLineNo">072</span><a id="line.72">    }</a>
+<span class="sourceLineNo">073</span><a id="line.73"></a>
+<span class="sourceLineNo">074</span><a id="line.74">    /**</a>
+<span class="sourceLineNo">075</span><a id="line.75">     * Liefert in abhängigkeit des realisierten Wertes einer Zufallszahl {@code q} und des Parameters {@link #q0_parameter}</a>
+<span class="sourceLineNo">076</span><a id="line.76">     * die probabilistische oder die deterministische Ergebnisse der Alternativenauswahl.</a>
+<span class="sourceLineNo">077</span><a id="line.77">     * Zur Bestimmung einer Alternative wird eintweder die Komponente {@link #nextStepStochastic} oder {@link #nextStepDeterministic} verwendet.</a>
+<span class="sourceLineNo">078</span><a id="line.78">     *</a>
+<span class="sourceLineNo">079</span><a id="line.79">     * @param solution         partiale Lösung der Ameise</a>
+<span class="sourceLineNo">080</span><a id="line.80">     * @param availableSubsets verfügbare Alternativen</a>
+<span class="sourceLineNo">081</span><a id="line.81">     * @return Ergebnis der Auswahl</a>
+<span class="sourceLineNo">082</span><a id="line.82">     */</a>
+<span class="sourceLineNo">083</span><a id="line.83">    @Override</a>
+<span class="sourceLineNo">084</span><a id="line.84">    public Integer chooseSubset(Solution solution, List&lt;Integer&gt; availableSubsets) {</a>
+<span class="sourceLineNo">085</span><a id="line.85"></a>
+<span class="sourceLineNo">086</span><a id="line.86">        // Zufallszahl 0.0 &lt;= q &lt;= 1.0 erzeugen</a>
+<span class="sourceLineNo">087</span><a id="line.87">        float q = ThreadLocalRandom.current().nextFloat();</a>
+<span class="sourceLineNo">088</span><a id="line.88"></a>
+<span class="sourceLineNo">089</span><a id="line.89">        /* Je nach Realisierung der Zufallszahl und dem Parameterwert q0</a>
+<span class="sourceLineNo">090</span><a id="line.90">         * erfolgt die Alternativenauswahl entweder stochastisch oder deterministisch</a>
+<span class="sourceLineNo">091</span><a id="line.91">         */</a>
+<span class="sourceLineNo">092</span><a id="line.92">        if (q &lt; q0_parameter) {</a>
+<span class="sourceLineNo">093</span><a id="line.93">            return this.nextStepStochastic.chooseSubset(solution, availableSubsets);</a>
+<span class="sourceLineNo">094</span><a id="line.94">        } else {</a>
+<span class="sourceLineNo">095</span><a id="line.95">            return this.nextStepDeterministic.chooseSubset(solution, availableSubsets);</a>
+<span class="sourceLineNo">096</span><a id="line.96">        }</a>
+<span class="sourceLineNo">097</span><a id="line.97">    }</a>
+<span class="sourceLineNo">098</span><a id="line.98"></a>
+<span class="sourceLineNo">099</span><a id="line.99">}</a>
 
 
 

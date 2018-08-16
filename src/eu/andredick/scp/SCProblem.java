@@ -3,7 +3,12 @@ package eu.andredick.scp;
 /*
  * Die Klasse repräsentiert das Set Covering Problem.
  */
-public class SCProblem {
+public class SCProblem extends Problem {
+
+    /**
+     * Name des konkreten Problems
+     */
+    protected String name;
 
     /**
      * Strukturmatrix [a_ij]
@@ -14,11 +19,6 @@ public class SCProblem {
      * Zielfunktion
      */
     private ObjectiveFunction objectiveFunction;
-
-    /**
-     * Name des konkreten Problems
-     */
-    private String name;
 
     /**
      * Konstruktor
@@ -45,6 +45,14 @@ public class SCProblem {
         this.name = name;
     }
 
+    /**
+     * Liefert den Namen des Problems
+     *
+     * @return Name des Problems
+     */
+    public String getName() {
+        return this.name;
+    }
 
     /**
      * Liefert die Strukturmatrix
@@ -64,15 +72,6 @@ public class SCProblem {
         return this.objectiveFunction;
     }
 
-
-    /**
-     * Liefert den Namen des Problems
-     *
-     * @return Name des Problems
-     */
-    public String getName() {
-        return this.name;
-    }
 
     /**
      * Prüft auf Konsistenz des SCP-Problems

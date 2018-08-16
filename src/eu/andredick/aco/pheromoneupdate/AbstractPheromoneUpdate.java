@@ -1,8 +1,8 @@
 package eu.andredick.aco.pheromoneupdate;
 
-import eu.andredick.aco.pheromonassociation.AbstractPheromoneAssociation;
+import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.solutionquality.AbstractSolutionQuality;
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 /**
  * Kapitel 3.3.11 <br>
@@ -34,5 +34,5 @@ public abstract class AbstractPheromoneUpdate<E extends AbstractPheromoneAssocia
      * Markiert in Abhängigkeit der Lösung die assoziirten Entitäten des Problems mit Pheromon.
      * @param solution: Lösung bzw. Ameisen-Pfad, die/der mit Pheromon markiert werden soll.
      */
-    public abstract void update(Solution solution);
+    public abstract void update(SCPSolution solution);
 }

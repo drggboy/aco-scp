@@ -2,20 +2,37 @@ package eu.andredick.aco.nextstep;
 
 import eu.andredick.aco.combination.CombinationRule;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
-import eu.andredick.aco.pheromonassociation.PheromoneOnSubsets;
+import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;
 import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 import java.util.List;
 
 /**
- * Kapitel 3.2.5	Alternativenauswahl
- * Deterministische Auswahl - Ausprägung der Komponente der Alternativenauswahl
- * Wird von Konstruktionsheuristik verwendet, um die Alternativenauswahl zu treffen
+ * <b>Deterministische Alternativenauswahl</b> - Ausprägung der Komponente der Alternativenauswahl<br>
+ * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
+ * <br>
+ * Die deterministische Alternativenauswahl liefert als Erbebnis immer die am besten bewertete Alternative.<br>
+ * Die Komponente besitzt keine Parameter.<br>
+ * <br>
+ * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link eu.andredick.aco.construct.AbstractConstructionStrategy}
+ * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
+ * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und
+ * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
+ * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.<br>
+ * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */
 public class NextStepStrategyOnSubsetsDeterministic extends
         AbstractNextStepStrategy<PheromoneOnSubsets> {
 
+    /**
+     * Konsturktor
+     *
+     * @param pheromonesStructure Pheromonassoziation
+     * @param perceptionRule      Pheromon-Wahrnehmung
+     * @param heuristics          heuristische Informationen
+     * @param combinationRule     Kombinationsfunktion
+     */
     public NextStepStrategyOnSubsetsDeterministic(PheromoneOnSubsets pheromonesStructure,
                                                   AbstractPheromonePerception perceptionRule,
                                                   HeuristicInfoSet heuristics,
@@ -32,7 +49,7 @@ public class NextStepStrategyOnSubsetsDeterministic extends
      * @return Ergebnis der Auswahl
      */
     @Override
-    public Integer chooseSubset(Solution solution, List<Integer> availableSubsets) {
+    public Integer chooseSubset(SCPSolution solution, List<Integer> availableSubsets) {
 
         float maxValue = 0f;
         int indexWithMaxValue = -1;

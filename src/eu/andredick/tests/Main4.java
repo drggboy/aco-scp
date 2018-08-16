@@ -5,8 +5,8 @@ import eu.andredick.configuration.AbstractAlgorithmConfiguration;
 import eu.andredick.configuration.AlgorithmConfiguration_Greedy;
 import eu.andredick.configuration.AlgorithmConfiguration_Stigmergy;
 import eu.andredick.orlib.OrlibConverter;
+import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
-import eu.andredick.scp.Solution;
 import eu.andredick.tools.ArrayTools;
 import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
@@ -37,7 +37,7 @@ public class Main4 {
         AbstractAlgorithmConfiguration greedyConfiguration = new AlgorithmConfiguration_Greedy();
         AbstractAlgorithm greedyAlgorithm = greedyConfiguration.create(problem);
         greedyAlgorithm.run();
-        Solution greadySolution = greedyAlgorithm.getStatistics().getGlobalMinSolution();
+        SCPSolution greadySolution = greedyAlgorithm.getStatistics().getGlobalMinSolution();
 
         System.out.println("GreadySolution: " + problem.getObjectiveFunction().getValue(greadySolution));
         System.out.println("GreadySolution ist zulässig: " + greadySolution.isPermissible());

@@ -1,5 +1,6 @@
 package eu.andredick.aco.algorithm;
 
+import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.Solution;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Statistics {
     /**
      * Lösung des niedrigsten Zielfunktionswertes aller Iterationen
      */
-    private Solution globalMinSolution;
+    private SCPSolution globalMinSolution;
 
     /**
      * Konstruktor
@@ -58,7 +59,7 @@ public class Statistics {
      *
      * @return Lösung des niedrigsten Zielfunktionswertes aller Iterationen
      */
-    public Solution getGlobalMinSolution() {
+    public SCPSolution getGlobalMinSolution() {
         return globalMinSolution;
     }
 
@@ -90,7 +91,7 @@ public class Statistics {
      * @param value     Zielfunktionswert
      * @param solution  zugehöriger Lösung
      */
-    public void setValue(int iteration, float value, Solution solution) {
+    public void setValue(int iteration, float value, SCPSolution solution) {
         if (this.setIterationMinValue(iteration, value, solution)) {
             this.setGlobalMinValue(value, solution);
         }
@@ -169,7 +170,7 @@ public class Statistics {
      * @param solution zugehöriger Lösung
      * @return Wahr, wenn das Setzen erfolgreich war
      */
-    private boolean setGlobalMinValue(float value, Solution solution) {
+    private boolean setGlobalMinValue(float value, SCPSolution solution) {
         if (this.globalMinValue == null || value < this.globalMinValue) {
             this.globalMinValue = value;
             this.globalMinSolution = solution;

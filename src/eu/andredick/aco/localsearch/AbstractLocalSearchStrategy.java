@@ -1,10 +1,10 @@
 package eu.andredick.aco.localsearch;
 
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 /**
  * <b>Abstrakte Komponente der Lokalen Suche</b><br>
- * Kapitel 3.2.9 Lokale Suche<br>
+ * Kapitel 3.3.9, S. 37, Lokale Suche<br>
  * <br>
  * Die Lokalen Suche wird durch die Ameise in der Klasse {@link eu.andredick.aco.ant.ACOAnt} verwendet.<br>
  * Die Lokale Suche erfolgt auf Basis der zuvor konstruierten Lösung und liefert ggf verbesserte Lösung als Ergebnis.
@@ -19,6 +19,6 @@ public abstract class AbstractLocalSearchStrategy {
      * @param solution Ausgangslösung
      * @return Verbesserte Lösung
      */
-    public abstract Solution search(Solution solution);
+    public abstract SCPSolution search(SCPSolution solution);
 
 }

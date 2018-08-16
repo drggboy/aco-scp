@@ -2,9 +2,9 @@ package eu.andredick.aco.nextstep;
 
 import eu.andredick.aco.combination.CombinationRule;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
-import eu.andredick.aco.pheromonassociation.PheromoneOnSubsetPairs;
+import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsetPairs;
 import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -31,7 +31,7 @@ public class NextStepStrategyOnSubsetPairs extends
      * @return Ergebnis der Auswahl
      */
     @Override
-    public Integer chooseSubset(Solution solution, List<Integer> availableSubsets) {
+    public Integer chooseSubset(SCPSolution solution, List<Integer> availableSubsets) {
         List<Integer> varsList = solution.getSubsets();
         boolean firstSubsetInSolution = varsList.isEmpty();
         Integer lastSubset = firstSubsetInSolution ? null : solution.getSubsets().get(solution.getSubsets().size() - 1);

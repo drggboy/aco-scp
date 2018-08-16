@@ -1,4 +1,4 @@
-package eu.andredick.aco.pheromonassociation;
+package eu.andredick.aco.pheromoneassociation;
 
 import eu.andredick.scp.Structure;
 
