@@ -26,6 +26,7 @@ import eu.andredick.aco.pheromoneupdate.PheromoneUpdateOnSubsets;
 import eu.andredick.aco.solutionquality.SolutionQualityMin;
 import eu.andredick.aco.termination.AbstractTermCriterion;
 import eu.andredick.aco.termination.TermCriterionNew;
+import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
 
 public class AlgorithmConfiguration_StigmergyElite extends AbstractAlgorithmConfiguration {
@@ -60,7 +61,7 @@ public class AlgorithmConfiguration_StigmergyElite extends AbstractAlgorithmConf
     public AbstractAlgorithm create(SCProblem problem) {
 
         PheromoneOnSubsets pheromoneStructure =
-                new PheromoneOnSubsets(problem.getStructure());
+                new PheromoneOnSubsets(problem);
 
         float phInitValue = this.getParameter("pheromonInitValue").getCurrentValue().floatValue();
         AbstractPheromoneInit pheromoneInitRule =
@@ -95,7 +96,7 @@ public class AlgorithmConfiguration_StigmergyElite extends AbstractAlgorithmConf
         int antSize = this.getParameter("antsize").getCurrentValue().intValue();
         AbstractAnt[] ants = new AbstractAnt[antSize];
         for (int i = 0; i < ants.length; i++) {
-            ants[i] = new ACOAnt(problem, updateRule, constructionStrategy, localSearchStrategy);
+            ants[i] = new ACOAnt<SCPSolution, SCProblem>(problem, updateRule, constructionStrategy, localSearchStrategy);
         }
 
         AbstractTermCriterion termCriterion =

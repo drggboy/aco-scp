@@ -1,7 +1,7 @@
 package eu.andredick.aco.masterprocess;
 
-import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.algorithm.Statistics;
+import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.termination.AbstractTermCriterion;
 
@@ -27,7 +27,7 @@ public abstract class AbstractMasterProcess {
     protected AbstractAnt[] ants;
 
     /**
-     * Pheromonassoziation mit dem zu lösenden Problem
+     * Pheromonassoziation mit dem zu lösenden AbstractProblem
      */
     protected AbstractPheromoneAssociation pheromoneStructure;
 
@@ -44,7 +44,7 @@ public abstract class AbstractMasterProcess {
     /**
      * Konstruktor
      *
-     * @param pheromoneStructure Pheromonassoziation mit dem zu lösnden Problem
+     * @param pheromoneStructure Pheromonassoziation mit dem zu lösnden AbstractProblem
      * @param ants               Population der Ameisen
      * @param termCriterion      Abbruchkriterium für die Iteration
      */

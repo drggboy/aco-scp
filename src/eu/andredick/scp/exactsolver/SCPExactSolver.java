@@ -6,7 +6,7 @@ import com.google.ortools.linearsolver.MPSolver;
 import com.google.ortools.linearsolver.MPVariable;
 import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
-import eu.andredick.scp.Solution;
+import eu.andredick.aco.problem.AbstractSolution;
 
 /**
  * Eine Wrapperklasse für die Bibliothek "Google Or Tools",
@@ -48,7 +48,7 @@ public class SCPExactSolver {
      * @param problem Die SCP-Instanz
      * @return Lösung
      */
-    public Solution solve(SCProblem problem) {
+    public AbstractSolution solve(SCProblem problem) {
 
         SCPSolution solution = new SCPSolution(problem);
 
@@ -114,8 +114,8 @@ public class SCPExactSolver {
     /**
      * Verwendung des "Google Or Tools"-Solver zum konvertieren der SCP-Instanzen in das MPS-Format
      *
-     * @param problem SCP-Problem
-     * @return das SCP-Problem im MPS-Format
+     * @param problem SCP-AbstractProblem
+     * @return das SCP-AbstractProblem im MPS-Format
      */
     public String getMPSformat(SCProblem problem) {
         initSolver(problem);
@@ -127,8 +127,8 @@ public class SCPExactSolver {
     /**
      * Verwendung des "Google Or Tools"-Solver zum konvertieren der SCP-Instanzen in das LP-Format
      *
-     * @param problem SCP-Problem
-     * @return das SCP-Problem im LP-Format
+     * @param problem SCP-AbstractProblem
+     * @return das SCP-AbstractProblem im LP-Format
      */
     public String getLPformat(SCProblem problem) {
         initSolver(problem);

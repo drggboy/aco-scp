@@ -1,13 +1,13 @@
 package eu.andredick.aco.solutionquality;
 
-import eu.andredick.scp.Solution;
+import eu.andredick.scp.SCPSolution;
 
 /**
  * Kapitel 3.3.12 <br>
  * Einfache Gütefunktion für Lösungen des SCP als Minimierungsproblem <br>
  * Die Komponente Gütefunktion wird von der Komponente PheromoneUpdate (Pheromon-Markierung) verwendet. <br>
  */
-public class SolutionQualityMin extends AbstractSolutionQuality {
+public class SolutionQualityMin extends AbstractSolutionQuality<SCPSolution> {
 
     /**
      * Liefert die Güte Q der Lösung. <br>
@@ -17,7 +17,7 @@ public class SolutionQualityMin extends AbstractSolutionQuality {
      * @return Güte der Lösung
      */
     @Override
-    public float getQuality(Solution solution) {
+    public float getQuality(SCPSolution solution) {
 
         return (float) solution.getProblem().getStructure().subsetsSize() / solution.getValue();
 

@@ -32,7 +32,7 @@ public class MasterProcessElitist extends AbstractMasterProcess {
     /**
      * Konstruktor
      *
-     * @param pheromoneStructure Pheromonassoziation mit dem zu lösnden Problem
+     * @param pheromoneStructure Pheromonassoziation mit dem zu lösnden AbstractProblem
      * @param ants               Population der Ameisen
      * @param termCriterion      Abbruchkriterium für die Iteration
      */

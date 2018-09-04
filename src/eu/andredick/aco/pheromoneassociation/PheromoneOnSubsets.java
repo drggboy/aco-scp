@@ -1,14 +1,14 @@
 package eu.andredick.aco.pheromoneassociation;
 
-import eu.andredick.scp.Structure;
+import eu.andredick.scp.SCProblem;
 
-public class PheromoneOnSubsets extends AbstractPheromoneAssociation {
+public class PheromoneOnSubsets extends AbstractPheromoneAssociation<SCProblem> {
 
     private float[] pheromoneValues;
 
-    public PheromoneOnSubsets(Structure structure) {
-        super(structure);
-        pheromoneValues = new float[structure.subsetsSize()];
+    public PheromoneOnSubsets(SCProblem problem) {
+        super(problem);
+        pheromoneValues = new float[problem.getStructure().subsetsSize()];
     }
 
     @Override

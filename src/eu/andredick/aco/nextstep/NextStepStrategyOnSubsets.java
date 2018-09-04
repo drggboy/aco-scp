@@ -28,7 +28,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */
 public class NextStepStrategyOnSubsets extends
-        AbstractNextStepStrategy<PheromoneOnSubsets> {
+        AbstractNextStepStrategy<PheromoneOnSubsets, SCPSolution> {
 
     /**
      * Deterministische Alternativenauswahl (Referenz auf ein eigenes Objekt)

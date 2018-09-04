@@ -7,7 +7,7 @@ import eu.andredick.scp.SCPSolution;
 import java.util.List;
 
 public class PheromoneUpdateOnSubsetPairs extends
-        AbstractPheromoneUpdate<PheromoneOnSubsetPairs> {
+        AbstractPheromoneUpdate<PheromoneOnSubsetPairs, SCPSolution> {
 
     public PheromoneUpdateOnSubsetPairs(PheromoneOnSubsetPairs pheromoneStructure,
                                             AbstractSolutionQuality solutionQuality) {

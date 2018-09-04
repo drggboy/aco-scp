@@ -26,8 +26,16 @@ import java.util.concurrent.ThreadLocalRandom;
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  * */
 public class NextStepStrategyOnSubsetsStochastic extends
-        AbstractNextStepStrategy<PheromoneOnSubsets> {
+        AbstractNextStepStrategy<PheromoneOnSubsets, SCPSolution> {
 
+    /**
+     * Konsturktor
+     *
+     * @param pheromonesStructure Pheromonassoziation
+     * @param perceptionRule      Pheromon-Wahrnehmung
+     * @param heuristics          heuristische Informationen
+     * @param combinationRule     Kombinationsfunktion
+     */
     public NextStepStrategyOnSubsetsStochastic(PheromoneOnSubsets pheromonesStructure,
                                                AbstractPheromonePerception perceptionRule,
                                                HeuristicInfoSet heuristics,
@@ -37,7 +45,9 @@ public class NextStepStrategyOnSubsetsStochastic extends
     }
 
     /**
-
+     * Die Stochastische Alternativenauswahl bestimmt aus gegebener Alternativen-Menge eine Auswahl mittels einer Zufallszahl {@code 0 <= z <= 1}.
+     * Das Interval {@code [0.0, 1.0]} wird dazu in genau so viele Bereiche unterteilt, wie es Alternativen gibt.
+     * Die Größe jedes Bereiches wird durch den Wert der zugehörigen Alternative bestimmt.
      *
      * @param solution         partiale Lösung der Ameise
      * @param availableSubsets verfügbare Alternativen

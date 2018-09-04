@@ -25,6 +25,7 @@ import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
 import eu.andredick.aco.pheromoneupdate.PheromoneUpdateOnSubsetPairs;
 import eu.andredick.aco.solutionquality.SolutionQualityMin;
 import eu.andredick.aco.termination.TermCriterion;
+import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
 
 public class AlgorithmConfiguration_SubsetPairs extends AbstractAlgorithmConfiguration {
@@ -52,7 +53,7 @@ public class AlgorithmConfiguration_SubsetPairs extends AbstractAlgorithmConfigu
     public AbstractAlgorithm create(SCProblem problem) {
 
         PheromoneOnSubsetPairs pheromoneStructure =
-                new PheromoneOnSubsetPairs(problem.getStructure());
+                new PheromoneOnSubsetPairs(problem);
 
         float phInitValue = this.getParameter("pheromonInitValue").getCurrentValue().floatValue();
         AbstractPheromoneInit pheromoneInitRule =
@@ -86,7 +87,7 @@ public class AlgorithmConfiguration_SubsetPairs extends AbstractAlgorithmConfigu
         int antSize = this.getParameter("antsize").getDefaultValue().intValue();
         AbstractAnt[] ants = new AbstractAnt[antSize];
         for (int i = 0; i < ants.length; i++) {
-            ants[i] = new ACOAnt(problem, updateRule, constructionStrategy, localSearchStrategy);
+            ants[i] = new ACOAnt<SCPSolution, SCProblem>(problem, updateRule, constructionStrategy, localSearchStrategy);
         }
 
         TermCriterion termCriterion = new TermCriterion(100);

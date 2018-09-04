@@ -1,7 +1,6 @@
-package eu.andredick.scp;
+package eu.andredick.aco.problem;
 
-public abstract class Problem {
-
+public abstract class AbstractProblem {
 
     /**
      * Liefert den Namen des Problems

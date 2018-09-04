@@ -1,5 +1,7 @@
 package eu.andredick.scp;
 
+import eu.andredick.aco.problem.AbstractSolution;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +10,9 @@ import java.util.List;
  * Die Lösung besteht aus einem Vektor von Entscheidungsvariablen
  * bzw. einer Auswahl von Teilmengen. Beide Repräsentationen werden synchron vorgehalten.
  */
-public class SCPSolution extends Solution {
+public class SCPSolution extends AbstractSolution<SCProblem> {
     /**
-     * Das SCP-Problem, zu dem diese Lösung gehört
+     * Das SCP-AbstractProblem, zu dem diese Lösung gehört
      */
     private SCProblem problem;
 
@@ -38,7 +40,7 @@ public class SCPSolution extends Solution {
     /**
      * Konstruktor
      *
-     * @param problem Das zugehörige SCP-Problem
+     * @param problem Das zugehörige SCP-AbstractProblem
      */
     public SCPSolution(SCProblem problem) {
         this.problem = problem;
@@ -51,9 +53,9 @@ public class SCPSolution extends Solution {
 
 
     /**
-     * Liefert zugehöriges SCP-Problem
+     * Liefert zugehöriges SCP-AbstractProblem
      *
-     * @return zugehöriges SCP-Problem
+     * @return zugehöriges SCP-AbstractProblem
      */
     @Override
     public SCProblem getProblem() {
@@ -71,6 +73,11 @@ public class SCPSolution extends Solution {
             this.value = this.problem.getObjectiveFunction().getValue(this);
         }
         return this.value;
+    }
+
+    @Override
+    public SCPSolution createNew() {
+        return new SCPSolution(this.problem);
     }
 
 

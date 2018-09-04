@@ -37,7 +37,7 @@ public class Main4 {
         AbstractAlgorithmConfiguration greedyConfiguration = new AlgorithmConfiguration_Greedy();
         AbstractAlgorithm greedyAlgorithm = greedyConfiguration.create(problem);
         greedyAlgorithm.run();
-        SCPSolution greadySolution = greedyAlgorithm.getStatistics().getGlobalMinSolution();
+        SCPSolution greadySolution = (SCPSolution) greedyAlgorithm.getStatistics().getGlobalMinSolution();
 
         System.out.println("GreadySolution: " + problem.getObjectiveFunction().getValue(greadySolution));
         System.out.println("GreadySolution ist zulässig: " + greadySolution.isPermissible());

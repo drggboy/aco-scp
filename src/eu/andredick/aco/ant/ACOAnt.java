@@ -3,10 +3,8 @@ package eu.andredick.aco.ant;
 import eu.andredick.aco.construct.AbstractConstructionStrategy;
 import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;
 import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
-import eu.andredick.scp.Problem;
-import eu.andredick.scp.SCPSolution;
-import eu.andredick.scp.SCProblem;
-import eu.andredick.scp.Solution;
+import eu.andredick.aco.problem.AbstractProblem;
+import eu.andredick.aco.problem.AbstractSolution;
 
 /**
  * <b>Realisierung der Komponente Ameise</b> durch die Implementierung der abstrakten Methoden der Klasse {@link AbstractAnt}.<br>
@@ -16,18 +14,18 @@ import eu.andredick.scp.Solution;
  * Die Ameise besitzt darüber hinaus Objektvariablen, die ihren Zustand definieren.<br>
  * <p><img src="{@docRoot}/images/ACOAnt.svg" alt=""></p>
  */
-public class ACOAnt extends AbstractAnt {
+public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> extends AbstractAnt<S> {
 
     /**
-     * Das Problem, auf welchem die Lösung (Pfad) gefunden werden soll.
+     * Das AbstractProblem, auf welchem die Lösung (Pfad) gefunden werden soll.
      */
-    protected SCProblem problem;
+    protected P problem;
 
     /**
      * Aktuelle Lösung (Pfad) der Ameise.<br>
      * Die Lösunge kann unvollständig sein.
      */
-    protected SCPSolution solution;
+    protected S solution;
 
     /**
      * Beliebige Realisierung der Komponente für Pheromon-Markierung
@@ -47,12 +45,12 @@ public class ACOAnt extends AbstractAnt {
     /**
      * Konstruktor
      *
-     * @param problem              Das Problem, auf welchem die Lösung bzw. Pfad gefunden werden soll.
+     * @param problem              Das AbstractProblem, auf welchem die Lösung bzw. Pfad gefunden werden soll.
      * @param updateRule           Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
      * @param constructionStrategy Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
      * @param localSearchStrategy  Beliebige Realisierung der Komponente für Lokale Suche
      */
-    public ACOAnt(SCProblem problem,
+    public ACOAnt(P problem,
                   AbstractPheromoneUpdate updateRule,
                   AbstractConstructionStrategy constructionStrategy,
                   AbstractLocalSearchStrategy localSearchStrategy) {
@@ -70,11 +68,11 @@ public class ACOAnt extends AbstractAnt {
      * Die Methode wird von dem Masterprozess aufgerufen.<br>
      * Die von der Ameise erstellte Lösung soll als Objektvariable vorgehalten werden.
      *
-     * @see AbstractConstructionStrategy#construct(Problem)
+     * @see AbstractConstructionStrategy#construct(AbstractProblem)
      */
     @Override
     public void constructSolution() {
-        this.solution = this.constructionStrategy.construct(this.problem);
+        this.solution = (S) this.constructionStrategy.construct(this.problem);
     }
 
     /**
@@ -94,7 +92,7 @@ public class ACOAnt extends AbstractAnt {
      * Dazu wird die der Ameise zugewiesene Komponente der Pheromon-Markierung genutzt.<br>
      * Die Methode wird von dem Masterprozess aufgerufen.<br>
      *
-     * @see AbstractPheromoneUpdate#update(Solution)
+     * @see AbstractPheromoneUpdate#update(S)
      */
     @Override
     public void markPheromone() {
@@ -106,11 +104,11 @@ public class ACOAnt extends AbstractAnt {
      * Dazu wird die der Ameise zugewiesene Komponente der Lokalen Suche genutzt. <br>
      * Die Methode wird von dem Masterprozess aufgerufen. <br>
      *
-     * @see AbstractLocalSearchStrategy#search(Solution)
+     * @see AbstractLocalSearchStrategy#search(S)
      */
     @Override
     public void localSearch() {
-        this.solution = this.localSearchStrategy.search(this.solution);
+        this.solution = (S) this.localSearchStrategy.search(this.solution);
     }
 
     /**
@@ -120,18 +118,18 @@ public class ACOAnt extends AbstractAnt {
      */
     @Override
     public void resetAnt() {
-        this.solution = new SCPSolution(problem);
+        this.solution = (S) this.solution.createNew();
     }
 
     // Liefert die Lösung der Ameise
     @Override
-    public SCPSolution getSolution() {
+    public S getSolution() {
         return this.solution;
     }
 
     // Schreibt eine Lösung ins Gedächtnis
     @Override
-    public void setSolution(SCPSolution solution) {
+    public void setSolution(S solution) {
         this.solution = solution;
     }
 

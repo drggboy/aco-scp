@@ -1,7 +1,6 @@
 package eu.andredick.aco.algorithm;
 
-import eu.andredick.scp.SCPSolution;
-import eu.andredick.scp.Solution;
+import eu.andredick.aco.problem.AbstractSolution;
 
 import java.util.ArrayList;
 
@@ -35,7 +34,7 @@ public class Statistics {
     /**
      * Lösung des niedrigsten Zielfunktionswertes aller Iterationen
      */
-    private SCPSolution globalMinSolution;
+    private AbstractSolution globalMinSolution;
 
     /**
      * Konstruktor
@@ -59,7 +58,7 @@ public class Statistics {
      *
      * @return Lösung des niedrigsten Zielfunktionswertes aller Iterationen
      */
-    public SCPSolution getGlobalMinSolution() {
+    public AbstractSolution getGlobalMinSolution() {
         return globalMinSolution;
     }
 
@@ -91,7 +90,7 @@ public class Statistics {
      * @param value     Zielfunktionswert
      * @param solution  zugehöriger Lösung
      */
-    public void setValue(int iteration, float value, SCPSolution solution) {
+    public void setValue(int iteration, float value, AbstractSolution solution) {
         if (this.setIterationMinValue(iteration, value, solution)) {
             this.setGlobalMinValue(value, solution);
         }
@@ -108,7 +107,7 @@ public class Statistics {
      * @param solution  zugehöriger Lösung
      * @return Wahr, wenn das Setzen erfolgreich war
      */
-    private boolean setIterationMinValue(int iteration, float value, Solution solution) {
+    private boolean setIterationMinValue(int iteration, float value, AbstractSolution solution) {
         Float oldValue = null;
         try {
             oldValue = iterationMinValues.get(iteration);
@@ -132,7 +131,7 @@ public class Statistics {
      * @param solution  zugehöriger Lösung
      * @return Wahr, wenn das Setzen erfolgreich war
      */
-    private boolean setIterationMaxValue(int iteration, float value, Solution solution) {
+    private boolean setIterationMaxValue(int iteration, float value, AbstractSolution solution) {
         Float oldValue = null;
         try {
             oldValue = iterationMaxValues.get(iteration);
@@ -155,7 +154,7 @@ public class Statistics {
      * @param solution zugehöriger Lösung
      * @return Wahr, wenn das Setzen erfolgreich war
      */
-    private boolean setGlobalMaxValue(float value, Solution solution) {
+    private boolean setGlobalMaxValue(float value, AbstractSolution solution) {
         if (this.globalMaxValue == null || value > this.globalMaxValue) {
             this.globalMaxValue = value;
             return true;
@@ -170,7 +169,7 @@ public class Statistics {
      * @param solution zugehöriger Lösung
      * @return Wahr, wenn das Setzen erfolgreich war
      */
-    private boolean setGlobalMinValue(float value, SCPSolution solution) {
+    private boolean setGlobalMinValue(float value, AbstractSolution solution) {
         if (this.globalMinValue == null || value < this.globalMinValue) {
             this.globalMinValue = value;
             this.globalMinSolution = solution;

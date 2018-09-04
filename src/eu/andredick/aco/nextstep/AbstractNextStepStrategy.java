@@ -4,8 +4,7 @@ import eu.andredick.aco.combination.CombinationRule;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;
-import eu.andredick.scp.SCPSolution;
-import eu.andredick.scp.Solution;
+import eu.andredick.aco.problem.AbstractSolution;
 
 import java.util.List;
 
@@ -19,13 +18,13 @@ import java.util.List;
  * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
  * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.<br>
  * <br>
- * Realisierungen der abstrakten Komponente müssen die Methode {@link #chooseSubset(Solution, List)} implementieren.
+ * Realisierungen der abstrakten Komponente müssen die Methode {@link #chooseSubset(AbstractSolution, List)} implementieren.
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */
-public abstract class AbstractNextStepStrategy<E extends AbstractPheromoneAssociation> {
+public abstract class AbstractNextStepStrategy<E extends AbstractPheromoneAssociation, S extends AbstractSolution> {
 
     /**
-     * Pheromonassoziation mit dem zu lösenden Problem
+     * Pheromonassoziation mit dem zu lösenden AbstractProblem
      */
     protected E pheromoneStructure;
     /**
@@ -69,5 +68,5 @@ public abstract class AbstractNextStepStrategy<E extends AbstractPheromoneAssoci
      * @param availableSubsets verfügbare Alternativen
      * @return gewählte Alternative
      */
-    public abstract Integer chooseSubset(SCPSolution solution, List<Integer> availableSubsets);
+    public abstract Integer chooseSubset(S solution, List<Integer> availableSubsets);
 }

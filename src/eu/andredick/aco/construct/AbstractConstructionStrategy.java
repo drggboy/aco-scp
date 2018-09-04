@@ -1,9 +1,8 @@
 package eu.andredick.aco.construct;
 
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
-import eu.andredick.scp.Problem;
-import eu.andredick.scp.SCProblem;
-import eu.andredick.scp.SCPSolution;
+import eu.andredick.aco.problem.AbstractProblem;
+import eu.andredick.aco.problem.AbstractSolution;
 
 /**
  * <b>Abstrakte Konstruktionsheuristik.</b><br>
@@ -17,7 +16,7 @@ import eu.andredick.scp.SCPSolution;
  *
  * @param <E> Ausprägung der Alternativenauswahl, die bei der Konstruktion benutzt werden soll.
  */
-public abstract class AbstractConstructionStrategy<E extends AbstractNextStepStrategy<?>, P extends Problem> {
+public abstract class AbstractConstructionStrategy<E extends AbstractNextStepStrategy, P extends AbstractProblem, S extends AbstractSolution> {
 
     /**
      * Regel für die Alternativenauswahl, die bei der Konstruktion benutzt werden soll.
@@ -37,8 +36,8 @@ public abstract class AbstractConstructionStrategy<E extends AbstractNextStepStr
      * Die Methode startet den Konstruktionsvorgang und liefert nach seinem Durchlauf eine vollständige Lösung des übergebenen Problems.<br>
      * Die Methode wird in der Klasse ACOAnt aufgerufen.
      *
-     * @param problem Das Problem, für welches durch die Ameise eine Lösung konstruiert werden soll.
+     * @param problem Das AbstractProblem, für welches durch die Ameise eine Lösung konstruiert werden soll.
      * @return Vollständige konstruierte Lösung
      */
-    public abstract SCPSolution construct(P problem);
+    public abstract S construct(P problem);
 }

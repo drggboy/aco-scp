@@ -23,7 +23,7 @@ import java.util.List;
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */
 public class NextStepStrategyOnSubsetsDeterministic extends
-        AbstractNextStepStrategy<PheromoneOnSubsets> {
+        AbstractNextStepStrategy<PheromoneOnSubsets, SCPSolution> {
 
     /**
      * Konsturktor
@@ -42,7 +42,9 @@ public class NextStepStrategyOnSubsetsDeterministic extends
     }
 
     /**
-     * Bestimmt deterministisch die Auswahl, liefert die Alternative mit dem maximalen Wert
+     * Bestimmt deterministisch die Auswahl, liefert die Alternative mit dem höchsten Wert.<br>
+     * Der Wert jeweils einer Alternative wird aus der zugehörigen wahrgenommenen Pheromonkonzentration und den heuristischen Informationen bestimmt.<br>
+     * Eine Kombinationsfunktion ({@link CombinationRule}) vereint beide Einflussgrößen.v<br>
      *
      * @param solution         partiale Lösung der Ameise
      * @param availableSubsets verfügbare Alternativen
@@ -54,6 +56,7 @@ public class NextStepStrategyOnSubsetsDeterministic extends
         float maxValue = 0f;
         int indexWithMaxValue = -1;
 
+        // Schleife über alle verfügbaren Alternativen, um die Alternative mit dem höchsten Wert zu bestimmen
         for (int k = 0; k < availableSubsets.size(); k++) {
             int subset = availableSubsets.get(k);
             float ph_k = this.perceptionRule.getValue(this.pheromoneStructure.getPheromone(subset));

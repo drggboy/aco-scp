@@ -1,6 +1,6 @@
 package eu.andredick.aco.heuristic;
 
-import eu.andredick.scp.SCPSolution;
+import eu.andredick.aco.problem.AbstractSolution;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
  * <p><img src="{@docRoot}/images/Heuristics.svg" alt=""></p>
  */
-public interface HeuristicRule {
+public interface HeuristicRule<S extends AbstractSolution> {
 
     /**
      * Liefert den Wert der Heuristischen Informationen
@@ -22,6 +22,6 @@ public interface HeuristicRule {
      * @param subset           Alternative, für die die Heuristischen Informationen geliefert werden sollen
      * @return Wert der Heuristischen Informationen
      */
-    public float getValue(SCPSolution solution, List<Integer> availableSubsets, Integer subset);
+    public float getValue(S solution, List<Integer> availableSubsets, Integer subset);
 
 }

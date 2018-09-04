@@ -1,6 +1,6 @@
 package eu.andredick.aco.ant;
 
-import eu.andredick.scp.SCPSolution;
+import eu.andredick.aco.problem.AbstractSolution;
 
 /**
  * <b>Abstrakte Klasse für eine Ameise.</b><br>
@@ -10,7 +10,7 @@ import eu.andredick.scp.SCPSolution;
  * Weil alle Methoden abstrakt sind, dient diese Klassse zur Schnittstellendefinition und kann als Java-Interface realisiert sein.<br>
  * <p><img src="{@docRoot}/images/ACOAnt.svg" alt=""></p>
  */
-public abstract class AbstractAnt {
+public abstract class AbstractAnt<S extends AbstractSolution> {
 
     /**
      * Startet die Konstrukton einer Ameisenlösung.<br>
@@ -53,12 +53,12 @@ public abstract class AbstractAnt {
      *
      * @return Lösung einer Ameise
      */
-    public abstract SCPSolution getSolution();
+    public abstract S getSolution();
 
     /**
      * Setzt eine Lösung für die Ameise.<br>
      * Die Methode dient dazu, die Lösung einer Ameise mit einer neuen zu überschreiben.
      * @param solution neue Lösung
      */
-    public abstract void setSolution(SCPSolution solution);
+    public abstract void setSolution(S solution);
 }

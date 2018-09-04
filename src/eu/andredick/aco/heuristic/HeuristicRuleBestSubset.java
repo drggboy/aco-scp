@@ -12,7 +12,7 @@ import java.util.List;
  * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
  * <p><img src="{@docRoot}/images/Heuristics.svg" alt=""></p>
  */
-public class HeuristicRuleBestSubset implements HeuristicRule {
+public class HeuristicRuleBestSubset implements HeuristicRule<SCPSolution> {
 
     /**
      * Berechnet die Anzahl möglicher neuer Überdeckungen der Grundelemente durch die Auswahl der Teilmenge.<br>

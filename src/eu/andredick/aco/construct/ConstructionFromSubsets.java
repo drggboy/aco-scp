@@ -1,6 +1,7 @@
 package eu.andredick.aco.construct;
 
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
+import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;
 import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
 import eu.andredick.scp.Structure;
@@ -17,7 +18,7 @@ import java.util.List;
  * Die Konstruktionsheuristik wird von der Klasse {@link eu.andredick.aco.ant.ACOAnt} (Ameise) verwendet, um neue Lösungen zu konstruieren.<br>
  * <p><img src="{@docRoot}/images/Construction.svg" alt=""></p>
  */
-public class ConstructionFromSubsets extends AbstractConstructionStrategy<AbstractNextStepStrategy<?>, SCProblem> {
+public class ConstructionFromSubsets extends AbstractConstructionStrategy<AbstractNextStepStrategy<PheromoneOnSubsets, SCPSolution>, SCProblem, SCPSolution> {
 
     /**
      * Konstruktor

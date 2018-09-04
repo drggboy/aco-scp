@@ -62,9 +62,9 @@ public class Structure {
      * @return Liste für Teilmengen, die das Grundelement i überdecken
      */
     private List<Integer> extractSubsetsWithElement(int i) {
-        List<Integer> cols = new ArrayList<Integer>();
+        List<Integer> cols = new ArrayList<>();
         for (int j = 0; j < this.subsetsSize(); j++) {
-            if (relations[i][j] == true) cols.add(j);
+            if (relations[i][j]) cols.add(j);
         }
         return cols;
     }
@@ -77,9 +77,11 @@ public class Structure {
      * @return Liste von Grundelementen, die in der Teilmenge j enthalten sind
      */
     private List<Integer> extractElementsInSubset(int j) {
-        List<Integer> rows = new ArrayList<Integer>();
+        List<Integer> rows = new ArrayList<>();
         for (int i = 0; i < this.elementsSize(); i++) {
-            if (relations[i][j] == true) rows.add(i);
+            if (relations[i][j]) {
+                rows.add(i);
+            }
         }
         return rows;
     }

@@ -2,16 +2,16 @@ package eu.andredick.aco.pheromoneassociation;
 
 import eu.andredick.aco.pheromoneevaporation.AbstractPheromoneEvaporation;
 import eu.andredick.aco.pheromoneinit.AbstractPheromoneInit;
-import eu.andredick.scp.Structure;
+import eu.andredick.aco.problem.AbstractProblem;
 
-public abstract class AbstractPheromoneAssociation {
+public abstract class AbstractPheromoneAssociation<P extends AbstractProblem> {
 
-    protected Structure structure;
+    protected P problem;
     protected AbstractPheromoneEvaporation evaporationRule;
     protected AbstractPheromoneInit pheromoneInitRule;
 
-    public AbstractPheromoneAssociation(Structure structure) {
-        this.structure = structure;
+    public AbstractPheromoneAssociation(P problem) {
+        this.problem = problem;
     }
 
     public abstract void evaporatePheromones();

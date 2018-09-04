@@ -1,9 +1,11 @@
 package eu.andredick.scp;
 
+import eu.andredick.aco.problem.AbstractProblem;
+
 /*
- * Die Klasse repräsentiert das Set Covering Problem.
+ * Die Klasse repräsentiert das Set Covering AbstractProblem.
  */
-public class SCProblem extends Problem {
+public class SCProblem extends AbstractProblem {
 
     /**
      * Name des konkreten Problems

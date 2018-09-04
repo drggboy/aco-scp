@@ -56,9 +56,9 @@ public class OrlibConverter {
 
     /**
      * Die Dateien der Orlib-Instanzen haben unterschiedliches Format
-     * In dieser Methode wird jedem Namen eines Problem-Set ein Format-Converter zugeordnet
+     * In dieser Methode wird jedem Namen eines AbstractProblem-Set ein Format-Converter zugeordnet
      *
-     * @param setName: Name des Problem-Sets
+     * @param setName: Name des AbstractProblem-Sets
      * @return passender Converter
      */
     private static AbstractConverter findConverter(String setName) {

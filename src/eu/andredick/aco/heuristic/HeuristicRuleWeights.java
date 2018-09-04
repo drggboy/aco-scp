@@ -13,7 +13,7 @@ import java.util.List;
  * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
  * <p><img src="{@docRoot}/images/Heuristics.svg" alt=""></p>
  */
-public class HeuristicRuleWeights implements HeuristicRule {
+public class HeuristicRuleWeights implements HeuristicRule<SCPSolution> {
 
     /**
      * Bestimmt die Kosten der Teilmenge <i>subset</i>.<br>
