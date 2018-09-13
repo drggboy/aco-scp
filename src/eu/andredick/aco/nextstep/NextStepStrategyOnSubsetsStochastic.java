@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * <b>Stochastische / probabilistische Alternativenauswahl</b> - Ausprägung der Komponente der Alternativenauswahl<br>
+ * <b>Stochastische / probabilistische Alternativenauswahl</b> - Ausprägung der Komponente der Alternativenauswahl, Pheromonassoziation mit Teilmengen<br>
  * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
  * <br>
  * Die Stochastische Alternativenauswahl bestimmt aus gegebener Alternativen-Menge eine Auswahl mittels einer Zufallszahl {@code 0 <= z <= 1}.
@@ -31,7 +31,7 @@ public class NextStepStrategyOnSubsetsStochastic extends
     /**
      * Konsturktor
      *
-     * @param pheromonesStructure Pheromonassoziation
+     * @param pheromonesStructure Pheromonassoziation mit Teilmengen
      * @param perceptionRule      Pheromon-Wahrnehmung
      * @param heuristics          heuristische Informationen
      * @param combinationRule     Kombinationsfunktion
@@ -61,7 +61,7 @@ public class NextStepStrategyOnSubsetsStochastic extends
         float sumSummands = 0f;
         for (int k = 0; k < summands.length; k++) {
             int subset = availableSubsets.get(k);
-            float ph_k = this.perceptionRule.getValue(this.pheromoneStructure.getPheromone(subset));
+            float ph_k = this.perceptionRule.getPerceptionValue(this.pheromoneStructure.getPheromone(subset));
             float hi_k = this.heuristics.getValue(solution, availableSubsets, subset);
             float summand = this.combinationRule.combine(ph_k, hi_k);
             sumSummands += summand;

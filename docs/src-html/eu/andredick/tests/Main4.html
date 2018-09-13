@@ -14,8 +14,8 @@
 <span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.configuration.AlgorithmConfiguration_Greedy;</a>
 <span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.configuration.AlgorithmConfiguration_Stigmergy;</a>
 <span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.orlib.OrlibConverter;</a>
-<span class="sourceLineNo">008</span><a id="line.8">import eu.andredick.scp.SCProblem;</a>
-<span class="sourceLineNo">009</span><a id="line.9">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">008</span><a id="line.8">import eu.andredick.scp.SCPSolution;</a>
+<span class="sourceLineNo">009</span><a id="line.9">import eu.andredick.scp.SCProblem;</a>
 <span class="sourceLineNo">010</span><a id="line.10">import eu.andredick.tools.ArrayTools;</a>
 <span class="sourceLineNo">011</span><a id="line.11">import org.knowm.xchart.SwingWrapper;</a>
 <span class="sourceLineNo">012</span><a id="line.12">import org.knowm.xchart.XYChart;</a>
@@ -46,7 +46,7 @@
 <span class="sourceLineNo">037</span><a id="line.37">        AbstractAlgorithmConfiguration greedyConfiguration = new AlgorithmConfiguration_Greedy();</a>
 <span class="sourceLineNo">038</span><a id="line.38">        AbstractAlgorithm greedyAlgorithm = greedyConfiguration.create(problem);</a>
 <span class="sourceLineNo">039</span><a id="line.39">        greedyAlgorithm.run();</a>
-<span class="sourceLineNo">040</span><a id="line.40">        Solution greadySolution = greedyAlgorithm.getStatistics().getGlobalMinSolution();</a>
+<span class="sourceLineNo">040</span><a id="line.40">        SCPSolution greadySolution = (SCPSolution) greedyAlgorithm.getStatistics().getGlobalMinSolution();</a>
 <span class="sourceLineNo">041</span><a id="line.41"></a>
 <span class="sourceLineNo">042</span><a id="line.42">        System.out.println("GreadySolution: " + problem.getObjectiveFunction().getValue(greadySolution));</a>
 <span class="sourceLineNo">043</span><a id="line.43">        System.out.println("GreadySolution ist zulässig: " + greadySolution.isPermissible());</a>
@@ -105,7 +105,7 @@
 <span class="sourceLineNo">096</span><a id="line.96">            XYSeries series4 = chart.addSeries("Optimal", null, ArrayTools.getFloatArray( ArrayTools.getMaxValuesOfArrays(values).length, exactValue));</a>
 <span class="sourceLineNo">097</span><a id="line.97">            series4.setMarker(SeriesMarkers.NONE);</a>
 <span class="sourceLineNo">098</span><a id="line.98"></a>
-<span class="sourceLineNo">099</span><a id="line.99">            XYSeries series5 = chart.addSeries("Gready", null, ArrayTools.getFloatArray( ArrayTools.getMaxValuesOfArrays(values).length, problem.getObjectiveFunction().getValue(greadySolution)));</a>
+<span class="sourceLineNo">099</span><a id="line.99">            XYSeries series5 = chart.addSeries("Gready", null, ArrayTools.getFloatArray( ArrayTools.getMaxValuesOfArrays(values).length, problem.getObjectiveFunction().getPerceptionValue(greadySolution)));</a>
 <span class="sourceLineNo">100</span><a id="line.100">            series5.setMarker(SeriesMarkers.NONE);</a>
 <span class="sourceLineNo">101</span><a id="line.101">*/</a>
 <span class="sourceLineNo">102</span><a id="line.102"></a>

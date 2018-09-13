@@ -18,6 +18,9 @@ import java.util.List;
  * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
  * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.<br>
  * <br>
+ * Eine weitere Abhängigkeit besteht von der Komponente Pheromonassoziation (siehe {@link AbstractPheromoneAssociation}.<br>
+ * Um den wahrgenonommenen Pheromonwert bestimmen zu können, wird hierdurch der tatsächliche Pheromonwert ermittelt.
+ * <br>
  * Realisierungen der abstrakten Komponente müssen die Methode {@link #chooseSubset(AbstractSolution, List)} implementieren.
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */

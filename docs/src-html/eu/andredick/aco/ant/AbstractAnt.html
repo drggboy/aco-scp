@@ -9,7 +9,7 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.ant;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
-<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.problem.AbstractSolution;</a>
 <span class="sourceLineNo">004</span><a id="line.4"></a>
 <span class="sourceLineNo">005</span><a id="line.5">/**</a>
 <span class="sourceLineNo">006</span><a id="line.6"> * &lt;b&gt;Abstrakte Klasse für eine Ameise.&lt;/b&gt;&lt;br&gt;</a>
@@ -19,7 +19,7 @@
 <span class="sourceLineNo">010</span><a id="line.10"> * Weil alle Methoden abstrakt sind, dient diese Klassse zur Schnittstellendefinition und kann als Java-Interface realisiert sein.&lt;br&gt;</a>
 <span class="sourceLineNo">011</span><a id="line.11"> * &lt;p&gt;&lt;img src="{@docRoot}/images/ACOAnt.svg" alt=""&gt;&lt;/p&gt;</a>
 <span class="sourceLineNo">012</span><a id="line.12"> */</a>
-<span class="sourceLineNo">013</span><a id="line.13">public abstract class AbstractAnt {</a>
+<span class="sourceLineNo">013</span><a id="line.13">public abstract class AbstractAnt&lt;S extends AbstractSolution&gt; {</a>
 <span class="sourceLineNo">014</span><a id="line.14"></a>
 <span class="sourceLineNo">015</span><a id="line.15">    /**</a>
 <span class="sourceLineNo">016</span><a id="line.16">     * Startet die Konstrukton einer Ameisenlösung.&lt;br&gt;</a>
@@ -62,14 +62,14 @@
 <span class="sourceLineNo">053</span><a id="line.53">     *</a>
 <span class="sourceLineNo">054</span><a id="line.54">     * @return Lösung einer Ameise</a>
 <span class="sourceLineNo">055</span><a id="line.55">     */</a>
-<span class="sourceLineNo">056</span><a id="line.56">    public abstract Solution getSolution();</a>
+<span class="sourceLineNo">056</span><a id="line.56">    public abstract S getSolution();</a>
 <span class="sourceLineNo">057</span><a id="line.57"></a>
 <span class="sourceLineNo">058</span><a id="line.58">    /**</a>
 <span class="sourceLineNo">059</span><a id="line.59">     * Setzt eine Lösung für die Ameise.&lt;br&gt;</a>
 <span class="sourceLineNo">060</span><a id="line.60">     * Die Methode dient dazu, die Lösung einer Ameise mit einer neuen zu überschreiben.</a>
 <span class="sourceLineNo">061</span><a id="line.61">     * @param solution neue Lösung</a>
 <span class="sourceLineNo">062</span><a id="line.62">     */</a>
-<span class="sourceLineNo">063</span><a id="line.63">    public abstract void setSolution(Solution solution);</a>
+<span class="sourceLineNo">063</span><a id="line.63">    public abstract void setSolution(S solution);</a>
 <span class="sourceLineNo">064</span><a id="line.64">}</a>
 
 

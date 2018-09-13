@@ -13,13 +13,13 @@
 <span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.heuristic.HeuristicInfoSet;</a>
 <span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;</a>
 <span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;</a>
-<span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.scp.SCPSolution;</a>
 <span class="sourceLineNo">008</span><a id="line.8"></a>
 <span class="sourceLineNo">009</span><a id="line.9">import java.util.List;</a>
 <span class="sourceLineNo">010</span><a id="line.10">import java.util.concurrent.ThreadLocalRandom;</a>
 <span class="sourceLineNo">011</span><a id="line.11"></a>
 <span class="sourceLineNo">012</span><a id="line.12">/**</a>
-<span class="sourceLineNo">013</span><a id="line.13"> * &lt;b&gt;Gemischte Alternativen-Auswahl&lt;/b&gt; aus stochastischer und deterministischer Alternativenauswahl&lt;br&gt;</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * &lt;b&gt;Gemischte Alternativen-Auswahl&lt;/b&gt; aus stochastischer und deterministischer Alternativenauswahl, Pheromonassoziation mit Teilmengen&lt;br&gt;</a>
 <span class="sourceLineNo">014</span><a id="line.14"> * Kapitel 3.3.5, S. 32, Alternativenauswahl&lt;br&gt;</a>
 <span class="sourceLineNo">015</span><a id="line.15"> * &lt;br&gt;</a>
 <span class="sourceLineNo">016</span><a id="line.16"> * Die Gemischte Alternativenauswahl liefert entweder das Ergebnis der stochastischen</a>
@@ -27,7 +27,7 @@
 <span class="sourceLineNo">018</span><a id="line.18"> * Alternativenauswahl (siehe {@link NextStepStrategyOnSubsetsDeterministic}).&lt;br&gt;</a>
 <span class="sourceLineNo">019</span><a id="line.19"> * Dies wird durch die Realisierung einer Zufallszahl {@code 0.0 &lt;= q &lt;= 1.0} bestimmt, welche in Bezug auf einen</a>
 <span class="sourceLineNo">020</span><a id="line.20"> * festgelegten Parameter {@code q0} entweder unterhalb {@code (q &lt; q0)} oder oberhalb {@code (q0 &lt;= q)} liegt.&lt;br&gt;</a>
-<span class="sourceLineNo">021</span><a id="line.21"> * Die Komponente besitzt einen Parameter.&lt;br&gt;</a>
+<span class="sourceLineNo">021</span><a id="line.21"> * Die Komponente besitzt also einen Parameter.&lt;br&gt;</a>
 <span class="sourceLineNo">022</span><a id="line.22"> * &lt;br&gt;</a>
 <span class="sourceLineNo">023</span><a id="line.23"> * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link eu.andredick.aco.construct.AbstractConstructionStrategy}</a>
 <span class="sourceLineNo">024</span><a id="line.24"> * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.&lt;br&gt;</a>
@@ -37,7 +37,7 @@
 <span class="sourceLineNo">028</span><a id="line.28"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Nextstep.svg" alt=""&gt;&lt;/p&gt;</a>
 <span class="sourceLineNo">029</span><a id="line.29"> */</a>
 <span class="sourceLineNo">030</span><a id="line.30">public class NextStepStrategyOnSubsets extends</a>
-<span class="sourceLineNo">031</span><a id="line.31">        AbstractNextStepStrategy&lt;PheromoneOnSubsets&gt; {</a>
+<span class="sourceLineNo">031</span><a id="line.31">        AbstractNextStepStrategy&lt;PheromoneOnSubsets, SCPSolution&gt; {</a>
 <span class="sourceLineNo">032</span><a id="line.32"></a>
 <span class="sourceLineNo">033</span><a id="line.33">    /**</a>
 <span class="sourceLineNo">034</span><a id="line.34">     * Deterministische Alternativenauswahl (Referenz auf ein eigenes Objekt)</a>
@@ -58,7 +58,7 @@
 <span class="sourceLineNo">048</span><a id="line.48">    /**</a>
 <span class="sourceLineNo">049</span><a id="line.49">     * Konsturktor</a>
 <span class="sourceLineNo">050</span><a id="line.50">     *</a>
-<span class="sourceLineNo">051</span><a id="line.51">     * @param pheromonesStructure Pheromonassoziation</a>
+<span class="sourceLineNo">051</span><a id="line.51">     * @param pheromonesStructure Pheromonassoziation mit Teilmengen</a>
 <span class="sourceLineNo">052</span><a id="line.52">     * @param perceptionRule      Pheromon-Wahrnehmung</a>
 <span class="sourceLineNo">053</span><a id="line.53">     * @param heuristics          heuristische Informationen</a>
 <span class="sourceLineNo">054</span><a id="line.54">     * @param combinationRule     Kombinationsfunktion</a>
@@ -92,7 +92,7 @@
 <span class="sourceLineNo">081</span><a id="line.81">     * @return Ergebnis der Auswahl</a>
 <span class="sourceLineNo">082</span><a id="line.82">     */</a>
 <span class="sourceLineNo">083</span><a id="line.83">    @Override</a>
-<span class="sourceLineNo">084</span><a id="line.84">    public Integer chooseSubset(Solution solution, List&lt;Integer&gt; availableSubsets) {</a>
+<span class="sourceLineNo">084</span><a id="line.84">    public Integer chooseSubset(SCPSolution solution, List&lt;Integer&gt; availableSubsets) {</a>
 <span class="sourceLineNo">085</span><a id="line.85"></a>
 <span class="sourceLineNo">086</span><a id="line.86">        // Zufallszahl 0.0 &lt;= q &lt;= 1.0 erzeugen</a>
 <span class="sourceLineNo">087</span><a id="line.87">        float q = ThreadLocalRandom.current().nextFloat();</a>

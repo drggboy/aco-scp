@@ -9,7 +9,7 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.heuristic;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
-<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.problem.AbstractSolution;</a>
 <span class="sourceLineNo">004</span><a id="line.4"></a>
 <span class="sourceLineNo">005</span><a id="line.5">import java.util.ArrayList;</a>
 <span class="sourceLineNo">006</span><a id="line.6">import java.util.List;</a>
@@ -23,7 +23,7 @@
 <span class="sourceLineNo">014</span><a id="line.14"> * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).&lt;br&gt;</a>
 <span class="sourceLineNo">015</span><a id="line.15"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Heuristics.svg" alt=""&gt;&lt;/p&gt;</a>
 <span class="sourceLineNo">016</span><a id="line.16"> */</a>
-<span class="sourceLineNo">017</span><a id="line.17">public class HeuristicInfoSet implements HeuristicRule {</a>
+<span class="sourceLineNo">017</span><a id="line.17">public class HeuristicInfoSet&lt;S extends AbstractSolution&gt; implements HeuristicRule&lt;S&gt; {</a>
 <span class="sourceLineNo">018</span><a id="line.18"></a>
 <span class="sourceLineNo">019</span><a id="line.19">    /**</a>
 <span class="sourceLineNo">020</span><a id="line.20">     * Menge von Ausprägungen der Komponente Heuristischer Informationen</a>
@@ -55,7 +55,7 @@
 <span class="sourceLineNo">046</span><a id="line.46">     * @param subset           Alternative, für die die Heuristischen Informationen geliefert werden sollen</a>
 <span class="sourceLineNo">047</span><a id="line.47">     * @return Wert der Heuristischen Informationen</a>
 <span class="sourceLineNo">048</span><a id="line.48">     */</a>
-<span class="sourceLineNo">049</span><a id="line.49">    public float getValue(Solution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</a>
+<span class="sourceLineNo">049</span><a id="line.49">    public float getValue(S solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</a>
 <span class="sourceLineNo">050</span><a id="line.50">        float product = 1;</a>
 <span class="sourceLineNo">051</span><a id="line.51">        for (HeuristicRule rule : rules) {</a>
 <span class="sourceLineNo">052</span><a id="line.52">            product *= rule.getValue(solution, availableSubsets, subset);</a>

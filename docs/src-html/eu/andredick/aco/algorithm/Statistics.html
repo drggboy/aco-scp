@@ -9,7 +9,7 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.algorithm;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
-<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.problem.AbstractSolution;</a>
 <span class="sourceLineNo">004</span><a id="line.4"></a>
 <span class="sourceLineNo">005</span><a id="line.5">import java.util.ArrayList;</a>
 <span class="sourceLineNo">006</span><a id="line.6"></a>
@@ -43,7 +43,7 @@
 <span class="sourceLineNo">034</span><a id="line.34">    /**</a>
 <span class="sourceLineNo">035</span><a id="line.35">     * Lösung des niedrigsten Zielfunktionswertes aller Iterationen</a>
 <span class="sourceLineNo">036</span><a id="line.36">     */</a>
-<span class="sourceLineNo">037</span><a id="line.37">    private Solution globalMinSolution;</a>
+<span class="sourceLineNo">037</span><a id="line.37">    private AbstractSolution globalMinSolution;</a>
 <span class="sourceLineNo">038</span><a id="line.38"></a>
 <span class="sourceLineNo">039</span><a id="line.39">    /**</a>
 <span class="sourceLineNo">040</span><a id="line.40">     * Konstruktor</a>
@@ -67,7 +67,7 @@
 <span class="sourceLineNo">058</span><a id="line.58">     *</a>
 <span class="sourceLineNo">059</span><a id="line.59">     * @return Lösung des niedrigsten Zielfunktionswertes aller Iterationen</a>
 <span class="sourceLineNo">060</span><a id="line.60">     */</a>
-<span class="sourceLineNo">061</span><a id="line.61">    public Solution getGlobalMinSolution() {</a>
+<span class="sourceLineNo">061</span><a id="line.61">    public AbstractSolution getGlobalMinSolution() {</a>
 <span class="sourceLineNo">062</span><a id="line.62">        return globalMinSolution;</a>
 <span class="sourceLineNo">063</span><a id="line.63">    }</a>
 <span class="sourceLineNo">064</span><a id="line.64"></a>
@@ -99,7 +99,7 @@
 <span class="sourceLineNo">090</span><a id="line.90">     * @param value     Zielfunktionswert</a>
 <span class="sourceLineNo">091</span><a id="line.91">     * @param solution  zugehöriger Lösung</a>
 <span class="sourceLineNo">092</span><a id="line.92">     */</a>
-<span class="sourceLineNo">093</span><a id="line.93">    public void setValue(int iteration, float value, Solution solution) {</a>
+<span class="sourceLineNo">093</span><a id="line.93">    public void setValue(int iteration, float value, AbstractSolution solution) {</a>
 <span class="sourceLineNo">094</span><a id="line.94">        if (this.setIterationMinValue(iteration, value, solution)) {</a>
 <span class="sourceLineNo">095</span><a id="line.95">            this.setGlobalMinValue(value, solution);</a>
 <span class="sourceLineNo">096</span><a id="line.96">        }</a>
@@ -116,7 +116,7 @@
 <span class="sourceLineNo">107</span><a id="line.107">     * @param solution  zugehöriger Lösung</a>
 <span class="sourceLineNo">108</span><a id="line.108">     * @return Wahr, wenn das Setzen erfolgreich war</a>
 <span class="sourceLineNo">109</span><a id="line.109">     */</a>
-<span class="sourceLineNo">110</span><a id="line.110">    private boolean setIterationMinValue(int iteration, float value, Solution solution) {</a>
+<span class="sourceLineNo">110</span><a id="line.110">    private boolean setIterationMinValue(int iteration, float value, AbstractSolution solution) {</a>
 <span class="sourceLineNo">111</span><a id="line.111">        Float oldValue = null;</a>
 <span class="sourceLineNo">112</span><a id="line.112">        try {</a>
 <span class="sourceLineNo">113</span><a id="line.113">            oldValue = iterationMinValues.get(iteration);</a>
@@ -140,7 +140,7 @@
 <span class="sourceLineNo">131</span><a id="line.131">     * @param solution  zugehöriger Lösung</a>
 <span class="sourceLineNo">132</span><a id="line.132">     * @return Wahr, wenn das Setzen erfolgreich war</a>
 <span class="sourceLineNo">133</span><a id="line.133">     */</a>
-<span class="sourceLineNo">134</span><a id="line.134">    private boolean setIterationMaxValue(int iteration, float value, Solution solution) {</a>
+<span class="sourceLineNo">134</span><a id="line.134">    private boolean setIterationMaxValue(int iteration, float value, AbstractSolution solution) {</a>
 <span class="sourceLineNo">135</span><a id="line.135">        Float oldValue = null;</a>
 <span class="sourceLineNo">136</span><a id="line.136">        try {</a>
 <span class="sourceLineNo">137</span><a id="line.137">            oldValue = iterationMaxValues.get(iteration);</a>
@@ -163,7 +163,7 @@
 <span class="sourceLineNo">154</span><a id="line.154">     * @param solution zugehöriger Lösung</a>
 <span class="sourceLineNo">155</span><a id="line.155">     * @return Wahr, wenn das Setzen erfolgreich war</a>
 <span class="sourceLineNo">156</span><a id="line.156">     */</a>
-<span class="sourceLineNo">157</span><a id="line.157">    private boolean setGlobalMaxValue(float value, Solution solution) {</a>
+<span class="sourceLineNo">157</span><a id="line.157">    private boolean setGlobalMaxValue(float value, AbstractSolution solution) {</a>
 <span class="sourceLineNo">158</span><a id="line.158">        if (this.globalMaxValue == null || value &gt; this.globalMaxValue) {</a>
 <span class="sourceLineNo">159</span><a id="line.159">            this.globalMaxValue = value;</a>
 <span class="sourceLineNo">160</span><a id="line.160">            return true;</a>
@@ -178,7 +178,7 @@
 <span class="sourceLineNo">169</span><a id="line.169">     * @param solution zugehöriger Lösung</a>
 <span class="sourceLineNo">170</span><a id="line.170">     * @return Wahr, wenn das Setzen erfolgreich war</a>
 <span class="sourceLineNo">171</span><a id="line.171">     */</a>
-<span class="sourceLineNo">172</span><a id="line.172">    private boolean setGlobalMinValue(float value, Solution solution) {</a>
+<span class="sourceLineNo">172</span><a id="line.172">    private boolean setGlobalMinValue(float value, AbstractSolution solution) {</a>
 <span class="sourceLineNo">173</span><a id="line.173">        if (this.globalMinValue == null || value &lt; this.globalMinValue) {</a>
 <span class="sourceLineNo">174</span><a id="line.174">            this.globalMinValue = value;</a>
 <span class="sourceLineNo">175</span><a id="line.175">            this.globalMinSolution = solution;</a>

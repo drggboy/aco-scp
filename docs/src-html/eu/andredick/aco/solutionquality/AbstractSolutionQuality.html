@@ -9,21 +9,21 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.solutionquality;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
-<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.problem.AbstractSolution;</a>
 <span class="sourceLineNo">004</span><a id="line.4"></a>
 <span class="sourceLineNo">005</span><a id="line.5">/**</a>
 <span class="sourceLineNo">006</span><a id="line.6"> * Kapitel 3.3.12 &lt;br&gt;</a>
 <span class="sourceLineNo">007</span><a id="line.7"> * Abstrakte Gütefunktion für Lösungen &lt;br&gt;</a>
 <span class="sourceLineNo">008</span><a id="line.8"> * Die abstrakte Komponente Gütefunktion wird von der Komponente PheromoneUpdate (Pheromon-Markierung) verwendet. &lt;br&gt;</a>
 <span class="sourceLineNo">009</span><a id="line.9"> */</a>
-<span class="sourceLineNo">010</span><a id="line.10">public abstract class AbstractSolutionQuality {</a>
+<span class="sourceLineNo">010</span><a id="line.10">public abstract class AbstractSolutionQuality&lt;S extends AbstractSolution&gt; {</a>
 <span class="sourceLineNo">011</span><a id="line.11"></a>
 <span class="sourceLineNo">012</span><a id="line.12">    /**</a>
 <span class="sourceLineNo">013</span><a id="line.13">     * Liefert die Güte der Lösung</a>
 <span class="sourceLineNo">014</span><a id="line.14">     * @param solution zu bewertende Lösung</a>
 <span class="sourceLineNo">015</span><a id="line.15">     * @return Güte der Lösung</a>
 <span class="sourceLineNo">016</span><a id="line.16">     */</a>
-<span class="sourceLineNo">017</span><a id="line.17">    public abstract float getQuality(Solution solution);</a>
+<span class="sourceLineNo">017</span><a id="line.17">    public abstract float getQuality(S solution);</a>
 <span class="sourceLineNo">018</span><a id="line.18"></a>
 <span class="sourceLineNo">019</span><a id="line.19">}</a>
 

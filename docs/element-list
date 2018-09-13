@@ -13,6 +13,7 @@ eu.andredick.aco.pheromoneevaporation
 eu.andredick.aco.pheromoneinit
 eu.andredick.aco.pheromoneperception
 eu.andredick.aco.pheromoneupdate
+eu.andredick.aco.problem
 eu.andredick.aco.solutionquality
 eu.andredick.aco.termination
 eu.andredick.configuration

@@ -11,36 +11,108 @@
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.pheromoneevaporation.AbstractPheromoneEvaporation;</a>
 <span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.pheromoneinit.AbstractPheromoneInit;</a>
-<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.scp.Structure;</a>
-<span class="sourceLineNo">006</span><a id="line.6"></a>
-<span class="sourceLineNo">007</span><a id="line.7">public abstract class AbstractPheromoneAssociation {</a>
+<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;</a>
+<span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.aco.problem.AbstractProblem;</a>
+<span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.aco.nextstep.AbstractNextStepStrategy;</a>
 <span class="sourceLineNo">008</span><a id="line.8"></a>
-<span class="sourceLineNo">009</span><a id="line.9">    protected Structure structure;</a>
-<span class="sourceLineNo">010</span><a id="line.10">    protected AbstractPheromoneEvaporation evaporationRule;</a>
-<span class="sourceLineNo">011</span><a id="line.11">    protected AbstractPheromoneInit pheromoneInitRule;</a>
-<span class="sourceLineNo">012</span><a id="line.12"></a>
-<span class="sourceLineNo">013</span><a id="line.13">    public AbstractPheromoneAssociation(Structure structure) {</a>
-<span class="sourceLineNo">014</span><a id="line.14">        this.structure = structure;</a>
-<span class="sourceLineNo">015</span><a id="line.15">    }</a>
-<span class="sourceLineNo">016</span><a id="line.16"></a>
-<span class="sourceLineNo">017</span><a id="line.17">    public abstract void evaporatePheromones();</a>
-<span class="sourceLineNo">018</span><a id="line.18"></a>
-<span class="sourceLineNo">019</span><a id="line.19">    public abstract void initPheromones();</a>
-<span class="sourceLineNo">020</span><a id="line.20"></a>
-<span class="sourceLineNo">021</span><a id="line.21">    public void setEvaporationRule(AbstractPheromoneEvaporation evaporationRule) {</a>
-<span class="sourceLineNo">022</span><a id="line.22">        this.evaporationRule = evaporationRule;</a>
-<span class="sourceLineNo">023</span><a id="line.23">    }</a>
-<span class="sourceLineNo">024</span><a id="line.24"></a>
-<span class="sourceLineNo">025</span><a id="line.25">    public void setPheromoneInitRule(AbstractPheromoneInit pheromoneInitRule) {</a>
-<span class="sourceLineNo">026</span><a id="line.26">        this.pheromoneInitRule = pheromoneInitRule;</a>
-<span class="sourceLineNo">027</span><a id="line.27">    }</a>
-<span class="sourceLineNo">028</span><a id="line.28"></a>
-<span class="sourceLineNo">029</span><a id="line.29">    public abstract float getPheromone(int i);</a>
-<span class="sourceLineNo">030</span><a id="line.30"></a>
-<span class="sourceLineNo">031</span><a id="line.31"></a>
-<span class="sourceLineNo">032</span><a id="line.32">    public abstract void addPheromone(int i, float ph_delta);</a>
+<span class="sourceLineNo">009</span><a id="line.9">/**</a>
+<span class="sourceLineNo">010</span><a id="line.10"> * &lt;b&gt;Abstrakte Komponente der Pheromonassoziation&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">011</span><a id="line.11"> * Kapitel 3.3.1, S. 24, Pheromon-Assoziation&lt;br&gt;</a>
+<span class="sourceLineNo">012</span><a id="line.12"> * &lt;br&gt;</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * Das mit den Entitäten eines konkreten Problems assoziierte Pheromon kann als ein Layer betrachtet werden,&lt;br&gt;</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * welchem bestimmte Regeln (Pheromon-Evaporation und Pheromon-Initiierung) zugeordnet sind.&lt;br&gt;</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * Die Pheromonassoziation ordnet den Entitäten eines konkreten Problems Pheromonkonzentrationen zu.&lt;br&gt;</a>
+<span class="sourceLineNo">016</span><a id="line.16"> * Daher ist jede Ausprägung der Pheromonassoziation einer bestimmten Ausprägung eines Problems zugewiesen.&lt;br&gt;</a>
+<span class="sourceLineNo">017</span><a id="line.17"> * Diese Abhängigkeit wird durch die Generische Programmierung {@code &lt;P extends AbstractProblem&gt;} realisiert.&lt;br&gt;</a>
+<span class="sourceLineNo">018</span><a id="line.18"> * Bei der Ableitung ist damit festzulegen, mit welchem konkreten Problem die Pheromonassoziation besteht.&lt;br&gt;</a>
+<span class="sourceLineNo">019</span><a id="line.19"> * &lt;br&gt;</a>
+<span class="sourceLineNo">020</span><a
+            id="line.20"> * Die Pheromonassoziation wird in folgenden Komponenten benötigt:</a>
+<span class="sourceLineNo">021</span><a id="line.21"> * &lt;ul&gt;</a>
+<span class="sourceLineNo">022</span><a id="line.22"> * &lt;li&gt;Pheromon-Initiierung {@link AbstractPheromoneInit}&lt;/li&gt;</a>
+<span class="sourceLineNo">023</span><a id="line.23"> * &lt;li&gt;Pheromon-Evaporation {@link AbstractPheromoneEvaporation}&lt;/li&gt;</a>
+<span class="sourceLineNo">024</span><a id="line.24"> * &lt;li&gt;Alternativen-Auswahl {@link AbstractNextStepStrategy}&lt;/li&gt;</a>
+<span class="sourceLineNo">025</span><a id="line.25"> * &lt;li&gt;Pheromon-Markierung  {@link AbstractPheromoneUpdate}&lt;/li&gt;</a>
+<span class="sourceLineNo">026</span><a id="line.26"> * &lt;/ul&gt;</a>
+<span class="sourceLineNo">027</span><a id="line.27"> * &lt;br&gt;</a>
+<span class="sourceLineNo">028</span><a id="line.28"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneAssociation-a.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">029</span><a id="line.29"> * &lt;br&gt;</a>
+<span class="sourceLineNo">030</span><a id="line.30"> * @param &lt;P&gt; Konkretisierte Klasse des Problems</a>
+<span class="sourceLineNo">031</span><a id="line.31"> */</a>
+<span class="sourceLineNo">032</span><a id="line.32">public abstract class AbstractPheromoneAssociation&lt;P extends AbstractProblem&gt; {</a>
 <span class="sourceLineNo">033</span><a id="line.33"></a>
-<span class="sourceLineNo">034</span><a id="line.34">}</a>
+<span class="sourceLineNo">034</span><a id="line.34">    /**</a>
+<span class="sourceLineNo">035</span><a id="line.35">     * Ausprägung eines Problems, dessen Entitäten mit Pheromon assoziiert sind</a>
+<span class="sourceLineNo">036</span><a id="line.36">     */</a>
+<span class="sourceLineNo">037</span><a id="line.37">    protected P problem;</a>
+<span class="sourceLineNo">038</span><a id="line.38"></a>
+<span class="sourceLineNo">039</span><a id="line.39">    /**</a>
+<span class="sourceLineNo">040</span><a id="line.40">     * Ausprägung der Pheromon-Evaporation</a>
+<span class="sourceLineNo">041</span><a id="line.41">     */</a>
+<span class="sourceLineNo">042</span><a id="line.42">    protected AbstractPheromoneEvaporation evaporationRule;</a>
+<span class="sourceLineNo">043</span><a id="line.43"></a>
+<span class="sourceLineNo">044</span><a id="line.44">    /**</a>
+<span class="sourceLineNo">045</span><a id="line.45">     * Ausprägung der Pheromon-Initiierung</a>
+<span class="sourceLineNo">046</span><a id="line.46">     */</a>
+<span class="sourceLineNo">047</span><a id="line.47">    protected AbstractPheromoneInit pheromoneInitRule;</a>
+<span class="sourceLineNo">048</span><a id="line.48"></a>
+<span class="sourceLineNo">049</span><a id="line.49">    /**</a>
+<span class="sourceLineNo">050</span><a id="line.50">     * Konstruktor</a>
+<span class="sourceLineNo">051</span><a id="line.51">     *</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * @param problem Das Problem, auf dessen Entitäten Pheromon abgelagert werden soll (Instanz)</a>
+<span class="sourceLineNo">053</span><a id="line.53">     */</a>
+<span class="sourceLineNo">054</span><a id="line.54">    public AbstractPheromoneAssociation(P problem) {</a>
+<span class="sourceLineNo">055</span><a id="line.55">        this.problem = problem;</a>
+<span class="sourceLineNo">056</span><a id="line.56">    }</a>
+<span class="sourceLineNo">057</span><a id="line.57"></a>
+<span class="sourceLineNo">058</span><a id="line.58">    /**</a>
+<span class="sourceLineNo">059</span><a id="line.59">     * Startet einen Zeitschritt der Evaporation des gesamten Pheromons.&lt;br&gt;</a>
+<span class="sourceLineNo">060</span><a id="line.60">     * Alle Pheromon-Konzentrationen sollen mittels der Evaporations-Regel {@link #evaporationRule} angepasst werden.&lt;br&gt;</a>
+<span class="sourceLineNo">061</span><a id="line.61">     *</a>
+<span class="sourceLineNo">062</span><a id="line.62">     */</a>
+<span class="sourceLineNo">063</span><a id="line.63">    public abstract void evaporatePheromones();</a>
+<span class="sourceLineNo">064</span><a id="line.64"></a>
+<span class="sourceLineNo">065</span><a id="line.65">    /**</a>
+<span class="sourceLineNo">066</span><a id="line.66">     * Initiiert die Pheromon-Konszentrationen für alle Entitäten des Problems mittels der Regel für die Initiierung {@link #pheromoneInitRule}.&lt;br&gt;</a>
+<span class="sourceLineNo">067</span><a id="line.67">     * Diese Methode stellt den Anfangszustand des gesamten Pheromons her, welcher beim Start des ACO-Algorithmus bestehen soll.</a>
+<span class="sourceLineNo">068</span><a id="line.68">     */</a>
+<span class="sourceLineNo">069</span><a id="line.69">    public abstract void initPheromones();</a>
+<span class="sourceLineNo">070</span><a id="line.70"></a>
+<span class="sourceLineNo">071</span><a id="line.71">    /**</a>
+<span class="sourceLineNo">072</span><a id="line.72">     * Liefert die mit der Entität j des Problems assoziierte Pheromon-Konzentration</a>
+<span class="sourceLineNo">073</span><a id="line.73">     * @param j Index der Entität des Problems</a>
+<span class="sourceLineNo">074</span><a id="line.74">     * @return Pheromonkonzentration, die mit der Entität j des Problems assoziiert ist</a>
+<span class="sourceLineNo">075</span><a id="line.75">     */</a>
+<span class="sourceLineNo">076</span><a id="line.76">    public abstract float getPheromone(int j);</a>
+<span class="sourceLineNo">077</span><a id="line.77"></a>
+<span class="sourceLineNo">078</span><a id="line.78"></a>
+<span class="sourceLineNo">079</span><a id="line.79">    /**</a>
+<span class="sourceLineNo">080</span><a
+            id="line.80">     * Fügt zusätzlichen Pheromon zum Bestehenden hinzu.&lt;br&gt;</a>
+<span class="sourceLineNo">081</span><a id="line.81">     * Diese Methode wird in der Komponente Pheromon-Markierung ({@link AbstractPheromoneUpdate}) verwendet.</a>
+<span class="sourceLineNo">082</span><a id="line.82">     * @param j        Index der Entität des Problems.</a>
+<span class="sourceLineNo">083</span><a id="line.83">     * @param ph_delta Zugabe der Pheromon-Konzentration</a>
+<span class="sourceLineNo">084</span><a id="line.84">     */</a>
+<span class="sourceLineNo">085</span><a id="line.85">    public abstract void addPheromone(int j, float ph_delta);</a>
+<span class="sourceLineNo">086</span><a id="line.86"></a>
+<span class="sourceLineNo">087</span><a id="line.87">    /**</a>
+<span class="sourceLineNo">088</span><a id="line.88">     * Setter-Methode für Ausprägung der Pheromon-Evaporation</a>
+<span class="sourceLineNo">089</span><a id="line.89">     * @param evaporationRule Pheromon-Evaporation</a>
+<span class="sourceLineNo">090</span><a id="line.90">     */</a>
+<span class="sourceLineNo">091</span><a id="line.91">    public void setEvaporationRule(AbstractPheromoneEvaporation evaporationRule) {</a>
+<span class="sourceLineNo">092</span><a id="line.92">        this.evaporationRule = evaporationRule;</a>
+<span class="sourceLineNo">093</span><a id="line.93">    }</a>
+<span class="sourceLineNo">094</span><a id="line.94"></a>
+<span class="sourceLineNo">095</span><a id="line.95">    /**</a>
+<span class="sourceLineNo">096</span><a id="line.96">     * Setter-Methode für Ausprägung der Pheromon-Initiierung</a>
+<span class="sourceLineNo">097</span><a id="line.97">     * @param pheromoneInitRule Pheromon-Initiierung</a>
+<span class="sourceLineNo">098</span><a id="line.98">     */</a>
+<span class="sourceLineNo">099</span><a id="line.99">    public void setPheromoneInitRule(AbstractPheromoneInit pheromoneInitRule) {</a>
+<span class="sourceLineNo">100</span><a id="line.100">        this.pheromoneInitRule = pheromoneInitRule;</a>
+<span class="sourceLineNo">101</span><a id="line.101">    }</a>
+<span class="sourceLineNo">102</span><a id="line.102"></a>
+<span class="sourceLineNo">103</span><a id="line.103"></a>
+<span class="sourceLineNo">104</span><a id="line.104">}</a>
 
 
 

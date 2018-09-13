@@ -10,7 +10,7 @@
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.heuristic;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.scp.ObjectiveFunction;</a>
-<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.scp.SCPSolution;</a>
 <span class="sourceLineNo">005</span><a id="line.5"></a>
 <span class="sourceLineNo">006</span><a id="line.6">import java.util.List;</a>
 <span class="sourceLineNo">007</span><a id="line.7"></a>
@@ -22,7 +22,7 @@
 <span class="sourceLineNo">013</span><a id="line.13"> * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).&lt;br&gt;</a>
 <span class="sourceLineNo">014</span><a id="line.14"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Heuristics.svg" alt=""&gt;&lt;/p&gt;</a>
 <span class="sourceLineNo">015</span><a id="line.15"> */</a>
-<span class="sourceLineNo">016</span><a id="line.16">public class HeuristicRuleWeights implements HeuristicRule {</a>
+<span class="sourceLineNo">016</span><a id="line.16">public class HeuristicRuleWeights implements HeuristicRule&lt;SCPSolution&gt; {</a>
 <span class="sourceLineNo">017</span><a id="line.17"></a>
 <span class="sourceLineNo">018</span><a id="line.18">    /**</a>
 <span class="sourceLineNo">019</span><a id="line.19">     * Bestimmt die Kosten der Teilmenge &lt;i&gt;subset&lt;/i&gt;.&lt;br&gt;</a>
@@ -35,7 +35,7 @@
 <span class="sourceLineNo">026</span><a id="line.26">     * @return Kosten der Teilmenge</a>
 <span class="sourceLineNo">027</span><a id="line.27">     */</a>
 <span class="sourceLineNo">028</span><a id="line.28">    @Override</a>
-<span class="sourceLineNo">029</span><a id="line.29">    public float getValue(Solution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</a>
+<span class="sourceLineNo">029</span><a id="line.29">    public float getValue(SCPSolution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</a>
 <span class="sourceLineNo">030</span><a id="line.30"></a>
 <span class="sourceLineNo">031</span><a id="line.31">        return 1f / solution.getProblem().getObjectiveFunction().getWeights()[subset];</a>
 <span class="sourceLineNo">032</span><a id="line.32"></a>

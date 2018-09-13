@@ -13,7 +13,7 @@
 <span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.heuristic.HeuristicInfoSet;</a>
 <span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;</a>
 <span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;</a>
-<span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.aco.problem.AbstractSolution;</a>
 <span class="sourceLineNo">008</span><a id="line.8"></a>
 <span class="sourceLineNo">009</span><a id="line.9">import java.util.List;</a>
 <span class="sourceLineNo">010</span><a id="line.10"></a>
@@ -27,59 +27,62 @@
 <span class="sourceLineNo">018</span><a id="line.18"> * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.&lt;br&gt;</a>
 <span class="sourceLineNo">019</span><a id="line.19"> * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.&lt;br&gt;</a>
 <span class="sourceLineNo">020</span><a id="line.20"> * &lt;br&gt;</a>
-<span class="sourceLineNo">021</span><a id="line.21"> * Realisierungen der abstrakten Komponente müssen die Methode {@link #chooseSubset(Solution, List)} implementieren.</a>
-<span class="sourceLineNo">022</span><a id="line.22"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Nextstep.svg" alt=""&gt;&lt;/p&gt;</a>
-<span class="sourceLineNo">023</span><a id="line.23"> */</a>
-<span class="sourceLineNo">024</span><a id="line.24">public abstract class AbstractNextStepStrategy&lt;E extends AbstractPheromoneAssociation&gt; {</a>
-<span class="sourceLineNo">025</span><a id="line.25"></a>
-<span class="sourceLineNo">026</span><a id="line.26">    /**</a>
-<span class="sourceLineNo">027</span><a id="line.27">     * Pheromonassoziation mit dem zu lösenden Problem</a>
-<span class="sourceLineNo">028</span><a id="line.28">     */</a>
-<span class="sourceLineNo">029</span><a id="line.29">    protected E pheromoneStructure;</a>
-<span class="sourceLineNo">030</span><a id="line.30">    /**</a>
-<span class="sourceLineNo">031</span><a id="line.31">     * Pheromon-Wahrnehmung</a>
-<span class="sourceLineNo">032</span><a id="line.32">     */</a>
-<span class="sourceLineNo">033</span><a id="line.33">    protected AbstractPheromonePerception perceptionRule;</a>
-<span class="sourceLineNo">034</span><a id="line.34">    /**</a>
-<span class="sourceLineNo">035</span><a id="line.35">     * Menge Heuristischer Informationen</a>
-<span class="sourceLineNo">036</span><a id="line.36">     */</a>
-<span class="sourceLineNo">037</span><a id="line.37">    protected HeuristicInfoSet heuristics;</a>
-<span class="sourceLineNo">038</span><a id="line.38">    /**</a>
-<span class="sourceLineNo">039</span><a id="line.39">     * Kombinationsfunktion (kombiniert die Werte der Pheromon-Wahrnehmung und der Heuristischen Informationen)</a>
-<span class="sourceLineNo">040</span><a id="line.40">     */</a>
-<span class="sourceLineNo">041</span><a id="line.41">    protected CombinationRule combinationRule;</a>
-<span class="sourceLineNo">042</span><a id="line.42"></a>
-<span class="sourceLineNo">043</span><a id="line.43"></a>
-<span class="sourceLineNo">044</span><a id="line.44">    /**</a>
-<span class="sourceLineNo">045</span><a id="line.45">     * Konsturktor</a>
-<span class="sourceLineNo">046</span><a id="line.46">     *</a>
-<span class="sourceLineNo">047</span><a id="line.47">     * @param pheromoneStructure Pheromonassoziation</a>
-<span class="sourceLineNo">048</span><a id="line.48">     * @param perceptionRule     Pheromon-Wahrnehmung</a>
-<span class="sourceLineNo">049</span><a id="line.49">     * @param heuristics         heuristische Informationen</a>
-<span class="sourceLineNo">050</span><a id="line.50">     * @param combinationRule    Kombinationsfunktion</a>
-<span class="sourceLineNo">051</span><a id="line.51">     */</a>
-<span class="sourceLineNo">052</span><a id="line.52">    public AbstractNextStepStrategy(E pheromoneStructure,</a>
-<span class="sourceLineNo">053</span><a id="line.53">                                    AbstractPheromonePerception perceptionRule,</a>
-<span class="sourceLineNo">054</span><a
-            id="line.54">                                    HeuristicInfoSet heuristics,</a>
-<span class="sourceLineNo">055</span><a id="line.55">                                    CombinationRule combinationRule) {</a>
-<span class="sourceLineNo">056</span><a id="line.56"></a>
-<span class="sourceLineNo">057</span><a id="line.57">        this.pheromoneStructure = pheromoneStructure;</a>
-<span class="sourceLineNo">058</span><a id="line.58">        this.perceptionRule = perceptionRule;</a>
-<span class="sourceLineNo">059</span><a id="line.59">        this.heuristics = heuristics;</a>
-<span class="sourceLineNo">060</span><a id="line.60">        this.combinationRule = combinationRule;</a>
-<span class="sourceLineNo">061</span><a id="line.61">    }</a>
-<span class="sourceLineNo">062</span><a id="line.62"></a>
-<span class="sourceLineNo">063</span><a id="line.63">    /**</a>
-<span class="sourceLineNo">064</span><a id="line.64">     * Abstrakte Methode zur Auswahl einer Alternative aus einer gegebenen Menge.&lt;br&gt;</a>
-<span class="sourceLineNo">065</span><a id="line.65">     * Schnittstelle zur Konstruktionsheuristik ({@link eu.andredick.aco.construct.AbstractConstructionStrategy}).&lt;br&gt;</a>
-<span class="sourceLineNo">066</span><a id="line.66">     *</a>
-<span class="sourceLineNo">067</span><a id="line.67">     * @param solution         partiale Lösung der Ameise</a>
-<span class="sourceLineNo">068</span><a id="line.68">     * @param availableSubsets verfügbare Alternativen</a>
-<span class="sourceLineNo">069</span><a id="line.69">     * @return gewählte Alternative</a>
-<span class="sourceLineNo">070</span><a id="line.70">     */</a>
-<span class="sourceLineNo">071</span><a id="line.71">    public abstract Integer chooseSubset(Solution solution, List&lt;Integer&gt; availableSubsets);</a>
-<span class="sourceLineNo">072</span><a id="line.72">}</a>
+<span class="sourceLineNo">021</span><a id="line.21"> * Eine weitere Abhängigkeit besteht von der Komponente Pheromonassoziation (siehe {@link AbstractPheromoneAssociation}.&lt;br&gt;</a>
+<span class="sourceLineNo">022</span><a id="line.22"> * Um den wahrgenonommenen Pheromonwert bestimmen zu können, wird hierdurch der tatsächliche Pheromonwert ermittelt.</a>
+<span class="sourceLineNo">023</span><a id="line.23"> * &lt;br&gt;</a>
+<span class="sourceLineNo">024</span><a id="line.24"> * Realisierungen der abstrakten Komponente müssen die Methode {@link #chooseSubset(AbstractSolution, List)} implementieren.</a>
+<span class="sourceLineNo">025</span><a id="line.25"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Nextstep.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">026</span><a id="line.26"> */</a>
+<span class="sourceLineNo">027</span><a id="line.27">public abstract class AbstractNextStepStrategy&lt;E extends AbstractPheromoneAssociation, S extends AbstractSolution&gt; {</a>
+<span class="sourceLineNo">028</span><a id="line.28"></a>
+<span class="sourceLineNo">029</span><a id="line.29">    /**</a>
+<span class="sourceLineNo">030</span><a id="line.30">     * Pheromonassoziation mit dem zu lösenden AbstractProblem</a>
+<span class="sourceLineNo">031</span><a id="line.31">     */</a>
+<span class="sourceLineNo">032</span><a id="line.32">    protected E pheromoneStructure;</a>
+<span class="sourceLineNo">033</span><a id="line.33">    /**</a>
+<span class="sourceLineNo">034</span><a id="line.34">     * Pheromon-Wahrnehmung</a>
+<span class="sourceLineNo">035</span><a id="line.35">     */</a>
+<span class="sourceLineNo">036</span><a id="line.36">    protected AbstractPheromonePerception perceptionRule;</a>
+<span class="sourceLineNo">037</span><a id="line.37">    /**</a>
+<span class="sourceLineNo">038</span><a id="line.38">     * Menge Heuristischer Informationen</a>
+<span class="sourceLineNo">039</span><a id="line.39">     */</a>
+<span class="sourceLineNo">040</span><a id="line.40">    protected HeuristicInfoSet heuristics;</a>
+<span class="sourceLineNo">041</span><a id="line.41">    /**</a>
+<span class="sourceLineNo">042</span><a id="line.42">     * Kombinationsfunktion (kombiniert die Werte der Pheromon-Wahrnehmung und der Heuristischen Informationen)</a>
+<span class="sourceLineNo">043</span><a id="line.43">     */</a>
+<span class="sourceLineNo">044</span><a id="line.44">    protected CombinationRule combinationRule;</a>
+<span class="sourceLineNo">045</span><a id="line.45"></a>
+<span class="sourceLineNo">046</span><a id="line.46"></a>
+<span class="sourceLineNo">047</span><a id="line.47">    /**</a>
+<span class="sourceLineNo">048</span><a id="line.48">     * Konsturktor</a>
+<span class="sourceLineNo">049</span><a id="line.49">     *</a>
+<span class="sourceLineNo">050</span><a id="line.50">     * @param pheromoneStructure Pheromonassoziation</a>
+<span class="sourceLineNo">051</span><a id="line.51">     * @param perceptionRule     Pheromon-Wahrnehmung</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * @param heuristics         heuristische Informationen</a>
+<span class="sourceLineNo">053</span><a id="line.53">     * @param combinationRule    Kombinationsfunktion</a>
+<span class="sourceLineNo">054</span><a id="line.54">     */</a>
+<span class="sourceLineNo">055</span><a id="line.55">    public AbstractNextStepStrategy(E pheromoneStructure,</a>
+<span class="sourceLineNo">056</span><a id="line.56">                                    AbstractPheromonePerception perceptionRule,</a>
+<span class="sourceLineNo">057</span><a
+            id="line.57">                                    HeuristicInfoSet heuristics,</a>
+<span class="sourceLineNo">058</span><a id="line.58">                                    CombinationRule combinationRule) {</a>
+<span class="sourceLineNo">059</span><a id="line.59"></a>
+<span class="sourceLineNo">060</span><a id="line.60">        this.pheromoneStructure = pheromoneStructure;</a>
+<span class="sourceLineNo">061</span><a id="line.61">        this.perceptionRule = perceptionRule;</a>
+<span class="sourceLineNo">062</span><a id="line.62">        this.heuristics = heuristics;</a>
+<span class="sourceLineNo">063</span><a id="line.63">        this.combinationRule = combinationRule;</a>
+<span class="sourceLineNo">064</span><a id="line.64">    }</a>
+<span class="sourceLineNo">065</span><a id="line.65"></a>
+<span class="sourceLineNo">066</span><a id="line.66">    /**</a>
+<span class="sourceLineNo">067</span><a id="line.67">     * Abstrakte Methode zur Auswahl einer Alternative aus einer gegebenen Menge.&lt;br&gt;</a>
+<span class="sourceLineNo">068</span><a id="line.68">     * Schnittstelle zur Konstruktionsheuristik ({@link eu.andredick.aco.construct.AbstractConstructionStrategy}).&lt;br&gt;</a>
+<span class="sourceLineNo">069</span><a id="line.69">     *</a>
+<span class="sourceLineNo">070</span><a id="line.70">     * @param solution         partiale Lösung der Ameise</a>
+<span class="sourceLineNo">071</span><a id="line.71">     * @param availableSubsets verfügbare Alternativen</a>
+<span class="sourceLineNo">072</span><a id="line.72">     * @return gewählte Alternative</a>
+<span class="sourceLineNo">073</span><a id="line.73">     */</a>
+<span class="sourceLineNo">074</span><a id="line.74">    public abstract Integer chooseSubset(S solution, List&lt;Integer&gt; availableSubsets);</a>
+<span class="sourceLineNo">075</span><a id="line.75">}</a>
 
 
 

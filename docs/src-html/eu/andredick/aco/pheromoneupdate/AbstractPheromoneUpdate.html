@@ -11,14 +11,14 @@
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;</a>
 <span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.solutionquality.AbstractSolutionQuality;</a>
-<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.problem.AbstractSolution;</a>
 <span class="sourceLineNo">006</span><a id="line.6"></a>
 <span class="sourceLineNo">007</span><a id="line.7">/**</a>
 <span class="sourceLineNo">008</span><a id="line.8"> * Kapitel 3.3.11 &lt;br&gt;</a>
 <span class="sourceLineNo">009</span><a id="line.9"> * Pheromon-Markierung auf den assoziierten Entitäten des Problems, die in der zu markierenden Lösung enthalten sind. &lt;br&gt;</a>
 <span class="sourceLineNo">010</span><a id="line.10"> * @param &lt;E&gt;: Ausprägung der Pheromon-Assoziation</a>
 <span class="sourceLineNo">011</span><a id="line.11"> */</a>
-<span class="sourceLineNo">012</span><a id="line.12">public abstract class AbstractPheromoneUpdate&lt;E extends AbstractPheromoneAssociation&gt; {</a>
+<span class="sourceLineNo">012</span><a id="line.12">public abstract class AbstractPheromoneUpdate&lt;E extends AbstractPheromoneAssociation, S extends AbstractSolution&gt; {</a>
 <span class="sourceLineNo">013</span><a id="line.13"></a>
 <span class="sourceLineNo">014</span><a id="line.14">    /**</a>
 <span class="sourceLineNo">015</span><a id="line.15">     * Pheromon-Assoziationen als generische Refferenz</a>
@@ -43,7 +43,7 @@
 <span class="sourceLineNo">034</span><a id="line.34">     * Markiert in Abhängigkeit der Lösung die assoziirten Entitäten des Problems mit Pheromon.</a>
 <span class="sourceLineNo">035</span><a id="line.35">     * @param solution: Lösung bzw. Ameisen-Pfad, die/der mit Pheromon markiert werden soll.</a>
 <span class="sourceLineNo">036</span><a id="line.36">     */</a>
-<span class="sourceLineNo">037</span><a id="line.37">    public abstract void update(Solution solution);</a>
+<span class="sourceLineNo">037</span><a id="line.37">    public abstract void update(S solution);</a>
 <span class="sourceLineNo">038</span><a id="line.38">}</a>
 
 

@@ -9,7 +9,7 @@ import eu.andredick.scp.SCPSolution;
 import java.util.List;
 
 /**
- * <b>Deterministische Alternativenauswahl</b> - Ausprägung der Komponente der Alternativenauswahl<br>
+ * <b>Deterministische Alternativenauswahl</b> - Ausprägung der Komponente der Alternativenauswahl, Pheromonassoziation mit Teilmengen<br>
  * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
  * <br>
  * Die deterministische Alternativenauswahl liefert als Erbebnis immer die am besten bewertete Alternative.<br>
@@ -28,7 +28,7 @@ public class NextStepStrategyOnSubsetsDeterministic extends
     /**
      * Konsturktor
      *
-     * @param pheromonesStructure Pheromonassoziation
+     * @param pheromonesStructure Pheromonassoziation mit Teilmengen
      * @param perceptionRule      Pheromon-Wahrnehmung
      * @param heuristics          heuristische Informationen
      * @param combinationRule     Kombinationsfunktion
@@ -59,7 +59,7 @@ public class NextStepStrategyOnSubsetsDeterministic extends
         // Schleife über alle verfügbaren Alternativen, um die Alternative mit dem höchsten Wert zu bestimmen
         for (int k = 0; k < availableSubsets.size(); k++) {
             int subset = availableSubsets.get(k);
-            float ph_k = this.perceptionRule.getValue(this.pheromoneStructure.getPheromone(subset));
+            float ph_k = this.perceptionRule.getPerceptionValue(this.pheromoneStructure.getPheromone(subset));
             float hi_k = this.heuristics.getValue(solution, availableSubsets, subset);
             float value = this.combinationRule.combine(ph_k, hi_k);
             if (value > maxValue) {

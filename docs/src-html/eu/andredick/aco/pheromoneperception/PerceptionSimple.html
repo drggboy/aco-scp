@@ -10,23 +10,36 @@
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.pheromoneperception;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">/**</a>
-<span class="sourceLineNo">004</span><a id="line.4"> * Kapitel 3.2.6        Pheromon-Wahrnehmung</a>
-<span class="sourceLineNo">005</span><a id="line.5"> * triviale Wahrnehmung - Ausprägung der Komponente der Pheromon-Wahrnehmung</a>
-<span class="sourceLineNo">006</span><a id="line.6"> * Wird von Alternativenauswahl verwendet, um den Wert der Alternative zu bestimmen</a>
-<span class="sourceLineNo">007</span><a id="line.7"> */</a>
-<span class="sourceLineNo">008</span><a id="line.8">public class PerceptionSimple extends AbstractPheromonePerception {</a>
-<span class="sourceLineNo">009</span><a id="line.9"></a>
-<span class="sourceLineNo">010</span><a id="line.10">    /**</a>
-<span class="sourceLineNo">011</span><a id="line.11">     * Identische Wahrnehmung des Pheromons mit der tatsächlichen Konzentration</a>
-<span class="sourceLineNo">012</span><a id="line.12">     *</a>
-<span class="sourceLineNo">013</span><a id="line.13">     * @param pheromoneConcentration tatsächliche Konzentration des Pheromons</a>
-<span class="sourceLineNo">014</span><a id="line.14">     * @return tatsächliche Konzentration des Pheromons</a>
-<span class="sourceLineNo">015</span><a id="line.15">     */</a>
-<span class="sourceLineNo">016</span><a id="line.16">    @Override</a>
-<span class="sourceLineNo">017</span><a id="line.17">    public float getValue(float pheromoneConcentration) {</a>
-<span class="sourceLineNo">018</span><a id="line.18">        return pheromoneConcentration;</a>
-<span class="sourceLineNo">019</span><a id="line.19">    }</a>
-<span class="sourceLineNo">020</span><a id="line.20">}</a>
+<span class="sourceLineNo">004</span><a id="line.4"> * &lt;b&gt;Identische Wahrnehmung des Pheromons - Ausprägung der Komponente der Pheromon-Wahrnehmung&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">005</span><a id="line.5"> * Kapitel 3.3.6, S. 33, Pheromon-Wahrnehmung&lt;br&gt;</a>
+<span class="sourceLineNo">006</span><a id="line.6"> * &lt;br&gt;</a>
+<span class="sourceLineNo">007</span><a id="line.7"> * Bei dieser Ausprägung der Komponente ist die wahrgenommene Pheromon-Konzentration gleich der Tatsächlichen.&lt;br&gt;</a>
+<span class="sourceLineNo">008</span><a id="line.8"> * &lt;br&gt;</a>
+<span class="sourceLineNo">009</span><a id="line.9"> * Die Pheromon-Wahrnehmung ist wird bei der Lösungskonstrukton der Ameisen verwendet.&lt;br&gt;</a>
+<span class="sourceLineNo">010</span><a id="line.10"> * Bei der Lösungskonstruktion findet iterativ die Alternativen-Auswahl der Lösungskomponenten statt.&lt;br&gt;</a>
+<span class="sourceLineNo">011</span><a id="line.11"> * Bei der Alternativen-Auswahl bezieht die Ameise neben den Heuristischen Informationen auch  das mit den Alternativen assoziierte Pheromon in ihre Entscheidung ein.&lt;br&gt;</a>
+<span class="sourceLineNo">012</span><a id="line.12"> * Anstatt der Werte der Pheromon-Konzentrationen direkt zu verarbeiten, werden "subjektiv" wahrgenommene Werte verwendet.&lt;br&gt;</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * Die Pheromon-Wahrnehmung setzt damit für die Alternativen-Auswahl die tatsächliche Pheromon-Konzentration in wahrgenomene Werte um.&lt;br&gt;</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * &lt;br&gt;</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromonePerception.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">016</span><a id="line.16"> */</a>
+<span class="sourceLineNo">017</span><a
+            id="line.17">public class PerceptionSimple extends AbstractPheromonePerception {</a>
+<span class="sourceLineNo">018</span><a id="line.18"></a>
+<span class="sourceLineNo">019</span><a id="line.19">    /**</a>
+<span class="sourceLineNo">020</span><a id="line.20">     * Liefert den wahrgenommenen Wert der tatsächlichen Pheromon-Konzentration.&lt;br&gt;</a>
+<span class="sourceLineNo">021</span><a id="line.21">     * Hierbei ist eine identische Wahrnehmung des Pheromons mit der tatsächlichen Konzentration realisiert.&lt;br&gt;</a>
+<span class="sourceLineNo">022</span><a id="line.22">     * Ausgabewert = Eingabewert&lt;br&gt;</a>
+<span class="sourceLineNo">023</span><a id="line.23">     *</a>
+<span class="sourceLineNo">024</span><a id="line.24">     * @param pheromoneConcentration tatsächliche Konzentration des Pheromons</a>
+<span class="sourceLineNo">025</span><a id="line.25">     * @return tatsächliche Konzentration des Pheromons</a>
+<span class="sourceLineNo">026</span><a id="line.26">     */</a>
+<span class="sourceLineNo">027</span><a id="line.27">    @Override</a>
+<span class="sourceLineNo">028</span><a
+            id="line.28">    public float getPerceptionValue(float pheromoneConcentration) {</a>
+<span class="sourceLineNo">029</span><a id="line.29">        return pheromoneConcentration;</a>
+<span class="sourceLineNo">030</span><a id="line.30">    }</a>
+<span class="sourceLineNo">031</span><a id="line.31">}</a>
 
 
 

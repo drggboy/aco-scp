@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * <b>Gemischte Alternativen-Auswahl</b> aus stochastischer und deterministischer Alternativenauswahl<br>
+ * <b>Gemischte Alternativen-Auswahl</b> aus stochastischer und deterministischer Alternativenauswahl, Pheromonassoziation mit Teilmengen<br>
  * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
  * <br>
  * Die Gemischte Alternativenauswahl liefert entweder das Ergebnis der stochastischen
@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Alternativenauswahl (siehe {@link NextStepStrategyOnSubsetsDeterministic}).<br>
  * Dies wird durch die Realisierung einer Zufallszahl {@code 0.0 <= q <= 1.0} bestimmt, welche in Bezug auf einen
  * festgelegten Parameter {@code q0} entweder unterhalb {@code (q < q0)} oder oberhalb {@code (q0 <= q)} liegt.<br>
- * Die Komponente besitzt einen Parameter.<br>
+ * Die Komponente besitzt also einen Parameter.<br>
  * <br>
  * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link eu.andredick.aco.construct.AbstractConstructionStrategy}
  * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
@@ -48,7 +48,7 @@ public class NextStepStrategyOnSubsets extends
     /**
      * Konsturktor
      *
-     * @param pheromonesStructure Pheromonassoziation
+     * @param pheromonesStructure Pheromonassoziation mit Teilmengen
      * @param perceptionRule      Pheromon-Wahrnehmung
      * @param heuristics          heuristische Informationen
      * @param combinationRule     Kombinationsfunktion

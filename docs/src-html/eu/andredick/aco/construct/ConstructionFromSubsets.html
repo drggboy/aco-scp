@@ -10,106 +10,108 @@
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.construct;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.nextstep.AbstractNextStepStrategy;</a>
-<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.scp.SCProblem;</a>
-<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.scp.Solution;</a>
-<span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.scp.Structure;</a>
-<span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.tools.ArrayTools;</a>
-<span class="sourceLineNo">008</span><a id="line.8">import eu.andredick.tools.Tools;</a>
-<span class="sourceLineNo">009</span><a id="line.9"></a>
-<span class="sourceLineNo">010</span><a id="line.10">import java.util.List;</a>
-<span class="sourceLineNo">011</span><a id="line.11"></a>
-<span class="sourceLineNo">012</span><a id="line.12">/**</a>
-<span class="sourceLineNo">013</span><a id="line.13"> * &lt;b&gt;Realisierung der Komponente Konstruktionsheuristik.&lt;/b&gt;&lt;br&gt;</a>
-<span class="sourceLineNo">014</span><a id="line.14"> * Kapitel 3.3.4, S. 30, Konstruktionsheuristik&lt;br&gt;</a>
-<span class="sourceLineNo">015</span><a id="line.15"> * &lt;br&gt;</a>
-<span class="sourceLineNo">016</span><a id="line.16"> * Die Konstruktion der SCP-Lösung einer Ameise erfolgt erfolgt &lt;b&gt;ausgehend von den Teilmengen.&lt;/b&gt;&lt;br&gt;</a>
-<span class="sourceLineNo">017</span><a id="line.17"> * Die Konstruktionsheuristik wird von der Klasse {@link eu.andredick.aco.ant.ACOAnt} (Ameise) verwendet, um neue Lösungen zu konstruieren.&lt;br&gt;</a>
-<span class="sourceLineNo">018</span><a id="line.18"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Construction.svg" alt=""&gt;&lt;/p&gt;</a>
-<span class="sourceLineNo">019</span><a id="line.19"> */</a>
-<span class="sourceLineNo">020</span><a id="line.20">public class ConstructionFromSubsets extends AbstractConstructionStrategy {</a>
-<span class="sourceLineNo">021</span><a id="line.21"></a>
-<span class="sourceLineNo">022</span><a id="line.22">    /**</a>
-<span class="sourceLineNo">023</span><a id="line.23">     * Konstruktor</a>
-<span class="sourceLineNo">024</span><a id="line.24">     * @param nextStepRule Beliebige Ausprägung der Komponente Alternativenauswahl (siehe {@link AbstractNextStepStrategy})</a>
-<span class="sourceLineNo">025</span><a id="line.25">     */</a>
-<span class="sourceLineNo">026</span><a id="line.26">    public ConstructionFromSubsets(AbstractNextStepStrategy nextStepRule) {</a>
-<span class="sourceLineNo">027</span><a id="line.27">        super(nextStepRule);</a>
-<span class="sourceLineNo">028</span><a id="line.28">    }</a>
-<span class="sourceLineNo">029</span><a id="line.29"></a>
+<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;</a>
+<span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.scp.SCPSolution;</a>
+<span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.scp.SCProblem;</a>
+<span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.scp.Structure;</a>
+<span class="sourceLineNo">008</span><a id="line.8">import eu.andredick.tools.ArrayTools;</a>
+<span class="sourceLineNo">009</span><a id="line.9">import eu.andredick.tools.Tools;</a>
+<span class="sourceLineNo">010</span><a id="line.10"></a>
+<span class="sourceLineNo">011</span><a id="line.11">import java.util.List;</a>
+<span class="sourceLineNo">012</span><a id="line.12"></a>
+<span class="sourceLineNo">013</span><a id="line.13">/**</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * &lt;b&gt;Realisierung der Komponente Konstruktionsheuristik.&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * Kapitel 3.3.4, S. 30, Konstruktionsheuristik&lt;br&gt;</a>
+<span class="sourceLineNo">016</span><a id="line.16"> * &lt;br&gt;</a>
+<span class="sourceLineNo">017</span><a id="line.17"> * Die Konstruktion der SCP-Lösung einer Ameise erfolgt erfolgt &lt;b&gt;ausgehend von den Teilmengen.&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">018</span><a id="line.18"> * Die Konstruktionsheuristik wird von der Klasse {@link eu.andredick.aco.ant.ACOAnt} (Ameise) verwendet, um neue Lösungen zu konstruieren.&lt;br&gt;</a>
+<span class="sourceLineNo">019</span><a id="line.19"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Construction.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">020</span><a id="line.20"> */</a>
+<span class="sourceLineNo">021</span><a id="line.21">public class ConstructionFromSubsets extends AbstractConstructionStrategy&lt;AbstractNextStepStrategy&lt;PheromoneOnSubsets, SCPSolution&gt;, SCProblem, SCPSolution&gt; {</a>
+<span class="sourceLineNo">022</span><a id="line.22"></a>
+<span class="sourceLineNo">023</span><a id="line.23">    /**</a>
+<span class="sourceLineNo">024</span><a id="line.24">     * Konstruktor</a>
+<span class="sourceLineNo">025</span><a id="line.25">     * @param nextStepRule Beliebige Ausprägung der Komponente Alternativenauswahl (siehe {@link AbstractNextStepStrategy})</a>
+<span class="sourceLineNo">026</span><a id="line.26">     */</a>
+<span class="sourceLineNo">027</span><a id="line.27">    public ConstructionFromSubsets(AbstractNextStepStrategy nextStepRule) {</a>
+<span class="sourceLineNo">028</span><a id="line.28">        super(nextStepRule);</a>
+<span class="sourceLineNo">029</span><a id="line.29">    }</a>
 <span class="sourceLineNo">030</span><a id="line.30"></a>
-<span class="sourceLineNo">031</span><a id="line.31">    /**</a>
-<span class="sourceLineNo">032</span><a id="line.32">     * &lt;b&gt;Die Konstruktion der Lösung erfolgt itarativ in folgenden Schritten:&lt;/b&gt;&lt;br&gt;</a>
-<span class="sourceLineNo">033</span><a id="line.33">     * 1. Auswahl einer dieser Teilmengen über NextStep und hinzufügen zur Lösung&lt;br&gt;</a>
-<span class="sourceLineNo">034</span><a id="line.34">     * 2. Hinzufügen dieser Teilmenge zur TabuListe und zur Lösung&lt;br&gt;</a>
-<span class="sourceLineNo">035</span><a id="line.35">     * 3. bestimmen der Grundelemente, die in der gewählten Teilmenge enthalten sind&lt;br&gt;</a>
-<span class="sourceLineNo">036</span><a id="line.36">     * 4. Entfernen dieser Grundelemente aus allen Teilmengen, die noch verfügbar sind&lt;br&gt;</a>
-<span class="sourceLineNo">037</span><a id="line.37">     * 5. entfernen aller Teilmengen, die nach dem letzten Schritt leer geworden sind&lt;br&gt;</a>
-<span class="sourceLineNo">038</span><a id="line.38">     * 6. entfernen der Grundelemente (3.) aus der Menge noch nicht überdeckter Grundelemente&lt;br&gt;</a>
-<span class="sourceLineNo">039</span><a id="line.39">     * 7. Zurück zu 1, wenn es weitere nicht überdeckte Grundelemente gibt&lt;br&gt;</a>
-<span class="sourceLineNo">040</span><a id="line.40">     *</a>
-<span class="sourceLineNo">041</span><a id="line.41">     * @param problem Das SCProblem, für das eine Lösung zu konstruieren ist</a>
-<span class="sourceLineNo">042</span><a id="line.42">     * @return konstruierte zulässige Lösung</a>
-<span class="sourceLineNo">043</span><a id="line.43">     */</a>
-<span class="sourceLineNo">044</span><a id="line.44">    @Override</a>
-<span class="sourceLineNo">045</span><a id="line.45">    public Solution construct(SCProblem problem) {</a>
-<span class="sourceLineNo">046</span><a id="line.46"></a>
-<span class="sourceLineNo">047</span><a id="line.47">        Structure structure = problem.getStructure();</a>
-<span class="sourceLineNo">048</span><a id="line.48">        Solution solution = new Solution(problem);</a>
-<span class="sourceLineNo">049</span><a id="line.49"></a>
-<span class="sourceLineNo">050</span><a id="line.50">        // Bereitstellen eines Arrays mit Listen von Grundelementen, die in den Teilmengen enthalten sind</a>
-<span class="sourceLineNo">051</span><a id="line.51">        List&lt;Integer&gt; subsets = Tools.getIndexList(structure.subsetsSize()); //geordnet</a>
-<span class="sourceLineNo">052</span><a id="line.52"></a>
-<span class="sourceLineNo">053</span><a id="line.53">        // Bereitstellen der TabuListen für Teilmengen und Grundelemente</a>
-<span class="sourceLineNo">054</span><a id="line.54">        boolean[] tabuSubsets = ArrayTools.getZeroBoolArray(structure.subsetsSize());</a>
-<span class="sourceLineNo">055</span><a id="line.55">        boolean[] tabuElements = ArrayTools.getZeroBoolArray(structure.elementsSize());</a>
-<span class="sourceLineNo">056</span><a id="line.56"></a>
-<span class="sourceLineNo">057</span><a id="line.57">        // Bereitstellen einer Arbeits-Liste mit Summen von Elementen, die in Teilmengen enthalten sind</a>
-<span class="sourceLineNo">058</span><a id="line.58">        int[] subsetSizes = new int[structure.subsetsSize()];</a>
-<span class="sourceLineNo">059</span><a id="line.59">        for (int g = 0; g &lt; subsetSizes.length; g++) {</a>
-<span class="sourceLineNo">060</span><a id="line.60">            subsetSizes[g] = structure.getElementsInSubset(g).size();</a>
-<span class="sourceLineNo">061</span><a id="line.61">        }</a>
-<span class="sourceLineNo">062</span><a id="line.62"></a>
-<span class="sourceLineNo">063</span><a id="line.63">        // Ein Counter für die Anzahl der noch nicht überdeckter Grundelemente</a>
-<span class="sourceLineNo">064</span><a id="line.64">        int elementsRemain = structure.elementsSize();</a>
-<span class="sourceLineNo">065</span><a id="line.65"></a>
-<span class="sourceLineNo">066</span><a id="line.66">        // Iteration, bis keine Grundelemente mehr zu überdecken sind</a>
-<span class="sourceLineNo">067</span><a id="line.67">        while (elementsRemain != 0) {</a>
-<span class="sourceLineNo">068</span><a id="line.68"></a>
-<span class="sourceLineNo">069</span><a id="line.69">            // Auswahl einer Teilmenge aus Teilmengen, die noch nicht in Lösung sind</a>
-<span class="sourceLineNo">070</span><a id="line.70">            int subsetIndex = this.nextStepRule.chooseSubset(solution, subsets);</a>
-<span class="sourceLineNo">071</span><a id="line.71"></a>
-<span class="sourceLineNo">072</span><a id="line.72">            // Hinzufügen der Teilmenge in die Lösung</a>
-<span class="sourceLineNo">073</span><a id="line.73">            solution.addSubset(subsetIndex);</a>
-<span class="sourceLineNo">074</span><a id="line.74"></a>
-<span class="sourceLineNo">075</span><a id="line.75">            // Markieren der gewählten Teilmenge in der TabuListe</a>
-<span class="sourceLineNo">076</span><a id="line.76">            tabuSubsets[subsetIndex] = true;</a>
-<span class="sourceLineNo">077</span><a id="line.77"></a>
-<span class="sourceLineNo">078</span><a id="line.78">            // bestimmen der Grundelemente, die in der gewählten Teilmenge enthalten sind</a>
-<span class="sourceLineNo">079</span><a id="line.79">            List&lt;Integer&gt; elementsInSubset = structure.getElementsInSubset(subsetIndex);</a>
-<span class="sourceLineNo">080</span><a id="line.80"></a>
-<span class="sourceLineNo">081</span><a id="line.81">            // Im weiteren müssen Teilmengen identifiziert werden, die selbst eine Teilmenge der gewählten Teilmenge sind</a>
-<span class="sourceLineNo">082</span><a id="line.82">            // d.h. Teilmengen, die einen Teil gleicher Elemente überdecken und sonst keine weiteren</a>
-<span class="sourceLineNo">083</span><a id="line.83">            for (Integer e : elementsInSubset) {</a>
-<span class="sourceLineNo">084</span><a id="line.84">                if (!tabuElements[e]) {</a>
-<span class="sourceLineNo">085</span><a id="line.85">                    List&lt;Integer&gt; subsetsWith_e = structure.getSubsetsWithElement(e);</a>
-<span class="sourceLineNo">086</span><a id="line.86">                    for (Integer s : subsetsWith_e) {</a>
-<span class="sourceLineNo">087</span><a id="line.87">                        if (!tabuSubsets[s]) {</a>
-<span class="sourceLineNo">088</span><a id="line.88">                            subsetSizes[s]--;</a>
-<span class="sourceLineNo">089</span><a id="line.89">                            if (subsetSizes[s] == 0) {</a>
-<span class="sourceLineNo">090</span><a id="line.90">                                tabuSubsets[s] = true;</a>
-<span class="sourceLineNo">091</span><a id="line.91">                                subsets.remove(s);</a>
-<span class="sourceLineNo">092</span><a id="line.92">                            }</a>
-<span class="sourceLineNo">093</span><a id="line.93">                        }</a>
-<span class="sourceLineNo">094</span><a id="line.94">                    }</a>
-<span class="sourceLineNo">095</span><a id="line.95">                    tabuElements[e] = true;</a>
-<span class="sourceLineNo">096</span><a id="line.96">                    elementsRemain--;</a>
-<span class="sourceLineNo">097</span><a id="line.97">                }</a>
-<span class="sourceLineNo">098</span><a id="line.98">            }</a>
-<span class="sourceLineNo">099</span><a id="line.99">        }</a>
-<span class="sourceLineNo">100</span><a id="line.100"></a>
-<span class="sourceLineNo">101</span><a id="line.101">        return solution;</a>
-<span class="sourceLineNo">102</span><a id="line.102">    }</a>
-<span class="sourceLineNo">103</span><a id="line.103">}</a>
+<span class="sourceLineNo">031</span><a id="line.31"></a>
+<span class="sourceLineNo">032</span><a id="line.32">    /**</a>
+<span class="sourceLineNo">033</span><a id="line.33">     * &lt;b&gt;Die Konstruktion der Lösung erfolgt itarativ in folgenden Schritten:&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">034</span><a id="line.34">     * 1. Auswahl einer dieser Teilmengen über NextStep und hinzufügen zur Lösung&lt;br&gt;</a>
+<span class="sourceLineNo">035</span><a id="line.35">     * 2. Hinzufügen dieser Teilmenge zur TabuListe und zur Lösung&lt;br&gt;</a>
+<span class="sourceLineNo">036</span><a id="line.36">     * 3. bestimmen der Grundelemente, die in der gewählten Teilmenge enthalten sind&lt;br&gt;</a>
+<span class="sourceLineNo">037</span><a id="line.37">     * 4. Entfernen dieser Grundelemente aus allen Teilmengen, die noch verfügbar sind&lt;br&gt;</a>
+<span class="sourceLineNo">038</span><a id="line.38">     * 5. entfernen aller Teilmengen, die nach dem letzten Schritt leer geworden sind&lt;br&gt;</a>
+<span class="sourceLineNo">039</span><a id="line.39">     * 6. entfernen der Grundelemente (3.) aus der Menge noch nicht überdeckter Grundelemente&lt;br&gt;</a>
+<span class="sourceLineNo">040</span><a id="line.40">     * 7. Zurück zu 1, wenn es weitere nicht überdeckte Grundelemente gibt&lt;br&gt;</a>
+<span class="sourceLineNo">041</span><a id="line.41">     *</a>
+<span class="sourceLineNo">042</span><a id="line.42">     * @param problem Das SCProblem, für das eine Lösung zu konstruieren ist</a>
+<span class="sourceLineNo">043</span><a id="line.43">     * @return konstruierte zulässige Lösung</a>
+<span class="sourceLineNo">044</span><a id="line.44">     */</a>
+<span class="sourceLineNo">045</span><a id="line.45">    @Override</a>
+<span class="sourceLineNo">046</span><a id="line.46">    public SCPSolution construct(SCProblem problem) {</a>
+<span class="sourceLineNo">047</span><a id="line.47"></a>
+<span class="sourceLineNo">048</span><a id="line.48">        Structure structure = problem.getStructure();</a>
+<span class="sourceLineNo">049</span><a id="line.49">        SCPSolution solution = new SCPSolution(problem);</a>
+<span class="sourceLineNo">050</span><a id="line.50"></a>
+<span class="sourceLineNo">051</span><a id="line.51">        // Bereitstellen eines Arrays mit Listen von Grundelementen, die in den Teilmengen enthalten sind</a>
+<span class="sourceLineNo">052</span><a id="line.52">        List&lt;Integer&gt; subsets = Tools.getIndexList(structure.subsetsSize()); //geordnet</a>
+<span class="sourceLineNo">053</span><a id="line.53"></a>
+<span class="sourceLineNo">054</span><a id="line.54">        // Bereitstellen der TabuListen für Teilmengen und Grundelemente</a>
+<span class="sourceLineNo">055</span><a id="line.55">        boolean[] tabuSubsets = ArrayTools.getZeroBoolArray(structure.subsetsSize());</a>
+<span class="sourceLineNo">056</span><a id="line.56">        boolean[] tabuElements = ArrayTools.getZeroBoolArray(structure.elementsSize());</a>
+<span class="sourceLineNo">057</span><a id="line.57"></a>
+<span class="sourceLineNo">058</span><a id="line.58">        // Bereitstellen einer Arbeits-Liste mit Summen von Elementen, die in Teilmengen enthalten sind</a>
+<span class="sourceLineNo">059</span><a id="line.59">        int[] subsetSizes = new int[structure.subsetsSize()];</a>
+<span class="sourceLineNo">060</span><a id="line.60">        for (int g = 0; g &lt; subsetSizes.length; g++) {</a>
+<span class="sourceLineNo">061</span><a id="line.61">            subsetSizes[g] = structure.getElementsInSubset(g).size();</a>
+<span class="sourceLineNo">062</span><a id="line.62">        }</a>
+<span class="sourceLineNo">063</span><a id="line.63"></a>
+<span class="sourceLineNo">064</span><a id="line.64">        // Ein Counter für die Anzahl der noch nicht überdeckter Grundelemente</a>
+<span class="sourceLineNo">065</span><a id="line.65">        int elementsRemain = structure.elementsSize();</a>
+<span class="sourceLineNo">066</span><a id="line.66"></a>
+<span class="sourceLineNo">067</span><a id="line.67">        // Iteration, bis keine Grundelemente mehr zu überdecken sind</a>
+<span class="sourceLineNo">068</span><a id="line.68">        while (elementsRemain != 0) {</a>
+<span class="sourceLineNo">069</span><a id="line.69"></a>
+<span class="sourceLineNo">070</span><a id="line.70">            // Auswahl einer Teilmenge aus Teilmengen, die noch nicht in Lösung sind</a>
+<span class="sourceLineNo">071</span><a id="line.71">            int subsetIndex = this.nextStepRule.chooseSubset(solution, subsets);</a>
+<span class="sourceLineNo">072</span><a id="line.72"></a>
+<span class="sourceLineNo">073</span><a id="line.73">            // Hinzufügen der Teilmenge in die Lösung</a>
+<span class="sourceLineNo">074</span><a id="line.74">            solution.addSubset(subsetIndex);</a>
+<span class="sourceLineNo">075</span><a id="line.75"></a>
+<span class="sourceLineNo">076</span><a
+            id="line.76">            // Markieren der gewählten Teilmenge in der TabuListe</a>
+<span class="sourceLineNo">077</span><a id="line.77">            tabuSubsets[subsetIndex] = true;</a>
+<span class="sourceLineNo">078</span><a id="line.78"></a>
+<span class="sourceLineNo">079</span><a id="line.79">            // bestimmen der Grundelemente, die in der gewählten Teilmenge enthalten sind</a>
+<span class="sourceLineNo">080</span><a id="line.80">            List&lt;Integer&gt; elementsInSubset = structure.getElementsInSubset(subsetIndex);</a>
+<span class="sourceLineNo">081</span><a id="line.81"></a>
+<span class="sourceLineNo">082</span><a id="line.82">            // Im weiteren müssen Teilmengen identifiziert werden, die selbst eine Teilmenge der gewählten Teilmenge sind</a>
+<span class="sourceLineNo">083</span><a id="line.83">            // d.h. Teilmengen, die einen Teil gleicher Elemente überdecken und sonst keine weiteren</a>
+<span class="sourceLineNo">084</span><a id="line.84">            for (Integer e : elementsInSubset) {</a>
+<span class="sourceLineNo">085</span><a id="line.85">                if (!tabuElements[e]) {</a>
+<span class="sourceLineNo">086</span><a id="line.86">                    List&lt;Integer&gt; subsetsWith_e = structure.getSubsetsWithElement(e);</a>
+<span class="sourceLineNo">087</span><a id="line.87">                    for (Integer s : subsetsWith_e) {</a>
+<span class="sourceLineNo">088</span><a id="line.88">                        if (!tabuSubsets[s]) {</a>
+<span class="sourceLineNo">089</span><a id="line.89">                            subsetSizes[s]--;</a>
+<span class="sourceLineNo">090</span><a id="line.90">                            if (subsetSizes[s] == 0) {</a>
+<span class="sourceLineNo">091</span><a id="line.91">                                tabuSubsets[s] = true;</a>
+<span class="sourceLineNo">092</span><a id="line.92">                                subsets.remove(s);</a>
+<span class="sourceLineNo">093</span><a id="line.93">                            }</a>
+<span class="sourceLineNo">094</span><a id="line.94">                        }</a>
+<span class="sourceLineNo">095</span><a id="line.95">                    }</a>
+<span class="sourceLineNo">096</span><a id="line.96">                    tabuElements[e] = true;</a>
+<span class="sourceLineNo">097</span><a id="line.97">                    elementsRemain--;</a>
+<span class="sourceLineNo">098</span><a id="line.98">                }</a>
+<span class="sourceLineNo">099</span><a id="line.99">            }</a>
+<span class="sourceLineNo">100</span><a id="line.100">        }</a>
+<span class="sourceLineNo">101</span><a id="line.101"></a>
+<span class="sourceLineNo">102</span><a id="line.102">        return solution;</a>
+<span class="sourceLineNo">103</span><a id="line.103">    }</a>
+<span class="sourceLineNo">104</span><a id="line.104">}</a>
 
 
 

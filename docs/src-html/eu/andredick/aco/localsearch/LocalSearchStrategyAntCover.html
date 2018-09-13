@@ -9,8 +9,8 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.localsearch;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
-<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.scp.SCProblem;</a>
-<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.scp.Solution;</a>
+<span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.scp.SCPSolution;</a>
+<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.scp.SCProblem;</a>
 <span class="sourceLineNo">005</span><a id="line.5"></a>
 <span class="sourceLineNo">006</span><a id="line.6">import java.util.ArrayList;</a>
 <span class="sourceLineNo">007</span><a id="line.7">import java.util.Iterator;</a>
@@ -25,7 +25,7 @@
 <span class="sourceLineNo">016</span><a id="line.16"> * Die Lokale Suche erfolgt auf Basis der zuvor konstruierten Lösung und liefert ggf verbesserte Lösung als Ergebnis.</a>
 <span class="sourceLineNo">017</span><a id="line.17"> * &lt;p&gt;&lt;img src="{@docRoot}/images/LocalSearch.svg" alt=""&gt;&lt;/p&gt;</a>
 <span class="sourceLineNo">018</span><a id="line.18"> */</a>
-<span class="sourceLineNo">019</span><a id="line.19">public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy {</a>
+<span class="sourceLineNo">019</span><a id="line.19">public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy&lt;SCPSolution&gt; {</a>
 <span class="sourceLineNo">020</span><a id="line.20"></a>
 <span class="sourceLineNo">021</span><a id="line.21">    /**</a>
 <span class="sourceLineNo">022</span><a id="line.22">     * Statische Klassenvariable, die alle Spalten der Strukturmatrix nach</a>
@@ -68,7 +68,7 @@
 <span class="sourceLineNo">057</span><a id="line.57">     * @return Die durch die lokale Suche verbesserte Lösung</a>
 <span class="sourceLineNo">058</span><a id="line.58">     */</a>
 <span class="sourceLineNo">059</span><a id="line.59">    @Override</a>
-<span class="sourceLineNo">060</span><a id="line.60">    public Solution search(Solution solution) {</a>
+<span class="sourceLineNo">060</span><a id="line.60">    public SCPSolution search(SCPSolution solution) {</a>
 <span class="sourceLineNo">061</span><a id="line.61"></a>
 <span class="sourceLineNo">062</span><a id="line.62">        // das der übergebenen Lösung zugrunde liegende SCP</a>
 <span class="sourceLineNo">063</span><a id="line.63">        SCProblem problem = solution.getProblem();</a>
@@ -256,7 +256,7 @@
 <span class="sourceLineNo">238</span><a id="line.238">     * @param solution Die zu sortierende Ausgangslösung</a>
 <span class="sourceLineNo">239</span><a id="line.239">     * @return Die Ausgangslösung als nach Güte sortiertes WeightedColumn-TreeSet</a>
 <span class="sourceLineNo">240</span><a id="line.240">     */</a>
-<span class="sourceLineNo">241</span><a id="line.241">    private TreeSet&lt;WeightedColumn&gt; sortSolution(SCProblem problem, Solution solution) {</a>
+<span class="sourceLineNo">241</span><a id="line.241">    private TreeSet&lt;WeightedColumn&gt; sortSolution(SCProblem problem, SCPSolution solution) {</a>
 <span class="sourceLineNo">242</span><a id="line.242">        TreeSet&lt;WeightedColumn&gt; sortedSolution = new TreeSet&lt;WeightedColumn&gt;();</a>
 <span class="sourceLineNo">243</span><a id="line.243">        float[] weights = problem.getObjectiveFunction().getWeights();</a>
 <span class="sourceLineNo">244</span><a id="line.244">        List&lt;Integer&gt; columnsInSolution = solution.getSubsets();</a>
@@ -273,7 +273,7 @@
 <span class="sourceLineNo">255</span><a id="line.255">     * @param solution Die betrachtete Lösung</a>
 <span class="sourceLineNo">256</span><a id="line.256">     * @return int-Array, der unter dem Index i die Anzahl der Lösungsspalten hält, von denen Zeile i überdeckt wird</a>
 <span class="sourceLineNo">257</span><a id="line.257">     */</a>
-<span class="sourceLineNo">258</span><a id="line.258">    private int[] getNrOfCoveringColumns(SCProblem problem, Solution solution) {</a>
+<span class="sourceLineNo">258</span><a id="line.258">    private int[] getNrOfCoveringColumns(SCProblem problem, SCPSolution solution) {</a>
 <span class="sourceLineNo">259</span><a id="line.259">        int nrOfRows = problem.getStructure().elementsSize();</a>
 <span class="sourceLineNo">260</span><a id="line.260">        List&lt;Integer&gt; columnsInSolution = solution.getSubsets();</a>
 <span class="sourceLineNo">261</span><a id="line.261">        int[] nrOfCoveringColumns = new int[nrOfRows];</a>
@@ -295,7 +295,7 @@
 <span class="sourceLineNo">277</span><a id="line.277">     * @param nrOfCoveringColumns   Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten der übergebenen Lösung hält</a>
 <span class="sourceLineNo">278</span><a id="line.278">     * @return Den aktualisierten Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten nach Entfernen der Spalte hält</a>
 <span class="sourceLineNo">279</span><a id="line.279">     */</a>
-<span class="sourceLineNo">280</span><a id="line.280">    private int[] removeAndUpdate(Solution solution, int indexOfColumnToDelete, int[] nrOfCoveringColumns) {</a>
+<span class="sourceLineNo">280</span><a id="line.280">    private int[] removeAndUpdate(SCPSolution solution, int indexOfColumnToDelete, int[] nrOfCoveringColumns) {</a>
 <span class="sourceLineNo">281</span><a id="line.281"></a>
 <span class="sourceLineNo">282</span><a id="line.282">        // Spalte aus Lösung entfernen</a>
 <span class="sourceLineNo">283</span><a id="line.283">        solution.removeSubset(indexOfColumnToDelete);</a>
@@ -317,7 +317,7 @@
 <span class="sourceLineNo">299</span><a id="line.299">     * @param nrOfCoveringColumns Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten der übergebenen Lösung hält</a>
 <span class="sourceLineNo">300</span><a id="line.300">     * @return Den aktualisierten Array, der für alle Zeilen die Anzahl der sie überdeckenden Lösungsspalten nach Hinzufügen der neuen Spalte hält</a>
 <span class="sourceLineNo">301</span><a id="line.301">     */</a>
-<span class="sourceLineNo">302</span><a id="line.302">    private int[] addAndUpdate(Solution solution, int indexOfColumnToAdd, int[] nrOfCoveringColumns) {</a>
+<span class="sourceLineNo">302</span><a id="line.302">    private int[] addAndUpdate(SCPSolution solution, int indexOfColumnToAdd, int[] nrOfCoveringColumns) {</a>
 <span class="sourceLineNo">303</span><a id="line.303"></a>
 <span class="sourceLineNo">304</span><a id="line.304">        // Spalte der Lösung hinzufügen</a>
 <span class="sourceLineNo">305</span><a id="line.305">        solution.addSubset(indexOfColumnToAdd);</a>

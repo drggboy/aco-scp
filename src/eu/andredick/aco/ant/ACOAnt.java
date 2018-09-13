@@ -92,7 +92,7 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
      * Dazu wird die der Ameise zugewiesene Komponente der Pheromon-Markierung genutzt.<br>
      * Die Methode wird von dem Masterprozess aufgerufen.<br>
      *
-     * @see AbstractPheromoneUpdate#update(S)
+     * @see AbstractPheromoneUpdate#update(AbstractSolution)
      */
     @Override
     public void markPheromone() {
@@ -104,7 +104,7 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
      * Dazu wird die der Ameise zugewiesene Komponente der Lokalen Suche genutzt. <br>
      * Die Methode wird von dem Masterprozess aufgerufen. <br>
      *
-     * @see AbstractLocalSearchStrategy#search(S)
+     * @see AbstractLocalSearchStrategy#search(AbstractSolution)
      */
     @Override
     public void localSearch() {
