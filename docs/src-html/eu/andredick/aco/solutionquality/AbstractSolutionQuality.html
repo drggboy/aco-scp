@@ -10,22 +10,35 @@
 <pre><span class="sourceLineNo">001</span><a id="line.1">package eu.andredick.aco.solutionquality;</a>
 <span class="sourceLineNo">002</span><a id="line.2"></a>
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.problem.AbstractSolution;</a>
-<span class="sourceLineNo">004</span><a id="line.4"></a>
-<span class="sourceLineNo">005</span><a id="line.5">/**</a>
-<span class="sourceLineNo">006</span><a id="line.6"> * Kapitel 3.3.12 &lt;br&gt;</a>
-<span class="sourceLineNo">007</span><a id="line.7"> * Abstrakte Gütefunktion für Lösungen &lt;br&gt;</a>
-<span class="sourceLineNo">008</span><a id="line.8"> * Die abstrakte Komponente Gütefunktion wird von der Komponente PheromoneUpdate (Pheromon-Markierung) verwendet. &lt;br&gt;</a>
-<span class="sourceLineNo">009</span><a id="line.9"> */</a>
-<span class="sourceLineNo">010</span><a id="line.10">public abstract class AbstractSolutionQuality&lt;S extends AbstractSolution&gt; {</a>
-<span class="sourceLineNo">011</span><a id="line.11"></a>
-<span class="sourceLineNo">012</span><a id="line.12">    /**</a>
-<span class="sourceLineNo">013</span><a id="line.13">     * Liefert die Güte der Lösung</a>
-<span class="sourceLineNo">014</span><a id="line.14">     * @param solution zu bewertende Lösung</a>
-<span class="sourceLineNo">015</span><a id="line.15">     * @return Güte der Lösung</a>
-<span class="sourceLineNo">016</span><a id="line.16">     */</a>
-<span class="sourceLineNo">017</span><a id="line.17">    public abstract float getQuality(S solution);</a>
-<span class="sourceLineNo">018</span><a id="line.18"></a>
-<span class="sourceLineNo">019</span><a id="line.19">}</a>
+<span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;</a>
+<span class="sourceLineNo">005</span><a id="line.5"></a>
+<span class="sourceLineNo">006</span><a id="line.6">/**</a>
+<span class="sourceLineNo">007</span><a id="line.7"> * &lt;b&gt;Abstrakte Komponente der Gütefunktion für Lösungen&lt;/b&gt;&lt;br&gt;</a>
+<span class="sourceLineNo">008</span><a id="line.8"> * Kapitel 3.3.12, S. 46, Gütefunktion für Lösungen &lt;br&gt;</a>
+<span class="sourceLineNo">009</span><a id="line.9"> * &lt;br&gt;</a>
+<span class="sourceLineNo">010</span><a id="line.10"> * Die Gütefunktion wird von der Komponente Pheromone-Markierung ({@link AbstractPheromoneUpdate}) verwendet.&lt;br&gt;</a>
+<span class="sourceLineNo">011</span><a id="line.11"> * Sie wird benötigt, um die Menge des Pheromons bei der Markierung von Lösungen vom Zielfunktionswert zu entkoppeln.&lt;br&gt;</a>
+<span class="sourceLineNo">012</span><a id="line.12"> * Damit kann die Menge des Pheromons beispielsweise auf einen Wertebereich begrenzt werden.&lt;br&gt;</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * Um die Güte zu bestimmen, ist die Kenntnis über die Beschaffenheit der Lösung ({@link AbstractSolution}) notwendig.&lt;br&gt;</a>
+<span class="sourceLineNo">014</span><a
+            id="line.14"> * Daher müssen Ausprägungen der abstrakten Gütefunktion festlegen,</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * für welche Klasse von Lösungen und damit Problemen sie die Güte bestimmen können.&lt;br&gt;</a>
+<span class="sourceLineNo">016</span><a id="line.16"> *</a>
+<span class="sourceLineNo">017</span><a id="line.17"> * &lt;p&gt;&lt;img src="{@docRoot}/images/SolutionQuality.svg" alt=""&gt;&lt;/p&gt;</a>
+<span class="sourceLineNo">018</span><a id="line.18"> *</a>
+<span class="sourceLineNo">019</span><a
+            id="line.19"> * @param &lt;S&gt; Ausprägung der Abstrakten Klasse von Lösungen</a>
+<span class="sourceLineNo">020</span><a id="line.20"> */</a>
+<span class="sourceLineNo">021</span><a id="line.21">public abstract class AbstractSolutionQuality&lt;S extends AbstractSolution&gt; {</a>
+<span class="sourceLineNo">022</span><a id="line.22"></a>
+<span class="sourceLineNo">023</span><a id="line.23">    /**</a>
+<span class="sourceLineNo">024</span><a id="line.24">     * Liefert die Güte der übergebenen Lösung</a>
+<span class="sourceLineNo">025</span><a id="line.25">     * @param solution zu bewertende Lösung</a>
+<span class="sourceLineNo">026</span><a id="line.26">     * @return Güte der Lösung</a>
+<span class="sourceLineNo">027</span><a id="line.27">     */</a>
+<span class="sourceLineNo">028</span><a id="line.28">    public abstract float getQuality(S solution);</a>
+<span class="sourceLineNo">029</span><a id="line.29"></a>
+<span class="sourceLineNo">030</span><a id="line.30">}</a>
 
 
 

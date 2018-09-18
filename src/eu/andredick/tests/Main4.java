@@ -96,7 +96,7 @@ public class Main4 {
             XYSeries series4 = chart.addSeries("Optimal", null, ArrayTools.getFloatArray( ArrayTools.getMaxValuesOfArrays(values).length, exactValue));
             series4.setMarker(SeriesMarkers.NONE);
 
-            XYSeries series5 = chart.addSeries("Gready", null, ArrayTools.getFloatArray( ArrayTools.getMaxValuesOfArrays(values).length, problem.getObjectiveFunction().getValue(greadySolution)));
+            XYSeries series5 = chart.addSeries("Gready", null, ArrayTools.getFloatArray( ArrayTools.getMaxValuesOfArrays(values).length, problem.getObjectiveFunction().getPerceptionValue(greadySolution)));
             series5.setMarker(SeriesMarkers.NONE);
 */
 

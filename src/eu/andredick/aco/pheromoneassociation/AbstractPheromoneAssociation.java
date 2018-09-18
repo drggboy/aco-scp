@@ -5,6 +5,7 @@ import eu.andredick.aco.pheromoneinit.AbstractPheromoneInit;
 import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
 import eu.andredick.aco.problem.AbstractProblem;
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
+import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 
 /**
  * <b>Abstrakte Komponente der Pheromonassoziation</b><br>
@@ -19,6 +20,7 @@ import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
  * <br>
  * Die Pheromonassoziation wird in folgenden Komponenten benötigt:
  * <ul>
+ * <li>Masterprozess {@link AbstractMasterProcess}</li>
  * <li>Pheromon-Initiierung {@link AbstractPheromoneInit}</li>
  * <li>Pheromon-Evaporation {@link AbstractPheromoneEvaporation}</li>
  * <li>Alternativen-Auswahl {@link AbstractNextStepStrategy}</li>

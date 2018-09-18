@@ -3,9 +3,12 @@ package eu.andredick.aco.termination;
 import eu.andredick.aco.algorithm.Statistics;
 
 /**
- * Abbruchkriterium für die Iteration des ACO.<br>
- * Subklassen konkretisiert die Bedingungen für den Abbruch.<br>
- * Eine Instanz der Subklasse wird im Masterprozess benutzt.
+ * <b>Ausprägung des Abbruchkriterium</b> für die Iteration des ACO-Algorithmus<br>
+ * <br>
+ * Die Ausprägungen werden im Masterprozess verwendet, um die Iteration abzubrechen.<br>
+ * Abbruchbedingung ist erfüllt, wenn Anzahl der Iterationen ein Maximum überschreitet.
+ *
+ * <p><img src="{@docRoot}/images/Termination.svg" alt=""></p>
  */
 public class TermCriterion extends AbstractTermCriterion {
 
@@ -16,6 +19,7 @@ public class TermCriterion extends AbstractTermCriterion {
 
     /**
      * Konstruktor
+     *
      * @param maxIterations Maximale Anzahl der Itarationen
      */
     public TermCriterion(int maxIterations) {
@@ -25,7 +29,8 @@ public class TermCriterion extends AbstractTermCriterion {
     /**
      * Prüfen, ob die Abbruchbedingung erfüllt ist.<br>
      * Abbruchbedingung ist erfüllt, wenn Anzahl der Iterationen ein Maximum überschreitet.
-     * @param iteration: Zähler der Iterationen
+     *
+     * @param iteration:  Zähler der Iterationen
      * @param statistics: Statistiken zum Verlauf der Iteration
      * @return Wahr, wenn Anzahl der Iterationen NICHT über Maximum
      */

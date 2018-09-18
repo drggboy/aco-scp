@@ -4,9 +4,13 @@ import eu.andredick.aco.algorithm.Statistics;
 import eu.andredick.tools.ArrayTools;
 
 /**
- * Abbruchkriterium für die Iteration des ACO.<br>
- * Subklassen konkretisiert die Bedingungen für den Abbruch.<br>
- * Eine Instanz der Subklasse wird im Masterprozess benutzt.
+ * <b>Ausprägung des Abbruchkriterium</b> für die Iteration des ACO-Algorithmus<br>
+ * <br>
+ * Die Ausprägungen werden im Masterprozess verwendet, um die Iteration abzubrechen.<br>
+ * Abbruchbedingung ist erfüllt, wenn Anzahl der Iterationen ein Maximum überschreitet <br>
+ * ODER die maximale Anzahl der Iterationen seit bester Lösunge überschritten wird.
+ *
+ * <p><img src="{@docRoot}/images/Termination.svg" alt=""></p>
  */
 public class TermCriterionNew extends AbstractTermCriterion {
 

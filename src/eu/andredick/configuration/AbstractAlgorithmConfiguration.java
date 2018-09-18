@@ -8,12 +8,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * Die abstrakte Klasse dient als Schablone für Konfigurationsfabriken
- * von Algorithmen mit unterschiedlichen Komponenten.
- * Sie hält eine Paramterliste vor, die durch ableitende Klassen zu füllen ist.
- * Über die zu implementierende Methode create() wird ein konfigurierter Algorithmus
- * instanziiert und zurückgegeben, damit dieser ausserhalb dieser Klasse ausgeführt
- * werden kann.
+ * Die abstrakte Klasse dient als Schablone für Konfigurationsfabriken von Algorithmen mit unterschiedlichen Komponenten.<br>
+ * Sie hält eine Paramterliste vor, die durch ableitende Klassen zu füllen ist.<br>
+ * Über die zu implementierende Methode create() wird ein konfigurierter Algorithmus instanziiert und zurückgegeben,<br>
+ * damit dieser ausserhalb dieser Klasse ausgeführt werden kann.<br>
  */
 public abstract class AbstractAlgorithmConfiguration {
 
@@ -38,8 +36,8 @@ public abstract class AbstractAlgorithmConfiguration {
     }
 
     /**
-     * Wichtigste Methode der Klasse.
-     * Erzeugt auf Basis der Konfiguration inkl. der Parameter eine Instanz des Algorithmus
+     * Wichtigste Methode der Klasse.<br>
+     * Erzeugt auf Basis der Konfiguration inkl. der Parameter eine Instanz des Algorithmus<br>
      *
      * @param problem SCP-Instanz
      * @return Algorithmus-Instanz
@@ -48,10 +46,9 @@ public abstract class AbstractAlgorithmConfiguration {
     public abstract AbstractAlgorithm create(SCProblem problem);
 
     /**
-     * Abstrakte Methode, die von ableitenden Klassen zu implementieren ist.
-     * Damit sollen alle notwendigen Parameter der Algorithmus-Konfiguration erzeugt
-     * und in eine Parameter-Liste hinzugefügt werden.
-     * Diese methode wird im Konstruktor bei Instanziierung der Konfiguration aufgerunfen.
+     * Abstrakte Methode, die von ableitenden Klassen zu implementieren ist.<br>
+     * Damit sollen alle notwendigen Parameter der Algorithmus-Konfiguration erzeugt und in eine Parameter-Liste hinzugefügt werden.<br>
+     * Diese methode wird im Konstruktor bei Instanziierung der Konfiguration aufgerunfen.<br>
      */
     public abstract void prepareConfigParameters();
 
