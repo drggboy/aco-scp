@@ -5,13 +5,13 @@ import eu.andredick.aco.ant.ACOAnt;
 import eu.andredick.aco.algorithm.AbstractAlgorithm;
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.combination.CombinationFactor;
-import eu.andredick.aco.construct.AbstractConstructionStrategy;
-import eu.andredick.aco.construct.ConstructionFromSubsets;
+import eu.andredick.aco.construction.AbstractConstruction;
+import eu.andredick.aco.construction.ConstructionFromSubsets;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
 import eu.andredick.aco.heuristic.HeuristicRuleBestSubset;
 import eu.andredick.aco.heuristic.HeuristicRuleWeights;
-import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;
-import eu.andredick.aco.localsearch.LocalSearchStrategyNone;
+import eu.andredick.aco.localsearch.AbstractLocalSearch;
+import eu.andredick.aco.localsearch.LocalSearchNone;
 import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 import eu.andredick.aco.masterprocess.MasterProcessBasic;
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
@@ -26,7 +26,7 @@ import eu.andredick.aco.pheromoneperception.PerceptionSimple;
 import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
 import eu.andredick.aco.pheromoneupdate.PheromoneUpdateOnSubsets;
 import eu.andredick.aco.solutionquality.SolutionQualityMin;
-import eu.andredick.aco.termination.TermCriterion;
+import eu.andredick.aco.termination.TerminationCriterion;
 import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
 
@@ -102,11 +102,11 @@ public class AlgorithmConfiguration_GreedyProbabilistic extends AbstractAlgorith
                 new NextStepStrategyOnSubsets(
                         pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta), q0);
 
-        AbstractConstructionStrategy constructionStrategy =
+        AbstractConstruction constructionStrategy =
                 new ConstructionFromSubsets(nextStepRule);
 
-        AbstractLocalSearchStrategy localSearchStrategy =
-                new LocalSearchStrategyNone();
+        AbstractLocalSearch localSearchStrategy =
+                new LocalSearchNone();
 
         int antSize = this.getParameter("antsize").getCurrentValue().intValue();
 
@@ -115,10 +115,10 @@ public class AlgorithmConfiguration_GreedyProbabilistic extends AbstractAlgorith
             ants[i] = new ACOAnt<SCPSolution, SCProblem>(problem, updateRule, constructionStrategy, localSearchStrategy);
         }
 
-        TermCriterion termCriterion = new TermCriterion(this.getParameter("maxIterations").getCurrentValue().intValue());
+        TerminationCriterion terminationCriterion = new TerminationCriterion(this.getParameter("maxIterations").getCurrentValue().intValue());
 
         AbstractMasterProcess masterProcess =
-                new MasterProcessBasic(pheromoneStructure, ants, termCriterion);
+                new MasterProcessBasic(pheromoneStructure, ants, terminationCriterion);
 
         return new ACOAlgorithm(masterProcess);
     }

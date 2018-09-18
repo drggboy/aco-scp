@@ -1,7 +1,7 @@
 package eu.andredick.aco.ant;
 
-import eu.andredick.aco.construct.AbstractConstructionStrategy;
-import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;
+import eu.andredick.aco.construction.AbstractConstruction;
+import eu.andredick.aco.localsearch.AbstractLocalSearch;
 import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
 import eu.andredick.aco.problem.AbstractProblem;
 import eu.andredick.aco.problem.AbstractSolution;
@@ -35,12 +35,12 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
     /**
      * Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
      */
-    protected AbstractConstructionStrategy constructionStrategy;
+    protected AbstractConstruction constructionStrategy;
 
     /**
      * Beliebige Realisierung der Komponente für Lokale Suche
      */
-    protected AbstractLocalSearchStrategy localSearchStrategy;
+    protected AbstractLocalSearch localSearchStrategy;
 
     /**
      * Konstruktor
@@ -52,8 +52,8 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
      */
     public ACOAnt(P problem,
                   AbstractPheromoneUpdate updateRule,
-                  AbstractConstructionStrategy constructionStrategy,
-                  AbstractLocalSearchStrategy localSearchStrategy) {
+                  AbstractConstruction constructionStrategy,
+                  AbstractLocalSearch localSearchStrategy) {
 
         this.problem = problem;
         this.solution = null;
@@ -68,7 +68,7 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
      * Die Methode wird von dem Masterprozess aufgerufen.<br>
      * Die von der Ameise erstellte Lösung soll als Objektvariable vorgehalten werden.
      *
-     * @see AbstractConstructionStrategy#construct(AbstractProblem)
+     * @see AbstractConstruction#construct(AbstractProblem)
      */
     @Override
     public void constructSolution() {
@@ -104,7 +104,7 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
      * Dazu wird die der Ameise zugewiesene Komponente der Lokalen Suche genutzt. <br>
      * Die Methode wird von dem Masterprozess aufgerufen. <br>
      *
-     * @see AbstractLocalSearchStrategy#search(AbstractSolution)
+     * @see AbstractLocalSearch#search(AbstractSolution)
      */
     @Override
     public void localSearch() {

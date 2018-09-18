@@ -3,7 +3,7 @@ package eu.andredick.aco.masterprocess;
 import eu.andredick.aco.algorithm.Statistics;
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
-import eu.andredick.aco.termination.AbstractTermCriterion;
+import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 /**
  * <b>Abstrakte Komponente des Masterprozess</b><br>
@@ -13,7 +13,7 @@ import eu.andredick.aco.termination.AbstractTermCriterion;
  * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})<br>
  * und die Population der Ameisen (siehe {@link AbstractAnt}) koordiniert wird.<br>
  * Dazu ist innerhalb der Methode {@link #start()} eine iterative Schleife zu implementieren,<br>
- * welche in Abhängigkeit des Abbruchkriteriums {@link AbstractTermCriterion} ausgeführt wird.<br>
+ * welche in Abhängigkeit des Abbruchkriteriums {@link AbstractTerminationCriterion} ausgeführt wird.<br>
  * Ein Masterprozess wird im {@link eu.andredick.aco.algorithm.ACOAlgorithm} verwendet und dort gestartet.
  * <p><img src="{@docRoot}/images/Masterprocess-a.svg" alt=""></p>
  * <hr>
@@ -34,7 +34,7 @@ public abstract class AbstractMasterProcess {
     /**
      * Abbruchkriterium für die Iteration
      */
-    protected AbstractTermCriterion termCriterion;
+    protected AbstractTerminationCriterion termCriterion;
 
     /**
      * Statistiken zum Ablauf des Algorithmus
@@ -48,7 +48,7 @@ public abstract class AbstractMasterProcess {
      * @param ants               Population der Ameisen
      * @param termCriterion      Abbruchkriterium für die Iteration
      */
-    public AbstractMasterProcess(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTermCriterion termCriterion) {
+    public AbstractMasterProcess(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         this.pheromoneStructure = pheromoneStructure;
         this.ants = ants;
         this.termCriterion = termCriterion;

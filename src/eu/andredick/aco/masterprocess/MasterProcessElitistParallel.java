@@ -2,7 +2,7 @@ package eu.andredick.aco.masterprocess;
 
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
-import eu.andredick.aco.termination.AbstractTermCriterion;
+import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -33,7 +33,7 @@ import java.util.List;
 public class MasterProcessElitistParallel extends AbstractMasterProcess {
 
     // Konstruktor
-    public MasterProcessElitistParallel(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTermCriterion termCriterion) {
+    public MasterProcessElitistParallel(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         super(pheromoneStructure, ants, termCriterion);
     }
 

@@ -12,7 +12,8 @@
 <span class="sourceLineNo">003</span><a id="line.3">import eu.andredick.aco.algorithm.Statistics;</a>
 <span class="sourceLineNo">004</span><a id="line.4">import eu.andredick.aco.ant.AbstractAnt;</a>
 <span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;</a>
-<span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.aco.termination.AbstractTermCriterion;</a>
+<span class="sourceLineNo">006</span><a
+            id="line.6">import eu.andredick.aco.termination.AbstractTerminationCriterion;</a>
 <span class="sourceLineNo">007</span><a id="line.7"></a>
 <span class="sourceLineNo">008</span><a id="line.8">/**</a>
 <span class="sourceLineNo">009</span><a id="line.9"> * &lt;b&gt;Abstrakte Komponente des Masterprozess&lt;/b&gt;&lt;br&gt;</a>
@@ -22,7 +23,7 @@
 <span class="sourceLineNo">013</span><a id="line.13"> * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})&lt;br&gt;</a>
 <span class="sourceLineNo">014</span><a id="line.14"> * und die Population der Ameisen (siehe {@link AbstractAnt}) koordiniert wird.&lt;br&gt;</a>
 <span class="sourceLineNo">015</span><a id="line.15"> * Dazu ist innerhalb der Methode {@link #start()} eine iterative Schleife zu implementieren,&lt;br&gt;</a>
-<span class="sourceLineNo">016</span><a id="line.16"> * welche in Abhängigkeit des Abbruchkriteriums {@link AbstractTermCriterion} ausgeführt wird.&lt;br&gt;</a>
+<span class="sourceLineNo">016</span><a id="line.16"> * welche in Abhängigkeit des Abbruchkriteriums {@link AbstractTerminationCriterion} ausgeführt wird.&lt;br&gt;</a>
 <span class="sourceLineNo">017</span><a id="line.17"> * Ein Masterprozess wird im {@link eu.andredick.aco.algorithm.ACOAlgorithm} verwendet und dort gestartet.</a>
 <span class="sourceLineNo">018</span><a id="line.18"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Masterprocess-a.svg" alt=""&gt;&lt;/p&gt;</a>
 <span class="sourceLineNo">019</span><a id="line.19"> * &lt;hr&gt;</a>
@@ -43,7 +44,7 @@
 <span class="sourceLineNo">034</span><a id="line.34">    /**</a>
 <span class="sourceLineNo">035</span><a id="line.35">     * Abbruchkriterium für die Iteration</a>
 <span class="sourceLineNo">036</span><a id="line.36">     */</a>
-<span class="sourceLineNo">037</span><a id="line.37">    protected AbstractTermCriterion termCriterion;</a>
+<span class="sourceLineNo">037</span><a id="line.37">    protected AbstractTerminationCriterion termCriterion;</a>
 <span class="sourceLineNo">038</span><a id="line.38"></a>
 <span class="sourceLineNo">039</span><a id="line.39">    /**</a>
 <span class="sourceLineNo">040</span><a id="line.40">     * Statistiken zum Ablauf des Algorithmus</a>
@@ -58,7 +59,7 @@
 <span class="sourceLineNo">049</span><a
             id="line.49">     * @param termCriterion      Abbruchkriterium für die Iteration</a>
 <span class="sourceLineNo">050</span><a id="line.50">     */</a>
-<span class="sourceLineNo">051</span><a id="line.51">    public AbstractMasterProcess(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTermCriterion termCriterion) {</a>
+<span class="sourceLineNo">051</span><a id="line.51">    public AbstractMasterProcess(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {</a>
 <span class="sourceLineNo">052</span><a id="line.52">        this.pheromoneStructure = pheromoneStructure;</a>
 <span class="sourceLineNo">053</span><a id="line.53">        this.ants = ants;</a>
 <span class="sourceLineNo">054</span><a id="line.54">        this.termCriterion = termCriterion;</a>

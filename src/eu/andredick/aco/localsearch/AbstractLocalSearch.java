@@ -10,7 +10,7 @@ import eu.andredick.aco.problem.AbstractSolution;
  * Die Lokale Suche erfolgt auf Basis der zuvor konstruierten Lösung und liefert ggf verbesserte Lösung als Ergebnis.
  * <p><img src="{@docRoot}/images/LocalSearch.svg" alt=""></p>
  */
-public abstract class AbstractLocalSearchStrategy<S extends AbstractSolution> {
+public abstract class AbstractLocalSearch<S extends AbstractSolution> {
 
     /**
      * Startet die Lokale Suche anhand der Ausgangslösung und liefert eine verbesserte oder gleiche Lösung zurück.<br>

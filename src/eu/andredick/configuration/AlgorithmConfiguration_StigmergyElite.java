@@ -5,11 +5,11 @@ import eu.andredick.aco.ant.ACOAnt;
 import eu.andredick.aco.algorithm.AbstractAlgorithm;
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.combination.CombinationFactor;
-import eu.andredick.aco.construct.AbstractConstructionStrategy;
-import eu.andredick.aco.construct.ConstructionFromSubsets;
+import eu.andredick.aco.construction.AbstractConstruction;
+import eu.andredick.aco.construction.ConstructionFromSubsets;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
-import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;
-import eu.andredick.aco.localsearch.LocalSearchStrategyNone;
+import eu.andredick.aco.localsearch.AbstractLocalSearch;
+import eu.andredick.aco.localsearch.LocalSearchNone;
 import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 import eu.andredick.aco.masterprocess.MasterProcessElitistParallel;
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
@@ -24,8 +24,8 @@ import eu.andredick.aco.pheromoneperception.PerceptionSimple;
 import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
 import eu.andredick.aco.pheromoneupdate.PheromoneUpdateOnSubsets;
 import eu.andredick.aco.solutionquality.SolutionQualityMin;
-import eu.andredick.aco.termination.AbstractTermCriterion;
-import eu.andredick.aco.termination.TermCriterionNew;
+import eu.andredick.aco.termination.AbstractTerminationCriterion;
+import eu.andredick.aco.termination.TerminationCriterionNew;
 import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
 
@@ -87,11 +87,11 @@ public class AlgorithmConfiguration_StigmergyElite extends AbstractAlgorithmConf
         AbstractNextStepStrategy nextStepRule =
                 new NextStepStrategyOnSubsetsStochastic(pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta));
 
-        AbstractConstructionStrategy constructionStrategy =
+        AbstractConstruction constructionStrategy =
                 new ConstructionFromSubsets(nextStepRule);
 
-        AbstractLocalSearchStrategy localSearchStrategy =
-                new LocalSearchStrategyNone();
+        AbstractLocalSearch localSearchStrategy =
+                new LocalSearchNone();
 
         int antSize = this.getParameter("antsize").getCurrentValue().intValue();
         AbstractAnt[] ants = new AbstractAnt[antSize];
@@ -99,8 +99,8 @@ public class AlgorithmConfiguration_StigmergyElite extends AbstractAlgorithmConf
             ants[i] = new ACOAnt<SCPSolution, SCProblem>(problem, updateRule, constructionStrategy, localSearchStrategy);
         }
 
-        AbstractTermCriterion termCriterion =
-                new TermCriterionNew(this.getParameter("maxIterations").getCurrentValue().intValue(), 100);
+        AbstractTerminationCriterion termCriterion =
+                new TerminationCriterionNew(this.getParameter("maxIterations").getCurrentValue().intValue(), 100);
 
         AbstractMasterProcess masterProcess = new MasterProcessElitistParallel(pheromoneStructure, ants, termCriterion);
 

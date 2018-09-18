@@ -1,6 +1,7 @@
 package eu.andredick.aco.nextstep;
 
 import eu.andredick.aco.combination.CombinationRule;
+import eu.andredick.aco.construction.AbstractConstruction;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
 import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;
 import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;
@@ -20,7 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * festgelegten Parameter {@code q0} entweder unterhalb {@code (q < q0)} oder oberhalb {@code (q0 <= q)} liegt.<br>
  * Die Komponente besitzt also einen Parameter.<br>
  * <br>
- * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link eu.andredick.aco.construct.AbstractConstructionStrategy}
+ * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction}
  * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
  * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und
  * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>

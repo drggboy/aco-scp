@@ -10,7 +10,7 @@ import eu.andredick.aco.algorithm.Statistics;
  *
  * <p><img src="{@docRoot}/images/Termination.svg" alt=""></p>
  */
-public class TermCriterion extends AbstractTermCriterion {
+public class TerminationCriterion extends AbstractTerminationCriterion {
 
     /**
      * Maximale Anzahl der Itarationen
@@ -22,7 +22,7 @@ public class TermCriterion extends AbstractTermCriterion {
      *
      * @param maxIterations Maximale Anzahl der Itarationen
      */
-    public TermCriterion(int maxIterations) {
+    public TerminationCriterion(int maxIterations) {
         this.maxIterations = maxIterations;
     }
 

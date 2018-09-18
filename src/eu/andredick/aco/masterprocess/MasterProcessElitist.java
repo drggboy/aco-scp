@@ -2,7 +2,7 @@ package eu.andredick.aco.masterprocess;
 
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
-import eu.andredick.aco.termination.AbstractTermCriterion;
+import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 /**
  * <b>Masterprozess-Elitist</b> - Ausprägung der Komponente des Masterprozesses, bei der nur die iterationsbeste Ameise ihre Lösung mit Pheromon markieren darf.<br>
@@ -36,7 +36,7 @@ public class MasterProcessElitist extends AbstractMasterProcess {
      * @param ants               Population der Ameisen
      * @param termCriterion      Abbruchkriterium für die Iteration
      */
-    public MasterProcessElitist(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTermCriterion termCriterion) {
+    public MasterProcessElitist(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         super(pheromoneStructure, ants, termCriterion);
     }
 

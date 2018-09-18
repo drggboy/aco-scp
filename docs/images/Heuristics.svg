@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generiert durch Microsoft Visio, SVG Export Heuristics.svg Zeichenblatt-1 -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
-		width="6.69867in" height="3.83916in" viewBox="0 0 482.304 276.419" xml:space="preserve" color-interpolation-filters="sRGB"
-		class="st16">
-	<style type="text/css">
-	<![CDATA[
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="6.69867in"
+   height="3.83916in"
+   viewBox="0 0 482.304 276.419"
+   xml:space="preserve"
+   color-interpolation-filters="sRGB"
+   class="st16"
+   version="1.1"
+   id="svg5277"
+   sodipodi:docname="Heuristics.svg"
+   inkscape:version="0.92.1 r15371"><metadata
+     id="metadata5281"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1340"
+     inkscape:window-height="774"
+     id="namedview5279"
+     showgrid="false"
+     inkscape:zoom="1.0885246"
+     inkscape:cx="284.31929"
+     inkscape:cy="180.06387"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="shape1081-77" /><style
+     type="text/css"
+     id="style4949"><![CDATA[
 		.st1 {fill:#ffffff}
 		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st3 {fill:#000000;font-family:Calibri;font-size:1.00001em}
@@ -22,246 +60,457 @@
 		.st14 {marker-start:url(#mrkr22-70);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st15 {marker-end:url(#mrkr14-129);stroke:#000000;stroke-dasharray:5.25,3.75;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st16 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
-	]]>
-	</style>
-
-	<defs id="Markers">
-		<g id="lend12">
-			<path d="M 3 1 L 0 0 L 3 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
-		</g>
-		<marker id="mrkr12-61" class="st11" orient="auto" markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend12" transform="scale(-4.36,-4.36) "/>
-		</marker>
-		<g id="lend22">
-			<path d="M 0 0 L 2.25 -1.125 L 4.5 0 L 2.25 1.125 L 0 0 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
-		</g>
-		<marker id="mrkr22-70" class="st11" refX="19.14" orient="auto" markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend22" transform="scale(4.36) "/>
-		</marker>
-		<g id="lend14">
-			<path d="M 3 -1 L 0 0 L 3 1 L 3 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
-		</g>
-		<marker id="mrkr14-129" class="st11" refX="-13.08" orient="auto" markerUnits="strokeWidth" overflow="visible">
-			<use xlink:href="#lend14" transform="scale(-4.36,-4.36) "/>
-		</marker>
-	</defs>
-	<g>
-		<title>Zeichenblatt-1</title>
-		<g id="group1115-1" transform="translate(312.186,-220.769)">
-			<title>Hinweis.1115</title>
-			<desc>Menge für mehrere Heuristische Informationen</desc>
-			<g id="shape1115-2">
-				<path d="M0 276.42 L117.3 276.42 L117.3 229.65 L108.8 221.14 L0 221.14 L0 276.42 Z" class="st1"/>
-				<path d="M0 271.49 L3.92 269.97" class="st2"/>
-				<path d="M0 276.42 L117.3 276.42 L117.3 229.65 L108.8 221.14 L0 221.14 L0 276.42" class="st2"/>
-				<text x="4" y="237.98" class="st3">Menge für mehrere <tspan x="4" dy="1.2em" class="st4">Heuristische </tspan><tspan
-							x="4" dy="1.2em" class="st4">Informationen</tspan></text>			</g>
-			<g id="shape1116-9" transform="translate(108.798,-46.7717)">
-				<title>Tabelle.1116</title>
-				<path d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z" class="st5"/>
-			</g>
-		</g>
-		<g id="group1095-11" transform="translate(364.627,-59.1939)">
-			<title>Hinweis.1095</title>
-			<desc>Gewicht bzw. Kosten der Teilmenge</desc>
-			<g id="shape1095-12">
-				<path d="M0 276.42 L117.3 276.42 L117.3 246.66 L108.8 238.15 L0 238.15 L0 276.42 Z" class="st1"/>
-				<path d="M0 276.42 L27.96 274.67" class="st2"/>
-				<path d="M0 276.42 L117.3 276.42 L117.3 246.66 L108.8 238.15 L0 238.15 L0 276.42" class="st2"/>
-				<text x="4" y="253.69" class="st3">Gewicht bzw. Kosten <tspan x="4" dy="1.2em" class="st4">der Teilmenge</tspan></text>			</g>
-			<g id="shape1096-18" transform="translate(108.798,-29.7638)">
-				<title>Tabelle.1096</title>
-				<path d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z" class="st5"/>
-			</g>
-		</g>
-		<g id="group1087-20" transform="translate(78.7007,-229.273)">
-			<title>Hinweis.1087</title>
-			<desc>Alternativen-auswahl</desc>
-			<g id="shape1087-21">
-				<path d="M0 276.42 L80.79 276.42 L80.79 246.66 L72.28 238.15 L0 238.15 L0 276.42 Z" class="st1"/>
-				<path d="M0 276.42 L21.69 271.99" class="st2"/>
-				<path d="M0 276.42 L80.79 276.42 L80.79 246.66 L72.28 238.15 L0 238.15 L0 276.42" class="st2"/>
-				<text x="4" y="253.69" class="st3">Alternativen-<tspan x="4" dy="1.2em" class="st4">auswahl</tspan></text>			</g>
-			<g id="shape1088-27" transform="translate(72.2835,-29.7638)">
-				<title>Tabelle.1088</title>
-				<path d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z" class="st5"/>
-			</g>
-		</g>
-		<g id="group1059-29" transform="translate(0.375,-173.126)">
-			<title>Klasse.2972</title>
-			<desc>NextStepStrategy</desc>
-			<g id="shape1060-30">
-				<title>Tabelle.1060</title>
-				<path d="M0 276.42 L122.97 276.42 L122.97 258.75 L0 258.75 L0 276.42 Z" class="st6"/>
-			</g>
-			<g id="shape1061-32" transform="translate(0,-17.6693)">
-				<title>Tabelle.1061</title>
-				<path d="M0 276.42 L122.97 276.42 L122.97 233.51 L0 233.51 L0 276.42 Z" class="st5"/>
-			</g>
-			<g id="shape1062-34" transform="translate(0,-44.573)">
-				<title>Tabelle.1062</title>
-				<desc>&#60;&#60;abstract&#62;&#62;</desc>
-				<text x="4" y="273.42" class="st7">&#60;&#60;abstract&#62;&#62;</text>			</g>
-			<g id="shape1063-36" transform="translate(114.467,-60.5766)">
-				<title>Tabelle.1063</title>
-				<desc>Parameter</desc>
-			</g>
-			<g id="shape1059-37">
-				<text x="4" y="246.65" class="st3">NextStepStrategy</text>			</g>
-		</g>
-		<g id="shape1064-39" transform="translate(3.20965,-175.961)">
-			<title>Mitglied.2977</title>
-			<rect x="0" y="264.419" width="117.302" height="12" class="st8"/>
-			<rect x="0" y="264.419" width="117.302" height="12" class="st9"/>
-		</g>
-		<g id="group1065-42" transform="translate(193.131,-86.123)">
-			<title>Klasse.2984</title>
-			<desc>HeuristicRule</desc>
-			<g id="shape1066-43">
-				<title>Tabelle.1066</title>
-				<path d="M0 276.42 L122.97 276.42 L122.97 258.75 L0 258.75 L0 276.42 Z" class="st6"/>
-			</g>
-			<g id="shape1067-45" transform="translate(0,-17.6693)">
-				<title>Tabelle.1067</title>
-				<path d="M0 276.42 L122.97 276.42 L122.97 233.51 L0 233.51 L0 276.42 Z" class="st5"/>
-			</g>
-			<g id="shape1068-47" transform="translate(0,-44.573)">
-				<title>Tabelle.1068</title>
-				<desc>&#60;&#60;interface&#62;&#62;</desc>
-				<text x="4" y="273.42" class="st7">&#60;&#60;interface&#62;&#62;</text>			</g>
-			<g id="shape1069-49" transform="translate(114.467,-60.5766)">
-				<title>Tabelle.1069</title>
-				<desc>Parameter</desc>
-			</g>
-			<g id="shape1065-50">
-				<text x="4" y="246.65" class="st3">HeuristicRule</text>			</g>
-		</g>
-		<g id="shape1070-52" transform="translate(195.966,-88.9577)">
-			<title>Mitglied.2989</title>
-			<rect x="0" y="264.419" width="117.302" height="12" class="st8"/>
-			<rect x="0" y="264.419" width="117.302" height="12" class="st9"/>
-		</g>
-		<g id="group1071-55" transform="translate(123.346,-210.5)">
-			<title>Gerichtete Assoziation.3021</title>
-			<desc>&#60;benutzt&#62;</desc>
-			<g id="shape1071-56">
-				<path d="M0 283.51 L69.78 283.51" class="st10"/>
-				<rect x="16.2858" y="278.106" width="37.2129" height="10.7998" class="st12"/>
-				<text x="16.29" y="286.21" class="st13">&#60;benutzt&#62;</text>			</g>
-		</g>
-		<g id="group1076-64" transform="translate(247.53,-173.126)">
-			<title>Aggregation.3085</title>
-			<g id="shape1076-65">
-				<path d="M7.09 290.77 L7.09 291.13 L7.09 302.85" class="st14"/>
-			</g>
-		</g>
-		<g id="group1081-71" transform="translate(193.131,-173.126)">
-			<title>Klasse.2940</title>
-			<desc>HeuristicsSet</desc>
-			<g id="shape1082-72">
-				<title>Tabelle.1082</title>
-				<path d="M0 276.42 L122.97 276.42 L122.97 258.75 L0 258.75 L0 276.42 Z" class="st6"/>
-			</g>
-			<g id="shape1083-74" transform="translate(0,-17.6693)">
-				<title>Tabelle.1083</title>
-				<path d="M0 276.42 L122.97 276.42 L122.97 233.52 L0 233.52 L0 276.42 Z" class="st5"/>
-			</g>
-			<g id="shape1085-76" transform="translate(114.467,-60.573)">
-				<title>Tabelle.1085</title>
-				<desc>Parameter</desc>
-			</g>
-			<g id="shape1081-77">
-				<text x="4" y="246.65" class="st3">HeuristicsSet</text>			</g>
-		</g>
-		<g id="shape1086-79" transform="translate(195.966,-175.961)">
-			<title>Mitglied.2945</title>
-			<rect x="0" y="264.419" width="117.302" height="12" class="st8"/>
-			<rect x="0" y="264.419" width="117.302" height="12" class="st9"/>
-		</g>
-		<g id="group1089-82" transform="translate(266.832,-0.375)">
-			<title>Klasse.1089</title>
-			<desc>HeuristicRuleWeights</desc>
-			<g id="shape1090-83">
-				<title>Tabelle.1090</title>
-				<path d="M0 276.42 L144.57 276.42 L144.57 258.75 L0 258.75 L0 276.42 Z" class="st6"/>
-			</g>
-			<g id="shape1091-85" transform="translate(0,-17.6693)">
-				<title>Tabelle.1091</title>
-				<path d="M0 276.42 L144.57 276.42 L144.57 233.52 L0 233.52 L0 276.42 Z" class="st5"/>
-			</g>
-			<g id="shape1093-87" transform="translate(136.063,-60.573)">
-				<title>Tabelle.1093</title>
-				<desc>Parameter</desc>
-			</g>
-			<g id="shape1089-88">
-				<text x="4" y="246.65" class="st3">HeuristicRuleWeights</text>			</g>
-		</g>
-		<g id="shape1094-90" transform="translate(269.666,-3.20965)">
-			<title>Mitglied.1094</title>
-			<rect x="0" y="264.419" width="138.898" height="12" class="st8"/>
-			<rect x="0" y="264.419" width="138.898" height="12" class="st9"/>
-		</g>
-		<g id="group1102-93" transform="translate(13.4666,-58.4852)">
-			<title>Hinweis.1102</title>
-			<desc>Anzahl zusätzlicher Überdeckungen</desc>
-			<g id="shape1102-94">
-				<path d="M0 276.42 L117.3 276.42 L117.3 246.66 L108.8 238.15 L0 238.15 L0 276.42 Z" class="st1"/>
-				<path d="M117.3 276.42 L93.04 273.94" class="st2"/>
-				<path d="M0 276.42 L117.3 276.42 L117.3 246.66 L108.8 238.15 L0 238.15 L0 276.42" class="st2"/>
-				<text x="20.51" y="253.69" class="st3">Anzahl zusätzlicher <tspan x="35.81" dy="1.2em" class="st4">Überdeckungen</tspan></text>			</g>
-			<g id="shape1103-100" transform="translate(108.798,-29.7638)">
-				<title>Tabelle.1103</title>
-				<path d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z" class="st5"/>
-			</g>
-		</g>
-		<g id="group1104-102" transform="translate(96.7529,-0.392548)">
-			<title>Klasse.1104</title>
-			<desc>HeuristicRuleBestSubset</desc>
-			<g id="shape1105-103">
-				<title>Tabelle.1105</title>
-				<path d="M0 276.42 L144.57 276.42 L144.57 258.75 L0 258.75 L0 276.42 Z" class="st6"/>
-			</g>
-			<g id="shape1106-105" transform="translate(0,-17.6693)">
-				<title>Tabelle.1106</title>
-				<path d="M0 276.42 L144.57 276.42 L144.57 233.52 L0 233.52 L0 276.42 Z" class="st5"/>
-			</g>
-			<g id="shape1108-107" transform="translate(136.063,-60.573)">
-				<title>Tabelle.1108</title>
-				<desc>Parameter</desc>
-			</g>
-			<g id="shape1104-108">
-				<text x="4" y="246.65" class="st3">HeuristicRuleBestSubset</text>			</g>
-		</g>
-		<g id="shape1109-110" transform="translate(99.5876,-3.22719)">
-			<title>Mitglied.1109</title>
-			<rect x="0" y="264.419" width="138.898" height="12" class="st8"/>
-			<rect x="0" y="264.419" width="138.898" height="12" class="st9"/>
-		</g>
-		<g id="group1117-113" transform="translate(330.611,-121.928)">
-			<title>Hinweis.1117</title>
-			<desc>Schnittstelle Heuristische Informationen</desc>
-			<g id="shape1117-114">
-				<path d="M0 276.42 L95.81 276.42 L95.81 229.65 L87.31 221.14 L0 221.14 L0 276.42 Z" class="st1"/>
-				<path d="M0 261.6 L-14.51 265.48" class="st2"/>
-				<path d="M0 276.42 L95.81 276.42 L95.81 229.65 L87.31 221.14 L0 221.14 L0 276.42" class="st2"/>
-				<text x="4" y="237.98" class="st3">Schnittstelle <tspan x="4" dy="1.2em" class="st4">Heuristische </tspan><tspan
-							x="4" dy="1.2em" class="st4">Informationen</tspan></text>			</g>
-			<g id="shape1118-121" transform="translate(87.3071,-46.7717)">
-				<title>Tabelle.1118</title>
-				<path d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z" class="st5"/>
-			</g>
-		</g>
-		<g id="group1119-123" transform="translate(169.036,-60.9655)">
-			<title>Schnittstellenrealisierung.1119</title>
-			<g id="shape1119-124">
-				<path d="M0 276.42 L0 265.79 L85.58 265.79 L85.58 261.07" class="st15"/>
-			</g>
-		</g>
-		<g id="group1124-130" transform="translate(339.115,-60.948)">
-			<title>Schnittstellenrealisierung.1124</title>
-			<g id="shape1124-131">
-				<path d="M0 276.42 L0 265.79 L-84.5 265.79 L-84.5 261.05" class="st15"/>
-			</g>
-		</g>
-	</g>
-</svg>
+	]]></style><defs
+     id="Markers"><g
+       id="lend12"><path
+         d="M 3 1 L 0 0 L 3 -1 "
+         style="stroke-linecap:round;stroke-linejoin:round;fill:none"
+         id="path4951" /></g><marker
+       id="mrkr12-61"
+       class="st11"
+       orient="auto"
+       markerUnits="strokeWidth"
+       overflow="visible"><use
+         xlink:href="#lend12"
+         transform="scale(-4.36,-4.36) "
+         id="use4954" /></marker><g
+       id="lend22"><path
+         d="M 0 0 L 2.25 -1.125 L 4.5 0 L 2.25 1.125 L 0 0 "
+         style="stroke-linecap:round;stroke-linejoin:round;fill:none"
+         id="path4957" /></g><marker
+       id="mrkr22-70"
+       class="st11"
+       refX="19.14"
+       orient="auto"
+       markerUnits="strokeWidth"
+       overflow="visible"><use
+         xlink:href="#lend22"
+         transform="scale(4.36) "
+         id="use4960" /></marker><g
+       id="lend14"><path
+         d="M 3 -1 L 0 0 L 3 1 L 3 -1 "
+         style="stroke-linecap:round;stroke-linejoin:round;fill:none"
+         id="path4963" /></g><marker
+       id="mrkr14-129"
+       class="st11"
+       refX="-13.08"
+       orient="auto"
+       markerUnits="strokeWidth"
+       overflow="visible"><use
+         xlink:href="#lend14"
+         transform="scale(-4.36,-4.36) "
+         id="use4966" /></marker></defs><g
+     id="g5275"><title
+       id="title4970">Zeichenblatt-1</title><g
+       id="group1115-1"
+       transform="translate(312.186,-220.769)"><title
+         id="title4972">Hinweis.1115</title><desc
+         id="desc4974">Menge für mehrere Heuristische Informationen</desc><g
+         id="shape1115-2"><path
+           d="M0 276.42 L117.3 276.42 L117.3 229.65 L108.8 221.14 L0 221.14 L0 276.42 Z"
+           class="st1"
+           id="path4976" /><path
+           d="M0 271.49 L3.92 269.97"
+           class="st2"
+           id="path4978" /><path
+           d="M0 276.42 L117.3 276.42 L117.3 229.65 L108.8 221.14 L0 221.14 L0 276.42"
+           class="st2"
+           id="path4980" /><text
+           x="4"
+           y="237.98"
+           class="st3"
+           id="text4986">Menge für mehrere <tspan
+   x="4"
+   dy="1.2em"
+   class="st4"
+   id="tspan4982">Heuristische </tspan><tspan
+   x="4"
+   dy="1.2em"
+   class="st4"
+   id="tspan4984">Informationen</tspan></text>
+</g><g
+         id="shape1116-9"
+         transform="translate(108.798,-46.7717)"><title
+           id="title4989">Tabelle.1116</title><path
+           d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z"
+           class="st5"
+           id="path4991" /></g></g><g
+       id="group1095-11"
+       transform="translate(364.627,-59.1939)"><title
+         id="title4995">Hinweis.1095</title><desc
+         id="desc4997">Gewicht bzw. Kosten der Teilmenge</desc><g
+         id="shape1095-12"><path
+           d="M0 276.42 L117.3 276.42 L117.3 246.66 L108.8 238.15 L0 238.15 L0 276.42 Z"
+           class="st1"
+           id="path4999" /><path
+           d="M0 276.42 L27.96 274.67"
+           class="st2"
+           id="path5001" /><path
+           d="M0 276.42 L117.3 276.42 L117.3 246.66 L108.8 238.15 L0 238.15 L0 276.42"
+           class="st2"
+           id="path5003" /><text
+           x="4"
+           y="253.69"
+           class="st3"
+           id="text5007">Gewicht bzw. Kosten <tspan
+   x="4"
+   dy="1.2em"
+   class="st4"
+   id="tspan5005">der Teilmenge</tspan></text>
+</g><g
+         id="shape1096-18"
+         transform="translate(108.798,-29.7638)"><title
+           id="title5010">Tabelle.1096</title><path
+           d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z"
+           class="st5"
+           id="path5012" /></g></g><g
+       id="group1087-20"
+       transform="translate(78.7007,-229.273)"><title
+         id="title5016">Hinweis.1087</title><desc
+         id="desc5018">Alternativen-auswahl</desc><g
+         id="shape1087-21"><path
+           d="M0 276.42 L80.79 276.42 L80.79 246.66 L72.28 238.15 L0 238.15 L0 276.42 Z"
+           class="st1"
+           id="path5020" /><path
+           d="M0 276.42 L21.69 271.99"
+           class="st2"
+           id="path5022" /><path
+           d="M0 276.42 L80.79 276.42 L80.79 246.66 L72.28 238.15 L0 238.15 L0 276.42"
+           class="st2"
+           id="path5024" /><text
+           x="4"
+           y="253.69"
+           class="st3"
+           id="text5028">Alternativen-<tspan
+   x="4"
+   dy="1.2em"
+   class="st4"
+   id="tspan5026">auswahl</tspan></text>
+</g><g
+         id="shape1088-27"
+         transform="translate(72.2835,-29.7638)"><title
+           id="title5031">Tabelle.1088</title><path
+           d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z"
+           class="st5"
+           id="path5033" /></g></g><g
+       id="group1059-29"
+       transform="translate(0.375,-173.126)"><title
+         id="title5037">Klasse.2972</title><desc
+         id="desc5039">NextStepStrategy</desc><g
+         id="shape1060-30"><title
+           id="title5041">Tabelle.1060</title><path
+           d="M0 276.42 L122.97 276.42 L122.97 258.75 L0 258.75 L0 276.42 Z"
+           class="st6"
+           id="path5043" /></g><g
+         id="shape1061-32"
+         transform="translate(0,-17.6693)"><title
+           id="title5046">Tabelle.1061</title><path
+           d="M0 276.42 L122.97 276.42 L122.97 233.51 L0 233.51 L0 276.42 Z"
+           class="st5"
+           id="path5048" /></g><g
+         id="shape1062-34"
+         transform="translate(0,-44.573)"><title
+           id="title5051">Tabelle.1062</title><desc
+           id="desc5053">&lt;&lt;abstract&gt;&gt;</desc><text
+           x="4"
+           y="273.42"
+           class="st7"
+           id="text5055">&lt;&lt;abstract&gt;&gt;</text>
+</g><g
+         id="shape1063-36"
+         transform="translate(114.467,-60.5766)"><title
+           id="title5058">Tabelle.1063</title><desc
+           id="desc5060">Parameter</desc></g><g
+         id="shape1059-37"><text
+           x="4"
+           y="246.65"
+           class="st3"
+           id="text5063">NextStepStrategy</text>
+</g></g><g
+       id="shape1064-39"
+       transform="translate(3.20965,-175.961)"><title
+         id="title5067">Mitglied.2977</title><rect
+         x="0"
+         y="264.419"
+         width="117.302"
+         height="12"
+         class="st8"
+         id="rect5069" /><rect
+         x="0"
+         y="264.419"
+         width="117.302"
+         height="12"
+         class="st9"
+         id="rect5071" /></g><g
+       id="group1065-42"
+       transform="translate(193.131,-86.123)"><title
+         id="title5074">Klasse.2984</title><desc
+         id="desc5076">HeuristicRule</desc><g
+         id="shape1066-43"><title
+           id="title5078">Tabelle.1066</title><path
+           d="M0 276.42 L122.97 276.42 L122.97 258.75 L0 258.75 L0 276.42 Z"
+           class="st6"
+           id="path5080" /></g><g
+         id="shape1067-45"
+         transform="translate(0,-17.6693)"><title
+           id="title5083">Tabelle.1067</title><path
+           d="M0 276.42 L122.97 276.42 L122.97 233.51 L0 233.51 L0 276.42 Z"
+           class="st5"
+           id="path5085" /></g><g
+         id="shape1068-47"
+         transform="translate(0,-44.573)"><title
+           id="title5088">Tabelle.1068</title><desc
+           id="desc5090">&lt;&lt;interface&gt;&gt;</desc><text
+           x="4"
+           y="273.42"
+           class="st7"
+           id="text5092">&lt;&lt;interface&gt;&gt;</text>
+</g><g
+         id="shape1069-49"
+         transform="translate(114.467,-60.5766)"><title
+           id="title5095">Tabelle.1069</title><desc
+           id="desc5097">Parameter</desc></g><g
+         id="shape1065-50"><text
+           x="4"
+           y="246.65"
+           class="st3"
+           id="text5100">HeuristicRule</text>
+</g></g><g
+       id="shape1070-52"
+       transform="translate(195.966,-88.9577)"><title
+         id="title5104">Mitglied.2989</title><rect
+         x="0"
+         y="264.419"
+         width="117.302"
+         height="12"
+         class="st8"
+         id="rect5106" /><rect
+         x="0"
+         y="264.419"
+         width="117.302"
+         height="12"
+         class="st9"
+         id="rect5108" /></g><g
+       id="group1071-55"
+       transform="translate(123.346,-210.5)"><title
+         id="title5111">Gerichtete Assoziation.3021</title><desc
+         id="desc5113">&lt;benutzt&gt;</desc><g
+         id="shape1071-56"><path
+           d="M0 283.51 L69.78 283.51"
+           class="st10"
+           id="path5115" /><rect
+           x="16.2858"
+           y="278.106"
+           width="37.2129"
+           height="10.7998"
+           class="st12"
+           id="rect5117" /><text
+           x="16.29"
+           y="286.21"
+           class="st13"
+           id="text5119">&lt;benutzt&gt;</text>
+</g></g><g
+       id="group1076-64"
+       transform="translate(247.53,-173.126)"><title
+         id="title5123">Aggregation.3085</title><g
+         id="shape1076-65"><path
+           d="M7.09 290.77 L7.09 291.13 L7.09 302.85"
+           class="st14"
+           id="path5125" /></g></g><g
+       id="group1081-71"
+       transform="translate(193.131,-173.126)"><title
+         id="title5129">Klasse.2940</title><desc
+         id="desc5131">HeuristicsSet</desc><g
+         id="shape1082-72"><title
+           id="title5133">Tabelle.1082</title><path
+           d="M0 276.42 L122.97 276.42 L122.97 258.75 L0 258.75 L0 276.42 Z"
+           class="st6"
+           id="path5135" /></g><g
+         id="shape1083-74"
+         transform="translate(0,-17.6693)"><title
+           id="title5138">Tabelle.1083</title><path
+           d="M0 276.42 L122.97 276.42 L122.97 233.52 L0 233.52 L0 276.42 Z"
+           class="st5"
+           id="path5140" /></g><g
+         id="shape1085-76"
+         transform="translate(114.467,-60.573)"><title
+           id="title5143">Tabelle.1085</title><desc
+           id="desc5145">Parameter</desc></g><g
+         id="shape1081-77"><text
+           x="4"
+           y="246.64999"
+           class="st3"
+           id="text5148"
+           style="font-size:12.00012016px;font-family:Calibri;fill:#000000">HeuristicInfoSet</text>
+</g></g><g
+       id="shape1086-79"
+       transform="translate(195.966,-175.961)"><title
+         id="title5152">Mitglied.2945</title><rect
+         x="0"
+         y="264.419"
+         width="117.302"
+         height="12"
+         class="st8"
+         id="rect5154" /><rect
+         x="0"
+         y="264.419"
+         width="117.302"
+         height="12"
+         class="st9"
+         id="rect5156" /></g><g
+       id="group1089-82"
+       transform="translate(266.832,-0.375)"><title
+         id="title5159">Klasse.1089</title><desc
+         id="desc5161">HeuristicRuleWeights</desc><g
+         id="shape1090-83"><title
+           id="title5163">Tabelle.1090</title><path
+           d="M0 276.42 L144.57 276.42 L144.57 258.75 L0 258.75 L0 276.42 Z"
+           class="st6"
+           id="path5165" /></g><g
+         id="shape1091-85"
+         transform="translate(0,-17.6693)"><title
+           id="title5168">Tabelle.1091</title><path
+           d="M0 276.42 L144.57 276.42 L144.57 233.52 L0 233.52 L0 276.42 Z"
+           class="st5"
+           id="path5170" /></g><g
+         id="shape1093-87"
+         transform="translate(136.063,-60.573)"><title
+           id="title5173">Tabelle.1093</title><desc
+           id="desc5175">Parameter</desc></g><g
+         id="shape1089-88"><text
+           x="4"
+           y="246.65"
+           class="st3"
+           id="text5178">HeuristicRuleWeights</text>
+</g></g><g
+       id="shape1094-90"
+       transform="translate(269.666,-3.20965)"><title
+         id="title5182">Mitglied.1094</title><rect
+         x="0"
+         y="264.419"
+         width="138.898"
+         height="12"
+         class="st8"
+         id="rect5184" /><rect
+         x="0"
+         y="264.419"
+         width="138.898"
+         height="12"
+         class="st9"
+         id="rect5186" /></g><g
+       id="group1102-93"
+       transform="translate(13.4666,-58.4852)"><title
+         id="title5189">Hinweis.1102</title><desc
+         id="desc5191">Anzahl zusätzlicher Überdeckungen</desc><g
+         id="shape1102-94"><path
+           d="M0 276.42 L117.3 276.42 L117.3 246.66 L108.8 238.15 L0 238.15 L0 276.42 Z"
+           class="st1"
+           id="path5193" /><path
+           d="M117.3 276.42 L93.04 273.94"
+           class="st2"
+           id="path5195" /><path
+           d="M0 276.42 L117.3 276.42 L117.3 246.66 L108.8 238.15 L0 238.15 L0 276.42"
+           class="st2"
+           id="path5197" /><text
+           x="20.51"
+           y="253.69"
+           class="st3"
+           id="text5201">Anzahl zusätzlicher <tspan
+   x="35.81"
+   dy="1.2em"
+   class="st4"
+   id="tspan5199">Überdeckungen</tspan></text>
+</g><g
+         id="shape1103-100"
+         transform="translate(108.798,-29.7638)"><title
+           id="title5204">Tabelle.1103</title><path
+           d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z"
+           class="st5"
+           id="path5206" /></g></g><g
+       id="group1104-102"
+       transform="translate(96.7529,-0.392548)"><title
+         id="title5210">Klasse.1104</title><desc
+         id="desc5212">HeuristicRuleBestSubset</desc><g
+         id="shape1105-103"><title
+           id="title5214">Tabelle.1105</title><path
+           d="M0 276.42 L144.57 276.42 L144.57 258.75 L0 258.75 L0 276.42 Z"
+           class="st6"
+           id="path5216" /></g><g
+         id="shape1106-105"
+         transform="translate(0,-17.6693)"><title
+           id="title5219">Tabelle.1106</title><path
+           d="M0 276.42 L144.57 276.42 L144.57 233.52 L0 233.52 L0 276.42 Z"
+           class="st5"
+           id="path5221" /></g><g
+         id="shape1108-107"
+         transform="translate(136.063,-60.573)"><title
+           id="title5224">Tabelle.1108</title><desc
+           id="desc5226">Parameter</desc></g><g
+         id="shape1104-108"><text
+           x="4"
+           y="246.65"
+           class="st3"
+           id="text5229">HeuristicRuleBestSubset</text>
+</g></g><g
+       id="shape1109-110"
+       transform="translate(99.5876,-3.22719)"><title
+         id="title5233">Mitglied.1109</title><rect
+         x="0"
+         y="264.419"
+         width="138.898"
+         height="12"
+         class="st8"
+         id="rect5235" /><rect
+         x="0"
+         y="264.419"
+         width="138.898"
+         height="12"
+         class="st9"
+         id="rect5237" /></g><g
+       id="group1117-113"
+       transform="translate(330.611,-121.928)"><title
+         id="title5240">Hinweis.1117</title><desc
+         id="desc5242">Schnittstelle Heuristische Informationen</desc><g
+         id="shape1117-114"><path
+           d="M0 276.42 L95.81 276.42 L95.81 229.65 L87.31 221.14 L0 221.14 L0 276.42 Z"
+           class="st1"
+           id="path5244" /><path
+           d="M0 261.6 L-14.51 265.48"
+           class="st2"
+           id="path5246" /><path
+           d="M0 276.42 L95.81 276.42 L95.81 229.65 L87.31 221.14 L0 221.14 L0 276.42"
+           class="st2"
+           id="path5248" /><text
+           x="4"
+           y="237.98"
+           class="st3"
+           id="text5254">Schnittstelle <tspan
+   x="4"
+   dy="1.2em"
+   class="st4"
+   id="tspan5250">Heuristische </tspan><tspan
+   x="4"
+   dy="1.2em"
+   class="st4"
+   id="tspan5252">Informationen</tspan></text>
+</g><g
+         id="shape1118-121"
+         transform="translate(87.3071,-46.7717)"><title
+           id="title5257">Tabelle.1118</title><path
+           d="M0 276.42 L8.5 276.42 L8.5 277.27 L8.5 276.42 L0 267.92 L-0.85 267.92 L0 267.92 L0 276.42 Z"
+           class="st5"
+           id="path5259" /></g></g><g
+       id="group1119-123"
+       transform="translate(169.036,-60.9655)"><title
+         id="title5263">Schnittstellenrealisierung.1119</title><g
+         id="shape1119-124"><path
+           d="M0 276.42 L0 265.79 L85.58 265.79 L85.58 261.07"
+           class="st15"
+           id="path5265" /></g></g><g
+       id="group1124-130"
+       transform="translate(339.115,-60.948)"><title
+         id="title5269">Schnittstellenrealisierung.1124</title><g
+         id="shape1124-131"><path
+           d="M0 276.42 L0 265.79 L-84.5 265.79 L-84.5 261.05"
+           class="st15"
+           id="path5271" /></g></g></g></svg>

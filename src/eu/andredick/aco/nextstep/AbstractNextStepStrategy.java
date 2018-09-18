@@ -1,6 +1,7 @@
 package eu.andredick.aco.nextstep;
 
 import eu.andredick.aco.combination.CombinationRule;
+import eu.andredick.aco.construction.AbstractConstruction;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.pheromoneperception.AbstractPheromonePerception;
@@ -12,7 +13,7 @@ import java.util.List;
  * <b>Abstrakte Komponente der Alternativen-Auswahl</b><br>
  * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
  * <br>
- * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link eu.andredick.aco.construct.AbstractConstructionStrategy} verwendet,<br>
+ * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction} verwendet,<br>
  * um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
  * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und<br>
  * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
@@ -65,7 +66,7 @@ public abstract class AbstractNextStepStrategy<E extends AbstractPheromoneAssoci
 
     /**
      * Abstrakte Methode zur Auswahl einer Alternative aus einer gegebenen Menge.<br>
-     * Schnittstelle zur Konstruktionsheuristik ({@link eu.andredick.aco.construct.AbstractConstructionStrategy}).<br>
+     * Schnittstelle zur Konstruktionsheuristik ({@link AbstractConstruction}).<br>
      *
      * @param solution         partiale Lösung der Ameise
      * @param availableSubsets verfügbare Alternativen

@@ -3,7 +3,7 @@ eu.andredick.aco
 eu.andredick.aco.algorithm
 eu.andredick.aco.ant
 eu.andredick.aco.combination
-eu.andredick.aco.construct
+eu.andredick.aco.construction
 eu.andredick.aco.heuristic
 eu.andredick.aco.localsearch
 eu.andredick.aco.masterprocess

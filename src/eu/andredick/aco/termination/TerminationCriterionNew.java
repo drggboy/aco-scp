@@ -12,7 +12,7 @@ import eu.andredick.tools.ArrayTools;
  *
  * <p><img src="{@docRoot}/images/Termination.svg" alt=""></p>
  */
-public class TermCriterionNew extends AbstractTermCriterion {
+public class TerminationCriterionNew extends AbstractTerminationCriterion {
 
     /**
      * Maximale Anzahl der Itarationen.
@@ -30,7 +30,7 @@ public class TermCriterionNew extends AbstractTermCriterion {
      * @param maxIterations Maximale Anzahl der Itarationen
      * @param bestValueAgo  Maximale Anzahl der Iterationen, seit dem keine bessere Lösunge gefunden wurde.
      */
-    public TermCriterionNew(int maxIterations, int bestValueAgo) {
+    public TerminationCriterionNew(int maxIterations, int bestValueAgo) {
         this.maxIterations = maxIterations;
         this.bestValueAgo = bestValueAgo;
     }

@@ -1,4 +1,4 @@
-package eu.andredick.aco.construct;
+package eu.andredick.aco.construction;
 
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
 import eu.andredick.aco.problem.AbstractProblem;
@@ -16,7 +16,7 @@ import eu.andredick.aco.problem.AbstractSolution;
  *
  * @param <E> Ausprägung der Alternativenauswahl, die bei der Konstruktion benutzt werden soll.
  */
-public abstract class AbstractConstructionStrategy<E extends AbstractNextStepStrategy, P extends AbstractProblem, S extends AbstractSolution> {
+public abstract class AbstractConstruction<E extends AbstractNextStepStrategy, P extends AbstractProblem, S extends AbstractSolution> {
 
     /**
      * Regel für die Alternativenauswahl, die bei der Konstruktion benutzt werden soll.
@@ -28,7 +28,7 @@ public abstract class AbstractConstructionStrategy<E extends AbstractNextStepStr
      *
      * @param nextStepRule Regel für die Alternativenauswahl, die bei der Konstruktion benutzt werden soll.
      */
-    public AbstractConstructionStrategy(E nextStepRule) {
+    public AbstractConstruction(E nextStepRule) {
         this.nextStepRule = nextStepRule;
     }
 

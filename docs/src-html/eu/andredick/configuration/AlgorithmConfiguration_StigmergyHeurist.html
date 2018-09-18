@@ -14,13 +14,13 @@
 <span class="sourceLineNo">005</span><a id="line.5">import eu.andredick.aco.algorithm.AbstractAlgorithm;</a>
 <span class="sourceLineNo">006</span><a id="line.6">import eu.andredick.aco.ant.AbstractAnt;</a>
 <span class="sourceLineNo">007</span><a id="line.7">import eu.andredick.aco.combination.CombinationFactor;</a>
-<span class="sourceLineNo">008</span><a id="line.8">import eu.andredick.aco.construct.AbstractConstructionStrategy;</a>
-<span class="sourceLineNo">009</span><a id="line.9">import eu.andredick.aco.construct.ConstructionFromSubsets;</a>
+<span class="sourceLineNo">008</span><a id="line.8">import eu.andredick.aco.construction.AbstractConstruction;</a>
+<span class="sourceLineNo">009</span><a id="line.9">import eu.andredick.aco.construction.ConstructionFromSubsets;</a>
 <span class="sourceLineNo">010</span><a id="line.10">import eu.andredick.aco.heuristic.HeuristicInfoSet;</a>
 <span class="sourceLineNo">011</span><a id="line.11">import eu.andredick.aco.heuristic.HeuristicRuleBestSubset;</a>
 <span class="sourceLineNo">012</span><a id="line.12">import eu.andredick.aco.heuristic.HeuristicRuleWeights;</a>
-<span class="sourceLineNo">013</span><a id="line.13">import eu.andredick.aco.localsearch.AbstractLocalSearchStrategy;</a>
-<span class="sourceLineNo">014</span><a id="line.14">import eu.andredick.aco.localsearch.LocalSearchStrategyNone;</a>
+<span class="sourceLineNo">013</span><a id="line.13">import eu.andredick.aco.localsearch.AbstractLocalSearch;</a>
+<span class="sourceLineNo">014</span><a id="line.14">import eu.andredick.aco.localsearch.LocalSearchNone;</a>
 <span class="sourceLineNo">015</span><a id="line.15">import eu.andredick.aco.masterprocess.AbstractMasterProcess;</a>
 <span class="sourceLineNo">016</span><a id="line.16">import eu.andredick.aco.masterprocess.MasterProcessBasicParallel;</a>
 <span class="sourceLineNo">017</span><a id="line.17">import eu.andredick.aco.nextstep.AbstractNextStepStrategy;</a>
@@ -36,8 +36,9 @@
 <span class="sourceLineNo">026</span><a id="line.26">import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;</a>
 <span class="sourceLineNo">027</span><a id="line.27">import eu.andredick.aco.pheromoneupdate.PheromoneUpdateOnSubsets;</a>
 <span class="sourceLineNo">028</span><a id="line.28">import eu.andredick.aco.solutionquality.SolutionQualityMin;</a>
-<span class="sourceLineNo">029</span><a id="line.29">import eu.andredick.aco.termination.AbstractTermCriterion;</a>
-<span class="sourceLineNo">030</span><a id="line.30">import eu.andredick.aco.termination.TermCriterionNew;</a>
+<span class="sourceLineNo">029</span><a
+            id="line.29">import eu.andredick.aco.termination.AbstractTerminationCriterion;</a>
+<span class="sourceLineNo">030</span><a id="line.30">import eu.andredick.aco.termination.TerminationCriterionNew;</a>
 <span class="sourceLineNo">031</span><a id="line.31">import eu.andredick.scp.SCPSolution;</a>
 <span class="sourceLineNo">032</span><a id="line.32">import eu.andredick.scp.SCProblem;</a>
 <span class="sourceLineNo">033</span><a id="line.33"></a>
@@ -114,11 +115,11 @@
 <span class="sourceLineNo">100</span><a id="line.100">        AbstractNextStepStrategy nextStepRule =</a>
 <span class="sourceLineNo">101</span><a id="line.101">                new NextStepStrategyOnSubsetsStochastic(pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta));</a>
 <span class="sourceLineNo">102</span><a id="line.102"></a>
-<span class="sourceLineNo">103</span><a id="line.103">        AbstractConstructionStrategy constructionStrategy =</a>
+<span class="sourceLineNo">103</span><a id="line.103">        AbstractConstruction constructionStrategy =</a>
 <span class="sourceLineNo">104</span><a id="line.104">                new ConstructionFromSubsets(nextStepRule);</a>
 <span class="sourceLineNo">105</span><a id="line.105"></a>
-<span class="sourceLineNo">106</span><a id="line.106">        AbstractLocalSearchStrategy localSearchStrategy =</a>
-<span class="sourceLineNo">107</span><a id="line.107">                new LocalSearchStrategyNone();</a>
+<span class="sourceLineNo">106</span><a id="line.106">        AbstractLocalSearch localSearchStrategy =</a>
+<span class="sourceLineNo">107</span><a id="line.107">                new LocalSearchNone();</a>
 <span class="sourceLineNo">108</span><a id="line.108"></a>
 <span class="sourceLineNo">109</span><a id="line.109">        int antSize = this.getParameter("antsize").getCurrentValue().intValue();</a>
 <span class="sourceLineNo">110</span><a id="line.110">        AbstractAnt[] ants = new AbstractAnt[antSize];</a>
@@ -126,8 +127,8 @@
 <span class="sourceLineNo">112</span><a id="line.112">            ants[i] = new ACOAnt&lt;SCPSolution, SCProblem&gt;(problem, updateRule, constructionStrategy, localSearchStrategy);</a>
 <span class="sourceLineNo">113</span><a id="line.113">        }</a>
 <span class="sourceLineNo">114</span><a id="line.114"></a>
-<span class="sourceLineNo">115</span><a id="line.115">        AbstractTermCriterion termCriterion =</a>
-<span class="sourceLineNo">116</span><a id="line.116">                new TermCriterionNew(this.getParameter("maxIterations").getCurrentValue().intValue(), 300);</a>
+<span class="sourceLineNo">115</span><a id="line.115">        AbstractTerminationCriterion termCriterion =</a>
+<span class="sourceLineNo">116</span><a id="line.116">                new TerminationCriterionNew(this.getParameter("maxIterations").getCurrentValue().intValue(), 300);</a>
 <span class="sourceLineNo">117</span><a id="line.117"></a>
 <span class="sourceLineNo">118</span><a id="line.118">        AbstractMasterProcess masterProcess = new MasterProcessBasicParallel(pheromoneStructure, ants, termCriterion);</a>
 <span class="sourceLineNo">119</span><a id="line.119"></a>

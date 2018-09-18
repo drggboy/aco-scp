@@ -9,7 +9,7 @@ import eu.andredick.aco.algorithm.Statistics;
  *
  * <p><img src="{@docRoot}/images/Termination.svg" alt=""></p>
  */
-public abstract class AbstractTermCriterion {
+public abstract class AbstractTerminationCriterion {
 
     /**
      * Prüfen, ob die Abbruchbedingung erfüllt ist<br>

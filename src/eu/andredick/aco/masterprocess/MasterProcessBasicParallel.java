@@ -2,7 +2,7 @@ package eu.andredick.aco.masterprocess;
 
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
-import eu.andredick.aco.termination.AbstractTermCriterion;
+import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class MasterProcessBasicParallel extends AbstractMasterProcess {
      * @param ants               Population der Ameisen
      * @param termCriterion      Abbruchkriterium für die Iteration
      */
-    public MasterProcessBasicParallel(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTermCriterion termCriterion) {
+    public MasterProcessBasicParallel(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         super(pheromoneStructure, ants, termCriterion);
     }
 

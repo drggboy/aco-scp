@@ -11,7 +11,7 @@ import eu.andredick.scp.SCPSolution;
  * Die Lokale Suche erfolgt auf Basis der zuvor konstruierten Lösung und liefert ggf verbesserte Lösung als Ergebnis.<br>
  * <p><img src="{@docRoot}/images/LocalSearch.svg" alt=""></p>
  */
-public class LocalSearchStrategyNone extends AbstractLocalSearchStrategy<SCPSolution> {
+public class LocalSearchNone extends AbstractLocalSearch<SCPSolution> {
 
 
     /**

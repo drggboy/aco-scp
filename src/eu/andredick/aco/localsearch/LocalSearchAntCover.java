@@ -16,7 +16,7 @@ import java.util.TreeSet;
  * Die Lokale Suche erfolgt auf Basis der zuvor konstruierten Lösung und liefert ggf verbesserte Lösung als Ergebnis.
  * <p><img src="{@docRoot}/images/LocalSearch.svg" alt=""></p>
  */
-public class LocalSearchStrategyAntCover extends AbstractLocalSearchStrategy<SCPSolution> {
+public class LocalSearchAntCover extends AbstractLocalSearch<SCPSolution> {
 
     /**
      * Statische Klassenvariable, die alle Spalten der Strukturmatrix nach

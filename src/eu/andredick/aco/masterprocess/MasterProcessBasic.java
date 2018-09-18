@@ -2,7 +2,7 @@ package eu.andredick.aco.masterprocess;
 
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
-import eu.andredick.aco.termination.AbstractTermCriterion;
+import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 /**
  * <b>Masterprozess-Basic</b> - Grundausprägung der Komponente des Masterprozesses<br>
@@ -35,7 +35,7 @@ public class MasterProcessBasic extends AbstractMasterProcess {
      * @param ants               Population der Ameisen
      * @param termCriterion      Abbruchkriterium für die Iteration
      */
-    public MasterProcessBasic(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTermCriterion termCriterion) {
+    public MasterProcessBasic(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         super(pheromoneStructure, ants, termCriterion);
     }
 
