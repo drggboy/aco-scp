@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export SCP.svg Zeichenblatt-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		width="6.44742in" height="4.16396in" viewBox="0 0 464.215 299.805" xml:space="preserve" color-interpolation-filters="sRGB"
+		class="st14">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff}
+		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st3 {fill:#000000;font-family:Calibri;font-size:0.833336em}
+		.st4 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st5 {fill:#ffffff;stroke:#000000;stroke-dasharray:0.75,1.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st6 {fill:#000000;font-family:Calibri;font-size:0.833336em;font-stretch:semi-expanded}
+		.st7 {fill:#f2f2f2;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st8 {fill:#000000;font-family:Calibri;font-size:1.00001em}
+		.st9 {fill:#ffffff;fill-opacity:0}
+		.st10 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;visibility:hidden}
+		.st11 {marker-end:url(#mrkr12-79);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st12 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.22935779816514}
+		.st13 {marker-end:url(#mrkr14-114);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st14 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-38" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+			<stop offset="0.01" stop-color="#ffffff" stop-opacity="1"/>
+			<stop offset="0.5" stop-color="#fefefe" stop-opacity="1"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend12">
+			<path d="M 3 1 L 0 0 L 3 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr12-79" class="st12" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend12" transform="scale(-4.36,-4.36) "/>
+		</marker>
+		<g id="lend14">
+			<path d="M 3 -1 L 0 0 L 3 1 L 3 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr14-114" class="st12" refX="-13.08" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend14" transform="scale(-4.36,-4.36) "/>
+		</marker>
+	</defs>
+	<g>
+		<title>Zeichenblatt-1</title>
+		<g id="group1784-1" transform="translate(27.8711,-170.454)">
+			<title>Hinweis.1784</title>
+			<desc>Set Covering Problem</desc>
+			<g id="shape1784-2">
+				<path d="M0 299.81 L95.81 299.81 L95.81 285.63 L87.31 277.13 L0 277.13 L0 299.81 Z" class="st1"/>
+				<path d="M95.81 299.81 L90.59 303.57" class="st2"/>
+				<path d="M0 299.81 L95.81 299.81 L95.81 285.63 L87.31 277.13 L0 277.13 L0 299.81" class="st2"/>
+				<text x="4.09" y="291.47" class="st3">Set Covering Problem</text>			</g>
+			<g id="shape1785-7" transform="translate(87.3071,-14.1732)">
+				<title>Tabelle.1785</title>
+				<path d="M0 299.81 L8.5 299.81 L8.5 300.66 L8.5 299.81 L0 291.3 L-0.85 291.3 L0 291.3 L0 299.81 Z" class="st4"/>
+			</g>
+		</g>
+		<g id="group1782-9" transform="translate(0.375,-0.375)">
+			<title>Hinweis.1782</title>
+			<desc>Strukturmatrix</desc>
+			<g id="shape1782-10">
+				<path d="M0 299.81 L80.79 299.81 L80.79 285.63 L72.28 277.13 L0 277.13 L0 299.81 Z" class="st1"/>
+				<path d="M72.28 277.13 L54.4 280.38" class="st2"/>
+				<path d="M0 299.81 L80.79 299.81 L80.79 285.63 L72.28 277.13 L0 277.13 L0 299.81" class="st2"/>
+				<text x="17.23" y="291.47" class="st3">Strukturmatrix</text>			</g>
+			<g id="shape1783-15" transform="translate(72.2835,-14.1732)">
+				<title>Tabelle.1783</title>
+				<path d="M0 299.81 L8.5 299.81 L8.5 300.66 L8.5 299.81 L0 291.3 L-0.85 291.3 L0 291.3 L0 299.81 Z" class="st4"/>
+			</g>
+		</g>
+		<g id="group1780-17" transform="translate(296.08,-0.375)">
+			<title>Hinweis.1780</title>
+			<desc>Zielfunktion</desc>
+			<g id="shape1780-18">
+				<path d="M0 299.81 L80.79 299.81 L80.79 285.63 L72.28 277.13 L0 277.13 L0 299.81 Z" class="st1"/>
+				<path d="M0 277.13 L18.94 278.54" class="st2"/>
+				<path d="M0 299.81 L80.79 299.81 L80.79 285.63 L72.28 277.13 L0 277.13 L0 299.81" class="st2"/>
+				<text x="4" y="291.47" class="st3">Zielfunktion</text>			</g>
+			<g id="shape1781-23" transform="translate(72.2835,-14.1732)">
+				<title>Tabelle.1781</title>
+				<path d="M0 299.81 L8.5 299.81 L8.5 300.66 L8.5 299.81 L0 291.3 L-0.85 291.3 L0 291.3 L0 299.81 Z" class="st4"/>
+			</g>
+		</g>
+		<g id="group1778-25" transform="translate(383.052,-93.9183)">
+			<title>Hinweis.1778</title>
+			<desc>Lösung des SCP</desc>
+			<g id="shape1778-26">
+				<path d="M0 299.81 L80.79 299.81 L80.79 285.63 L72.28 277.13 L0 277.13 L0 299.81 Z" class="st1"/>
+				<path d="M0 277.13 L14.91 276.84" class="st2"/>
+				<path d="M0 299.81 L80.79 299.81 L80.79 285.63 L72.28 277.13 L0 277.13 L0 299.81" class="st2"/>
+				<text x="4" y="291.47" class="st3">Lösung des SCP</text>			</g>
+			<g id="shape1779-31" transform="translate(72.2835,-14.1732)">
+				<title>Tabelle.1779</title>
+				<path d="M0 299.81 L8.5 299.81 L8.5 300.66 L8.5 299.81 L0 291.3 L-0.85 291.3 L0 291.3 L0 299.81 Z" class="st4"/>
+			</g>
+		</g>
+		<g id="group1786-33" transform="translate(102.139,-198.8)">
+			<title>Paket (erweitert).1786</title>
+			<g id="group1787-34" transform="translate(0,-79.3701)">
+				<title>Tabelle.1787</title>
+				<desc>ACO</desc>
+				<g id="shape1788-35">
+					<title>Tabelle.1788</title>
+				</g>
+				<g id="shape1787-39">
+					<path d="M0 299.81 L34.02 299.81 L34.02 278.55 L17.01 278.55 L0 278.55 L0 299.81 Z" class="st5"/>
+					<text x="6" y="292.18" class="st6">ACO</text>				</g>
+			</g>
+			<g id="group1789-42">
+				<title>Tabelle.1789</title>
+				<g id="shape1790-43" transform="translate(2.83465,2.83465)">
+					<title>Tabelle.1790</title>
+				</g>
+				<g id="shape1789-45">
+					<path d="M0 299.81 L157.04 299.81 L314.08 299.81 L314.08 220.44 L157.04 220.44 L0 220.44 L0 299.81 Z"
+							class="st5"/>
+				</g>
+			</g>
+		</g>
+		<g id="group1701-47" transform="translate(118.461,-205.799)">
+			<title>Klasse.1701</title>
+			<desc>Problem</desc>
+			<g id="shape1702-48">
+				<title>Tabelle.1702</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 282.14 L0 282.14 L0 299.81 Z" class="st7"/>
+			</g>
+			<g id="shape1703-50" transform="translate(0,-17.6693)">
+				<title>Tabelle.1703</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 256.9 L0 256.9 L0 299.81 Z" class="st4"/>
+			</g>
+			<g id="shape1704-52" transform="translate(0,-44.573)">
+				<title>Tabelle.1704</title>
+				<desc>&#60;&#60;abstract&#62;&#62;</desc>
+				<text x="4" y="296.8" class="st3">&#60;&#60;abstract&#62;&#62;</text>			</g>
+			<g id="shape1705-54" transform="translate(114.467,-60.5766)">
+				<title>Tabelle.1705</title>
+				<desc>Parameter</desc>
+			</g>
+			<g id="shape1701-55">
+				<text x="4" y="270.03" class="st8">Problem</text>			</g>
+		</g>
+		<g id="shape1706-57" transform="translate(121.295,-208.633)">
+			<title>Mitglied.1706</title>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st9"/>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st10"/>
+		</g>
+		<g id="group1707-60" transform="translate(274.988,-205.725)">
+			<title>Klasse.1707</title>
+			<desc>Solution</desc>
+			<g id="shape1708-61">
+				<title>Tabelle.1708</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 282.14 L0 282.14 L0 299.81 Z" class="st7"/>
+			</g>
+			<g id="shape1709-63" transform="translate(0,-17.6693)">
+				<title>Tabelle.1709</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 256.9 L0 256.9 L0 299.81 Z" class="st4"/>
+			</g>
+			<g id="shape1710-65" transform="translate(0,-44.573)">
+				<title>Tabelle.1710</title>
+				<desc>&#60;&#60;abstract&#62;&#62;</desc>
+				<text x="4" y="296.8" class="st3">&#60;&#60;abstract&#62;&#62;</text>			</g>
+			<g id="shape1711-67" transform="translate(114.467,-60.5766)">
+				<title>Tabelle.1711</title>
+				<desc>Parameter</desc>
+			</g>
+			<g id="shape1707-68">
+				<text x="4" y="270.03" class="st8">Solution</text>			</g>
+		</g>
+		<g id="shape1712-70" transform="translate(277.823,-208.559)">
+			<title>Mitglied.1712</title>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st9"/>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st10"/>
+		</g>
+		<g id="group1713-73" transform="translate(274.988,-228.963)">
+			<title>Gerichtete Assoziation.1713</title>
+			<g id="shape1713-74">
+				<path d="M0 292.76 L-33.56 292.68" class="st11"/>
+			</g>
+		</g>
+		<g id="group1729-80" transform="translate(118.461,-114.655)">
+			<title>Klasse.1729</title>
+			<desc>SCProblem</desc>
+			<g id="shape1730-81">
+				<title>Tabelle.1730</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 282.14 L0 282.14 L0 299.81 Z" class="st7"/>
+			</g>
+			<g id="shape1731-83" transform="translate(0,-17.6693)">
+				<title>Tabelle.1731</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 256.9 L0 256.9 L0 299.81 Z" class="st4"/>
+			</g>
+			<g id="shape1733-85" transform="translate(114.467,-60.573)">
+				<title>Tabelle.1733</title>
+				<desc>Parameter</desc>
+			</g>
+			<g id="shape1729-86">
+				<text x="4" y="270.03" class="st8">SCProblem</text>			</g>
+		</g>
+		<g id="shape1734-88" transform="translate(121.295,-117.49)">
+			<title>Mitglied.1734</title>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st9"/>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st10"/>
+		</g>
+		<g id="group1735-91" transform="translate(274.988,-114.655)">
+			<title>Klasse.1735</title>
+			<desc>SCPSolution</desc>
+			<g id="shape1736-92">
+				<title>Tabelle.1736</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 282.14 L0 282.14 L0 299.81 Z" class="st7"/>
+			</g>
+			<g id="shape1737-94" transform="translate(0,-17.6693)">
+				<title>Tabelle.1737</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 256.9 L0 256.9 L0 299.81 Z" class="st4"/>
+			</g>
+			<g id="shape1739-96" transform="translate(114.467,-60.573)">
+				<title>Tabelle.1739</title>
+				<desc>Parameter</desc>
+			</g>
+			<g id="shape1735-97">
+				<text x="4" y="270.03" class="st8">SCPSolution</text>			</g>
+		</g>
+		<g id="shape1740-99" transform="translate(277.823,-117.49)">
+			<title>Mitglied.1740</title>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st9"/>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st10"/>
+		</g>
+		<g id="group1741-102" transform="translate(274.988,-137.855)">
+			<title>Gerichtete Assoziation.1741</title>
+			<g id="shape1741-103">
+				<path d="M0 292.72 L-33.56 292.72" class="st11"/>
+			</g>
+		</g>
+		<g id="group1746-108" transform="translate(172.86,-175.228)">
+			<title>Vererbung.1746</title>
+			<g id="shape1746-109">
+				<path d="M7.09 299.81 L7.09 279.04" class="st13"/>
+			</g>
+		</g>
+		<g id="group1751-115" transform="translate(329.387,-175.228)">
+			<title>Vererbung.1751</title>
+			<g id="shape1751-116">
+				<path d="M7.09 299.81 L7.09 279.12" class="st13"/>
+			</g>
+		</g>
+		<g id="group1756-121" transform="translate(45.7293,-19.7999)">
+			<title>Klasse.1756</title>
+			<desc>Structure</desc>
+			<g id="shape1757-122">
+				<title>Tabelle.1757</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 282.14 L0 282.14 L0 299.81 Z" class="st7"/>
+			</g>
+			<g id="shape1758-124" transform="translate(0,-17.6693)">
+				<title>Tabelle.1758</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 256.9 L0 256.9 L0 299.81 Z" class="st4"/>
+			</g>
+			<g id="shape1760-126" transform="translate(114.467,-60.573)">
+				<title>Tabelle.1760</title>
+				<desc>Parameter</desc>
+			</g>
+			<g id="shape1756-127">
+				<text x="4" y="270.03" class="st8">Structure</text>			</g>
+		</g>
+		<g id="shape1761-129" transform="translate(48.564,-22.6345)">
+			<title>Mitglied.1761</title>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st9"/>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st10"/>
+		</g>
+		<g id="group1762-132" transform="translate(192.049,-19.7999)">
+			<title>Klasse.1762</title>
+			<desc>ObjectiveFunction</desc>
+			<g id="shape1763-133">
+				<title>Tabelle.1763</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 282.14 L0 282.14 L0 299.81 Z" class="st7"/>
+			</g>
+			<g id="shape1764-135" transform="translate(0,-17.6693)">
+				<title>Tabelle.1764</title>
+				<path d="M0 299.81 L122.97 299.81 L122.97 256.9 L0 256.9 L0 299.81 Z" class="st4"/>
+			</g>
+			<g id="shape1766-137" transform="translate(114.467,-60.573)">
+				<title>Tabelle.1766</title>
+				<desc>Parameter</desc>
+			</g>
+			<g id="shape1762-138">
+				<text x="4" y="270.03" class="st8">ObjectiveFunction</text>			</g>
+		</g>
+		<g id="shape1767-140" transform="translate(194.884,-22.6345)">
+			<title>Mitglied.1767</title>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st9"/>
+			<rect x="0" y="287.805" width="117.302" height="12" class="st10"/>
+		</g>
+		<g id="group1768-143" transform="translate(179.946,-114.655)">
+			<title>Gerichtete Assoziation.1768</title>
+			<g id="shape1768-144">
+				<path d="M0 299.81 L0 310.44 L-72.73 310.44 L-72.73 334.09" class="st11"/>
+			</g>
+		</g>
+		<g id="group1773-149" transform="translate(179.946,-114.655)">
+			<title>Gerichtete Assoziation.1773</title>
+			<g id="shape1773-150">
+				<path d="M0 299.81 L0 310.44 L73.59 310.44 L73.59 334.09" class="st11"/>
+			</g>
+		</g>
+	</g>
+</svg>

@@ -2,13 +2,27 @@ package eu.andredick.scp;
 
 import eu.andredick.aco.problem.AbstractProblem;
 
-/*
- * Die Klasse repräsentiert das Set Covering AbstractProblem.
+/**
+ * Die Klasse repräsentiert das <b>Set Covering Problem (SCP)</b>.<br>
+ * Im Kontext der ACO-Metaheuristik ist das SCP eine Ausprägung des Abstrakten Problems ({@link AbstractProblem}).<br>
+ * Kapitel 2.3, S. 17, Set Covering Problem (SCP). <br>
+ * <br>
+ * <b>Definition:</b> Gegeben sei eine Sammlung von Teilmengen einer Menge von Grundelementen.
+ * Eine Mengenüberdeckung (Set Cover) ist eine Auswahl aus dieser Sammlung,
+ * deren Vereinigung die Menge aller Grundelemente ist. Als Optimierungsproblem ist die
+ * kleinste Auswahl gesucht und im Falle, dass die Teilmengen gewichtet sind, das geringste
+ * Gesamtgewicht der Auswahl.<br>
+ * <br>
+ * Das SCP setzt sich aus der Strukturmatrix ({@link Structure}) und der Zielfunktion ({@link ObjectiveFunction}) zusammen.<br>
+ * Eine Lösung des SCP ist explizit definiert (siehe {@link SCPSolution}) und beinhaltet als Instanz die Festlegung der Entscheidungsvariablen des SCP.<br>
+ * Info: Über die Entscheidungsvariablen X_j={0,1} wird festgelegt, ob die Teilmenge j in der Lösung enthalten sein soll.<br>
+ *
+ * <p><img src="{@docRoot}/images/SCP.svg" alt=""></p>
  */
 public class SCProblem extends AbstractProblem {
 
     /**
-     * Name des konkreten Problems
+     * Name des konkreten Problems (der Probleminstanz)
      */
     protected String name;
 
@@ -48,7 +62,7 @@ public class SCProblem extends AbstractProblem {
     }
 
     /**
-     * Liefert den Namen des Problems
+     * Liefert den Namen der Problem-Instanz
      *
      * @return Name des Problems
      */
@@ -57,7 +71,7 @@ public class SCProblem extends AbstractProblem {
     }
 
     /**
-     * Liefert die Strukturmatrix
+     * Liefert die Strukturmatrix der Problem-Instanz
      *
      * @return Strukturmatrix
      */
@@ -66,7 +80,7 @@ public class SCProblem extends AbstractProblem {
     }
 
     /**
-     * Liefert die Zielfunktion
+     * Liefert die Zielfunktion der Problem-Instanz
      *
      * @return Zielfunktion
      */
@@ -76,7 +90,7 @@ public class SCProblem extends AbstractProblem {
 
 
     /**
-     * Prüft auf Konsistenz des SCP-Problems
+     * Prüft auf Konsistenz der Instanz des SCP-Problems
      *
      * @return Wahr, wenn konsistent
      */

@@ -4,7 +4,7 @@ typeSearchIndex = [{"p": "eu.andredick.aco.algorithm", "l": "AbstractAlgorithm"}
 }, {"p": "eu.andredick.aco.ant", "l": "AbstractAnt"}, {
     "p": "eu.andredick.aco.construction",
     "l": "AbstractConstruction"
-}, {"p": "eu.andredick.orlib", "l": "AbstractConverter"}, {
+}, {"p": "eu.andredick.tools.orlib", "l": "AbstractConverter"}, {
     "p": "eu.andredick.aco.localsearch",
     "l": "AbstractLocalSearch"
 }, {"p": "eu.andredick.aco.masterprocess", "l": "AbstractMasterProcess"}, {
@@ -65,9 +65,9 @@ typeSearchIndex = [{"p": "eu.andredick.aco.algorithm", "l": "AbstractAlgorithm"}
     "p": "eu.andredick.aco.construction",
     "l": "ConstructionFromElements"
 }, {"p": "eu.andredick.aco.construction", "l": "ConstructionFromSubsets"}, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "l": "ConverterRail"
-}, {"p": "eu.andredick.orlib", "l": "ConverterStandard"}, {
+}, {"p": "eu.andredick.tools.orlib", "l": "ConverterStandard"}, {
     "p": "eu.andredick.tools",
     "l": "Criterions"
 }, {"p": "eu.andredick.tools", "l": "FileTools"}, {
@@ -103,7 +103,7 @@ typeSearchIndex = [{"p": "eu.andredick.aco.algorithm", "l": "AbstractAlgorithm"}
 }, {"p": "eu.andredick.aco.nextstep", "l": "NextStepStrategyOnSubsetsStochastic"}, {
     "p": "eu.andredick.scp",
     "l": "ObjectiveFunction"
-}, {"p": "eu.andredick.orlib", "l": "OrlibConverter"}, {
+}, {"p": "eu.andredick.tools.orlib", "l": "OrlibConverter"}, {
     "p": "eu.andredick.tools",
     "l": "ParameterTraverser"
 }, {

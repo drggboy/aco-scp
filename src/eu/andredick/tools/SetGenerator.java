@@ -1,4 +1,4 @@
-package eu.andredick.scp.randomgenerator;
+package eu.andredick.tools;
 
 import javax.swing.*;
 import java.awt.*;

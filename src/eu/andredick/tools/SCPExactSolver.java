@@ -1,4 +1,4 @@
-package eu.andredick.scp.exactsolver;
+package eu.andredick.tools;
 
 import com.google.ortools.linearsolver.MPConstraint;
 import com.google.ortools.linearsolver.MPObjective;

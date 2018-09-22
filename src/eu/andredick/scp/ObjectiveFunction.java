@@ -4,18 +4,27 @@ import java.text.DecimalFormat;
 import java.util.Random;
 
 /**
- * Die Klasse repräsentiert die Zielfunktion des Set Covering Problems.
- * Die Zielfunktion wird als ein Vektor von Kosten vorgehalten.
+ * <b>Zielfunktion des Set Covering Problems</b><br>
+ * Die Zielfunktion des SCP ist die Summe aller gewichteten Entscheidungsvariablen.<br>
+ * Kapitel 2.3, S. 17, Set Covering Problem (SCP). <br>
+ * <br>
+ * Die Gewichte (auch Kosten, Koeffizienten) c_j sind eindeutig den Teilmengen j des SCP zugeordnet.<br>
+ * Die Entscheidungsvariablen sind explizit in der Lösung des SCP ({@link SCPSolution}) festgelegt.<br>
+ * Die Zielfunktion besteht damit aus Gewichten ({@link #weights}) und einer Vorschrift ({@link #getValue(SCPSolution)}),<br>
+ * welche mittels der Gewichte ({@link #weights}) und den Ausprägungen der Entscheidungsvariablen ({@link SCPSolution}) den Zielfunktionswert berechnet.<br>
+ *
+ * <p><img src="{@docRoot}/images/SCP.svg" alt=""></p>
  */
 public class ObjectiveFunction {
 
     /**
-     * Kosten bzw. Gewicht bzw. Koeffizienten
+     * Gewichte (auch Kosten, Koeffizienten)<br>
+     * Der Index j des Gewichtes c_j entspricht dem Index der Entscheidungsvariable x_j und damit der Teilmenge des SCP<br>
      */
     private float[] weights;
 
     /**
-     * Konstruktor mit Iniziirung zufälliger Koeffizienten
+     * Konstruktor mit Iniziirung zufälliger Gewichte
      *
      * @param size Anzahl der Entscheidungsvariablen = Anzahl der Teilmengen des SCP
      */
@@ -24,9 +33,9 @@ public class ObjectiveFunction {
     }
 
     /**
-     * Konstruktor mit Übernahme der Koeffizienten
+     * Konstruktor mit Übernahme gegebener Gewichte
      *
-     * @param weights´Koeffizienten
+     * @param weights Gewichte
      */
     public ObjectiveFunction(float[] weights) {
         this.weights = weights;
@@ -34,10 +43,10 @@ public class ObjectiveFunction {
 
 
     /**
-     * Liefert den Zielfunktionswert einer SCP-Lösung
-     *
-     * @param solution SCP-Lösung
-     * @return Zielfunktionswert
+     * Liefert den Zielfunktionswert einer Lösung des SCP ({@link SCPSolution})<br>
+     * Der Zielfunktionswert ist als Summme der gewichteten Entscheidungsvariablen definiert.<br>
+     * @param solution Instanz einer Lösung des SCP
+     * @return berechneter Zielfunktionswert
      */
     public float getValue(SCPSolution solution) {
         float value = 0f;
@@ -49,7 +58,7 @@ public class ObjectiveFunction {
     }
 
     /**
-     * Liefert den Vektor der Koeffizienten
+     * Liefert den Array der Gewichte
      *
      * @return Vektor der Koeffizienten
      */
@@ -71,17 +80,6 @@ public class ObjectiveFunction {
         }
     }
 
-    /**
-     * Initiiert Koeffizienten mit dem Wert 1
-     *
-     * @param size Anzahl der Entscheidungsvariablen
-     */
-    public void initUniWeights(int size) {
-        this.weights = new float[size];
-        for (int j = 0; j < size; j++) {
-            this.weights[j] = 1f;
-        }
-    }
 
     /**
      * Drucken

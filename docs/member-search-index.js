@@ -295,29 +295,29 @@ memberSearchIndex = [{
     "l": "contains(SetGenerator.Point)",
     "url": "contains(eu.andredick.scp.randomgenerator.SetGenerator.Point)"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "AbstractConverter",
     "l": "convert(InputStream)",
     "url": "convert(java.io.InputStream)"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "ConverterRail",
     "l": "convert(InputStream)",
     "url": "convert(java.io.InputStream)"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "ConverterStandard",
     "l": "convert(InputStream)",
     "url": "convert(java.io.InputStream)"
-}, {"p": "eu.andredick.orlib", "c": "ConverterRail", "l": "ConverterRail()"}, {
-    "p": "eu.andredick.orlib",
+}, {"p": "eu.andredick.tools.orlib", "c": "ConverterRail", "l": "ConverterRail()"}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "ConverterStandard",
     "l": "ConverterStandard()"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "convertProblemFromStream(InputStream, AbstractConverter)",
-    "url": "convertProblemFromStream(java.io.InputStream,eu.andredick.orlib.AbstractConverter)"
+    "url": "convertProblemFromStream(java.io.InputStream,eu.andredick.tools.orlib.AbstractConverter)"
 }, {"p": "eu.andredick.scp", "c": "SCPSolution", "l": "coveredElementsCount"}, {
     "p": "eu.andredick.scp",
     "c": "SCPSolution",
@@ -498,17 +498,17 @@ memberSearchIndex = [{
     "c": "FileTools",
     "l": "FileTools()"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "findConverter(String)",
     "url": "findConverter(java.lang.String)"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "findSetNameForInstance(String)",
     "url": "findSetNameForInstance(java.lang.String)"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "findStreamForInstance(String)",
     "url": "findStreamForInstance(java.lang.String)"
@@ -552,11 +552,15 @@ memberSearchIndex = [{
     "c": "ArrayTools",
     "l": "getDifferenceOfArrays(float[], float[])"
 }, {"p": "eu.andredick.scp", "c": "Structure", "l": "getElementsInSubset(int)"}, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "getExactValue(String)",
     "url": "getExactValue(java.lang.String)"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "getExactValues()"}, {
+}, {
+    "p": "eu.andredick.tools.orlib",
+    "c": "OrlibConverter",
+    "l": "getExactValues()"
+}, {
     "p": "eu.andredick.configuration",
     "c": "ConfigurationParameter",
     "l": "getExpressionsSize()"
@@ -581,7 +585,7 @@ memberSearchIndex = [{
     "c": "ArrayTools",
     "l": "getIndexOfMaxValue(float[])"
 }, {"p": "eu.andredick.tools", "c": "ArrayTools", "l": "getIndexOfMinValue(float[])"}, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "getInstanceNamesOfProblemSet(String)",
     "url": "getInstanceNamesOfProblemSet(java.lang.String)"
@@ -672,7 +676,7 @@ memberSearchIndex = [{
     "c": "SCPSolution",
     "l": "getProblem()"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "getProblem(String)",
     "url": "getProblem(java.lang.String)"
@@ -864,10 +868,6 @@ memberSearchIndex = [{
     "l": "initStaticFields(SCProblem)",
     "url": "initStaticFields(eu.andredick.scp.SCProblem)"
 }, {
-    "p": "eu.andredick.scp",
-    "c": "ObjectiveFunction",
-    "l": "initUniWeights(int)"
-}, {
     "p": "eu.andredick.aco.pheromoneinit",
     "c": "AbstractPheromoneInit",
     "l": "initValue()"
@@ -876,7 +876,7 @@ memberSearchIndex = [{
     "c": "ReportTools",
     "l": "initView()"
 }, {"p": "eu.andredick.scp", "c": "SCPSolution", "l": "initZeros()"}, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "instanceSets"
 }, {"p": "eu.andredick.scp", "c": "SCProblem", "l": "isConsistent()"}, {
@@ -1031,8 +1031,8 @@ memberSearchIndex = [{
     "p": "eu.andredick.scp",
     "c": "ObjectiveFunction",
     "l": "ObjectiveFunction(int)"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "OrlibConverter()"}, {
-    "p": "eu.andredick.orlib",
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "OrlibConverter()"}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "orlibUrl"
 }, {
@@ -1185,7 +1185,7 @@ memberSearchIndex = [{
     "p": "eu.andredick.aco.nextstep",
     "c": "NextStepStrategyOnSubsets",
     "l": "q0_parameter"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "rail"}, {
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "rail"}, {
     "p": "eu.andredick.tools",
     "c": "Criterions",
     "l": "RAR(float, float)"
@@ -1203,11 +1203,15 @@ memberSearchIndex = [{
     "c": "ACOAnt",
     "l": "resetAnt()"
 }, {"p": "eu.andredick.scp.exactsolver", "c": "SCPExactSolver", "l": "resetSolver()"}, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "resourcePathLocalOrlibOrigins"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "resourcePathPackageOrlibMPS"}, {
-    "p": "eu.andredick.orlib",
+}, {
+    "p": "eu.andredick.tools.orlib",
+    "c": "OrlibConverter",
+    "l": "resourcePathPackageOrlibMPS"
+}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "resourcePathPackageOrlibOrigins"
 }, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator", "l": "rGenerator"}, {
@@ -1238,31 +1242,31 @@ memberSearchIndex = [{
     "l": "saveChartAsSVG(File)",
     "url": "saveChartAsSVG(java.io.File)"
 }, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "saveExactValues(Properties)",
     "url": "saveExactValues(java.util.Properties)"
 }, {"p": "eu.andredick.tools", "c": "ParameterTraverser", "l": "scan()"}, {
-    "p": "eu.andredick.orlib",
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "scp4"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "scp5"}, {
-    "p": "eu.andredick.orlib",
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "scp5"}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "scp6"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "scpa"}, {
-    "p": "eu.andredick.orlib",
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "scpa"}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "scpb"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "scpc"}, {
-    "p": "eu.andredick.orlib",
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "scpc"}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "scpclr"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "scpcyc"}, {
-    "p": "eu.andredick.orlib",
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "scpcyc"}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "scpd"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "scpe"}, {
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "scpe"}, {
     "p": "eu.andredick.scp.exactsolver",
     "c": "SCPExactSolver",
     "l": "SCPExactSolver()"
@@ -1271,12 +1275,12 @@ memberSearchIndex = [{
     "c": "SCPExactSolver",
     "l": "SCPExactSolver(String)",
     "url": "<init>(java.lang.String)"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "scpnre"}, {
-    "p": "eu.andredick.orlib",
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "scpnre"}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "scpnrf"
-}, {"p": "eu.andredick.orlib", "c": "OrlibConverter", "l": "scpnrg"}, {
-    "p": "eu.andredick.orlib",
+}, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "scpnrg"}, {
+    "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "scpnrh"
 }, {"p": "eu.andredick.scp", "c": "SCProblem", "l": "SCProblem(boolean[][], float[])"}, {

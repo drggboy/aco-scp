@@ -1,4 +1,4 @@
-package eu.andredick.orlib;
+package eu.andredick.tools.orlib;
 
 import eu.andredick.scp.SCProblem;
 

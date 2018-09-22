@@ -17,7 +17,7 @@ eu.andredick.aco.problem
 eu.andredick.aco.solutionquality
 eu.andredick.aco.termination
 eu.andredick.configuration
-eu.andredick.orlib
+eu.andredick.tools.orlib
 eu.andredick.scp
 eu.andredick.scp.exactsolver
 eu.andredick.scp.randomgenerator
