@@ -85,9 +85,6 @@ typeSearchIndex = [{"p": "eu.andredick.aco.algorithm", "l": "AbstractAlgorithm"}
 }, {"p": "eu.andredick.aco.localsearch", "l": "LocalSearchNone"}, {
     "p": "eu.andredick",
     "l": "Main"
-}, {"p": "eu.andredick.tests", "l": "Main"}, {"p": "eu.andredick.tests", "l": "Main2"}, {
-    "p": "eu.andredick.tests",
-    "l": "Main4"
 }, {"p": "eu.andredick.aco.masterprocess", "l": "MasterProcessBasic"}, {
     "p": "eu.andredick.aco.masterprocess",
     "l": "MasterProcessBasicParallel"
@@ -121,14 +118,14 @@ typeSearchIndex = [{"p": "eu.andredick.aco.algorithm", "l": "AbstractAlgorithm"}
 }, {"p": "eu.andredick.aco.pheromoneupdate", "l": "PheromoneUpdateOnSubsets"}, {
     "p": "eu.andredick.tools",
     "l": "ReportTools"
-}, {"p": "eu.andredick.scp.exactsolver", "l": "SCPExactSolver"}, {
+}, {"p": "eu.andredick.tools", "l": "SCPExactSolver"}, {
     "p": "eu.andredick.scp",
     "l": "SCProblem"
 }, {"p": "eu.andredick.scp", "l": "SCPSolution"}, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "l": "SetGenerator"
-}, {"p": "eu.andredick.scp.randomgenerator", "l": "SetGenerator.Point"}, {
-    "p": "eu.andredick.scp.randomgenerator",
+}, {"p": "eu.andredick.tools", "l": "SetGenerator.Point"}, {
+    "p": "eu.andredick.tools",
     "l": "SetGenerator.Set"
 }, {"p": "eu.andredick.aco.solutionquality", "l": "SolutionQualityMin"}, {
     "p": "eu.andredick.aco.algorithm",
@@ -136,7 +133,4 @@ typeSearchIndex = [{"p": "eu.andredick.aco.algorithm", "l": "AbstractAlgorithm"}
 }, {"p": "eu.andredick.scp", "l": "Structure"}, {
     "p": "eu.andredick.aco.termination",
     "l": "TerminationCriterion"
-}, {"p": "eu.andredick.aco.termination", "l": "TerminationCriterionNew"}, {
-    "p": "eu.andredick.tests",
-    "l": "testACO"
-}, {"p": "eu.andredick.tools", "l": "Tools"}]
+}, {"p": "eu.andredick.aco.termination", "l": "TerminationCriterionNew"}, {"p": "eu.andredick.tools", "l": "Tools"}]

@@ -64,10 +64,10 @@ memberSearchIndex = [{
     "l": "ACOAnt(P, AbstractPheromoneUpdate, AbstractConstruction, AbstractLocalSearch)",
     "url": "<init>(P,eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate,eu.andredick.aco.construction.AbstractConstruction,eu.andredick.aco.localsearch.AbstractLocalSearch)"
 }, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Set",
     "l": "add(SetGenerator.Point)",
-    "url": "add(eu.andredick.scp.randomgenerator.SetGenerator.Point)"
+    "url": "add(eu.andredick.tools.SetGenerator.Point)"
 }, {
     "p": "eu.andredick.aco.localsearch",
     "c": "LocalSearchAntCover",
@@ -290,10 +290,10 @@ memberSearchIndex = [{
     "c": "AbstractAnt",
     "l": "constructSolution()"
 }, {"p": "eu.andredick.aco.ant", "c": "ACOAnt", "l": "constructSolution()"}, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Set",
     "l": "contains(SetGenerator.Point)",
-    "url": "contains(eu.andredick.scp.randomgenerator.SetGenerator.Point)"
+    "url": "contains(eu.andredick.tools.SetGenerator.Point)"
 }, {
     "p": "eu.andredick.tools.orlib",
     "c": "AbstractConverter",
@@ -381,16 +381,12 @@ memberSearchIndex = [{
     "p": "eu.andredick.scp",
     "c": "SCPSolution",
     "l": "createNew()"
-}, {
+}, {"p": "eu.andredick.tools", "c": "ParameterTraverser", "l": "createParameterMap()"}, {
     "p": "eu.andredick.tools",
-    "c": "ParameterTraverser",
-    "l": "createParameterMap()"
-}, {
-    "p": "eu.andredick.scp.randomgenerator",
     "c": "SetGenerator",
     "l": "createRandomElements()"
 }, {
-    "p": "eu.andredick.scp.exactsolver",
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "createSolver(String)",
     "url": "createSolver(java.lang.String)"
@@ -416,23 +412,19 @@ memberSearchIndex = [{
     "c": "FileTools",
     "l": "downloadFile(String, File)",
     "url": "downloadFile(java.lang.String,java.io.File)"
-}, {
-    "p": "eu.andredick.scp.randomgenerator",
-    "c": "SetGenerator.Set",
-    "l": "dx"
-}, {
-    "p": "eu.andredick.scp.randomgenerator",
+}, {"p": "eu.andredick.tools", "c": "SetGenerator.Set", "l": "dx"}, {
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Set",
     "l": "dy"
-}, {
-    "p": "eu.andredick.scp.randomgenerator",
-    "c": "SetGenerator",
+}, {"p": "eu.andredick.tools", "c": "SetGenerator", "l": "elements"}, {
+    "p": "eu.andredick.tools",
+    "c": "SetGenerator.Set",
     "l": "elements"
-}, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator.Set", "l": "elements"}, {
+}, {"p": "eu.andredick.scp", "c": "Structure", "l": "elementsInSubset"}, {
     "p": "eu.andredick.scp",
     "c": "Structure",
-    "l": "elementsInSubset"
-}, {"p": "eu.andredick.scp", "c": "Structure", "l": "elementsSize()"}, {
+    "l": "elementsSize()"
+}, {
     "p": "eu.andredick.configuration",
     "c": "ConfigurationParameter",
     "l": "equals(Object)",
@@ -512,7 +504,7 @@ memberSearchIndex = [{
     "c": "OrlibConverter",
     "l": "findStreamForInstance(String)",
     "url": "findStreamForInstance(java.lang.String)"
-}, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator", "l": "g_size"}, {
+}, {"p": "eu.andredick.tools", "c": "SetGenerator", "l": "g_size"}, {
     "p": "eu.andredick.aco.combination",
     "c": "CombinationSum",
     "l": "gamma"
@@ -598,7 +590,7 @@ memberSearchIndex = [{
     "c": "Statistics",
     "l": "getIterationMinValuesArray()"
 }, {
-    "p": "eu.andredick.scp.exactsolver",
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "getLPformat(SCProblem)",
     "url": "getLPformat(eu.andredick.scp.SCProblem)"
@@ -621,7 +613,7 @@ memberSearchIndex = [{
     "l": "getMinValuesOfArrays(List<float[]>)",
     "url": "getMinValuesOfArrays(java.util.List)"
 }, {
-    "p": "eu.andredick.scp.exactsolver",
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "getMPSformat(SCProblem)",
     "url": "getMPSformat(eu.andredick.scp.SCProblem)"
@@ -706,9 +698,9 @@ memberSearchIndex = [{
     "p": "eu.andredick.scp",
     "c": "Structure",
     "l": "getRelation(int, int)"
-}, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator", "l": "getRelations()"}, {
-    "p": "eu.andredick.scp",
-    "c": "Structure",
+}, {"p": "eu.andredick.scp", "c": "Structure", "l": "getRelations()"}, {
+    "p": "eu.andredick.tools",
+    "c": "SetGenerator",
     "l": "getRelations()"
 }, {"p": "eu.andredick.aco.ant", "c": "AbstractAnt", "l": "getSolution()"}, {
     "p": "eu.andredick.aco.ant",
@@ -783,10 +775,10 @@ memberSearchIndex = [{
     "c": "LocalSearchAntCover.WeightedColumn",
     "l": "getWeight()"
 }, {"p": "eu.andredick.scp", "c": "ObjectiveFunction", "l": "getWeights()"}, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Point",
     "l": "getX()"
-}, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator.Point", "l": "getY()"}, {
+}, {"p": "eu.andredick.tools", "c": "SetGenerator.Point", "l": "getY()"}, {
     "p": "eu.andredick.tools",
     "c": "ArrayTools",
     "l": "getZeroBool2DArray(int, int)"
@@ -823,10 +815,10 @@ memberSearchIndex = [{
     "c": "HtmlEditorKitTest",
     "l": "HtmlEditorKitTest()"
 }, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Set",
     "l": "inBounds(SetGenerator.Point)",
-    "url": "inBounds(eu.andredick.scp.randomgenerator.SetGenerator.Point)"
+    "url": "inBounds(eu.andredick.tools.SetGenerator.Point)"
 }, {
     "p": "eu.andredick.aco.localsearch",
     "c": "LocalSearchAntCover.WeightedColumn",
@@ -848,12 +840,8 @@ memberSearchIndex = [{
     "p": "eu.andredick.aco.pheromoneassociation",
     "c": "PheromoneOnSubsets",
     "l": "initPheromones()"
-}, {
-    "p": "eu.andredick.scp",
-    "c": "ObjectiveFunction",
-    "l": "initRandomWeights(int)"
-}, {
-    "p": "eu.andredick.scp.exactsolver",
+}, {"p": "eu.andredick.scp", "c": "ObjectiveFunction", "l": "initRandomWeights(int)"}, {
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "initSolver(SCProblem)",
     "url": "initSolver(eu.andredick.scp.SCProblem)"
@@ -915,43 +903,15 @@ memberSearchIndex = [{
     "l": "main(String[])",
     "url": "main(java.lang.String[])"
 }, {
-    "p": "eu.andredick.tests",
-    "c": "Main",
-    "l": "main(String[])",
-    "url": "main(java.lang.String[])"
-}, {
-    "p": "eu.andredick.tests",
-    "c": "Main2",
-    "l": "main(String[])",
-    "url": "main(java.lang.String[])"
-}, {
-    "p": "eu.andredick.tests",
-    "c": "Main4",
-    "l": "main(String[])",
-    "url": "main(java.lang.String[])"
-}, {
-    "p": "eu.andredick.tests",
-    "c": "testACO",
-    "l": "main(String[])",
-    "url": "main(java.lang.String[])"
-}, {
     "p": "eu.andredick.tools",
     "c": "HtmlEditorKitTest",
     "l": "main(String[])",
     "url": "main(java.lang.String[])"
 }, {"p": "eu.andredick", "c": "Main", "l": "Main()"}, {
-    "p": "eu.andredick.tests",
-    "c": "Main",
-    "l": "Main()"
-}, {"p": "eu.andredick.tests", "c": "Main2", "l": "Main2()"}, {
-    "p": "eu.andredick.tests",
-    "c": "Main4",
-    "l": "Main4()"
-}, {"p": "eu.andredick.aco.ant", "c": "AbstractAnt", "l": "markPheromone()"}, {
     "p": "eu.andredick.aco.ant",
-    "c": "ACOAnt",
+    "c": "AbstractAnt",
     "l": "markPheromone()"
-}, {
+}, {"p": "eu.andredick.aco.ant", "c": "ACOAnt", "l": "markPheromone()"}, {
     "p": "eu.andredick.aco.algorithm",
     "c": "ACOAlgorithm",
     "l": "masterProcess"
@@ -1023,7 +983,7 @@ memberSearchIndex = [{
     "p": "eu.andredick.aco.localsearch",
     "c": "LocalSearchAntCover.WeightedColumn",
     "l": "nrOfCoveredRows"
-}, {"p": "eu.andredick.scp.exactsolver", "c": "SCPExactSolver", "l": "obj"}, {
+}, {"p": "eu.andredick.tools", "c": "SCPExactSolver", "l": "obj"}, {
     "p": "eu.andredick.scp",
     "c": "SCProblem",
     "l": "objectiveFunction"
@@ -1036,7 +996,7 @@ memberSearchIndex = [{
     "c": "OrlibConverter",
     "l": "orlibUrl"
 }, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "c": "SetGenerator",
     "l": "paintComponent(Graphics)",
     "url": "paintComponent(java.awt.Graphics)"
@@ -1110,7 +1070,7 @@ memberSearchIndex = [{
     "c": "PheromoneOnSubsets",
     "l": "pheromoneValues"
 }, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Point",
     "l": "Point(float, float)"
 }, {"p": "eu.andredick.aco.algorithm", "c": "AbstractAlgorithm", "l": "postprocessing()"}, {
@@ -1161,11 +1121,7 @@ memberSearchIndex = [{
     "p": "eu.andredick.configuration",
     "c": "AlgorithmConfiguration_SubsetPairs",
     "l": "prepareConfigParameters()"
-}, {
-    "p": "eu.andredick.aco.algorithm",
-    "c": "AbstractAlgorithm",
-    "l": "preprocessing()"
-}, {"p": "eu.andredick.scp.exactsolver", "c": "SCPExactSolver", "l": "print()"}, {
+}, {"p": "eu.andredick.aco.algorithm", "c": "AbstractAlgorithm", "l": "preprocessing()"}, {
     "p": "eu.andredick.scp",
     "c": "ObjectiveFunction",
     "l": "print()"
@@ -1173,7 +1129,11 @@ memberSearchIndex = [{
     "p": "eu.andredick.scp",
     "c": "Structure",
     "l": "print()"
-}, {"p": "eu.andredick.aco.ant", "c": "ACOAnt", "l": "problem"}, {
+}, {"p": "eu.andredick.tools", "c": "SCPExactSolver", "l": "print()"}, {
+    "p": "eu.andredick.aco.ant",
+    "c": "ACOAnt",
+    "l": "problem"
+}, {
     "p": "eu.andredick.aco.pheromoneassociation",
     "c": "AbstractPheromoneAssociation",
     "l": "problem"
@@ -1202,7 +1162,7 @@ memberSearchIndex = [{
     "p": "eu.andredick.aco.ant",
     "c": "ACOAnt",
     "l": "resetAnt()"
-}, {"p": "eu.andredick.scp.exactsolver", "c": "SCPExactSolver", "l": "resetSolver()"}, {
+}, {"p": "eu.andredick.tools", "c": "SCPExactSolver", "l": "resetSolver()"}, {
     "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "resourcePathLocalOrlibOrigins"
@@ -1214,7 +1174,7 @@ memberSearchIndex = [{
     "p": "eu.andredick.tools.orlib",
     "c": "OrlibConverter",
     "l": "resourcePathPackageOrlibOrigins"
-}, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator", "l": "rGenerator"}, {
+}, {"p": "eu.andredick.tools", "c": "SetGenerator", "l": "rGenerator"}, {
     "p": "eu.andredick.tools",
     "c": "Criterions",
     "l": "RPD(float, float)"
@@ -1267,11 +1227,11 @@ memberSearchIndex = [{
     "c": "OrlibConverter",
     "l": "scpd"
 }, {"p": "eu.andredick.tools.orlib", "c": "OrlibConverter", "l": "scpe"}, {
-    "p": "eu.andredick.scp.exactsolver",
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "SCPExactSolver()"
 }, {
-    "p": "eu.andredick.scp.exactsolver",
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "SCPExactSolver(String)",
     "url": "<init>(java.lang.String)"
@@ -1303,12 +1263,8 @@ memberSearchIndex = [{
     "c": "LocalSearchNone",
     "l": "search(SCPSolution)",
     "url": "search(eu.andredick.scp.SCPSolution)"
-}, {
-    "p": "eu.andredick.aco.localsearch",
-    "c": "AbstractLocalSearch",
-    "l": "search(S)"
-}, {
-    "p": "eu.andredick.scp.randomgenerator",
+}, {"p": "eu.andredick.aco.localsearch", "c": "AbstractLocalSearch", "l": "search(S)"}, {
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Set",
     "l": "Set(float, float, float, float)"
 }, {
@@ -1337,11 +1293,7 @@ memberSearchIndex = [{
     "p": "eu.andredick.configuration",
     "c": "ConfigurationParameter",
     "l": "setExpressions(N[])"
-}, {
-    "p": "eu.andredick.scp.randomgenerator",
-    "c": "SetGenerator",
-    "l": "SetGenerator(int, int)"
-}, {
+}, {"p": "eu.andredick.tools", "c": "SetGenerator", "l": "SetGenerator(int, int)"}, {
     "p": "eu.andredick.aco.algorithm",
     "c": "Statistics",
     "l": "setGlobalMaxValue(float, AbstractSolution)",
@@ -1366,7 +1318,7 @@ memberSearchIndex = [{
     "c": "AbstractPheromoneAssociation",
     "l": "setPheromoneInitRule(AbstractPheromoneInit)",
     "url": "setPheromoneInitRule(eu.andredick.aco.pheromoneinit.AbstractPheromoneInit)"
-}, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator", "l": "sets"}, {
+}, {"p": "eu.andredick.tools", "c": "SetGenerator", "l": "sets"}, {
     "p": "eu.andredick.aco.ant",
     "c": "AbstractAnt",
     "l": "setSolution(S)"
@@ -1375,7 +1327,7 @@ memberSearchIndex = [{
     "c": "Statistics",
     "l": "setValue(int, float, AbstractSolution)",
     "url": "setValue(int,float,eu.andredick.aco.problem.AbstractSolution)"
-}, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator.Set", "l": "size()"}, {
+}, {"p": "eu.andredick.tools", "c": "SetGenerator.Set", "l": "size()"}, {
     "p": "eu.andredick.aco.ant",
     "c": "ACOAnt",
     "l": "solution"
@@ -1388,12 +1340,12 @@ memberSearchIndex = [{
     "c": "SolutionQualityMin",
     "l": "SolutionQualityMin()"
 }, {
-    "p": "eu.andredick.scp.exactsolver",
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "solve(SCProblem)",
     "url": "solve(eu.andredick.scp.SCProblem)"
-}, {"p": "eu.andredick.scp.exactsolver", "c": "SCPExactSolver", "l": "solver"}, {
-    "p": "eu.andredick.scp.exactsolver",
+}, {"p": "eu.andredick.tools", "c": "SCPExactSolver", "l": "solver"}, {
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "solverType"
 }, {
@@ -1447,7 +1399,7 @@ memberSearchIndex = [{
     "c": "Structure",
     "l": "subsetsSize()"
 }, {"p": "eu.andredick.scp", "c": "Structure", "l": "subsetsWithElement"}, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "c": "SetGenerator",
     "l": "t_size"
 }, {
@@ -1462,15 +1414,11 @@ memberSearchIndex = [{
     "p": "eu.andredick.aco.termination",
     "c": "TerminationCriterionNew",
     "l": "TerminationCriterionNew(int, int)"
-}, {"p": "eu.andredick.tests", "c": "testACO", "l": "testACO()"}, {
+}, {"p": "eu.andredick.aco.algorithm", "c": "AbstractAlgorithm", "l": "timeEnd"}, {
     "p": "eu.andredick.aco.algorithm",
     "c": "AbstractAlgorithm",
-    "l": "timeEnd"
-}, {"p": "eu.andredick.aco.algorithm", "c": "AbstractAlgorithm", "l": "timeStart"}, {
-    "p": "eu.andredick.tools",
-    "c": "Tools",
-    "l": "Tools()"
-}, {
+    "l": "timeStart"
+}, {"p": "eu.andredick.tools", "c": "Tools", "l": "Tools()"}, {
     "p": "eu.andredick.tools",
     "c": "ParameterTraverser",
     "l": "traverseParameter(int)"
@@ -1499,7 +1447,7 @@ memberSearchIndex = [{
     "l": "updateTable(String, String, String)",
     "url": "updateTable(java.lang.String,java.lang.String,java.lang.String)"
 }, {"p": "eu.andredick.scp", "c": "SCPSolution", "l": "value"}, {
-    "p": "eu.andredick.scp.exactsolver",
+    "p": "eu.andredick.tools",
     "c": "SCPExactSolver",
     "l": "var"
 }, {"p": "eu.andredick.scp", "c": "SCPSolution", "l": "vars"}, {
@@ -1511,15 +1459,11 @@ memberSearchIndex = [{
     "c": "LocalSearchAntCover.WeightedColumn",
     "l": "WeightedColumn(int, float, int)"
 }, {"p": "eu.andredick.scp", "c": "ObjectiveFunction", "l": "weights"}, {
-    "p": "eu.andredick.scp.randomgenerator",
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Point",
     "l": "x"
-}, {
-    "p": "eu.andredick.scp.randomgenerator",
-    "c": "SetGenerator.Set",
-    "l": "x"
-}, {
-    "p": "eu.andredick.scp.randomgenerator",
+}, {"p": "eu.andredick.tools", "c": "SetGenerator.Set", "l": "x"}, {
+    "p": "eu.andredick.tools",
     "c": "SetGenerator.Point",
     "l": "y"
-}, {"p": "eu.andredick.scp.randomgenerator", "c": "SetGenerator.Set", "l": "y"}]
+}, {"p": "eu.andredick.tools", "c": "SetGenerator.Set", "l": "y"}]
