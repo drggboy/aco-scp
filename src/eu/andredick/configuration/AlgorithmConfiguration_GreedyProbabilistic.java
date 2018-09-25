@@ -36,7 +36,7 @@ public class AlgorithmConfiguration_GreedyProbabilistic extends AbstractAlgorith
     @Override
     public void prepareConfigParameters() {
 
-        this.configName = "AlgorithmConfiguration_Greedy";
+        this.configName = "AlgorithmConfiguration_GreedyProbabilistic";
 
         ConfigurationParameter<Float> phInitValue =
                 new ConfigurationParameter<>("pheromonInitValue", 1f);

@@ -37,7 +37,7 @@ public class AlgorithmConfiguration_StigmergyHeuristLocal extends AbstractAlgori
     @Override
     public void prepareConfigParameters() {
 
-        this.configName = "AlgorithmConfiguration_StigmergyHeurist";
+        this.configName = "AlgorithmConfiguration_StigmergyHeuristLocal";
 
         ConfigurationParameter<Float> phInitValue =
                 new ConfigurationParameter<>("pheromonInitValue", 100f);

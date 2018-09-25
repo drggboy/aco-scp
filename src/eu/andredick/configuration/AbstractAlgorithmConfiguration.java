@@ -95,4 +95,9 @@ public abstract class AbstractAlgorithmConfiguration {
         return this.configName;
     }
 
+    @Override
+    public String toString(){
+        return this.getConfigName();
+    }
+
 }

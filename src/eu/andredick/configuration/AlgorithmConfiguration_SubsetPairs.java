@@ -34,7 +34,7 @@ public class AlgorithmConfiguration_SubsetPairs extends AbstractAlgorithmConfigu
     @Override
     public void prepareConfigParameters() {
 
-        this.configName = "Alg_Konfig_Pairs";
+        this.configName = "AlgorithmConfiguration_SubsetPairs";
 
         ConfigurationParameter<Float> phInitValue =
                 new ConfigurationParameter<>("pheromonInitValue", 1f);
