@@ -45,7 +45,7 @@ public class AlgorithmConfiguration_Randomwalk extends AbstractAlgorithmConfigur
         this.addConfigurationParameter(evapFactor);
 
         ConfigurationParameter<Integer> maxIterations =
-                new ConfigurationParameter<>("maxIterations", 400);
+                new ConfigurationParameter<>("maxIterations", 100);
         this.addConfigurationParameter(maxIterations);
 
         this.getParameter("antsize").setCurrentValue(10);

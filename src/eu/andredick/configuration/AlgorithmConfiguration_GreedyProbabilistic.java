@@ -61,7 +61,7 @@ public class AlgorithmConfiguration_GreedyProbabilistic extends AbstractAlgorith
         q0.setExpressions(new Float[]{0.01f, 0.02f, 0.03f, 0.04f});
 
         ConfigurationParameter<Integer> maxIterations =
-                new ConfigurationParameter<>("maxIterations", 400);
+                new ConfigurationParameter<>("maxIterations", 100);
         this.addConfigurationParameter(maxIterations);
 
         this.getParameter("antsize").setCurrentValue(10);

@@ -151,6 +151,14 @@ public class OrlibConverter {
         return null;
     }
 
+    public static String[] getNamesOfInstanceSets(){
+        String[] names = new String[instanceSets.length];
+        for (int i = 0; i < names.length; i++){
+            names[i] = instanceSets[i][0][0];
+        }
+        return names;
+    }
+
 
     public static Float getExactValue(String instanceName) {
         Properties values = getExactValues();
