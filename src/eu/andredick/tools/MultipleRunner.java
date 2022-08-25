@@ -27,7 +27,7 @@ public class MultipleRunner {
 
         try {
 
-            // Warten bis Threads beendet sind
+            // 等待线程完成
             for (Thread thread : threads) {
                 thread.join();
             }

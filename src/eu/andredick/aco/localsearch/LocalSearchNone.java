@@ -3,22 +3,22 @@ package eu.andredick.aco.localsearch;
 import eu.andredick.scp.SCPSolution;
 
 /**
- * <b>Dummy der Komponente der Lokale Suche - Liefert Ausgangslösung zurück</b><br>
- * Kapitel 3.3.9, S. 37, Lokale Suche<br>
+ * <b>局部搜索组件的抽象 - 返回初始解决方案</b><br>
+ * 第 3.3.9 章，第 37 页，局部搜索<br>
  * <br>
- * Wird verwendet, wenn keine Lokale Suche durchgeführt werden soll.<br>
- * Die Lokale Suche wird durch die Ameise in der Klasse {@link eu.andredick.aco.ant.ACOAnt} verwendet.<br>
- * Die Lokale Suche erfolgt auf Basis der zuvor konstruierten Lösung und liefert ggf verbesserte Lösung als Ergebnis.<br>
+ * 在不想执行局部搜索时使用。<br>
+ * 局部搜索由类{@link eu.andredick.aco.ant.ACOAnt}中的蚂蚁执行使用。<br>
+ * 局部搜索基于先前构建的解决方案，并在必要时提供改进的解决方案。<br>
  * <p><img src="{@docRoot}/images/LocalSearch.svg" alt=""></p>
  */
 public class LocalSearchNone extends AbstractLocalSearch<SCPSolution> {
 
 
     /**
-     * Starten der Lokalen Suche mit der Ausgangslösung, sofortige Rückgabe der empfangenen Lösung
+     * 使用原始解决方案启动局部搜索，立即返回收到的解决方案
      *
-     * @param solution Ausgangslösung
-     * @return selbige Ausgangslösung
+     * @param solution 原始解
+     * @return 相同的原始解
      */
     public SCPSolution search(SCPSolution solution) {
         return solution;

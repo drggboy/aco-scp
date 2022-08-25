@@ -3,24 +3,24 @@ package eu.andredick.aco.pheromoneinit;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 
 /**
- * <b>Abstrakte Komponente der Pheromon-Initialisierung</b><br>
- * Kapitel 3.3.3, S. 29, Initialisierung des Pheromons<br>
+ * <b>信息素初始化的抽象成分</b><br>
+ * 第3.3.3章，第29页，信息素的初始化<br>
  * <br>
- * Mit der Initialisierung der Pheromonwerte wird ein Anfangszustand für nachfolgende Iteration des ACO-Algorithmus erstellt.<br>
- * Wie die Pheromon-Konzentrationen initialisiert werden, soll in den Subklassen dieser Komponente festgelegt werden.<br>
+ * 初始化信息素值会为 aco 算法的后续迭代创建初始状态.<br>
+ * 如何初始化信息素浓度应在该组分的子类中确定.<br>
  * <br>
- * Die Pheromon-Initialisierung wird durch den Masterprozess ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) koordiniert.<br>
- * Dies geschieht, indem die Methode {@link AbstractPheromoneAssociation#initPheromones()} der Komponenten {@link AbstractPheromoneAssociation} aufgerufen wird.<br>
- * Anschließend benutzt {@link AbstractPheromoneAssociation} eine Ausprägung der Komponente Pheromon-Initialisierung zur Anpassung aller Pheromon-Konzentrationen.<br>
+ * 信息素初始化由主进程执行 ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) 协调.<br>
+ * 这是通过使用该方法完成的 {@link AbstractPheromoneAssociation#initPheromones()} 组件数量 {@link AbstractPheromoneAssociation}被调用.<br>
+ * 然后使用 {@link AbstractPheromoneAssociation} 组分信息素初始化的表达式，以调整所有信息素浓度.<br>
  * <br>
  * <p><img src="{@docRoot}/images/PheromoneInit.svg" alt=""></p>
  */
 public interface AbstractPheromoneInit {
 
     /**
-     * Liefert den Initial-Wert der Pheromon-Konzentration
+     * 提供信息素浓度的初始值
      *
-     * @return Initial-Wert der Pheromon-Konzentration
+     * @return 信息素浓度的初始值
      */
     public float initValue();
 

@@ -6,41 +6,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Die Klasse repräsentiert die Lösung eines Set Covering Problems (SCP).<br>
- * Die Lösung besteht aus einem Vektor von Entscheidungsvariablen
- * bzw. einer Auswahl von Teilmengen. Beide Repräsentationen werden synchron vorgehalten.
+ * 该类表示集合覆盖问题（SCP）的解。<br>
+ * 该解决方案由决策变量向量组成
+ * 或一系列子集。两种表示形式保持同步.
  */
 public class SCPSolution extends AbstractSolution<SCProblem> {
     /**
-     * Das SCP-AbstractProblem, zu dem diese Lösung gehört
+     * 此解决方案所属的 SCP 抽象问题
      */
     private SCProblem problem;
 
     /**
-     * Entscheidungsvariablen
+     * 决策变量向量
      */
     private boolean[] vars;
 
     /**
-     * Auswahl der Teilmengen
+     * 子集的选择
      */
     private List<Integer> subsetsList;
 
     /**
-     * Anzahl der Teilmengen die ein bestimmtes Grundelement überdecken
+     * 覆盖给定元素的子集数
      */
     private Integer[] coveredElementsCount;
 
     /**
-     * Temporärer Lösungswert
+     * 临时解决方案价值
      */
     private Float value;
 
 
     /**
-     * Konstruktor
+     * 构造 函数
      *
-     * @param problem Das zugehörige SCP-AbstractProblem
+     * @param problem 相关的 SCP 抽象问题
      */
     public SCPSolution(SCProblem problem) {
         this.problem = problem;
@@ -53,9 +53,9 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
 
 
     /**
-     * Liefert zugehöriges SCP-AbstractProblem
+     * 返回相关的 SCP-AbstractProblem
      *
-     * @return zugehöriges SCP-AbstractProblem
+     * @return 相关 SCP 问题
      */
     @Override
     public SCProblem getProblem() {
@@ -63,9 +63,9 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
     }
 
     /**
-     * Liefert den Zielfunktionswert der Lösung
+     * 返回解的目标函数值
      *
-     * @return Zielfunktionswert der Lösung
+     * @return 解决方案的目标函数值
      */
     @Override
     public float getValue() {
@@ -82,10 +82,10 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
 
 
     /**
-     * Ist das Grundelement mindestens durch eine der Teilmengen der Lösung überdeckt?
+     * 基本元素是否被解的一个子集覆盖?
      *
-     * @param element das Grundelement
-     * @return Wahr, wenn das Grundelement mindestens durch eine der Teilmengen der Lösung überdeckt
+     * @param element 基本元素
+     * @return 如果基元被解的至少一个子集覆盖，则为 True
      */
     public boolean isElementCovered(Integer element) {
         return this.coveredElementsCount[element] != null && this.coveredElementsCount[element] > 0;
@@ -93,10 +93,10 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
 
 
     /**
-     * Hinzufügen einer Teilmenge zur Lösung
+     * 将子集添加到解决方案
      *
-     * @param subset Teilmenge, die hinzugefügt werden soll
-     * @return Wahr, wenn noch nicht in Lösung vorhanden gewesen
+     * @param subset 要添加的子集
+     * @return 如果尚未解决，则为真
      */
     public boolean addSubset(int subset) {
         if (!vars[subset]) {
@@ -111,10 +111,10 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
 
 
     /**
-     * Entfernen einer Teilmenge aus der Lösung
+     * 从解决方案中删除子集
      *
-     * @param subset Teilmenge, die entfernt werden soll
-     * @return Wahr, wenn in Lösung vorhanden gewesen
+     * @param subset 要删除的子集
+     * @return 如果存在于溶液中，则为真
      */
     public boolean removeSubset(int subset) {
         if (vars[subset]) {
@@ -129,9 +129,10 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
 
 
     /**
-     * Anpassen der Zähler der Überdeckungen von Grundelementen druch Hinzufügen einer Teilmenge
+     * 通过添加子集来调整基本元素覆盖情况的计数器<br>
+     * 可以用于添加子集后更新元素覆盖情况
      *
-     * @param subset hinzugefügte Teilmenge
+     * @param subset 添加的子集
      */
     private void coverElements(int subset) {
         List<Integer> elementsInSubset = this.problem.getStructure().getElementsInSubset(subset);
@@ -144,9 +145,10 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
 
 
     /**
-     * Anpassen der Zähler der Überdeckungen von Grundelementen durch Entfernen einer Teilmenge
+     * 通过删除子集来调整基本元素覆盖情况计数器<br>
+     * 可以用于删除子集后更新元素覆盖情况
      *
-     * @param subset entfernte Teilmenge
+     * @param subset 删除子集
      */
     private void decoverElements(int subset) {
         List<Integer> elementsInSubset = this.problem.getStructure().getElementsInSubset(subset);
@@ -156,37 +158,37 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
     }
 
     /**
-     * Liefert die Entscheidungsvariablen
+     * 返回决策变量（0、1组成）
      *
-     * @return Boolsches Array mit Entscheidungsvariablen
+     * @return 具有决策变量的布尔数组（0、1组成）
      */
     public boolean[] getVars() {
         return this.vars;
     }
 
     /**
-     * Liefert die Auswahl der Teilmengen
+     * 所有被选中的子集
      *
-     * @return Auswahl der Teilmengen
+     * @return 子集的选择
      */
     public List<Integer> getSubsets() {
         return this.subsetsList;
     }
 
     /**
-     * Ist eine Teilmenge in der Lösung enthalten?
+     * 判断解决方案是否包含子集
      *
-     * @param index Teilmenge
-     * @return Wahr, wenn Teilmenge in der Lösung enthalten
+     * @param index 子集索引
+     * @return      如果子集包含在解决方案中，则为 true
      */
     public boolean hasSubset(int index) {
         return this.vars[index];
     }
 
     /**
-     * Ist die Lösung zulässig?
+     * 判断解决方案是否有效
      *
-     * @return Ergebnis der Bewertung
+     * @return 评估结果
      */
     public boolean isPermissible() {
         for (int i = 0; i < this.problem.getStructure().elementsSize(); i++) {
@@ -201,19 +203,19 @@ public class SCPSolution extends AbstractSolution<SCProblem> {
 
 
     /**
-     * Initiierung der Entscheidungsvariablen mit 0 nach Erzeugen einer leeren Lösung
+     * 在创建空解后初始化具有 0 的决策变量
      */
     private void initZeros() {
         for (int j = 0; j < this.vars.length; j++) {
             vars[j] = false;
         }
-        for (int i = 0; i < this.vars.length; i++) {
-            vars[i] = false;
-        }
+//        for (int i = 0; i < this.vars.length; i++) {
+//            vars[i] = false;
+//        }
     }
 
     /**
-     * Drucken der Lösung
+     * 打印解
      */
     public void print() {
         System.out.println("SCPSolution:");

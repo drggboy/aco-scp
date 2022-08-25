@@ -24,13 +24,13 @@ public class ArrayTools {
     }
 
     /*Tools--------------------------------------
-     * Fisher-Yates-Verfahren Besser???
+     * Fisher-Yates 方法更好？？？
      * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle*/
     public static ArrayList<Integer> getRandomIntPermutation(ArrayList<Integer> list) {
         Random rGenerator = new Random();
         int size = list.size();
         for (int i = size - 1; i >= 1; i--) {
-            int j = rGenerator.nextInt(i + 1); // i+1 wegen exklusiver oberer Schranke
+            int j = rGenerator.nextInt(i + 1); // i+1 由于排他性上部屏障
             Integer t = list.get(i);
             list.set(i, j);
             list.set(j, t);
@@ -39,16 +39,16 @@ public class ArrayTools {
     }
 
     /*Tools--------------------------------------
-     ** Fisher-Yates-Verfahren*/
+     ** Fisher-Yates 方法*/
     public static ArrayList<Integer> getRandomIntPermutation(int size) {
         Random rGenerator = new Random();
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i <= size - 1; i++) {
-            int j = rGenerator.nextInt(i + 1); // i+1 wegen exklusiver oberer Schranke
+            int j = rGenerator.nextInt(i + 1); // i+1 由于排他性的上部屏障
             if (j != i) {
                 list.set(i, list.get(j));
             }
-            list.set(j, i); // wobei i eigentlich eine Funktion f(i) ist
+            list.set(j, i); // 其中 i 实际上是函数 f（i）
         }
         return list;
     }

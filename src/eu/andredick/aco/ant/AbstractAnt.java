@@ -3,62 +3,62 @@ package eu.andredick.aco.ant;
 import eu.andredick.aco.problem.AbstractSolution;
 
 /**
- * <b>Abstrakte Klasse für eine Ameise.</b><br>
+ * <b>蚂蚁的抽象类.</b><br>
  * <br>
- * Definiert primär Schnittstellen, die von der Komponente MasterProzess (siehe {@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) verwendet werden.<br>
- * Entwurfsmuster Fassade, in dem Methoden mehrerer Klassen zentralisiert durch eine Schnittstelle angeboten werden.<br>
- * Weil alle Methoden abstrakt sind, dient diese Klassse zur Schnittstellendefinition und kann als Java-Interface realisiert sein.<br>
+ * 定义主要接口, 可以被主进程组件 (参见 {@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) 使用.<br>
+ * 设计接口，其中多个类的方法在接口集中提供.<br>
+ * 因为所有方法都是抽象的，所以此类用于接口定义，并且可以作为 Java 接口实现。<br>
  * <p><img src="{@docRoot}/images/ACOAnt.svg" alt=""></p>
  */
 public abstract class AbstractAnt<S extends AbstractSolution> {
 
     /**
-     * Startet die Konstrukton einer Ameisenlösung.<br>
-     * Die Methode wird von dem Masterprozess aufgerufen.<br>
-     * Die von der Ameise erstellte Lösung soll als Objektvariable vorgehalten werden.
+     * 启动蚂蚁解的构造.<br>
+     * 该方法由主进程调用.<br>
+     * 由 ant 创建的解应保留为对象变量.
      */
     public abstract void constructSolution();
 
     /**
-     * Startet die Verbesserung der konstruierten Ameisenlösung durch Lokale Suche.<br>
-     * Die Methode wird von dem Masterprozess aufgerufen.<br>
-     * Die lokal verbesserte Lösung soll als Objektvariable vorgehalten werden.
+     * 通过局部搜索开始改进构造的蚂蚁解.<br>
+     * 该方法由主进程调用.<br>
+     * 局部改进的解应保留为对象变量.
      */
     public abstract void localSearch();
 
     /**
-     * Liefert den Zielfunktionswert der Ameisenlösung.<br>
-     * Die Methode wird von dem Masterprozess aufgerufen.<br>
+     * 提供蚂蚁解的目标函数值.<br>
+     * 该方法由主进程调用.<br>
      *
-     * @return Zielfunktionswert der Ameisenlösung
+     * @return 蚂蚁解的目标函数值
      */
     public abstract Float evaluateSolution();
 
     /**
-     * Startet die Markierung der Ameisen-Lösung auf den Entitäten des Problems.<br>
-     * Die Methode wird von dem Masterprozess aufgerufen.<br>
+     * 开始在问题实例上标记 ant 解.<br>
+     * 该方法由主进程调用.<br>
      */
     public abstract void markPheromone();
 
     /**
-     * Erneuert den Zustand der Ameise für die nächste Iteration.<br>
-     * Die Methode wird von dem Masterprozess aufgerufen.<br>
+     * 为下一次迭代更新蚂蚁的状况.<br>
+     * 该方法由主进程调用.<br>
      */
     public abstract void resetAnt();
 
     /**
-     * Liefert die Lösung einer Ameise.<br>
-     * Je nach Zustand der Ameise kann es sich um die gefundene, verbesserte oder leere Lösung handeln.<br>
-     * Abhängig von der Implementierung kann auch unvollständige Lösung geliefert werden.
+     * 根据蚂蚁的状况，提供蚂蚁的解决方案.<br>
+     * 它可以是新杰，改进或空解<br>
+     * 根据实际情况，也可能提供不完整的解.
      *
-     * @return Lösung einer Ameise
+     * @return 蚂蚁的解
      */
     public abstract S getSolution();
 
     /**
-     * Setzt eine Lösung für die Ameise.<br>
-     * Die Methode dient dazu, die Lösung einer Ameise mit einer neuen zu überschreiben.
-     * @param solution neue Lösung
+     * 为蚂蚁设置解.<br>
+     * 该方法用于用一只蚂蚁的解覆盖另一只蚂蚁的解.
+     * @param solution 新解
      */
     public abstract void setSolution(S solution);
 }

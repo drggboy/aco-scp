@@ -5,29 +5,29 @@ import eu.andredick.scp.SCPSolution;
 import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
 
 /**
- * <b>Einfache Gütefunktion für SCP-Lösungen</b><br>
- * Kapitel 3.3.12, S. 46, Gütefunktion für Lösungen <br>
+ * <b>SCP解决方案的简单质量功能</b><br>
+ * 第 3.3.12 章，第 46 页，解的质量函数 <br>
  * <br>
- * Die einfache Gütefunktion ist proportional zum Kehrwert des Zielfunktionswertes.<br>
- * Um den Wertebereich anzuheben wird der Kehrwert des Zielfunktionswertes mit der Anzahl der Teilmengen multipliziert.<br>
+ * 简单质量函数与目标函数值的倒数成正比.<br>
+ * 为了增加值范围，将目标函数值的倒数乘以子集数.<br>
  * <br>
- * Die Gütefunktion wird von der Komponente Pheromone-Markierung ({@link AbstractPheromoneUpdate}) verwendet.<br>
- * Sie wird benötigt, um die Menge des Pheromons bei der Markierung von Lösungen vom Zielfunktionswert zu entkoppeln.<br>
- * Damit kann die Menge des Pheromons beispielsweise auf einen Wertebereich begrenzt werden.<br>
- * Um die Güte zu bestimmen, ist die Kenntnis über die Beschaffenheit der Lösung ({@link AbstractSolution}) notwendig.<br>
- * Daher müssen Ausprägungen der abstrakten Gütefunktion festlegen,
- * für welche Klasse von Lösungen und damit Problemen sie die Güte bestimmen können.<br>
+ * 质量功能由信息素标记组件 ({@link AbstractPheromoneUpdate}) 调用。<br>
+ * 在标记解时，需要将信息素的量与目标函数值分离。<br>
+ * 因此，信息素的量可以限制，例如，在一系列值内。<br>
+ * 为了确定质量，需要了解解决方案的性质 ({@link AbstractSolution})。<br>
+ * 因此，必须定义抽象质量函数的特征,
+ * 通过确定问题以及解决方案，可以确定质量。<br>
  *
  * <p><img src="{@docRoot}/images/SolutionQuality.svg" alt=""></p>
  */
 public class SolutionQualityMin extends AbstractSolutionQuality<SCPSolution> {
 
     /**
-     * Liefert die Güte Q der übergebenen Lösung.<br>
+     * 提供所提交解决方案的质量 Q。<br>
      * Q = n / z<br>
-     * mit n = Anzahl der Teilmengen, z = Zielfunktionswert der Lösung<br>
-     * @param solution: Lösung des SCP
-     * @return Güte der Lösung
+     * 其中 n = 子集数, z = 解的目标函数值<br>
+     * @param solution: SCP的解决方案
+     * @return 解决方案的质量
      */
     @Override
     public float getQuality(SCPSolution solution) {

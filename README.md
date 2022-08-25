@@ -1,5 +1,13 @@
 # aco-scp
-<b>Das vorliegende Test-Framework ist die Implementierung der Adaption des <a href="https://de.wikipedia.org/wiki/Ameisenalgorithmus">Ameisenalgorithmus (ACO)</a> an das <a href="https://de.wikipedia.org/wiki/Mengen%C3%BCberdeckungsproblem">Set Covering Problem (SCP)</a>.</b>
-<h3><a href="https://andre-dick.github.io/aco-scp">Dokumentation (Javadoc)</a></h3>
-<p>Für die Komposition und Ausführung der ACO-Algorithmen wurde ein dem Komponentensystem analoges objektorientiertes Test-Framework mit Java implementiert. Das Framework kann als <a href="https://de.wikipedia.org/wiki/Framework">White-Box-Framework</a> klassifiziert werden, weil seine Verwendung (Anpassung der ACO-Metaheuristik an bestimmte Problem-Klassen) auf der Vererbung basiert.</p>
+Forked from https://github.com/andre-dick/aco-scp
 
+<b>此测试框架适配了 <a href="https://de.wikipedia.org/wiki/Ameisenalgorithmus">蚁群算法（ACO）</a> 到 <a href="https://de.wikipedia.org/wiki/Mengen%C3%BCberdeckungsproblem">集合覆盖问题（SCP）</a>的实现。</b>
+<p>对于ACO算法的组成和执行，实现了一个面向对象的测试框架。它的使用（ACO元启发式对某些问题类的适应）是基于继承的。</p>
+
+## 运行
+程序从Main文件开始，传入问题实例的覆盖矩阵，即可运行。
+
+可以通过指定 .mat 文件传入覆盖矩阵，文件需放置在路径 `resources/mat/`下
+~~~java
+SCProblem problem = MatConvert.Mat_to_SCP("Coverage.mat");
+~~~

@@ -11,18 +11,18 @@ import eu.andredick.tools.Tools;
 import java.util.List;
 
 /**
- * <b>Realisierung der Komponente Konstruktionsheuristik.</b><br>
- * Kapitel 3.3.4, S. 30, Konstruktionsheuristik<br>
+ * <b>实现启发式构造组件</b><br>
+ * 第 3.3.4 章，第 30 页，启发式构造<br>
  * <br>
- * Die Konstruktion der SCP-Lösung einer Ameise erfolgt erfolgt <b>ausgehend von den Teilmengen.</b><br>
- * Die Konstruktionsheuristik wird von der Klasse {@link eu.andredick.aco.ant.ACOAnt} (Ameise) verwendet, um neue Lösungen zu konstruieren.<br>
+ * <b>从子集开始</b>进行蚂蚁 SCP 解的构建<br>
+ * 启发式构造由蚂蚁类 {@link eu.andredick.aco.ant.ACOAnt}用于构建新的解.<br>
  * <p><img src="{@docRoot}/images/Construction.svg" alt=""></p>
  */
 public class ConstructionFromSubsets extends AbstractConstruction<AbstractNextStepStrategy<PheromoneOnSubsets, SCPSolution>, SCProblem, SCPSolution> {
 
     /**
-     * Konstruktor
-     * @param nextStepRule Beliebige Ausprägung der Komponente Alternativenauswahl (siehe {@link AbstractNextStepStrategy})
+     * 构造函数
+     * @param nextStepRule 任意候选集选择组件 (参见 {@link AbstractNextStepStrategy})
      */
     public ConstructionFromSubsets(AbstractNextStepStrategy nextStepRule) {
         super(nextStepRule);
@@ -30,17 +30,17 @@ public class ConstructionFromSubsets extends AbstractConstruction<AbstractNextSt
 
 
     /**
-     * <b>Die Konstruktion der Lösung erfolgt itarativ in folgenden Schritten:</b><br>
-     * 1. Auswahl einer dieser Teilmengen über NextStep und hinzufügen zur Lösung<br>
-     * 2. Hinzufügen dieser Teilmenge zur TabuListe und zur Lösung<br>
-     * 3. bestimmen der Grundelemente, die in der gewählten Teilmenge enthalten sind<br>
-     * 4. Entfernen dieser Grundelemente aus allen Teilmengen, die noch verfügbar sind<br>
-     * 5. entfernen aller Teilmengen, die nach dem letzten Schritt leer geworden sind<br>
-     * 6. entfernen der Grundelemente (3.) aus der Menge noch nicht überdeckter Grundelemente<br>
-     * 7. Zurück zu 1, wenn es weitere nicht überdeckte Grundelemente gibt<br>
+     * <b>解的构建在以下步骤中迭代进行:</b><br>
+     * 1. 通过 NextStep 选择其中一个子集，并将其添加到解决方案中<br>
+     * 2. 将此子集添加到 Solution 中<br>
+     * 3. 确定所选子集中包含的基本元素<br>
+     * 4. 从仍然可用的所有子集中删除这些基元<br>
+     * 5. 删除在最后一步后变为空的所有子集<br>
+     * 6. 从尚未涵盖的基本元素集中删除基本元素 （3.）<br>
+     * 7. 如果还有其他未覆盖的基本元素，则返回 1<br>
      *
-     * @param problem Das SCProblem, für das eine Lösung zu konstruieren ist
-     * @return konstruierte zulässige Lösung
+     * @param problem 待解的 SCProblem
+     * @return 允许构建的解
      */
     @Override
     public SCPSolution construct(SCProblem problem) {
@@ -48,39 +48,39 @@ public class ConstructionFromSubsets extends AbstractConstruction<AbstractNextSt
         Structure structure = problem.getStructure();
         SCPSolution solution = new SCPSolution(problem);
 
-        // Bereitstellen eines Arrays mit Listen von Grundelementen, die in den Teilmengen enthalten sind
+        // 提供子集中包含的基元列表数组
         List<Integer> subsets = Tools.getIndexList(structure.subsetsSize()); //geordnet
 
-        // Bereitstellen der TabuListen für Teilmengen und Grundelemente
+        // 为子集和基元部署禁忌列表
         boolean[] tabuSubsets = ArrayTools.getZeroBoolArray(structure.subsetsSize());
         boolean[] tabuElements = ArrayTools.getZeroBoolArray(structure.elementsSize());
 
-        // Bereitstellen einer Arbeits-Liste mit Summen von Elementen, die in Teilmengen enthalten sind
+        // 提供包含子集中包含的项的总和的工作列表
         int[] subsetSizes = new int[structure.subsetsSize()];
         for (int g = 0; g < subsetSizes.length; g++) {
             subsetSizes[g] = structure.getElementsInSubset(g).size();
         }
 
-        // Ein Counter für die Anzahl der noch nicht überdeckter Grundelemente
+        // 尚未涵盖的基本元素数量的计数器
         int elementsRemain = structure.elementsSize();
 
-        // Iteration, bis keine Grundelemente mehr zu überdecken sind
+        // 迭代，直到没有更多基本元素要覆盖
         while (elementsRemain != 0) {
 
-            // Auswahl einer Teilmenge aus Teilmengen, die noch nicht in Lösung sind
+            // 从尚未在解中的子集中选择子集
             int subsetIndex = this.nextStepRule.chooseSubset(solution, subsets);
 
-            // Hinzufügen der Teilmenge in die Lösung
+            // 将子集添加到解中
             solution.addSubset(subsetIndex);
 
-            // Markieren der gewählten Teilmenge in der TabuListe
+            // 在 TabooList 中选择选定的子集
             tabuSubsets[subsetIndex] = true;
 
-            // bestimmen der Grundelemente, die in der gewählten Teilmenge enthalten sind
+            // 确定所选子集中包含的基本元素
             List<Integer> elementsInSubset = structure.getElementsInSubset(subsetIndex);
 
-            // Im weiteren müssen Teilmengen identifiziert werden, die selbst eine Teilmenge der gewählten Teilmenge sind
-            // d.h. Teilmengen, die einen Teil gleicher Elemente überdecken und sonst keine weiteren
+            // 此外，必须标识本身就是所选子集的子集
+            // 即覆盖相同元素的一部分的子集，而不是其他元素的子集
             for (Integer e : elementsInSubset) {
                 if (!tabuElements[e]) {
                     List<Integer> subsetsWith_e = structure.getSubsetsWithElement(e);

@@ -7,16 +7,16 @@ import eu.andredick.aco.solutionquality.AbstractSolutionQuality;
 import eu.andredick.scp.SCPSolution;
 
 /**
- * <b>Ausprägung der Komponente der Pheromon-Markierung</b><br>
- * Kapitel 3.3.11, S. 45, Pheromon-Markierung<br>
+ * <b>信息素标记组件的实现</b><br>
+ * 第3.3.11章，第45页，信息素标记<br>
  * <br>
- * Pheromon-Markierung auf Teilmengen des SCP-Problems {@link PheromoneOnSubsets} mittels der zugehörigen Lösungen {@link SCPSolution}.<br>
+ * SCP 问题中通过相关的解 {@link SCPSolution}对子集的信息素{@link PheromoneOnSubsets}进行标记。<br>
  * <br>
- * Die Markierung der Lösungen ({@link AbstractSolution}) eines Problems ({@link eu.andredick.aco.problem.AbstractProblem}) mit Pheromon erfolgt koordiniert durch den Masterprozess ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess}),
- * welcher hierzu die Ameisen ({@link eu.andredick.aco.ant.AbstractAnt}) anleitet.<br>
- * Um diese Aufgabe auszuführen, besitzen die Ameisen eine Ausprägung der Komponente Pheromon-Markierung.<br>
- * Für die zu markierende Instanz der Ameisen-Lösung {@link AbstractSolution} wird zunächst mittels der Qualitätsfunktion ({@link AbstractSolutionQuality}) die Menge des aufzutragenden Pheromons bestimmt.<br>
- * Anschließend kann mittels der Komponente Pheromon-Assoziation ({@link AbstractPheromoneAssociation}) die Konzentration des Pheromons auf den Lösungskomponenten erhöht werden.<br>
+ * 问题 ({@link eu.andredick.aco.problem.AbstractProblem})的解决方案 ({@link AbstractSolution}) 的信息素标记对蚂蚁 ({@link eu.andredick.aco.ant.AbstractAnt})具有指导作用。<br>
+ * 由主进程 ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess})调用。<br>
+ * 为了执行此任务，蚂蚁具有信息素标记的功能。<br>
+ * 对于要选择的蚂蚁解的实例 {@link AbstractSolution} 首先使用质量函数 ({@link AbstractSolutionQuality}) 确定要应用的信息素的量，<br>
+ * 随后，通过成分信息素关联 ({@link AbstractPheromoneAssociation}) 增加解成分上的信息素浓度。<br>
  *
  * <p><img src="{@docRoot}/images/PheromoneUpdate.svg" alt=""></p>
  */
@@ -24,10 +24,10 @@ public class PheromoneUpdateOnSubsets extends
         AbstractPheromoneUpdate<PheromoneOnSubsets, SCPSolution> {
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param pheromoneStructure Pheromon-Assoziation mit Teilmengen des SCP
-     * @param solutionQuality    Gütefunktion der Lösung
+     * @param pheromoneStructure 信息素与SCP子群的关联
+     * @param solutionQuality    解决方案的质量组件
      */
     public PheromoneUpdateOnSubsets(PheromoneOnSubsets pheromoneStructure,
                                     AbstractSolutionQuality solutionQuality) {
@@ -35,12 +35,12 @@ public class PheromoneUpdateOnSubsets extends
     }
 
     /**
-     * Markiert in Abhängigkeit der gegebenen SCP-Lösung die enthaltenen Teilmengen mit Pheromon.<br>
-     * Hierzu wird zunächst die Güte der Lösung mittels {@link #solutionQuality} bestimmt.<br>
-     * Anschließend werden alle in der SCP-Lösung enthaltenen Teilmengen in Abhängigkeit der Lösungsgüte mit Pheromon markiert.<br>
-     * Dazu wird die zugewiesene Komponente Pheromone-Assoziation ({@link #pheromoneStructure}) verwendet.<br>
+     * 根据给定的 SCP 解决方案，用信息素标记包含的子集。<br>
+     * 为此，首先使用 {@link #solutionQuality} 确定解决方案的质量，<br>
+     * 然后根据解决方案的质量，将包含在 SCP 解决方案中的所有子集都用信息素标记。<br>
+     * 为此使用传入的信息素关联组件 ({@link #pheromoneStructure})。<br>
      *
-     * @param solution SCP-Lösung bzw. Ameisen-Pfad, die/der mit Pheromon markiert werden soll.
+     * @param solution 用信息素标记的SCP解或蚂蚁路径.
      */
     @Override
     public void update(SCPSolution solution) {

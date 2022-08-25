@@ -9,10 +9,10 @@ import eu.andredick.scp.SCProblem;
 import eu.andredick.aco.problem.AbstractSolution;
 
 /**
- * Eine Wrapperklasse für die Bibliothek "Google Or Tools",
- * um SCP-Instanzen exakt zu lösen.
+ * Google Or Tools 库的包装类,
+ * 精确解决 SCP 实例.
  * <p>
- * Die "Google Or Tools" müssen als Paket eingebunden sein.
+ * “Google Or Tools”必须集成为一个软件包.
  * https://developers.google.com/optimization/
  */
 public class SCPExactSolver {
@@ -22,13 +22,13 @@ public class SCPExactSolver {
     }
 
     private String solverType = null;
-    // Wrapper-Klassen von "Google Or Tools"
+    // "Google Or Tools"的包装类
     private MPSolver solver;
     private MPVariable[] var;
     private MPObjective obj;
 
-    // Standardkonstruktor initiiert den Solver als Solver für Ganzzahlige Programme
-    // (möglich sind auch allgemeine LP)
+    // 默认构造函数将求解器初始化为整数程序求解器
+    // (一般LP也是可以的)
     public SCPExactSolver() {
         this.solverType = MPSolver.OptimizationProblemType.BOP_INTEGER_PROGRAMMING.name();
     }
@@ -43,10 +43,10 @@ public class SCPExactSolver {
     }
 
     /**
-     * Methode zum Lösen einer SCP-Instanz
+     * 解决SCP实例的方法
      *
-     * @param problem Die SCP-Instanz
-     * @return Lösung
+     * @param problem SCP实例
+     * @return 溶液
      */
     public AbstractSolution solve(SCProblem problem) {
 
@@ -76,30 +76,30 @@ public class SCPExactSolver {
     }
 
     /**
-     * Private Methode, um die den "Google Or Tools"-Solver mit der SCP-Instanz zu initiieren
+     * 使用 SCP 实例启动“Google or tools”求解器的私有方法
      *
-     * @param problem Die SCP-Instanz
+     * @param problem SCP实例
      */
     private void initSolver(SCProblem problem) {
 
         boolean[][] matrix = problem.getStructure().getRelations();
         float[] objKoef = problem.getObjectiveFunction().getWeights();
 
-        /*Solver Deklaration*/
+        /*规划求解声明*/
         solver = createSolver(this.solverType);
         double infinity = MPSolver.infinity();
 
-        /*Variablen*/
+        /*变量*/
         var = solver.makeBoolVarArray(objKoef.length);
 
-        /*Zielfunktion*/
+        /*目标*/
         obj = solver.objective();
         obj.setMinimization();
         for (int i = 0; i < var.length; i++) {
             obj.setCoefficient(var[i], objKoef[i]);
         }
 
-        /*Nebenbedingungen*/
+        /*辅助条件*/
         for (int i = 0; i < matrix.length; i++) {
             MPConstraint constraint = solver.makeConstraint(1, infinity);
             for (int j = 0; j < matrix[i].length; j++) {
@@ -112,10 +112,10 @@ public class SCPExactSolver {
     }
 
     /**
-     * Verwendung des "Google Or Tools"-Solver zum konvertieren der SCP-Instanzen in das MPS-Format
+     * 使用“Google Or Tools”求解器将 SCP 实例转换为 MPS 格式
      *
-     * @param problem SCP-AbstractProblem
-     * @return das SCP-AbstractProblem im MPS-Format
+     * @param problem SCP-抽象问题
+     * @return MPS 格式的 SCP 抽象问题
      */
     public String getMPSformat(SCProblem problem) {
         initSolver(problem);
@@ -125,10 +125,10 @@ public class SCPExactSolver {
     }
 
     /**
-     * Verwendung des "Google Or Tools"-Solver zum konvertieren der SCP-Instanzen in das LP-Format
+     * 使用“Google Or Tools”求解器将 SCP 实例转换为 LP 格式
      *
-     * @param problem SCP-AbstractProblem
-     * @return das SCP-AbstractProblem im LP-Format
+     * @param problem SCP-抽象问题
+     * @return LP格式中的SCP抽象问题
      */
     public String getLPformat(SCProblem problem) {
         initSolver(problem);
@@ -138,7 +138,7 @@ public class SCPExactSolver {
     }
 
     /**
-     * Zurücksetzen des "Google Or Tools"-Solver
+     * 重置谷歌或工具求解器
      */
     public void resetSolver() {
         solver.reset();

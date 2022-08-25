@@ -4,31 +4,31 @@ import eu.andredick.aco.algorithm.Statistics;
 import eu.andredick.tools.ArrayTools;
 
 /**
- * <b>Ausprägung des Abbruchkriterium</b> für die Iteration des ACO-Algorithmus<br>
+ * <b>终止标准</b> 用于 ACO 算法的迭代<br>
  * <br>
- * Die Ausprägungen werden im Masterprozess verwendet, um die Iteration abzubrechen.<br>
- * Abbruchbedingung ist erfüllt, wenn Anzahl der Iterationen ein Maximum überschreitet <br>
- * ODER die maximale Anzahl der Iterationen seit bester Lösunge überschritten wird.
+ * 这些特征由主进程调用，以取消迭代。<br>
+ * 当迭代次数超过最大值时满足取消条件。 <br>
+ * 或者自最佳解决方案以来超过的最大迭代次数。
  *
  * <p><img src="{@docRoot}/images/Termination.svg" alt=""></p>
  */
 public class TerminationCriterionNew extends AbstractTerminationCriterion {
 
     /**
-     * Maximale Anzahl der Itarationen.
+     * 最大迭代次数.
      */
     private int maxIterations;
 
     /**
-     * Maximale Anzahl der Iterationen, seit dem keine bessere Lösunge gefunden wurde.
+     * 最大迭代次数，因为没有找到更好的解决方案.
      */
     private int bestValueAgo;
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param maxIterations Maximale Anzahl der Itarationen
-     * @param bestValueAgo  Maximale Anzahl der Iterationen, seit dem keine bessere Lösunge gefunden wurde.
+     * @param maxIterations 最大迭代次数
+     * @param bestValueAgo  最大迭代次数，因为没有找到更好的解决方案.
      */
     public TerminationCriterionNew(int maxIterations, int bestValueAgo) {
         this.maxIterations = maxIterations;
@@ -36,13 +36,13 @@ public class TerminationCriterionNew extends AbstractTerminationCriterion {
     }
 
     /**
-     * Prüfen, ob die Abbruchbedingung erfüllt ist.<br>
-     * Abbruchbedingung ist erfüllt, wenn Anzahl der Iterationen ein Maximum überschreitet <br>
-     * ODER die maximale Anzahl der Iterationen seit bester Lösunge überschritten wird.
+     * 验证是否满足取消条件.<br>
+     * 当迭代次数超过最大值时满足取消条件 <br>
+     * 或自超过最佳解决方案以来的最大迭代次数.
      *
-     * @param iteration  Zähler der Iterationen
-     * @param statistics Statistiken zum Verlauf der Iteration
-     * @return Wahr, wenn Anzahl der Iterationen NICHT über Maximum
+     * @param iteration  迭代计数器
+     * @param statistics 迭代历史记录统计信息
+     * @return 如果迭代次数不超过最大值，则为 true
      */
     @Override
     public boolean checkTermination(int iteration, Statistics statistics) {

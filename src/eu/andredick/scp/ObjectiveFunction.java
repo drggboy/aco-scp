@@ -4,38 +4,39 @@ import java.text.DecimalFormat;
 import java.util.Random;
 
 /**
- * <b>Zielfunktion des Set Covering Problems</b><br>
- * Die Zielfunktion des SCP ist die Summe aller gewichteten Entscheidungsvariablen.<br>
- * Kapitel 2.3, S. 17, Set Covering Problem (SCP). <br>
+ * <b>集合覆盖问题的目标函数</b><br>
+ * SCP 的目标函数是所有加权决策变量的总和.<br>
+ * 第2.3章，第17页，设置覆盖问题（SCP）. <br>
  * <br>
- * Die Gewichte (auch Kosten, Koeffizienten) c_j sind eindeutig den Teilmengen j des SCP zugeordnet.<br>
- * Die Entscheidungsvariablen sind explizit in der Lösung des SCP ({@link SCPSolution}) festgelegt.<br>
- * Die Zielfunktion besteht damit aus Gewichten ({@link #weights}) und einer Vorschrift ({@link #getValue(SCPSolution)}),<br>
- * welche mittels der Gewichte ({@link #weights}) und den Ausprägungen der Entscheidungsvariablen ({@link SCPSolution}) den Zielfunktionswert berechnet.<br>
+ * c_j权重（也是成本、系数）被明确分配给SCP的子集j.<br>
+ * 决策变量在 SCP 的解中 ({@link SCPSolution}) 明确定义.<br>
+ * 因此，目标函数由权重 ({@link #weights}) 和规则 ({@link #getValue(SCPSolution)})组成,<br>
+ * 它通过权重 ({@link #weights}) 和变量特征 ({@link SCPSolution}) 计算目标函数的值.<br>
  *
  * <p><img src="{@docRoot}/images/SCP.svg" alt=""></p>
  */
 public class ObjectiveFunction {
 
     /**
-     * Gewichte (auch Kosten, Koeffizienten)<br>
-     * Der Index j des Gewichtes c_j entspricht dem Index der Entscheidungsvariable x_j und damit der Teilmenge des SCP<br>
+     * 权重（包括成本、系数）<br>
+     * 权重c_j的索引j对应于决策变量x_j的索引<br>
      */
     private float[] weights;
 
     /**
-     * Konstruktor mit Iniziirung zufälliger Gewichte
+     * 具有随机权重启动的构造函数
      *
-     * @param size Anzahl der Entscheidungsvariablen = Anzahl der Teilmengen des SCP
+     * @param size 决策变量数 = SCP 的子集数
      */
     public ObjectiveFunction(int size) {
         this.initRandomWeights(size);
     }
 
     /**
-     * Konstruktor mit Übernahme gegebener Gewichte
+     * 构造函数<br>
+     * 取给定的权重
      *
-     * @param weights Gewichte
+     * @param weights 权重
      */
     public ObjectiveFunction(float[] weights) {
         this.weights = weights;
@@ -43,10 +44,11 @@ public class ObjectiveFunction {
 
 
     /**
-     * Liefert den Zielfunktionswert einer Lösung des SCP ({@link SCPSolution})<br>
-     * Der Zielfunktionswert ist als Summme der gewichteten Entscheidungsvariablen definiert.<br>
-     * @param solution Instanz einer Lösung des SCP
-     * @return berechneter Zielfunktionswert
+     * 返回 SCP 解的目标函数值 ({@link SCPSolution})<br>
+     * 目标函数值定义为加权决策变量的总和><br>
+     *
+     * @param solution     SCP 解的实例
+     * @return             目标函数值
      */
     public float getValue(SCPSolution solution) {
         float value = 0f;
@@ -58,9 +60,9 @@ public class ObjectiveFunction {
     }
 
     /**
-     * Liefert den Array der Gewichte
+     * 返回权重数组
      *
-     * @return Vektor der Koeffizienten
+     * @return 权重数组
      */
     public float[] getWeights() {
         return weights;
@@ -68,9 +70,9 @@ public class ObjectiveFunction {
 
 
     /**
-     * Initiiert zufällige Koeffizienten
+     * 启动随机系数
      *
-     * @param size Anzahl der Entscheidungsvariablen
+     * @param size 决策变量数
      */
     private void initRandomWeights(int size) {
         Random r = new Random();
@@ -82,7 +84,7 @@ public class ObjectiveFunction {
 
 
     /**
-     * Drucken
+     * 打印
      */
     public void print() {
         DecimalFormat df = new DecimalFormat("0.00");

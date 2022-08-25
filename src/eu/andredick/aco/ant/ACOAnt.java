@@ -7,48 +7,48 @@ import eu.andredick.aco.problem.AbstractProblem;
 import eu.andredick.aco.problem.AbstractSolution;
 
 /**
- * <b>Realisierung der Komponente Ameise</b> durch die Implementierung der abstrakten Methoden der Klasse {@link AbstractAnt}.<br>
+ * <b>实现蚂蚁组件</b> 通过实现类 {@link AbstractAnt} 的抽象方法.<br>
  * <br>
- * Stellt Methoden bereit, die von der Komponente MasterProzess (siehe {@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) verwendet werden.<br>
- * Entwurfsmuster Fassade, in dem Methoden mehrerer Klassen zentralisiert durch eine Schnittstelle angeboten werden.<br>
- * Die Ameise besitzt darüber hinaus Objektvariablen, die ihren Zustand definieren.<br>
+ * 提供从 MasterProcess 组件继承的方法。可被(参见 {@link eu.andredick.aco.masterprocess.AbstractMasterProcess}) 调用。<br>
+ * 设计接口，其中多个类的方法在接口集中提供。<br>
+ * 蚂蚁对象还具有定义其状态的变量。<br>
  * <p><img src="{@docRoot}/images/ACOAnt.svg" alt=""></p>
  */
-public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> extends AbstractAnt<S> {
+public class ACOAnt <S extends AbstractSolution<P>, P extends AbstractProblem> extends AbstractAnt<S> {
 
     /**
-     * Das AbstractProblem, auf welchem die Lösung (Pfad) gefunden werden soll.
+     * 要找的解（路径）的抽象问题
      */
     protected P problem;
 
     /**
-     * Aktuelle Lösung (Pfad) der Ameise.<br>
-     * Die Lösunge kann unvollständig sein.
+     * 蚂蚁的当前解（路径）。<br>
+     * 解可能不完整。
      */
     protected S solution;
 
     /**
-     * Beliebige Realisierung der Komponente für Pheromon-Markierung
+     * 实现信息素标记的任意组件
      */
     protected AbstractPheromoneUpdate updateRule;
 
     /**
-     * Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
+     * 实现解的启发式构造的任意组件
      */
     protected AbstractConstruction constructionStrategy;
 
     /**
-     * Beliebige Realisierung der Komponente für Lokale Suche
+     * 实现局部搜索的任意组件
      */
     protected AbstractLocalSearch localSearchStrategy;
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param problem              Das AbstractProblem, auf welchem die Lösung bzw. Pfad gefunden werden soll.
-     * @param updateRule           Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
-     * @param constructionStrategy Beliebige Realisierung der Komponente für Konsturkionsheuristik von Lösungen
-     * @param localSearchStrategy  Beliebige Realisierung der Komponente für Lokale Suche
+     * @param problem              要找到解决方案或路径的抽象问题.
+     * @param updateRule           实现信息素标记的任意组件
+     * @param constructionStrategy 实现解的启发式构造的任意组件
+     * @param localSearchStrategy  实现局部搜索的任意组件
      */
     public ACOAnt(P problem,
                   AbstractPheromoneUpdate updateRule,
@@ -63,10 +63,10 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
     }
 
     /**
-     * Startet die Konstrukton einer Ameisenlösung.<br>
-     * Dazu wird die der Ameise zugewiesene Komponente der Konstruktionsheuristik genutzt.<br>
-     * Die Methode wird von dem Masterprozess aufgerufen.<br>
-     * Die von der Ameise erstellte Lösung soll als Objektvariable vorgehalten werden.
+     * 启动蚂蚁解的构造。<br>
+     * 为此，使用分配给蚂蚁的启发式构造组件。<br>
+     * 该方法由主进程调用。<br>
+     * 由 ant 创建的解应保留为对象变量。
      *
      * @see AbstractConstruction#construct(AbstractProblem)
      */
@@ -76,11 +76,11 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
     }
 
     /**
-     * Liefert den Zielfunktionswert der Ameisenlösung.<br>
-     * Die Methode wird von dem Masterprozess aufgerufen.<br>
-     * Der Zustand der Ameise kann eine unvollständige Lösung beinhalten!<br>
+     * 提供蚂蚁解的目标函数值。<br>
+     * 该方法由主进程调用。<br>
+     * 蚂蚁的状况可能包括不完整的解!<br>
      *
-     * @return Zielfunktionswert der Ameisenlösung
+     * @return 蚂蚁解的目标函数值
      */
     @Override
     public Float evaluateSolution() {
@@ -88,9 +88,9 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
     }
 
     /**
-     * Startet die Markierung der Ameisen-Lösung auf den Entitäten des Problems.<br>
-     * Dazu wird die der Ameise zugewiesene Komponente der Pheromon-Markierung genutzt.<br>
-     * Die Methode wird von dem Masterprozess aufgerufen.<br>
+     * 开始在问题实例上标记信息素。<br>
+     * 为此，使用为蚂蚁分配的信息素标记组件。<br>
+     * 该方法由主进程调用。<br>
      *
      * @see AbstractPheromoneUpdate#update(AbstractSolution)
      */
@@ -100,9 +100,9 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
     }
 
     /**
-     * Startet die Verbesserung der konstruierten Ameisenlösung durch Lokale Suche.<br>
-     * Dazu wird die der Ameise zugewiesene Komponente der Lokalen Suche genutzt. <br>
-     * Die Methode wird von dem Masterprozess aufgerufen. <br>
+     * 通过局部搜索开始改进构造好的蚂蚁解。<br>
+     * 为此，使用分配给 ant 的局部搜索组件。<br>
+     * 该方法由主进程调用。<br>
      *
      * @see AbstractLocalSearch#search(AbstractSolution)
      */
@@ -112,22 +112,22 @@ public class ACOAnt<S extends AbstractSolution<P>, P extends AbstractProblem> ex
     }
 
     /**
-     * Erneuert den Zustand der Ameise für die nächste Iteration. <br>
-     * Dazu wird die bisherige Ameisenlösung durch eine leere Lösung ersetzt. <br>
-     * Die Methode wird von dem Masterprozess aufgerufen.
+     * 为下一次迭代更新蚂蚁的状况。 <br>
+     * 为此，先前的蚂蚁解被空解取代。 <br>
+     * 该方法由主进程调用。
      */
     @Override
     public void resetAnt() {
         this.solution = (S) this.solution.createNew();
     }
 
-    // Liefert die Lösung der Ameise
+    // 提供蚂蚁的解
     @Override
     public S getSolution() {
         return this.solution;
     }
 
-    // Schreibt eine Lösung ins Gedächtnis
+    // 记住解决方案
     @Override
     public void setSolution(S solution) {
         this.solution = solution;

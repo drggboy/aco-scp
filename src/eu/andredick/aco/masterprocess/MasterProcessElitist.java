@@ -5,88 +5,88 @@ import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 /**
- * <b>Masterprozess-Elitist</b> - Ausprägung der Komponente des Masterprozesses, bei der nur die iterationsbeste Ameise ihre Lösung mit Pheromon markieren darf.<br>
- * Kapitel 3.3.2, S. 26, Masterprozess<br>
+ * <b>主流程-精英策略</b> - 主过程的组件的实现，只允许迭代最佳蚂蚁进行信息素标记。<br>
+ * 第 3.3.2 章，第 26 页，主流程<br>
  * <br>
- * Die Implementierung des Masterprozess bildet den übergeordneten Ablauf der ACO-Metaheuristik ab,<br>
- * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})<br>
- * und die Population der Ameisen (siehe {@link AbstractAnt}) koordiniert wird.<br>
+ * 主流程的实现反映了 ACO 元启发式的算法逻辑,<br>
+ * 通过初始化和蒸发信息素 (参见 {@link AbstractPheromoneAssociation})<br>
+ * 以及蚂蚁种群 (参见 {@link AbstractAnt}) 进行协调。<br>
  * <br>
- * <b>Ablauf:</b><br>
- * 1 - Initiierung des Pheromons<br>
- * 2 - Konstruktion der Lösungen aller Ameisen<br>
- * 3 - Lokale Suche auf konstruierten Lösungen aller Ameisen<br>
- * 4 - Evaporation des Pheromons<br>
- * 5 - Markierung des Pheromons durch die <b>iterationsbeste</b> Ameise<br>
- * 6 - Zurücksetzen der Ameisengedächtnisse<br>
- * 7 - Zurück zu 2., wenn Abbruchbedingungen nicht erfüllt.<br>
+ * <b>流程:</b><br>
+ * 1 - 信息素初始化<br>
+ * 2 - 构建所有蚂蚁的解决方案<br>
+ * 3 - 所有蚂蚁的构造解的局部搜索<br>
+ * 4 - 信息素蒸发<br>
+ * 5 - 蚂蚁<b>迭代</b>进行信息素标记<br>
+ * 6 - 重置蚂蚁记忆<br>
+ * 7 - 返回 2. 如果不满足取消条件.<br>
  * <br>
- * Ein Masterprozess wird im {@link eu.andredick.aco.algorithm.ACOAlgorithm} verwendet und dort gestartet.
+ * 主流程在 {@link eu.andredick.aco.algorithm.ACOAlgorithm} 处被执行调用。
  * <p><img src="{@docRoot}/images/Masterprocess-a.svg" alt=""></p>
  * <hr>
  * <p><img src="{@docRoot}/images/Masterprocess-b.svg" alt=""></p>
- * Elitist-Strategie - Ausprägung der Komponente des Masterprozesses
+ * 精英策略 - 主流程组件的实现
  */
 public class MasterProcessElitist extends AbstractMasterProcess {
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param pheromoneStructure Pheromonassoziation mit dem zu lösnden AbstractProblem
-     * @param ants               Population der Ameisen
-     * @param termCriterion      Abbruchkriterium für die Iteration
+     * @param pheromoneStructure 信息素关联
+     * @param ants               蚂蚁种群
+     * @param termCriterion      迭代的取消标准
      */
     public MasterProcessElitist(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         super(pheromoneStructure, ants, termCriterion);
     }
 
     /**
-     * <b>Logik des Masterprozeess-Elitist</b><br>
+     * <b>精英策略的逻辑</b><br>
      * <br>
-     * <b>Ablauf:</b><br>
-     * 1 - Initiierung des Pheromons<br>
-     * 2 - Konstruktion der Lösungen aller Ameisen<br>
-     * 3 - Lokale Suche auf konstruierten Lösungen aller Ameisen<br>
-     * 4 - Evaporation des Pheromons<br>
-     * 5 - Markierung des Pheromons durch die <b>iterationsbeste</b> Ameise<br>
-     * 6 - Zurücksetzen der Ameisengedächtnisse<br>
-     * 7 - Zurück zu 2., wenn Abbruchbedingungen nicht erfüllt.<br>
+     * <b>流程:</b><br>
+     * 1 - 信息素初始化<br>
+     * 2 - 构建所有蚂蚁的解决方案<br>
+     * 3 - 所有蚂蚁构造解的局部搜索<br>
+     * 4 - 信息素蒸发<br>
+     * 5 - 蚂蚁<b>迭代</b>进行信息素的标记 <br>
+     * 6 - 重置蚂蚁记忆<br>
+     * 7 - 返回 2. 如果不满足取消条件.<br>
      */
     @Override
     public void start() {
 
-        // Initiierung der Pheromone
+        // 信息素的启动
         this.pheromoneStructure.initPheromones();
 
-        // Iteration bis Abbruchkriterum erfüllt
+        // 迭代到满足终止条件
         for (int iteration = 0; termCriterion.checkTermination(iteration, statistics); iteration++) {
 
-            // Favoritwerte der Iteration
+            // 迭代最优值
             AbstractAnt bestIterAnt = null;
             Float bestIterValue = null;
 
-            // Iteration über alle Ameisen
+            // 关于所有蚂蚁的迭代
             for (AbstractAnt ant : this.ants) {
-                // Konstruiere eine Lösung
+                // 构建解决方案
                 ant.constructSolution();
-                // Lokale Suche auf der konstruierten Lösung
+                // 对构造的解决方案进行局部搜索
                 ant.localSearch();
-                // Zielfunktionswert
+                // 目标函数值
                 float value = ant.evaluateSolution();
 
-                // Bestimme die Favorit-Ameise
+                // 确定最优蚂蚁
                 if (bestIterValue == null || value < bestIterValue) {
                     bestIterValue = value;
                     bestIterAnt = ant;
                 }
-                // Aktualisiere Statistiken
+                // 更新统计信息
                 this.statistics.setValue(iteration, value, ant.getSolution());
             }
 
-            // Evaporation der Pheromone
+            // 信息素蒸发
             this.pheromoneStructure.evaporatePheromones();
 
-            // Pheromon-Update nur durch iterationsbeste Ameisen
+            // 信息素仅通过迭代最佳蚂蚁更新
             bestIterAnt.markPheromone();
 
             for (AbstractAnt a : this.ants) {

@@ -1,41 +1,41 @@
 package eu.andredick.aco.problem;
 
 /**
- * <b>Abstrakte Lösung zur abstrakten Klasse von Problemen</b>, welche durch die ACO-Metaheuristik zu lösen sind<br>
+ * <b>抽象类问题的抽象解</b>, 这将由 ACO 元启发式解决<br>
  * <br>
- * Eine Lösung im Sinne einer Instanz ist eindeutig einer Instanz eines Problems zugeordnet ({@link #getProblem()}).<br>
- * Einem Problem dagegen können mehrere Lösungen zugeordnet werden.
+ * 实例意义上的解是唯一分配给问题实例的 ({@link #getProblem()}).<br>
+ * 另一方面，一个问题可以与多个解相关联.
  * <br>
- * Auf der Klassen-Ebene besteht zwischen Lösung und Problem besteht eine Abhängigkeit der Lösung von der Klasse des Problems.<br>
- * Bei Ableitung der Abstrakten Lösung muss im Rahmen der generischen Programmierung festgelegt werden, für welche Klasse von Problemen die verwendet wird.<br>
- * Im Regelfall muss für jede Problem-Klasse eine zugehörige Klasse der Lösung implementiert werden.<br>
+ * 在解决方案和问题之间，存在解决方案对问题类的依赖关系.<br>
+ * 如果抽象解决方案是派生的，则泛型编程必须确定它用于哪一类问题.<br>
+ * 通常，必须为每个问题类实现解决方案的关联类.<br>
  *
  * <p><img src="{@docRoot}/images/Problem.svg" alt=""></p>
  *
- * @param <P> zugehörige Ausprägung der Klasse von Abstrakten Problemen - eine Klasse von Speziellen Problemmen
+ * @param <P> 抽象问题类的相关表达式 - 一类特殊问题
  */
 public abstract class AbstractSolution<P extends AbstractProblem> {
 
     /**
-     * Liefert die eindeutig zugeordnete Instanz des Problems
+     * 返回问题的唯一关联实例
      *
-     * @return Instanz des Problems
+     * @return 问题的实例
      */
     public abstract P getProblem();
 
     /**
-     * Liefert den Zielfunktionswert der Lösung
+     * 返回解的目标函数值
      *
-     * @return Zielfunktionswert der Lösung
+     * @return 解决方案的目标函数值
      */
     public abstract float getValue();
 
     /**
-     * Erzeugt eine leere Lösung der entsprechenden Subklasse<br>
-     * Die Notwendigkeit dieser Methode ergibt sich,
-     * weil auf der generischen Ebene der Definition der ACO-Metaheuristik keine Abhängigkeiten zu Ausprägungen von Komponenten bestehen soll.
+     * 创建相应子类的空解<br>
+     * 这种方法的必要性出现了,
+     * 因为在 ACO 元启发式定义的通用级别上，不应该依赖于组件特性.
      *
-     * @return Instanz einer leeren Lösung
+     * @return 空解决方案的实例
      */
     public abstract AbstractSolution createNew();
 }

@@ -1,33 +1,34 @@
 package eu.andredick.aco.combination;
 
 /**
- * <b>Realisierung der Komponente Kombinationsfunktion mittels Addition.</b><br>
- * Kapitel 3.3.8, S. 36, Kombinationsfunktion<br>
+ * <b>通过加法实现组件组合功能.</b><br>
+ * 第3.3.8章，第36页，组合函数<br>
  * <br>
- * Kombiniert den wahrgenommenen Pheromon mit heuristischen Informationen <b>durch Addition</b>.<br>
- * Beide Summanden werden durch einen Gewichtungsfaktor <b>gamma</b> relativ zueinander gewichtet.<br>
+ * <b>通过加法</b>将感知到的信息素与启发式信息相结合。<br>
+ * 两个值通过加权因子 <b>gamma</b> 相对于彼此加权.<br>
  * <p><img src="{@docRoot}/images/Combination.svg" alt=""></p>
  */
 public class CombinationSum extends CombinationRule {
 
     /**
-     * Gewichtungsfaktor <b>gamma</b>, der die Summanden (Phermonon und heuristischen Informationen) relativ zueinander gewichtet.
+     * 加权系数 <b>gamma</b>, 它相对于彼此加权求和（感知信息素和启发式信息）.
      */
     float gamma;
 
-    /** Konstruktor mit übergabe des Parameters
-     *
-     * @param gamma Gewichtungsfaktor <b>gamma</b>, der die Summanden (Phermonon und heuristischen Informationen) relativ zueinander gewichtet.
+    /**
+     *  构造函数<br>
+     *  传递加权系数
+     * @param gamma 加权系数 <b>gamma</b>, 它相对于彼此加权求和（感知信息素和启发式信息）。
      */
     public CombinationSum(float gamma) {
         this.gamma = gamma;
     }
 
-    /** <b>Kombinationsfunktion mittels Addition.</b><br>
+    /** <b>通过加法实现组合功能</b><br>
      * <code>gamma * pheromone + (1 - gamma) * heurist</code>
-     * @param pheromone wahrgenommenes Pheromon
-     * @param heurist   Wert der heuristischen Informationen
-     * @return Ergebnis der Kombination
+     * @param pheromone 感知信息素
+     * @param heurist   启发式信息的价值
+     * @return 组合结果
      */
     @Override
     public float combine(float pheromone, float heurist) {

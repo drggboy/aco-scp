@@ -3,31 +3,31 @@ package eu.andredick.aco.algorithm;
 import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 
 /**
- * <b>Die Klasse repräsentiert einen ACO-Algorithmus und implementiert die Schablone {@link AbstractAlgorithm}.</b><br>
- * Jeder ACO-Algorithmus besitzt einen Masterprozess ({@link AbstractMasterProcess}).<br>
- * Der Masterprozess wird angestossen, sobald der Algorithmus gestartet wird.<br>
- * ACO-Algorithmen erben die Fähigkeit der parallelen Ausführen von der Superklasse.
+ * <b>该类表示 ACO 算法流，实现了模板 {@link AbstractAlgorithm}.</b><br>
+ * 每个 ACO 算法都有一个主进程 ({@link AbstractMasterProcess}).<br>
+ * 一旦算法启动，主进程就会启动.<br>
+ * ACO 算法从父类继承并行执行的能力。
  * <p><img src="{@docRoot}/images/ACOAlgorithm.svg" alt=""></p>
  */
 public class ACOAlgorithm extends AbstractAlgorithm {
 
     /**
-     * Komponente MasterProzess (siehe {@link AbstractMasterProcess})
+     * 组件主进程 (参见 {@link AbstractMasterProcess})
      */
     private AbstractMasterProcess masterProcess;
 
     /**
-     * Kostruktor
+     * 构造函数
      *
-     * @param masterProcess Ausprägung der Komponente Masterprozess
+     * @param masterProcess 主进程组件
      */
     public ACOAlgorithm(AbstractMasterProcess masterProcess) {
         this.masterProcess = masterProcess;
     }
 
     /**
-     * Methode zum Start des Ablaufes des ACO-Algorithmus.<br>
-     * Der Start des ACO-Algorithmus erfolgt, indem die Methode {@link AbstractMasterProcess#start()} des MasterProcess aufgerufen wird.
+     * 启动 ACO 算法流的方法。<br>
+     * ACO 算法是使用主进程的以下方法 {@link AbstractMasterProcess#start()}
      */
     @Override
     public void go() {
@@ -35,9 +35,9 @@ public class ACOAlgorithm extends AbstractAlgorithm {
     }
 
     /**
-     * Liefert Statistiken zum Ablauf des Algorithmus.<br>
-     * Dazu wird das Statistics-Object vom MasterProcess geholt, wo es verwaltet wird (siehe {@link AbstractMasterProcess#getStatistics()}).<br>
-     * @return Statistiken zum Ablauf des Algorithmus
+     * 提供有关算法的统计信息。<br>
+     * 为此，从主进程中获取统计信息对象, 管理位置 (参见 {@link AbstractMasterProcess#getStatistics()})。<br>
+     * @return 算法过程的统计
      */
     @Override
     public Statistics getStatistics() {

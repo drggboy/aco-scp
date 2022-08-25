@@ -11,31 +11,31 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * <b>Stochastische / probabilistische Alternativen-Auswahl</b> - Ausprägung der Komponente der Alternativenauswahl, Pheromonassoziation mit Teilmengenpaaren<br>
- * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
+ * <b>随机 / 概率备选</b> - 替代选择的成分表达，信息素与子集对的关联<br>
+ * 第3.3.5章，第32页，备选案文的选择<br>
  * <br>
- * Die Stochastische Alternativenauswahl bestimmt aus gegebener Alternativen-Menge eine Auswahl mittels einer Zufallszahl {@code 0 <= z <= 1}.
- * Das Interval {@code [0.0, 1.0]} wird dazu in genau so viele Bereiche unterteilt, wie es Alternativen gibt.
- * Die Größe jedes Bereiches wird durch den Wert der zugehörigen Alternative bestimmt.<br>
- * Die Komponente besitzt keine Parameter.<br>
+ * 随机备选方案通过随机数确定给定备择方案集中的一个选择 {@code 0 <= z <= 1}.
+ * 间隔 {@code [0.0, 1.0]} 分为尽可能多的区域，只要有替代方案。
+ * 每个范围的大小由其替代值确定.<br>
+ * 组件没有参数.<br>
  * <br>
- * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction}
- * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
- * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und
- * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
- * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.<br>
+ * 备选选择组件已替换为设计启发式 {@link AbstractConstruction}
+ * 从给定备选项集（解决方案组件）中选择一个备选项.<br>
+ * 替代方案的选择基于启发式信息 {@link HeuristicInfoSet} 和
+ * 感知的信息素浓度 {@link AbstractPheromonePerception}, 分配给备选方案或为备选方案计算.<br>
+ * 通过组合功能 {@link CombinationRule} 替代方案的值由启发式信息和感知的信息素浓度形成.<br>
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */
 public class NextStepStrategyOnSubsetPairs extends
         AbstractNextStepStrategy<PheromoneOnSubsetPairs, SCPSolution> {
 
     /**
-     * Konsturktor
+     * 构造函数
      *
-     * @param pheromonesStructure Pheromonassoziation mit Teilmengenpaaren
-     * @param perceptionRule      Pheromon-Wahrnehmung
-     * @param heuristics          heuristische Informationen
-     * @param combinationRule     Kombinationsfunktion
+     * @param pheromonesStructure 信息素与子集对的关联
+     * @param perceptionRule      信息素感知
+     * @param heuristics          启发式信息
+     * @param combinationRule     组合功能
      */
     public NextStepStrategyOnSubsetPairs(PheromoneOnSubsetPairs pheromonesStructure,
                                          AbstractPheromonePerception perceptionRule,
@@ -46,25 +46,25 @@ public class NextStepStrategyOnSubsetPairs extends
     }
 
     /**
-     * Die Stochastische Alternativenauswahl bestimmt aus gegebener Alternativen-Menge eine Auswahl mittels einer Zufallszahl {@code 0 <= z <= 1}.
-     * Das Interval {@code [0.0, 1.0]} wird dazu in genau so viele Bereiche unterteilt, wie es Alternativen gibt.
-     * Die Größe jedes Bereiches wird durch den Wert der zugehörigen Alternative bestimmt.<br>
+     * 随机备选方案通过随机数确定给定备择方案集中的一个选择 {@code 0 <= z <= 1}.
+     * 间隔 {@code [0.0, 1.0]} 被划分为与有替代方案一样多的领域.
+     * 每个范围的大小由其替代值确定.<br>
      * <br>
-     * Bei der Assoziation des Pheromons mit Teilmengenpaaren (siehe {@link PheromoneOnSubsetPairs})
+     * 当信息素与成对的子集相关联时 (see {@link PheromoneOnSubsetPairs})
      *
-     * @param solution         partiale Lösung der Ameise
-     * @param availableSubsets verfügbare Alternativen
-     * @return Ergebnis der Auswahl
+     * @param solution         蚂蚁的部分解
+     * @param availableSubsets 可用的替代方案
+     * @return 选择结果
      */
     @Override
     public Integer chooseSubset(SCPSolution solution, List<Integer> availableSubsets) {
 
-        // Wenn
+        // 如果
         List<Integer> varsList = solution.getSubsets();
         boolean firstSubsetInSolution = varsList.isEmpty();
         Integer lastSubset = firstSubsetInSolution ? null : solution.getSubsets().get(solution.getSubsets().size() - 1);
 
-        // Ein Glücksrad mit unterschiedlich großen Abschnitten (im übertagenen Sinne)
+        //具有不同大小部分的幸运之轮（在地上意义上）
         float[] summands = new float[availableSubsets.size()];
         float sumSummands = 0f;
         for (int k = 0; k < summands.length; k++) {
@@ -79,11 +79,11 @@ public class NextStepStrategyOnSubsetPairs extends
             summands[k] = summand;
         }
 
-        // Alle Alternativen-Werte = null => zufällige Auswahl
+        // 所有备选值 = 空  => 随机选择
         if (sumSummands == 0f)
             return availableSubsets.get(ThreadLocalRandom.current().nextInt(availableSubsets.size()));
 
-        // Glücksrad wird gedreht
+        // 轮盘转动
         float z = ThreadLocalRandom.current().nextFloat() * sumSummands;
         float sumCounter = 0f;
         for (int k = 0; k < summands.length; k++) {

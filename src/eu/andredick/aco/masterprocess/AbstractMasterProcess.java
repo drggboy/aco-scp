@@ -6,15 +6,15 @@ import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 /**
- * <b>Abstrakte Komponente des Masterprozess</b><br>
- * Kapitel 3.3.2, S. 26, Masterprozess<br>
+ * <b>主流程的抽象组件</b><br>
+ * 第 3.3.2 章，第 26 页，主进程<br>
  * <br>
- * Implementierung des Masterprozess bildet den übergeordneten Ablauf der ACO-Metaheuristik ab,<br>
- * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})<br>
- * und die Population der Ameisen (siehe {@link AbstractAnt}) koordiniert wird.<br>
- * Dazu ist innerhalb der Methode {@link #start()} eine iterative Schleife zu implementieren,<br>
- * welche in Abhängigkeit des Abbruchkriteriums {@link AbstractTerminationCriterion} ausgeführt wird.<br>
- * Ein Masterprozess wird im {@link eu.andredick.aco.algorithm.ACOAlgorithm} verwendet und dort gestartet.
+ * 主进程的实现，<br>
+ * 通过协调信息素的初始化和蒸发 (参见 {@link AbstractPheromoneAssociation})<br>
+ * 以及蚂蚁种群 (参见 {@link AbstractAnt})来反映ACO元启发式的总体序列.<br>
+ * 为此，需在方法 {@link #start()} 内实现迭代循环,<br>
+ * 这取决于抽象终止标准 {@link AbstractTerminationCriterion} 来执行.<br>
+ * 主进程在 {@link eu.andredick.aco.algorithm.ACOAlgorithm} 中使用并从那里开始.
  * <p><img src="{@docRoot}/images/Masterprocess-a.svg" alt=""></p>
  * <hr>
  * <p><img src="{@docRoot}/images/Masterprocess-b.svg" alt=""></p>
@@ -22,31 +22,31 @@ import eu.andredick.aco.termination.AbstractTerminationCriterion;
 public abstract class AbstractMasterProcess {
 
     /**
-     * Die zu koordinierende Ameisenpopulation
+     * 需要协调的蚂蚁种群
      */
     protected AbstractAnt[] ants;
 
     /**
-     * Pheromonassoziation mit dem zu lösenden AbstractProblem
+     * 与要解决的抽象问题相关联的信息素
      */
     protected AbstractPheromoneAssociation pheromoneStructure;
 
     /**
-     * Abbruchkriterium für die Iteration
+     * 迭代的取消标准
      */
     protected AbstractTerminationCriterion termCriterion;
 
     /**
-     * Statistiken zum Ablauf des Algorithmus
+     * 算法过程的统计
      */
     protected Statistics statistics;
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param pheromoneStructure Pheromonassoziation mit dem zu lösnden AbstractProblem
-     * @param ants               Population der Ameisen
-     * @param termCriterion      Abbruchkriterium für die Iteration
+     * @param pheromoneStructure 信息素与要解决的抽象问题相关联
+     * @param ants               蚂蚁种群
+     * @param termCriterion      迭代的取消标准
      */
     public AbstractMasterProcess(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         this.pheromoneStructure = pheromoneStructure;
@@ -57,15 +57,15 @@ public abstract class AbstractMasterProcess {
 
 
     /**
-     * Schnittstelle zur Klasse {@link eu.andredick.aco.algorithm.ACOAlgorithm}.<br>
-     * Durch die Methode erfolgt der Start des Masterprozesses.
+     * 类的接口 {@link eu.andredick.aco.algorithm.ACOAlgorithm}.<br>
+     * 该方法启动主进程.
      */
     public abstract void start();
 
     /**
-     * Liefert Statistiken zum Ablauf des Algorithmus.
+     * 提供有关算法流的统计信息.
      *
-     * @return Statistiken zum Ablauf des Algorithmus
+     * @return 算法过程的统计
      */
     public Statistics getStatistics() {
         return statistics;

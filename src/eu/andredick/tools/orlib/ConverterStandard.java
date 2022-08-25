@@ -32,13 +32,13 @@ public class ConverterStandard implements AbstractConverter {
             }
             coeffCounter += fileRow.length;
         }
-        System.out.println("coeffCounter: " + coeffCounter);
+        System.out.println("系数计数器: " + coeffCounter);
 
         for (int i = 0; i < rows; i++) {
             zeile = reader.readLine();
             fileRow = ArrayTools.stringToIntArray(zeile);
             if (fileRow.length != 1) {
-                System.out.println("Mehr als eine Zahl enthalten");
+                System.out.println("包含多个数字");
             }
             int columnsInRow = fileRow[0];
             int counter = 0;

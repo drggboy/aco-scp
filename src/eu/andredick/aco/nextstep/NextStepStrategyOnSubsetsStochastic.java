@@ -11,31 +11,31 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * <b>Stochastische / probabilistische Alternativenauswahl</b> - Ausprägung der Komponente der Alternativenauswahl, Pheromonassoziation mit Teilmengen<br>
- * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
+ * <b>随机候选集选择</b> - 候选集选择的实现。<br>
+ * 第3.3.5章，第32页，候选集的选择<br>
  * <br>
- * Die Stochastische Alternativenauswahl bestimmt aus gegebener Alternativen-Menge eine Auswahl mittels einer Zufallszahl {@code 0 <= z <= 1}.
- * Das Interval {@code [0.0, 1.0]} wird dazu in genau so viele Bereiche unterteilt, wie es Alternativen gibt.
- * Die Größe jedes Bereiches wird durch den Wert der zugehörigen Alternative bestimmt.
- * Die Komponente besitzt keine Parameter.<br>
+ * 随机选择通过随机数{@code 0 <= z <= 1}确定候选集中的一个选择。<br>
+ * 间隔 {@code [0.0, 1.0]} 被划分为与替代方案一样多的领域。
+ * 每个范围的大小由其值确定。<br>
+ * 组件没有参数。<br>
  * <br>
- * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction}
- * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
- * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und
- * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
- * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.<br>
+ * 备选选择组件已替换为设计启发式 {@link AbstractConstruction}
+ * 从给定备选集（解决方案组件）中选择一个备选项.<br>
+ * 替代方案的选择基于启发式信息 {@link HeuristicInfoSet}和<br>
+ * 感知的信息素浓度 {@link AbstractPheromonePerception}。<br>
+ * 替代方案的值由启发式信息和感知的信息素浓度通过组合功能 {@link CombinationRule}形成.<br>
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  * */
 public class NextStepStrategyOnSubsetsStochastic extends
         AbstractNextStepStrategy<PheromoneOnSubsets, SCPSolution> {
 
     /**
-     * Konsturktor
+     * 构造函数
      *
-     * @param pheromonesStructure Pheromonassoziation mit Teilmengen
-     * @param perceptionRule      Pheromon-Wahrnehmung
-     * @param heuristics          heuristische Informationen
-     * @param combinationRule     Kombinationsfunktion
+     * @param pheromonesStructure 信息素关联
+     * @param perceptionRule      信息素感知
+     * @param heuristics          启发式信息
+     * @param combinationRule     组合功能
      */
     public NextStepStrategyOnSubsetsStochastic(PheromoneOnSubsets pheromonesStructure,
                                                AbstractPheromonePerception perceptionRule,
@@ -46,18 +46,18 @@ public class NextStepStrategyOnSubsetsStochastic extends
     }
 
     /**
-     * Die Stochastische Alternativenauswahl bestimmt aus gegebener Alternativen-Menge eine Auswahl mittels einer Zufallszahl {@code 0 <= z <= 1}.
-     * Das Interval {@code [0.0, 1.0]} wird dazu in genau so viele Bereiche unterteilt, wie es Alternativen gibt.
-     * Die Größe jedes Bereiches wird durch den Wert der zugehörigen Alternative bestimmt.
+     * 随机选择通过随机数{@code 0 <= z <= 1}确定候选集中的一个选择。
+     * 间隔 {@code [0.0, 1.0]} 被划分为与替代方案一样多的领域.
+     * 每个范围的大小由其替代值确定.
      *
-     * @param solution         partiale Lösung der Ameise
-     * @param availableSubsets verfügbare Alternativen
-     * @return Ergebnis der Auswahl
+     * @param solution         蚂蚁的部分解
+     * @param availableSubsets 可用的替代方案
+     * @return 选择结果
      */
     @Override
     public Integer chooseSubset(SCPSolution solution, List<Integer> availableSubsets) {
 
-        // Ein Glücksrad mit unterschiedlich großen Abschnitten (im übertagenen Sinne)
+        // 具有不同大小部分的轮盘
         float[] summands = new float[availableSubsets.size()];
         float sumSummands = 0f;
         for (int k = 0; k < summands.length; k++) {
@@ -69,11 +69,11 @@ public class NextStepStrategyOnSubsetsStochastic extends
             summands[k] = summand;
         }
 
-        // Alle Alternativen-Werte = null => zufällige Auswahl
+        // 所有备选值 = null => 随机选择
         if (sumSummands == 0f)
             return availableSubsets.get(ThreadLocalRandom.current().nextInt(availableSubsets.size()));
 
-        // Glücksrad wird gedreht
+        // 轮盘转动
         float z = ThreadLocalRandom.current().nextFloat() * sumSummands;
         float sumCounter = 0f;
         for (int k = 0; k < summands.length; k++) {

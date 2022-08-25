@@ -12,6 +12,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 图表工具类<br>
+ */
 public class ChartTools {
 
     private XYChart chart;

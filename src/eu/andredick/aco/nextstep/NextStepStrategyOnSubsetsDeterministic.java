@@ -10,29 +10,29 @@ import eu.andredick.scp.SCPSolution;
 import java.util.List;
 
 /**
- * <b>Deterministische Alternativenauswahl</b> - Ausprägung der Komponente der Alternativenauswahl, Pheromonassoziation mit Teilmengen<br>
- * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
+ * <b>确定性备选方案选择</b> - 候选方案选择的实现<br>
+ * 第3.3.5章，第32页，候选方案的选择<br>
  * <br>
- * Die deterministische Alternativenauswahl liefert als Erbebnis immer die am besten bewertete Alternative.<br>
- * Die Komponente besitzt keine Parameter.<br>
+ * 侯选方案的确定性选择始终提供评价最高的备选方案。<br>
+ * 此组件没有参数。<br>
  * <br>
- * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction}
- * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
- * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und
- * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
- * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.<br>
+ * 备选选择组件已替换为设计启发式 {@link AbstractConstruction}
+ * 用于从给定的候选集中选择分量.<br>
+ * 替代方案的选择基于为备选方案计算的启发式信息 {@link HeuristicInfoSet}
+ * 或分配给备选方案所感知的信息素浓度 {@link AbstractPheromonePerception}。<br>
+ * 替代方案的值通过组合功能 {@link CombinationRule}由启发式信息和感知的信息素浓度形成。<br>
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */
 public class NextStepStrategyOnSubsetsDeterministic extends
         AbstractNextStepStrategy<PheromoneOnSubsets, SCPSolution> {
 
     /**
-     * Konsturktor
+     * 构造函数
      *
-     * @param pheromonesStructure Pheromonassoziation mit Teilmengen
-     * @param perceptionRule      Pheromon-Wahrnehmung
-     * @param heuristics          heuristische Informationen
-     * @param combinationRule     Kombinationsfunktion
+     * @param pheromonesStructure 信息素关联
+     * @param perceptionRule      信息素感知
+     * @param heuristics          启发式信息
+     * @param combinationRule     组合功能
      */
     public NextStepStrategyOnSubsetsDeterministic(PheromoneOnSubsets pheromonesStructure,
                                                   AbstractPheromonePerception perceptionRule,
@@ -43,13 +43,13 @@ public class NextStepStrategyOnSubsetsDeterministic extends
     }
 
     /**
-     * Bestimmt deterministisch die Auswahl, liefert die Alternative mit dem höchsten Wert.<br>
-     * Der Wert jeweils einer Alternative wird aus der zugehörigen wahrgenommenen Pheromonkonzentration und den heuristischen Informationen bestimmt.<br>
-     * Eine Kombinationsfunktion ({@link CombinationRule}) vereint beide Einflussgrößen.v<br>
+     * 确定性地选择，选择具有最高值的替代方案。<br>
+     * 每个替代项的价值是根据相关的感知信息素浓度和启发式信息确定的。<br>
+     * 组合功能 ({@link CombinationRule}) 用于结合两个影响变量。<br>
      *
-     * @param solution         partiale Lösung der Ameise
-     * @param availableSubsets verfügbare Alternativen
-     * @return Ergebnis der Auswahl
+     * @param solution         蚂蚁的部分解
+     * @param availableSubsets 可用的替代方案
+     * @return 选择结果
      */
     @Override
     public Integer chooseSubset(SCPSolution solution, List<Integer> availableSubsets) {
@@ -57,7 +57,7 @@ public class NextStepStrategyOnSubsetsDeterministic extends
         float maxValue = 0f;
         int indexWithMaxValue = -1;
 
-        // Schleife über alle verfügbaren Alternativen, um die Alternative mit dem höchsten Wert zu bestimmen
+        // 遍历所有可用的备选项以确定具有最高值的备选项
         for (int k = 0; k < availableSubsets.size(); k++) {
             int subset = availableSubsets.get(k);
             float ph_k = this.perceptionRule.getPerceptionValue(this.pheromoneStructure.getPheromone(subset));

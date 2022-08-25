@@ -1,28 +1,28 @@
 package eu.andredick.aco.pheromoneperception;
 
 /**
- * <b>Identische Wahrnehmung des Pheromons - Ausprägung der Komponente der Pheromon-Wahrnehmung</b><br>
- * Kapitel 3.3.6, S. 33, Pheromon-Wahrnehmung<br>
+ * <b>对信息素的相同感知 - 信息素感知成分的实现</b><br>
+ * 第3.3.6章，第33页，信息素感知<br>
  * <br>
- * Bei dieser Ausprägung der Komponente ist die wahrgenommene Pheromon-Konzentration gleich der Tatsächlichen.<br>
+ * 在这种组分的表达中，感知到的信息素浓度等于实际的信息素浓度。<br>
  * <br>
- * Die Pheromon-Wahrnehmung ist wird bei der Lösungskonstrukton der Ameisen verwendet.<br>
- * Bei der Lösungskonstruktion findet iterativ die Alternativen-Auswahl der Lösungskomponenten statt.<br>
- * Bei der Alternativen-Auswahl bezieht die Ameise neben den Heuristischen Informationen auch  das mit den Alternativen assoziierte Pheromon in ihre Entscheidung ein.<br>
- * Anstatt der Werte der Pheromon-Konzentrationen direkt zu verarbeiten, werden "subjektiv" wahrgenommene Werte verwendet.<br>
- * Die Pheromon-Wahrnehmung setzt damit für die Alternativen-Auswahl die tatsächliche Pheromon-Konzentration in wahrgenomene Werte um.<br>
+ * 信息素感知用于蚂蚁的解构造。<br>
+ * 在解决方案设计中，解决方案组件的候选解以迭代方式进行。<br>
+ * 在选择候选解时，蚂蚁在其决策中不仅包括启发式信息，还包括与候选解相关的信息素。<br>
+ * 不是直接处理信息素浓度的值，而是使用“主观”的感知值。<br>
+ * 因此，信息素感知将实际的信息素浓度转换为感知值，以选择候选解。<br>
  * <br>
  * <p><img src="{@docRoot}/images/PheromonePerception.svg" alt=""></p>
  */
 public class PerceptionSimple extends AbstractPheromonePerception {
 
     /**
-     * Liefert den wahrgenommenen Wert der tatsächlichen Pheromon-Konzentration.<br>
-     * Hierbei ist eine identische Wahrnehmung des Pheromons mit der tatsächlichen Konzentration realisiert.<br>
-     * Ausgabewert = Eingabewert<br>
+     * 提供实际信息素浓度的感知值。<br>
+     * 在这里，实现了对信息素与实际浓度的相同感知。<br>
+     * 实际信息素浓度 = 感知信息素浓度<br>
      *
-     * @param pheromoneConcentration tatsächliche Konzentration des Pheromons
-     * @return tatsächliche Konzentration des Pheromons
+     * @param pheromoneConcentration 信息素的实际浓度
+     * @return 信息素的实际浓度
      */
     @Override
     public float getPerceptionValue(float pheromoneConcentration) {

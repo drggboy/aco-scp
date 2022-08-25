@@ -9,13 +9,23 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * 集合与元素的可视化<br>
+ * 每个红色矩形区域表示一个集合,<br>
+ * 图中蓝色点集表示元素集。
+ */
 public class SetGenerator extends JPanel {
-
-    private int g_size, t_size;
+    /**
+     * g_size: 元素个数
+     */
+    private int g_size;
+    /**
+     * t_size: 集合个数
+     */
+    private int t_size;
     private ArrayList<Point> elements;
     private ArrayList<Set> sets;
     private Random rGenerator;
-
 
     public SetGenerator(int g_size, int t_size) {
         super();
@@ -118,6 +128,9 @@ public class SetGenerator extends JPanel {
     class Set {
         float x, y;
         float dx, dy;
+        /**
+         * 该集合包含的元素
+         */
         ArrayList<Point> elements;
 
         Set(float x, float y, float dx, float dy) {

@@ -1,24 +1,24 @@
 package eu.andredick.configuration;
 
 /**
- * Mittels dieser Klasse können Parameter des Algorithmus definiert werden,
- * damit der Wert der Parameter automatisiert variiert werden kann.
- * Die Parameter werden in den Subklassen von AbstractAlgorithmConfiguration verwendet.
+ * 使用这个类，可以定义算法的参数,
+ * 以便参数的值可以自动变化.
+ * 参数用于抽象算法配置子类.
  *
  * @param <N>: Integer, Float, Double ...
  */
 public class ConfigurationParameter<N extends Number> {
 
-    // Name des Parameters. Über den Namen wird der Parameter gefunden.
+    // 参数的名称。参数由名称找到.
     private String name;
 
-    // Standard-Wert
+    // 默认值
     private N defaultValue;
 
-    // Aktueller Wert
+    // 当前值
     private N currentValue;
 
-    // Wertausprägungen, die automatisiert getestet werden können
+    // 可自动测试的值
     private N[] expressions;
 
     public ConfigurationParameter(String name, N defaultValue) {
@@ -47,9 +47,9 @@ public class ConfigurationParameter<N extends Number> {
     }
 
     /**
-     * Setzt den aktuellen Wert auf Ausprägung mit dem Index i
+     * 将当前值设置为具有索引 i 的表达式
      *
-     * @param i: Index des Array expressiouns
+     * @param i: 表达式数组的索引
      */
     public void setCurrentValueOnIndex(int i) {
         this.currentValue = (this.expressions == null) ? this.defaultValue : this.expressions[i];
@@ -65,10 +65,10 @@ public class ConfigurationParameter<N extends Number> {
 
 
     /**
-     * Die Identität des Parameters ist gegeben, wenn der Name übereinstimmt
+     * 如果名称匹配，则给出参数的标识
      *
-     * @param o: zu vergleichender Parameter
-     * @return Prüfergebnis auf Gleichheit
+     * @param o: 要比较的参数
+     * @return 相等测试结果
      */
     public boolean equals(Object o) {
         if (o instanceof ConfigurationParameter) {

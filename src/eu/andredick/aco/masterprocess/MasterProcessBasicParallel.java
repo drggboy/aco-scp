@@ -8,23 +8,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <b>Masterprozess-Basic parallelisiert</b> - Grundausprägung der Komponente des Masterprozesses mit Parallelausführung<br>
- * Kapitel 3.3.2, S. 26, Masterprozess<br>
+ * <b>主流程基本并行化</b> - 具有并行执行的主流程组件的基本设计<br>
+ * 第 3.3.2 章，第 26 页，主流程<br>
  * <br>
- * Die Implementierung des Masterprozess bildet den übergeordneten Ablauf der ACO-Metaheuristik ab,<br>
- * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})<br>
- * und die Population der Ameisen (siehe {@link AbstractAnt}) koordiniert wird.<br>
+ * 主流程的实现反映了 ACO 元启发式的上级序列,<br>
+ * 通过启动和蒸发信息素 (see {@link AbstractPheromoneAssociation})<br>
+ * 和蚂蚁的数量 (see {@link AbstractAnt}) 协调.<br>
  * <br>
  * <b>Ablauf:</b><br>
- * 1 - Initiierung des Pheromons<br>
- * 2 - Konstruktion der Lösungen aller Ameisen - parallel<br>
- * 3 - Lokale Suche auf konstruierten Lösungen aller Ameisen - parallel<br>
- * 4 - Evaporation des Pheromons<br>
- * 5 - Markierung des Pheromons durch <b>alle</b> Ameisen<br>
- * 6 - Zurücksetzen der Ameisengedächtnisse<br>
- * 7 - Zurück zu 2., wenn Abbruchbedingungen nicht erfüllt.<br>
+ * 1 - 信息素的起始<br>
+ * 2 - 构建所有蚂蚁的解决方案 - 并行<br>
+ * 3 - 对所有蚂蚁的构造解进行局部搜索 - 并行<br>
+ * 4 - 信息素的蒸发<br>
+ * 5 - 对信息素的标记 <b>alle</b> 蚂蚁<br>
+ * 6 - 重置蚂蚁记忆<br>
+ * 7 - 返回 2. 如果不满足取消条件.<br>
  * <br>
- * Ein Masterprozess wird im {@link eu.andredick.aco.algorithm.ACOAlgorithm} verwendet und dort gestartet.
+ * 主要过程在 {@link eu.andredick.aco.algorithm.ACOAlgorithm} 并从那里开始.
  * <p><img src="{@docRoot}/images/Masterprocess-a.svg" alt=""></p>
  * <hr>
  * <p><img src="{@docRoot}/images/Masterprocess-b.svg" alt=""></p>
@@ -32,11 +32,11 @@ import java.util.List;
 public class MasterProcessBasicParallel extends AbstractMasterProcess {
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param pheromoneStructure Pheromonassoziation mit dem zu lösnden AbstractProblem
-     * @param ants               Population der Ameisen
-     * @param termCriterion      Abbruchkriterium für die Iteration
+     * @param pheromoneStructure 与要解决的抽象问题相关联的信息素
+     * @param ants               蚂蚁种群
+     * @param termCriterion      迭代的取消标准
      */
     public MasterProcessBasicParallel(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         super(pheromoneStructure, ants, termCriterion);
@@ -44,16 +44,16 @@ public class MasterProcessBasicParallel extends AbstractMasterProcess {
 
 
     /**
-     * <b>Logik des Masterprozeess-Basic</b><br>
+     * <b>主程序基本逻辑</b><br>
      * <br>
      * <b>Ablauf:</b><br>
-     * 1 - Initiierung des Pheromons<br>
-     * 2 - Konstruktion der Lösungen aller Ameisen - parallel<br>
-     * 3 - Lokale Suche auf konstruierten Lösungen aller Ameisen - parallel<br>
-     * 4 - Evaporation des Pheromons<br>
-     * 5 - Markierung des Pheromons durch alle Ameisen<br>
-     * 6 - Zurücksetzen der Ameisengedächtnisse<br>
-     * 7 - Zurück zu 2., wenn Abbruchbedingungen nicht erfüllt.<br>
+     * 1 - 信息素的初始化<br>
+     * 2 - 构建所有蚂蚁的解决方案 - 并行<br>
+     * 3 - 对所有蚂蚁的构造解进行局部搜索 - 并行<br>
+     * 4 - 信息素的蒸发<br>
+     * 5 - 所有蚂蚁对信息素的标记<br>
+     * 6 - 重置蚂蚁记忆<br>
+     * 7 - 返回 2. 如果不满足取消条件.<br>
      */
     @Override
     public void start() {

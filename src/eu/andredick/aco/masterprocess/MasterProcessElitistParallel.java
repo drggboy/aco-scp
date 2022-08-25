@@ -8,47 +8,47 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <b>Masterprozess-Elitist parallelisiert</b> - Ausprägung der Komponente des Masterprozesses mit Parallelausführung, bei der nur die iterationsbeste Ameise ihre Lösung mit Pheromon markieren darf.<br>
- * Kapitel 3.3.2, S. 26, Masterprozess<br>
+ * <b>精英主程序 并行</b> - 规范具有并行执行的主进程的组件，其中只有迭代最佳蚂蚁才能用信息素标记其解决方案.<br>
+ * 第 3.3.2 章，第 26 页，主流程<br>
  * <br>
- * Die Implementierung des Masterprozess bildet den übergeordneten Ablauf der ACO-Metaheuristik ab,<br>
- * indem die Initiirung und Evaporation des Pheromons (siehe {@link AbstractPheromoneAssociation})<br>
- * und die Population der Ameisen (siehe {@link AbstractAnt}) koordiniert wird.<br>
+ * 主流程的实现反映了 ACO 元启发式的上级序列,<br>
+ * 通过启动和蒸发信息素 (see {@link AbstractPheromoneAssociation})<br>
+ * 和蚂蚁的数量 (see {@link AbstractAnt}) 协调.<br>
  * <br>
  * <b>Ablauf:</b><br>
- * 1 - Initiierung des Pheromons<br>
- * 2 - Konstruktion der Lösungen aller Ameisen - parallel<br>
- * 3 - Lokale Suche auf konstruierten Lösungen aller Ameisen - parallel<br>
- * 4 - Evaporation des Pheromons<br>
- * 5 - Markierung des Pheromons durch die <b>iterationsbeste</b> Ameise<br>
- * 6 - Zurücksetzen der Ameisengedächtnisse<br>
- * 7 - Zurück zu 2., wenn Abbruchbedingungen nicht erfüllt.<br>
+ * 1 - 信息素的起始<br>
+ * 2 - 构建所有蚂蚁的解决方案 - 并行<br>
+ * 3 - 对所有蚂蚁的构造解进行局部搜索 - 并行<br>
+ * 4 - 信息素的蒸发<br>
+ * 5 - 信息素的标记 <b>迭代</b> 蚂蚁<br>
+ * 6 - 重置蚂蚁记忆<br>
+ * 7 - 返回 2. 如果不满足取消条件.<br>
  * <br>
- * Ein Masterprozess wird im {@link eu.andredick.aco.algorithm.ACOAlgorithm} verwendet und dort gestartet.
+ * 主过程在 {@link eu.andredick.aco.algorithm.ACOAlgorithm} 并从那里开始.
  * <p><img src="{@docRoot}/images/Masterprocess-a.svg" alt=""></p>
  * <hr>
  * <p><img src="{@docRoot}/images/Masterprocess-b.svg" alt=""></p>
- * Elitist-Strategie - Ausprägung der Komponente des Masterprozesses
+ * 精英策略 - 主过程的实现
  */
 public class MasterProcessElitistParallel extends AbstractMasterProcess {
 
-    // Konstruktor
+    // 构造函数
     public MasterProcessElitistParallel(AbstractPheromoneAssociation pheromoneStructure, AbstractAnt[] ants, AbstractTerminationCriterion termCriterion) {
         super(pheromoneStructure, ants, termCriterion);
     }
 
 
     /**
-     * <b>Logik des Masterprozeess-Elitist</b><br>
+     * <b>精英程序的逻辑</b><br>
      * <br>
      * <b>Ablauf:</b><br>
-     * 1 - Initiierung des Pheromons<br>
-     * 2 - Konstruktion der Lösungen aller Ameisen - parallel<br>
-     * 3 - Lokale Suche auf konstruierten Lösungen aller Ameisen - parallel<br>
-     * 4 - Evaporation des Pheromons<br>
-     * 5 - Markierung des Pheromons durch die <b>iterationsbeste</b> Ameise<br>
-     * 6 - Zurücksetzen der Ameisengedächtnisse<br>
-     * 7 - Zurück zu 2., wenn Abbruchbedingungen nicht erfüllt.<br>
+     * 1 - 信息素的起始<br>
+     * 2 - 构建所有蚂蚁的解决方案 - 并行<br>
+     * 3 - 对所有蚂蚁的构造解进行局部搜索 - 并行<br>
+     * 4 - 信息素的蒸发<br>
+     * 5 - 信息素的标记 <b>迭代</b> 蚂蚁<br>
+     * 6 - 重置蚂蚁记忆<br>
+     * 7 - 返回 2. 如果不满足取消条件.<br>
      */
     @Override
     public void start() {

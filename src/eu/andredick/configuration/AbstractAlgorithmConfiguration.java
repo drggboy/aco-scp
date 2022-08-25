@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * Die abstrakte Klasse dient als Schablone für Konfigurationsfabriken von Algorithmen mit unterschiedlichen Komponenten.<br>
- * Sie hält eine Paramterliste vor, die durch ableitende Klassen zu füllen ist.<br>
- * Über die zu implementierende Methode create() wird ein konfigurierter Algorithmus instanziiert und zurückgegeben,<br>
- * damit dieser ausserhalb dieser Klasse ausgeführt werden kann.<br>
+ * 抽象类用作具有不同组件的算法的配置工厂的模板.<br>
+ * 它包含一个要填充派生类的参数列表.<br>
+ * 用于实现实例化并返回已配置算法的 create（） 方法,<br>
+ * 以便它可以在此类之外执行.<br>
  */
 public abstract class AbstractAlgorithmConfiguration {
 
@@ -21,7 +21,7 @@ public abstract class AbstractAlgorithmConfiguration {
 
 
     /**
-     * Standardkonsturktor der Algorithmus-Konfiguration
+     * 算法配置的默认构造函数
      */
     public AbstractAlgorithmConfiguration() {
 
@@ -36,46 +36,46 @@ public abstract class AbstractAlgorithmConfiguration {
     }
 
     /**
-     * Wichtigste Methode der Klasse.<br>
-     * Erzeugt auf Basis der Konfiguration inkl. der Parameter eine Instanz des Algorithmus<br>
+     * 类的主要方法.<br>
+     * 根据包含参数的配置生成算法实例<br>
      *
-     * @param problem SCP-Instanz
-     * @return Algorithmus-Instanz
+     * @param problem SCP 实例
+     * @return 算法实例
      */
 
     public abstract AbstractAlgorithm create(SCProblem problem);
 
     /**
-     * Abstrakte Methode, die von ableitenden Klassen zu implementieren ist.<br>
-     * Damit sollen alle notwendigen Parameter der Algorithmus-Konfiguration erzeugt und in eine Parameter-Liste hinzugefügt werden.<br>
-     * Diese methode wird im Konstruktor bei Instanziierung der Konfiguration aufgerunfen.<br>
+     * 派生类实现的抽象方法.<br>
+     * 这应该生成算法配置的所有必要参数并将它们添加到参数列表中.<br>
+     * 实例化配置时在构造函数中调用此方法.<br>
      */
     public abstract void prepareConfigParameters();
 
     /**
-     * Fügt einen Parameter zur internen Parameter-Liste hinzu
+     * 将参数添加到内部参数列表
      *
-     * @param parameter Parameter
+     * @param parameter 参数
      */
     public void addConfigurationParameter(ConfigurationParameter parameter) {
-        // Prüfen, ob der Parameter bereits vorhanden ist
+        // 检查参数是否已经存在
         if (!this.configurationParameters.contains(parameter)) {
             this.configurationParameters.add(parameter);
         } else {
-            //Ersetzen des Parameters, weil bereits vorhanden
+            //替换该参数，因为它已存在
             this.configurationParameters.remove(parameter);
             this.configurationParameters.add(parameter);
         }
     }
 
     /**
-     * Liefert die Objektreferenz auf den Parameter
+     * 返回对参数的对象引用
      *
-     * @param name Name des Parameters
-     * @return Objektreferenz auf den Parameter
+     * @param name 参数名称
+     * @return 对参数的对象引用
      */
     public ConfigurationParameter getParameter(String name) {
-        // Finden des Parameters unter den vorhandenen
+        // 在现有参数中查找参数
         for (ConfigurationParameter parameter : this.configurationParameters) {
             if (parameter.getName().equalsIgnoreCase(name)) return parameter;
         }
@@ -83,9 +83,9 @@ public abstract class AbstractAlgorithmConfiguration {
     }
 
     /**
-     * Liefert die komplette Parameterliste
+     * 提供完整的参数列表
      *
-     * @return Parameterliste
+     * @return 参数列表
      */
     public List<ConfigurationParameter> getParameters() {
         return this.configurationParameters;

@@ -3,44 +3,44 @@ package eu.andredick.scp;
 import eu.andredick.aco.problem.AbstractProblem;
 
 /**
- * Die Klasse repräsentiert das <b>Set Covering Problem (SCP)</b>.<br>
- * Im Kontext der ACO-Metaheuristik ist das SCP eine Ausprägung des Abstrakten Problems ({@link AbstractProblem}).<br>
- * Kapitel 2.3, S. 17, Set Covering Problem (SCP). <br>
+ * 该类表示 <b>集合覆盖问题 (SCP)</b>.<br>
+ * 在 ACO 元启发式的背景下，SCP是抽象问题的一种表现形式。 ({@link AbstractProblem})。<br>
+ * 第 2.3 章，第 17 页，集合覆盖问题 (SCP). <br>
  * <br>
- * <b>Definition:</b> Gegeben sei eine Sammlung von Teilmengen einer Menge von Grundelementen.
- * Eine Mengenüberdeckung (Set Cover) ist eine Auswahl aus dieser Sammlung,
- * deren Vereinigung die Menge aller Grundelemente ist. Als Optimierungsproblem ist die
- * kleinste Auswahl gesucht und im Falle, dass die Teilmengen gewichtet sind, das geringste
- * Gesamtgewicht der Auswahl.<br>
+ * <b>定义:</b> 给定一组由基本元素构成的集合.
+ * 从中选取子集,
+ * 其并集是所有基本元素的集合。求解优化问题：
+ * 求集合数最小的选择，如果子集存在权值，则选择最小的加权值<br>
  * <br>
- * Das SCP setzt sich aus der Strukturmatrix ({@link Structure}) und der Zielfunktion ({@link ObjectiveFunction}) zusammen.<br>
- * Eine Lösung des SCP ist explizit definiert (siehe {@link SCPSolution}) und beinhaltet als Instanz die Festlegung der Entscheidungsvariablen des SCP.<br>
- * Info: Über die Entscheidungsvariablen X_j={0,1} wird festgelegt, ob die Teilmenge j in der Lösung enthalten sein soll.<br>
+ * SCP由结构矩阵 ({@link Structure}) 和目标函数 ({@link ObjectiveFunction}) 组成。<br>
+ *  (参见 {@link SCPSolution}) 定义了解决方案并将SCP决策变量的定义作为实例包括在内.<br>
+ * 信息：决策变量 X_j={0，1} 确定子集 j 是否应包含在解决方案中。<br>
  *
  * <p><img src="{@docRoot}/images/SCP.svg" alt=""></p>
  */
 public class SCProblem extends AbstractProblem {
 
     /**
-     * Name des konkreten Problems (der Probleminstanz)
+     * 具体问题的名称（问题实例）
      */
     protected String name;
 
     /**
-     * Strukturmatrix [a_ij]
+     * 覆盖矩阵 [a_ij]<br>
+     * 行数为元素数目，列数为子集数目。
      */
     private Structure structure;
 
     /**
-     * Zielfunktion
+     * 目标函数
      */
     private ObjectiveFunction objectiveFunction;
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param relations                     Boolsche Matrix m x n
-     * @param objectiveFunctionCoefficients Koeffizienten der Zielfunktion c_j
+     * @param relations                     布尔矩阵 m x n，行数为元素数目，列数为子集数目
+     * @param objectiveFunctionCoefficients 目标函数的系数 c_j
      */
     public SCProblem(boolean[][] relations, float[] objectiveFunctionCoefficients) {
         this.structure = new Structure(relations);
@@ -49,11 +49,11 @@ public class SCProblem extends AbstractProblem {
     }
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param relations                     Boolsche Matrix m x n
-     * @param objectiveFunctionCoefficients Koeffizienten der Zielfunktion c_j
-     * @param name                          Name des Problems
+     * @param relations                     布尔矩阵 m x n，行数为元素数目，列数为子集数目
+     * @param objectiveFunctionCoefficients 目标函数c_j系数
+     * @param name                          问题的名称
      */
     public SCProblem(boolean[][] relations, float[] objectiveFunctionCoefficients, String name) {
         this.structure = new Structure(relations);
@@ -62,27 +62,27 @@ public class SCProblem extends AbstractProblem {
     }
 
     /**
-     * Liefert den Namen der Problem-Instanz
+     * 返回问题实例的名称
      *
-     * @return Name des Problems
+     * @return 问题的名称
      */
     public String getName() {
         return this.name;
     }
 
     /**
-     * Liefert die Strukturmatrix der Problem-Instanz
+     * 提供问题实例的结构矩阵
      *
-     * @return Strukturmatrix
+     * @return 结构矩阵
      */
     public Structure getStructure() {
         return this.structure;
     }
 
     /**
-     * Liefert die Zielfunktion der Problem-Instanz
+     * 返回问题实例的目标函数
      *
-     * @return Zielfunktion
+     * @return 目标函数
      */
     public ObjectiveFunction getObjectiveFunction() {
         return this.objectiveFunction;
@@ -90,9 +90,9 @@ public class SCProblem extends AbstractProblem {
 
 
     /**
-     * Prüft auf Konsistenz der Instanz des SCP-Problems
+     * 检查 SCP 问题实例的一致性
      *
-     * @return Wahr, wenn konsistent
+     * @return 一致时为真
      */
     public boolean isConsistent() {
         System.out.println("SCProblem isConsistent ...");
@@ -105,25 +105,25 @@ public class SCProblem extends AbstractProblem {
                 if (relations[i][j]) sum_i++;
             }
             if (sum_i == 0) {
-                System.out.println(" Zeile " + i + " von keiner Spalte überdeckt");
+                System.out.println(" 元素 " + i + " 未被任何列覆盖");
                 success = false;
             }
             if (this.structure.getSubsetsWithElement(i).size() != sum_i) {
-                System.out.println(" Zeile " + i + " nicht konsistent");
+                System.out.println(" 元素 " + i + " 不一致");
                 success = false;
             }
             sumCovers_i += sum_i;
         }
-        System.out.println(" Mindestens 1fache Überdeckung in Matrix - OK!");
+        System.out.println(" 矩阵中至少覆盖1倍 - ok！");
         int sumCovers = 0;
         for (int i = 0; i < structure.elementsSize(); i++) {
             int coveredTimes = structure.getSubsetsWithElement(i).size();
             sumCovers += coveredTimes;
-            if (coveredTimes < 1) System.out.println(" Element " + i + " nicht überdeckt");
+            if (coveredTimes < 1) System.out.println(" Element " + i + " 未涵盖");
         }
         float a = sumCovers / structure.elementsSize();
         float b = sumCovers_i / relations.length;
-        System.out.println(" Durchschnittliche Überdeckung: " + a + " " + b);
+        System.out.println(" 平均覆盖率: " + a + " " + b);
 
         System.out.println("SCProblem isConsistent ..." + success);
         return success;

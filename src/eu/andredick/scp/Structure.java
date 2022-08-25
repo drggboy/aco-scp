@@ -4,32 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Die Klasse repräsentiert die Strukturmatrix A=(a_ij) eines Set Covering Problems.
+ * 该类表示集合覆盖问题的结构矩阵 A=(a_ij).
  */
 public class Structure {
 
     /**
-     * Strukturmatrix als boolsches 2D-Feld
+     * 作为二维布尔字段的结构矩阵
      */
+    //行数为元素数目，列数为子集数
     private boolean[][] relations;
 
     /**
-     * Redundant mitgeführte Zeilen- und Spalten- Listen:
-     * Zu jeder Teilmenge eine Liste von Grundelementen, die in ihr enthalten sind.
+     * 其余行和列列表:
+     * 对于每个子集，所包含的元素列表.
      */
     private List<Integer>[] elementsInSubset;
 
     /**
-     * Redundant mitgeführte Zeilen- und Spalten- Listen:
-     * Zu jedem Grundelement eine Liste von Teilmengen, die es überdecken
+     * 其余行和列列表:
+     * 对于每个基本元素，覆盖它的子集列表
      */
     private List<Integer>[] subsetsWithElement;
 
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param relations Strukturmatrix als boolsches 2D-Feld
+     * @param relations 作为二维布尔字段的结构矩阵
      */
     public Structure(boolean[][] relations) {
         this.relations = relations;
@@ -37,7 +38,7 @@ public class Structure {
     }
 
     /**
-     * Vorbereitung der redundanten Listen
+     * 准备其余列表
      */
     private void prepare() {
         System.out.println("Structure prepare ...");
@@ -56,10 +57,10 @@ public class Structure {
 
 
     /**
-     * Erzeugen einer Liste für Teilmengen, die das Grundelement i überdecken
+     * 为覆盖基元 i 的子集创建列表
      *
-     * @param i das Grundelement i
-     * @return Liste für Teilmengen, die das Grundelement i überdecken
+     * @param i 基本元素 i
+     * @return 涵盖基本元素 i 的子集列表
      */
     private List<Integer> extractSubsetsWithElement(int i) {
         List<Integer> cols = new ArrayList<>();
@@ -71,10 +72,10 @@ public class Structure {
 
 
     /**
-     * Erzeugen einer Liste von Grundelementen, die in der Teilmenge j enthalten sind
+     * 创建子集 j 中包含的基元列表
      *
-     * @param j Liste für Teilmengen, die das Grundelement i überdecken
-     * @return Liste von Grundelementen, die in der Teilmenge j enthalten sind
+     * @param j 覆盖原语 i 的子集列表
+     * @return 子集 j 中包含的基元列表
      */
     private List<Integer> extractElementsInSubset(int j) {
         List<Integer> rows = new ArrayList<>();
@@ -87,27 +88,27 @@ public class Structure {
     }
 
     /**
-     * Liefert die Anzahl der Zeilen der Strukturmatrix bzw. der Grundelemente
+     * 返回结构矩阵的行数或基元的数目
      *
-     * @return Anzahl der Zeilen der Strukturmatrix
+     * @return 结构矩阵的行数
      */
     public int elementsSize() {
         return relations.length;
     }
 
     /**
-     * Liefert die Anzahl der Spalten der Strukturmatrix bzw. der Teilmengen
+     * 返回结构矩阵或子集中的列数
      *
-     * @return Anzahl der Spalten der Strukturmatrix bzw. der Teilmengen
+     * @return 结构矩阵或子集的列数
      */
     public int subsetsSize() {
         return this.relations[0].length;
     }
 
     /**
-     * Liefert die Dichte der Strukturmatrix
+     * 返回结构矩阵的密度
      *
-     * @return Dichte der Strukturmatrix
+     * @return 结构矩阵
      */
     public float getDensity() {
         int matrixElements = elementsSize() * subsetsSize();
@@ -119,11 +120,11 @@ public class Structure {
     }
 
     /**
-     * Liefert das Element a_ij der Strukturmatrix bzw. ob die Teilmenge j das Grundelement i enthält
+     * 返回结构矩阵的元素 a_ij 或子集 j 是否包含基本元素 i
      *
-     * @param i Grundelement i
-     * @param j Teilmenge j
-     * @return Wahr, wenn die Teilmenge j das Grundelement i enthält
+     * @param i 基本元素 i
+     * @param j 子集 j
+     * @return 如果子集 j 包含原始 i，则为真
      */
     public boolean getRelation(int i, int j) {
         return this.relations[i][j];
@@ -131,9 +132,9 @@ public class Structure {
 
 
     /**
-     * Liefert die Strukturmatrix
+     * 结构矩阵
      *
-     * @return Strukturmatrix als boolsches 2D-Feld
+     * @return 作为二维布尔字段的结构矩阵
      */
     public boolean[][] getRelations() {
         return this.relations;
@@ -141,10 +142,10 @@ public class Structure {
 
 
     /**
-     * Liefert Liste der Teilmengen, die das Grundelement i überdecken
+     * 提供涵盖基本元素 i 的子集列表
      *
-     * @param i Grundelement i
-     * @return Liste der Teilmengen, die das Grundelement i überdecken
+     * @param i 的基本要素
+     * @return 涵盖基本元素 i 的子集列表
      */
     public List<Integer> getSubsetsWithElement(int i) {
         return subsetsWithElement[i];
@@ -152,17 +153,17 @@ public class Structure {
 
 
     /**
-     * Liefert Liste der Elmente, die in der Teilmenge j enthalten sind
+     * 返回子集 j 中包含的元素列表
      *
-     * @param j Teilmenge j
-     * @return Liste der Elmente, die in der Teilmenge j enthalten sind
+     * @param j 子集 j
+     * @return 子集 j 中包含的 elment 列表
      */
     public List<Integer> getElementsInSubset(int j) {
         return elementsInSubset[j];
     }
 
     /**
-     * Drucken
+     * 打印
      */
     public void print() {
         for (boolean[] relation : relations) {
@@ -174,6 +175,5 @@ public class Structure {
             System.out.println();
         }
     }
-
 
 }

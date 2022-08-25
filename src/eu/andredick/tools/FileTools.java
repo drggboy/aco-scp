@@ -10,8 +10,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.zip.GZIPInputStream;
 
-public class FileTools {
 
+public class FileTools {
+    /**
+     * 从指定路径提取文件
+     * @param path      文件路径
+     * @param filename  文件名
+     * @return          文件流
+     */
     public static InputStream getStreamFromPackageFile(String path, String filename) {
         InputStream resourceAsStream = FileTools.class.getResourceAsStream(path + filename);
         return resourceAsStream;

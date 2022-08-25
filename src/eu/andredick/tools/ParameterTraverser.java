@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Klasse für Parameter-Scan
- * Es werden Kombinationen der Parameter einer Alogrithmus-Konfiguration getestet.
- * Jeder Parameter hat eine endliche Anzahl an Ausprägungen.
- * Der Mechanismus entspricht dem rekursiven Traversieren eines Baumes.
- * Bei jeder Kombination wird ein oder mehrere Instanzen eines konfigurierten Algorithmus erzeugt und ausgeführt.
- * Der beste Zielfunktionswert entspricht der besten Parameter-Kombination.
+ * 参数扫描类
+ * 测试 alogrithm 配置的参数组合.
+ * 每个参数都有有限的出现次数.
+ * 该机制对应于树的递归遍历.
+ * 对于每种组合，都会创建并执行配置算法的一个或多个实例.
+ * 最佳目标函数值对应最佳参数组合.
  */
 public class ParameterTraverser {
 
@@ -45,12 +45,12 @@ public class ParameterTraverser {
     }
 
     /**
-     * Rekursive Methode zu Traversieren der Parameterliste mit ihren Ausprägungen
-     * Ein Endkonten ist der letzte Parameter der Parameterliste. Wenn der Endknoten erreicht ist,
-     * ist eine Parameterkombination festgelegt. Im Endknoten kann der Algorithmus mit der Parameterkombination
-     * erzeugt und ausgeführt werden.
+     * 用于遍历参数列表及其特征的递归方法
+     * 最终帐户是参数列表的最后一个参数。到达结束节点时,
+     * 定义了参数组合。在结束节点中，该算法可以与参数组合一起使用
+     * 创建并执行.
      *
-     * @param parameterListIndex: Index des Parameters in der Parameterliste
+     * @param parameterListIndex: 参数列表中参数的索引
      */
     private void traverseParameter(int parameterListIndex) {
 

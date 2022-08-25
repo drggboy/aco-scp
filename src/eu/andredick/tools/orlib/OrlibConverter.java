@@ -6,10 +6,22 @@ import eu.andredick.tools.FileTools;
 import java.io.*;
 import java.util.Properties;
 
+/**
+ * 在本地与线上搜索Orlib 库中的问题实例名称，<br>
+ * 并调用相关脚本进行解析。
+ */
 public class OrlibConverter {
 
     public static String orlibUrl = "http://people.brunel.ac.uk/~mastjjb/jeb/orlib/files/";
+    /**
+     * 本地scp数据集所在位置
+     * 后缀为 .txt
+     */
     public static String resourcePathLocalOrlibOrigins = "resources\\orlib\\origins\\";
+    /**
+     * scp数据集所在位置
+     * 后缀为 .jar
+     */
     public static String resourcePathPackageOrlibOrigins = "/resources/orlib/origins/";
     public static String resourcePathPackageOrlibMPS = "/resources/orlib/mps/";
 
@@ -46,20 +58,20 @@ public class OrlibConverter {
                 InputStream inputStream = findStreamForInstance(instanceName);
                 if (inputStream != null) {
                     problem = convertProblemFromStream(inputStream, converter);
-                } else System.out.println("OrlibConverter: InputStream konnte nicht erzeugt werden - " + instanceName);
-            } else System.out.println("OrlibConverter: Converter für SetName nicht gefunden - " + setName);
-        } else System.out.println("OrlibConverter: Name der Instanz nicht gelistet - " + instanceName);
+                } else System.out.println("OrlibConverter：无法创建 InputStream - " + instanceName);
+            } else System.out.println("OrlibConverter： 找不到 SetName 的转换器 - " + setName);
+        } else System.out.println("OrlibConverter：未列出实例名称 - " + instanceName);
 
 
         return problem;
     }
 
     /**
-     * Die Dateien der Orlib-Instanzen haben unterschiedliches Format
-     * In dieser Methode wird jedem Namen eines AbstractProblem-Set ein Format-Converter zugeordnet
+     * Orlib 实例的文件具有不同的格式
+     * 此方法将格式转换器映射到抽象问题集的每个名称
      *
-     * @param setName: Name des AbstractProblem-Sets
-     * @return passender Converter
+     * @param setName: 抽象问题集名称
+     * @return 合适的转换器
      */
     private static AbstractConverter findConverter(String setName) {
         AbstractConverter converter = null;
@@ -80,7 +92,7 @@ public class OrlibConverter {
             inputStream = FileTools.getStreamFromPackageFile(resourcePathPackageOrlibOrigins, instanceName + ".txt");
         }
         if (inputStream == null)
-            System.out.println("OrlibConverter: JAR-Datei nicht gefunden - " + resourcePathPackageOrlibOrigins + instanceName + ".txt");
+            System.out.println("OrlibConverter: 未找到 JAR 文件 - " + resourcePathPackageOrlibOrigins + instanceName + ".txt");
 
         if (inputStream == null) {
             File file = new File(resourcePathLocalOrlibOrigins + instanceName + ".txt");
@@ -89,11 +101,11 @@ public class OrlibConverter {
             }
         }
         if (inputStream == null)
-            System.out.println("OrlibConverter: Lokale Datei nicht gefunden - " + resourcePathLocalOrlibOrigins + instanceName + ".txt");
+            System.out.println("OrlibConverter：找不到本地文件 - " + resourcePathLocalOrlibOrigins + instanceName + ".txt");
 
         if (inputStream == null) {
             File localResPath = new File(resourcePathLocalOrlibOrigins);
-
+            //从线上下载数据集，并保存到本地
             if (FileTools.existsLocalFolder(localResPath) || localResPath.mkdirs()) {
                 if (FileTools.existsOnlineFile(orlibUrl + instanceName + ".txt")) {
                     File destFile = new File(resourcePathLocalOrlibOrigins + instanceName + ".txt");
@@ -106,7 +118,7 @@ public class OrlibConverter {
                     FileTools.extractFileFromGZIP(gzFile, txtFile);
                     inputStream = FileTools.getStreamFromLocalFile(txtFile);
                 }
-            } else System.out.println("OrlibConverter: Lokaler Ordner konnte nicht erzeugt werden - " + localResPath);
+            } else System.out.println("OrlibConverter: 无法创建本地文件夹 - " + localResPath);
 
         }
         return inputStream;
@@ -134,6 +146,7 @@ public class OrlibConverter {
         String setName = null;
         for (String[][] pSet : instanceSets) {
             for (String iName : pSet[1]) {
+                //忽略大小写进行比较，如果相等，则返回 0
                 if (iName.toUpperCase().compareToIgnoreCase(instanceName) == 0) {
                     return pSet[0][0];
                 }

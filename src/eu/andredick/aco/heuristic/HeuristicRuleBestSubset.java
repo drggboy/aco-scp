@@ -5,44 +5,44 @@ import eu.andredick.scp.SCPSolution;
 import java.util.List;
 
 /**
- * <b>Ausprägung der Komponente der Heuristischen Informationen</b><br>
- * Kapitel 3.3.7, S. 34, Heuristische Information<br>
+ * <b>启发式信息组件的实现</b><br>
+ * 第 3.3.7 章，第 34 页，启发式信息<br>
  * <br>
- * Eine Ausprägung der heuristischen Information  <b>H_dyn</b><br>
- * Die Komponente wird bei der Alternativenauswahl verwendet (siehe {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy}).<br>
+ * 启发式信息的一种实现  <b>H_dyn</b><br>
+ * 该组件用于选择候选方案 (参见 {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy})。<br>
  * <p><img src="{@docRoot}/images/Heuristics.svg" alt=""></p>
  */
 public class HeuristicRuleBestSubset implements HeuristicRule<SCPSolution> {
 
     /**
-     * Berechnet die Anzahl möglicher neuer Überdeckungen der Grundelemente durch die Auswahl der Teilmenge.<br>
-     * Dazu wird für jedes Grundelement, welches durch die Teilmenge <i>subset</i> überdeckt wird, geprüft,<br>
-     * ob dieses bereits durch die Teilmengen aus der partialen Lösung überdeckt ist.<br>
-     * Die Summe aller Grundelemente, für die dies nicht zutrifft, ist der Wert der Heuristischen Information.
+     * 通过选择子集来计算基本元素的可能新覆盖数.<br>
+     * 对于每个由子集<i>subset</i>覆盖的基本元素，<br>
+     * 判断其是否已经被部分解中的部分子集所覆盖，<br>
+     * 暂未被覆盖的所有集合元素的总和是启发式信息的价值。
      *
-     * @param solution:         partialle Lösung im Konstruktionsprozess der Ameise
-     * @param availableSubsets alle verfügbaren Teilmengen
-     * @param subset           die zu bewertende Teilmenge
-     * @return Summe der möglichen Neuüberdeckungen
+     * @param solution:         蚂蚁寻优过程中的部分解
+     * @param availableSubsets  所有可用子集
+     * @param subset            待求的子集
+     * @return 启发式信息的值
      */
     @Override
     public float getValue(SCPSolution solution, List<Integer> availableSubsets, Integer subset) {
 
-        // Bestimmen der Grundelemente, welche in der Teilmenge "subset" enthalten sind
+        // 确定子集中包含的基本元素
         List<Integer> elementsInSubset = solution.getProblem().getStructure().getElementsInSubset(subset);
 
-        // Initiieren des Zählers "sum"
+        // 启动求和计数器
         int sum = 0;
 
-        // Iteration über alle vorab bestimmten Grundelemente
+        // 对所有预定的基本元素进行迭代
         for (Integer e : elementsInSubset) {
 
-            // Wenn das aktuelle Grundelement "e" nicht bereits durch die partiale Lösung überdeckt ist,
-            // dann inkrementiere den Zähler "sum"
+            // 如果当前基本元素“e”尚未被部分解覆盖，
+            // 然后递增计数器“总和”
             if (!solution.isElementCovered(e)) sum++;
         }
 
-        // Rückgabe der Summe der möglichen Neuüberdeckungen
+        // 返回总和
         return ((float) sum);
     }
 }

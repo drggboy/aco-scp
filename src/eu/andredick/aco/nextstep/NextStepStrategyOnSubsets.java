@@ -11,49 +11,49 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * <b>Gemischte Alternativen-Auswahl</b> aus stochastischer und deterministischer Alternativenauswahl, Pheromonassoziation mit Teilmengen<br>
- * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
+ * <b>混合选择替代方案</b> 从随机和确定性替代选择，信息素与子集的关联<br>
+ * 第3.3.5章，第32页，备选案文的选择<br>
  * <br>
- * Die Gemischte Alternativenauswahl liefert entweder das Ergebnis der stochastischen
- * (siehe {@link NextStepStrategyOnSubsetsStochastic}) oder der deterministischen
- * Alternativenauswahl (siehe {@link NextStepStrategyOnSubsetsDeterministic}).<br>
- * Dies wird durch die Realisierung einer Zufallszahl {@code 0.0 <= q <= 1.0} bestimmt, welche in Bezug auf einen
- * festgelegten Parameter {@code q0} entweder unterhalb {@code (q < q0)} oder oberhalb {@code (q0 <= q)} liegt.<br>
- * Die Komponente besitzt also einen Parameter.<br>
+ * 混合备选方案提供随机振荡的结果
+ * (see {@link NextStepStrategyOnSubsetsStochastic}) 或确定性
+ * 替代选择 (see {@link NextStepStrategyOnSubsetsDeterministic}).<br>
+ * 这是通过实现随机数来实现的 {@code 0.0 <= q <= 1.0} 确定哪个与
+ * 指定参数 {@code q0} 以下任一 {@code (q < q0)} 或以上 {@code (q0 <= q)} 谎言.<br>
+ * 所以组件有一个参数.<br>
  * <br>
- * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction}
- * verwendet, um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
- * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und
- * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
- * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.<br>
+ * 备选选择组件已替换为设计启发式 {@link AbstractConstruction}
+ * 用于从给定的备选项集中提取（解决方案组件）选择替代方案.<br>
+ * 替代方案的选择基于启发式信息 {@link HeuristicInfoSet} 和
+ * 感知的信息素浓度 {@link AbstractPheromonePerception}, 分配给备选方案或为备选方案计算.<br>
+ * 通过组合功能 {@link CombinationRule} 替代方案的值由启发式信息和感知的信息素浓度形成.<br>
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */
 public class NextStepStrategyOnSubsets extends
         AbstractNextStepStrategy<PheromoneOnSubsets, SCPSolution> {
 
     /**
-     * Deterministische Alternativenauswahl (Referenz auf ein eigenes Objekt)
+     * 确定性选择（引用您自己的对象）
      */
     private NextStepStrategyOnSubsetsDeterministic nextStepDeterministic;
 
     /**
-     * Stochastische Alternativenauswahl (Referenz auf ein eigenes Objekt)
+     * 随机选择（参考您自己的对象）
      */
     private NextStepStrategyOnSubsetsStochastic nextStepStochastic;
 
     /**
-     * Parameter, der den jeweiligen Einfluss der stochastischen und deterministischen Alternativenauswahl bestimmt
+     * 确定随机和确定性选择影响的参数
      */
     private float q0_parameter;
 
     /**
-     * Konsturktor
+     * 构造函数
      *
-     * @param pheromonesStructure Pheromonassoziation mit Teilmengen
-     * @param perceptionRule      Pheromon-Wahrnehmung
-     * @param heuristics          heuristische Informationen
-     * @param combinationRule     Kombinationsfunktion
-     * @param q0_parameter        Parameter, der den Einfluss der stochastischen und deterministischen Komponente regelt
+     * @param pheromonesStructure 信息素关联
+     * @param perceptionRule      信息素感知
+     * @param heuristics          启发式信息
+     * @param combinationRule     组合功能
+     * @param q0_parameter        调节随机和确定性分量影响的参数
      */
     public NextStepStrategyOnSubsets(PheromoneOnSubsets pheromonesStructure,
                                      AbstractPheromonePerception perceptionRule,
@@ -73,22 +73,22 @@ public class NextStepStrategyOnSubsets extends
     }
 
     /**
-     * Liefert in abhängigkeit des realisierten Wertes einer Zufallszahl {@code q} und des Parameters {@link #q0_parameter}
-     * die probabilistische oder die deterministische Ergebnisse der Alternativenauswahl.
-     * Zur Bestimmung einer Alternative wird eintweder die Komponente {@link #nextStepStochastic} oder {@link #nextStepDeterministic} verwendet.
+     * 作为随机数的已实现值的函数返回 {@code q} 和参数 {@link #q0_parameter}
+     * 备择选择的概率或确定性结果.
+     * 要确定备选方案，请 {@link #nextStepStochastic} 或者 {@link #nextStepDeterministic} 使用.
      *
-     * @param solution         partiale Lösung der Ameise
-     * @param availableSubsets verfügbare Alternativen
-     * @return Ergebnis der Auswahl
+     * @param solution         蚂蚁的部分解
+     * @param availableSubsets 可用的替代方案
+     * @return 选择结果
      */
     @Override
     public Integer chooseSubset(SCPSolution solution, List<Integer> availableSubsets) {
 
-        // Zufallszahl 0.0 <= q <= 1.0 erzeugen
+        // 创建随机数 0.0 <= q <= 1.0
         float q = ThreadLocalRandom.current().nextFloat();
 
-        /* Je nach Realisierung der Zufallszahl und dem Parameterwert q0
-         * erfolgt die Alternativenauswahl entweder stochastisch oder deterministisch
+        /* 取决于随机数和参数值q0的实现
+         * 替代选择是随机的或确定性的
          */
         if (q < q0_parameter) {
             return this.nextStepStochastic.chooseSubset(solution, availableSubsets);

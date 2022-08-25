@@ -10,48 +10,47 @@ import eu.andredick.aco.problem.AbstractSolution;
 import java.util.List;
 
 /**
- * <b>Abstrakte Komponente der Alternativen-Auswahl</b><br>
- * Kapitel 3.3.5, S. 32, Alternativenauswahl<br>
+ * <b>候选方案的抽象组成部分</b><br>
+ * 第3.3.5章，第32页，候选方案的选择<br>
  * <br>
- * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction} verwendet,<br>
- * um aus der Menge gegebener Alternativen (Lösungskomponenten) eine Alternative auszuwählen.<br>
- * Die Auswahl der Alternative stützt sich auf den heuristischen Informationen {@link HeuristicInfoSet} und<br>
- * den wahrgenommenen Pheromonkonzentrationen {@link AbstractPheromonePerception}, die den Alternativen zugeordnet sind oder für diese berechnet werden.<br>
- * Mittels der Kombinationsfunktion {@link CombinationRule} wird aus heuristischen Informationen und der wahrgenommenen Pheromonkonzentration ein Wert der Alternative gebildet.<br>
+ * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction} 使用,<br>
+ * 从给定候选方案（解决方案组件）中选择一项。<br>
+ * 替代方案的选择基于启发式信息 {@link HeuristicInfoSet} <br>
+ * 以及感知的信息素浓度 {@link AbstractPheromonePerception}。<br>
+ * 通过组合功能 {@link CombinationRule}替代方案的值由启发式信息和感知的信息素浓度形成。<br>
  * <br>
- * Eine weitere Abhängigkeit besteht von der Komponente Pheromonassoziation (siehe {@link AbstractPheromoneAssociation}.<br>
- * Um den wahrgenonommenen Pheromonwert bestimmen zu können, wird hierdurch der tatsächliche Pheromonwert ermittelt.
+ * 另一个依赖是信息素关联组件 (参见 {@link AbstractPheromoneAssociation}。<br>
+ * 能够确定感知到的信息素值以及实际的信息素值。
  * <br>
- * Realisierungen der abstrakten Komponente müssen die Methode {@link #chooseSubset(AbstractSolution, List)} implementieren.
+ * 抽象组件的实现必须实现方法 {@link #chooseSubset(AbstractSolution, List)} 。
  * <p><img src="{@docRoot}/images/Nextstep.svg" alt=""></p>
  */
 public abstract class AbstractNextStepStrategy<E extends AbstractPheromoneAssociation, S extends AbstractSolution> {
 
     /**
-     * Pheromonassoziation mit dem zu lösenden AbstractProblem
+     * 特定问题的信息素关联组件
      */
     protected E pheromoneStructure;
     /**
-     * Pheromon-Wahrnehmung
+     * 信息素感知
      */
     protected AbstractPheromonePerception perceptionRule;
     /**
-     * Menge Heuristischer Informationen
+     * 启发式信息
      */
     protected HeuristicInfoSet heuristics;
     /**
-     * Kombinationsfunktion (kombiniert die Werte der Pheromon-Wahrnehmung und der Heuristischen Informationen)
+     * 组合功能（结合信息素感知值和启发式信息）
      */
     protected CombinationRule combinationRule;
 
-
     /**
-     * Konsturktor
+     * 构造函数
      *
-     * @param pheromoneStructure Pheromonassoziation
-     * @param perceptionRule     Pheromon-Wahrnehmung
-     * @param heuristics         heuristische Informationen
-     * @param combinationRule    Kombinationsfunktion
+     * @param pheromoneStructure 信息素关联
+     * @param perceptionRule     信息素感知
+     * @param heuristics         启发式信息
+     * @param combinationRule    组合功能
      */
     public AbstractNextStepStrategy(E pheromoneStructure,
                                     AbstractPheromonePerception perceptionRule,
@@ -65,12 +64,12 @@ public abstract class AbstractNextStepStrategy<E extends AbstractPheromoneAssoci
     }
 
     /**
-     * Abstrakte Methode zur Auswahl einer Alternative aus einer gegebenen Menge.<br>
-     * Schnittstelle zur Konstruktionsheuristik ({@link AbstractConstruction}).<br>
+     * 从给定集合中选择候选解的抽象方法。<br>
+     * 与构造启发式方法的接口 ({@link AbstractConstruction})。<br>
      *
-     * @param solution         partiale Lösung der Ameise
-     * @param availableSubsets verfügbare Alternativen
-     * @return gewählte Alternative
+     * @param solution         蚂蚁的部分解
+     * @param availableSubsets 可用的替代方案
+     * @return      选定的替代方案
      */
     public abstract Integer chooseSubset(S solution, List<Integer> availableSubsets);
 }

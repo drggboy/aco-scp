@@ -1,40 +1,40 @@
 package eu.andredick.aco.combination;
 
 /**
- * <b>Realisierung der Komponente Kombinationsfunktion mittels Multiplikation.</b><br>
- * Kapitel 3.3.8, S. 36, Kombinationsfunktion<br>
+ * <b>通过乘法实现组合功能.</b><br>
+ * 第3.3.8章，第36页，组合函数<br>
  * <br>
- * Kombiniert den wahrgenommenen Pheromon mit heuristischen Informationen <b>durch Multiplikation</b>.<br>
- * Beide Faktoren werden durch zugehörige Exponenten alpha und beta relativ zueinander gewichtet.<br>
+ * <b>通过乘法</b>将感知到的信息素与启发式信息相结合。<br>
+ * 以上两个值都通过相关的指数 alpha 和 beta 相对于彼此进行加权.<br>
  * <p><img src="{@docRoot}/images/Combination.svg" alt=""></p>
  */
 public class CombinationFactor extends CombinationRule {
 
     /**
-     * Exponent <b>alpha</b> zur relativen Gewichtung des wahrgenommenen Pheromons
+     *  <b>alpha</b>说明：关于感知信息素的相对权重
       */
     float alpha;
 
     /**
-     * Exponent <b>beta</b> zur relativen Gewichtung des Wertes der heuristischen Informationen
+     *  <b>beta</b>说明：关于启发式信息的相对权重
      */
     float beta;
 
-    /** Konstruktor mit übergabe der zwei Parameter
+    /** 传递两个参数的构造函数
      *
-     * @param alpha Exponent <b>alpha</b> zur relativen Gewichtung des wahrgenommenen Pheromons
-     * @param beta Exponent <b>beta</b> zur relativen Gewichtung des Wertes der heuristischen Informationen
+     * @param alpha 说明 <b>alpha</b> 关于感知信息素的相对权重
+     * @param beta 说明 <b>beta</b> 关于启发式信息价值的相对权重
      */
     public CombinationFactor(float alpha, float beta) {
         this.alpha = alpha;
         this.beta = beta;
     }
 
-    /** <b>Kombinationsfunktion mittels Multiplikation</b><br>
+    /** <b>乘法组合函数</b><br>
      * <code>Math.pow(pheromone, alpha) * Math.pow(heurist, beta)</code>
-     * @param pheromone wahrgenommenes Pheromon
-     * @param heurist   Wert der heuristischen Informationen
-     * @return Ergebnis der Kombination
+     * @param pheromone 感知信息素
+     * @param heurist   启发式信息的价值
+     * @return 组合结果
      */
     @Override
     public float combine(float pheromone, float heurist) {

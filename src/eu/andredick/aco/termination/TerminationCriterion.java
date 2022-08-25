@@ -3,36 +3,36 @@ package eu.andredick.aco.termination;
 import eu.andredick.aco.algorithm.Statistics;
 
 /**
- * <b>Ausprägung des Abbruchkriterium</b> für die Iteration des ACO-Algorithmus<br>
+ * <b>终止标准的特征</b> 用于 ACO 算法的迭代<br>
  * <br>
- * Die Ausprägungen werden im Masterprozess verwendet, um die Iteration abzubrechen.<br>
- * Abbruchbedingung ist erfüllt, wenn Anzahl der Iterationen ein Maximum überschreitet.
+ * 这些特征用于主进程以取消迭代.<br>
+ * 当迭代次数超过最大值时满足取消条件。
  *
  * <p><img src="{@docRoot}/images/Termination.svg" alt=""></p>
  */
 public class TerminationCriterion extends AbstractTerminationCriterion {
 
     /**
-     * Maximale Anzahl der Itarationen
+     * 最大迭代次数
      */
     private int maxIterations;
 
     /**
-     * Konstruktor
+     * 构造函数
      *
-     * @param maxIterations Maximale Anzahl der Itarationen
+     * @param maxIterations 最大迭代次数
      */
     public TerminationCriterion(int maxIterations) {
         this.maxIterations = maxIterations;
     }
 
     /**
-     * Prüfen, ob die Abbruchbedingung erfüllt ist.<br>
-     * Abbruchbedingung ist erfüllt, wenn Anzahl der Iterationen ein Maximum überschreitet.
+     * 验证是否满足取消条件。<br>
+     * 当迭代次数超过最大值时满足取消条件.
      *
-     * @param iteration:  Zähler der Iterationen
-     * @param statistics: Statistiken zum Verlauf der Iteration
-     * @return Wahr, wenn Anzahl der Iterationen NICHT über Maximum
+     * @param iteration:  迭代计数器
+     * @param statistics: 迭代历史记录统计信息
+     * @return 如果迭代次数不超过最大值，则为 true
      */
     @Override
     public boolean checkTermination(int iteration, Statistics statistics) {

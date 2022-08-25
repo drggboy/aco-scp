@@ -1,22 +1,22 @@
 package eu.andredick.aco.problem;
 
 /**
- * <b>Abstrakte Klasse von Problemen</b>, welche durch die ACO-Metaheuristik zu lösen sind<br>
+ * <b>抽象类问题</b>, 这将由 ACO 元启发式解决<br>
  * <br>
- * Diese Abstrakte Komponente wird auf der generischen Ebene der ACO-Metaheuristik verwendet,<br>
- * auf welcher noch keine Abhängigkeiten zu einer bestimmten Problem-Klasse bestehen.<br>
- * Genauso können auch spezialisierte Komponenten der ACO-Metaheuristik das Abstrakte Problem referenzieren, wenn sie von keiner bestimmten Problem-Klasse abhängig sind.<br>
+ * 此抽象组件用于 ACO 元启发式的通用级别,<br>
+ * 尚未对特定问题类具有依赖关系.<br>
+ * 同样，如果 ACO 元启发式的特殊组件不依赖于任何特定问题类，它们也可以引用抽象问题.<br>
  * <br>
- * Um eine Problem-Klasse zu definieren, muss die Abstraktes Problem und die zugehörige Abstakte Lösung abgeleitet werden.<br>
+ * 要定义问题类，必须派生抽象问题及其相关的抽象解决方案.<br>
  *
  * <p><img src="{@docRoot}/images/Problem.svg" alt=""></p>
  */
 public abstract class AbstractProblem {
 
     /**
-     * Liefert den Namen der Instanz eines Problems
+     * 返回问题实例的名称
      *
-     * @return Name des Problems
+     * @return 问题的名称
      */
     public abstract String getName();
 }

@@ -7,8 +7,8 @@ import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 
 /**
- * A complete Java class that demonstrates how to create an HTML viewer with styles,
- * using the JEditorPane, HTMLEditorKit, StyleSheet, and JFrame.
+ * 一个完整的 Java 类，演示如何创建带有样式的 HTML 查看器,
+ * 使用JEditorPane，HTMLEditorKit，StyleSheet和JFrame.
  *
  * @author alvin alexander, devdaily.com.
  */
