@@ -24,67 +24,66 @@
 <span class="source-line-no">011</span><span id="line-11"></span>
 <span class="source-line-no">012</span><span id="line-12">/**</span>
 <span class="source-line-no">013</span><span id="line-13"> * &lt;b&gt;确定性备选方案选择&lt;/b&gt; - 候选方案选择的实现&lt;br&gt;</span>
-<span class="source-line-no">014</span><span id="line-14"> * 第3.3.5章，第32页，候选方案的选择&lt;br&gt;</span>
-<span class="source-line-no">015</span><span id="line-15"> * &lt;br&gt;</span>
-<span class="source-line-no">016</span><span id="line-16"> * 侯选方案的确定性选择始终提供评价最高的备选方案。&lt;br&gt;</span>
-<span class="source-line-no">017</span><span id="line-17"> * 此组件没有参数。&lt;br&gt;</span>
-<span class="source-line-no">018</span><span id="line-18"> * &lt;br&gt;</span>
-<span class="source-line-no">019</span><span id="line-19"> * 备选选择组件已替换为设计启发式 {@link AbstractConstruction}</span>
-<span class="source-line-no">020</span><span id="line-20"> * 用于从给定的候选集中选择分量.&lt;br&gt;</span>
-<span class="source-line-no">021</span><span id="line-21"> * 替代方案的选择基于为备选方案计算的启发式信息 {@link HeuristicInfoSet}</span>
-<span class="source-line-no">022</span><span id="line-22"> * 或分配给备选方案所感知的信息素浓度 {@link AbstractPheromonePerception}。&lt;br&gt;</span>
-<span class="source-line-no">023</span><span id="line-23"> * 替代方案的值通过组合功能 {@link CombinationRule}由启发式信息和感知的信息素浓度形成。&lt;br&gt;</span>
-<span class="source-line-no">024</span><span id="line-24"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Nextstep.svg" alt=""&gt;&lt;/p&gt;</span>
-<span class="source-line-no">025</span><span id="line-25"> */</span>
-<span class="source-line-no">026</span><span id="line-26">public class NextStepStrategyOnSubsetsDeterministic extends</span>
-<span class="source-line-no">027</span><span id="line-27">        AbstractNextStepStrategy&lt;PheromoneOnSubsets, SCPSolution&gt; {</span>
-<span class="source-line-no">028</span><span id="line-28"></span>
-<span class="source-line-no">029</span><span id="line-29">    /**</span>
-<span class="source-line-no">030</span><span id="line-30">     * 构造函数</span>
-<span class="source-line-no">031</span><span id="line-31">     *</span>
-<span class="source-line-no">032</span><span id="line-32">     * @param pheromonesStructure 信息素关联</span>
-<span class="source-line-no">033</span><span id="line-33">     * @param perceptionRule      信息素感知</span>
-<span class="source-line-no">034</span><span id="line-34">     * @param heuristics          启发式信息</span>
-<span class="source-line-no">035</span><span id="line-35">     * @param combinationRule     组合功能</span>
-<span class="source-line-no">036</span><span id="line-36">     */</span>
-<span class="source-line-no">037</span><span id="line-37">    public NextStepStrategyOnSubsetsDeterministic(PheromoneOnSubsets pheromonesStructure,</span>
-<span class="source-line-no">038</span><span id="line-38">                                                  AbstractPheromonePerception perceptionRule,</span>
-<span class="source-line-no">039</span><span id="line-39">                                                  HeuristicInfoSet heuristics,</span>
-<span class="source-line-no">040</span><span id="line-40">                                                  CombinationRule combinationRule) {</span>
-<span class="source-line-no">041</span><span id="line-41"></span>
-<span class="source-line-no">042</span><span id="line-42">        super(pheromonesStructure, perceptionRule, heuristics, combinationRule);</span>
-<span class="source-line-no">043</span><span id="line-43">    }</span>
-<span class="source-line-no">044</span><span id="line-44"></span>
-<span class="source-line-no">045</span><span id="line-45">    /**</span>
-<span class="source-line-no">046</span><span id="line-46">     * 确定性地选择，选择具有最高值的替代方案。&lt;br&gt;</span>
-<span class="source-line-no">047</span><span id="line-47">     * 每个替代项的价值是根据相关的感知信息素浓度和启发式信息确定的。&lt;br&gt;</span>
-<span class="source-line-no">048</span><span id="line-48">     * 组合功能 ({@link CombinationRule}) 用于结合两个影响变量。&lt;br&gt;</span>
-<span class="source-line-no">049</span><span id="line-49">     *</span>
-<span class="source-line-no">050</span><span id="line-50">     * @param solution         蚂蚁的部分解</span>
-<span class="source-line-no">051</span><span id="line-51">     * @param availableSubsets 可用的替代方案</span>
-<span class="source-line-no">052</span><span id="line-52">     * @return 选择结果</span>
-<span class="source-line-no">053</span><span id="line-53">     */</span>
-<span class="source-line-no">054</span><span id="line-54">    @Override</span>
-<span class="source-line-no">055</span><span id="line-55">    public Integer chooseSubset(SCPSolution solution, List&lt;Integer&gt; availableSubsets) {</span>
-<span class="source-line-no">056</span><span id="line-56"></span>
-<span class="source-line-no">057</span><span id="line-57">        float maxValue = 0f;</span>
-<span class="source-line-no">058</span><span id="line-58">        int indexWithMaxValue = -1;</span>
-<span class="source-line-no">059</span><span id="line-59"></span>
-<span class="source-line-no">060</span><span id="line-60">        // 遍历所有可用的备选项以确定具有最高值的备选项</span>
-<span class="source-line-no">061</span><span id="line-61">        for (int k = 0; k &lt; availableSubsets.size(); k++) {</span>
-<span class="source-line-no">062</span><span id="line-62">            int subset = availableSubsets.get(k);</span>
-<span class="source-line-no">063</span><span id="line-63">            float ph_k = this.perceptionRule.getPerceptionValue(this.pheromoneStructure.getPheromone(subset));</span>
-<span class="source-line-no">064</span><span id="line-64">            float hi_k = this.heuristics.getValue(solution, availableSubsets, subset);</span>
-<span class="source-line-no">065</span><span id="line-65">            float value = this.combinationRule.combine(ph_k, hi_k);</span>
-<span class="source-line-no">066</span><span id="line-66">            if (value &gt; maxValue) {</span>
-<span class="source-line-no">067</span><span id="line-67">                maxValue = value;</span>
-<span class="source-line-no">068</span><span id="line-68">                indexWithMaxValue = k;</span>
-<span class="source-line-no">069</span><span id="line-69">            }</span>
-<span class="source-line-no">070</span><span id="line-70">        }</span>
-<span class="source-line-no">071</span><span id="line-71">        return availableSubsets.get(indexWithMaxValue);</span>
-<span class="source-line-no">072</span><span id="line-72">    }</span>
-<span class="source-line-no">073</span><span id="line-73"></span>
-<span class="source-line-no">074</span><span id="line-74">}</span>
+<span class="source-line-no">014</span><span id="line-14"> * &lt;br&gt;</span>
+<span class="source-line-no">015</span><span id="line-15"> * 侯选方案的确定性选择始终提供评价最高的备选方案。&lt;br&gt;</span>
+<span class="source-line-no">016</span><span id="line-16"> * 此组件没有参数。&lt;br&gt;</span>
+<span class="source-line-no">017</span><span id="line-17"> * &lt;br&gt;</span>
+<span class="source-line-no">018</span><span id="line-18"> * 备选选择组件已替换为设计启发式 {@link AbstractConstruction}</span>
+<span class="source-line-no">019</span><span id="line-19"> * 用于从给定的候选集中选择分量.&lt;br&gt;</span>
+<span class="source-line-no">020</span><span id="line-20"> * 替代方案的选择基于为备选方案计算的启发式信息 {@link HeuristicInfoSet}</span>
+<span class="source-line-no">021</span><span id="line-21"> * 或分配给备选方案所感知的信息素浓度 {@link AbstractPheromonePerception}。&lt;br&gt;</span>
+<span class="source-line-no">022</span><span id="line-22"> * 替代方案的值通过组合功能 {@link CombinationRule}由启发式信息和感知的信息素浓度形成。&lt;br&gt;</span>
+<span class="source-line-no">023</span><span id="line-23"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Nextstep.svg" alt=""&gt;&lt;/p&gt;</span>
+<span class="source-line-no">024</span><span id="line-24"> */</span>
+<span class="source-line-no">025</span><span id="line-25">public class NextStepStrategyOnSubsetsDeterministic extends</span>
+<span class="source-line-no">026</span><span id="line-26">        AbstractNextStepStrategy&lt;PheromoneOnSubsets, SCPSolution&gt; {</span>
+<span class="source-line-no">027</span><span id="line-27"></span>
+<span class="source-line-no">028</span><span id="line-28">    /**</span>
+<span class="source-line-no">029</span><span id="line-29">     * 构造函数</span>
+<span class="source-line-no">030</span><span id="line-30">     *</span>
+<span class="source-line-no">031</span><span id="line-31">     * @param pheromonesStructure 信息素关联</span>
+<span class="source-line-no">032</span><span id="line-32">     * @param perceptionRule      信息素感知</span>
+<span class="source-line-no">033</span><span id="line-33">     * @param heuristics          启发式信息</span>
+<span class="source-line-no">034</span><span id="line-34">     * @param combinationRule     组合功能</span>
+<span class="source-line-no">035</span><span id="line-35">     */</span>
+<span class="source-line-no">036</span><span id="line-36">    public NextStepStrategyOnSubsetsDeterministic(PheromoneOnSubsets pheromonesStructure,</span>
+<span class="source-line-no">037</span><span id="line-37">                                                  AbstractPheromonePerception perceptionRule,</span>
+<span class="source-line-no">038</span><span id="line-38">                                                  HeuristicInfoSet heuristics,</span>
+<span class="source-line-no">039</span><span id="line-39">                                                  CombinationRule combinationRule) {</span>
+<span class="source-line-no">040</span><span id="line-40"></span>
+<span class="source-line-no">041</span><span id="line-41">        super(pheromonesStructure, perceptionRule, heuristics, combinationRule);</span>
+<span class="source-line-no">042</span><span id="line-42">    }</span>
+<span class="source-line-no">043</span><span id="line-43"></span>
+<span class="source-line-no">044</span><span id="line-44">    /**</span>
+<span class="source-line-no">045</span><span id="line-45">     * 确定性地选择，选择具有最高值的替代方案。&lt;br&gt;</span>
+<span class="source-line-no">046</span><span id="line-46">     * 每个替代项的价值是根据相关的感知信息素浓度和启发式信息确定的。&lt;br&gt;</span>
+<span class="source-line-no">047</span><span id="line-47">     * 组合功能 ({@link CombinationRule}) 用于结合两个影响变量。&lt;br&gt;</span>
+<span class="source-line-no">048</span><span id="line-48">     *</span>
+<span class="source-line-no">049</span><span id="line-49">     * @param solution         蚂蚁的部分解</span>
+<span class="source-line-no">050</span><span id="line-50">     * @param availableSubsets 可用的替代方案</span>
+<span class="source-line-no">051</span><span id="line-51">     * @return 选择结果</span>
+<span class="source-line-no">052</span><span id="line-52">     */</span>
+<span class="source-line-no">053</span><span id="line-53">    @Override</span>
+<span class="source-line-no">054</span><span id="line-54">    public Integer chooseSubset(SCPSolution solution, List&lt;Integer&gt; availableSubsets) {</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">        float maxValue = 0f;</span>
+<span class="source-line-no">057</span><span id="line-57">        int indexWithMaxValue = -1;</span>
+<span class="source-line-no">058</span><span id="line-58"></span>
+<span class="source-line-no">059</span><span id="line-59">        // 遍历所有可用的备选项以确定具有最高值的备选项</span>
+<span class="source-line-no">060</span><span id="line-60">        for (int k = 0; k &lt; availableSubsets.size(); k++) {</span>
+<span class="source-line-no">061</span><span id="line-61">            int subset = availableSubsets.get(k);</span>
+<span class="source-line-no">062</span><span id="line-62">            float ph_k = this.perceptionRule.getPerceptionValue(this.pheromoneStructure.getPheromone(subset));</span>
+<span class="source-line-no">063</span><span id="line-63">            float hi_k = this.heuristics.getValue(solution, availableSubsets, subset);</span>
+<span class="source-line-no">064</span><span id="line-64">            float value = this.combinationRule.combine(ph_k, hi_k);</span>
+<span class="source-line-no">065</span><span id="line-65">            if (value &gt; maxValue) {</span>
+<span class="source-line-no">066</span><span id="line-66">                maxValue = value;</span>
+<span class="source-line-no">067</span><span id="line-67">                indexWithMaxValue = k;</span>
+<span class="source-line-no">068</span><span id="line-68">            }</span>
+<span class="source-line-no">069</span><span id="line-69">        }</span>
+<span class="source-line-no">070</span><span id="line-70">        return availableSubsets.get(indexWithMaxValue);</span>
+<span class="source-line-no">071</span><span id="line-71">    }</span>
+<span class="source-line-no">072</span><span id="line-72"></span>
+<span class="source-line-no">073</span><span id="line-73">}</span>
 
 
 

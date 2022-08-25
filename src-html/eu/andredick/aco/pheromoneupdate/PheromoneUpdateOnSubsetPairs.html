@@ -24,56 +24,55 @@
 <span class="source-line-no">011</span><span id="line-11"></span>
 <span class="source-line-no">012</span><span id="line-12">/**</span>
 <span class="source-line-no">013</span><span id="line-13"> * &lt;b&gt;信息素标记组分的表达&lt;/b&gt;&lt;br&gt;</span>
-<span class="source-line-no">014</span><span id="line-14"> * 第 3.3.11 章，第 45 页，信息素标记&lt;br&gt;</span>
-<span class="source-line-no">015</span><span id="line-15"> * &lt;br&gt;</span>
-<span class="source-line-no">016</span><span id="line-16"> * SCP问题子集对上的信息素标记 {@link PheromoneOnSubsets}, 相关解决方案中的那些 {@link SCPSolution} 被包含在内.&lt;br&gt;</span>
-<span class="source-line-no">017</span><span id="line-17"> * &lt;br&gt;</span>
-<span class="source-line-no">018</span><span id="line-18"> * 解决方案的标记 ({@link AbstractSolution}) 问题 ({@link eu.andredick.aco.problem.AbstractProblem}) 与信息素由主过程协调 ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess}),</span>
-<span class="source-line-no">019</span><span id="line-19"> * 为此目的，蚂蚁 ({@link eu.andredick.aco.ant.AbstractAnt}) 指南.&lt;br&gt;</span>
-<span class="source-line-no">020</span><span id="line-20"> * 为了执行此任务，蚂蚁具有成分信息素标记的表达式.&lt;br&gt;</span>
-<span class="source-line-no">021</span><span id="line-21"> * 对于要选择的蚂蚁溶液的实例 {@link AbstractSolution} 最初通过质量功能执行 ({@link AbstractSolutionQuality}) 确定要应用的信息素量.&lt;br&gt;</span>
-<span class="source-line-no">022</span><span id="line-22"> * 随后，通过成分信息素关联 ({@link AbstractPheromoneAssociation}) 可以增加溶液成分上的信息素浓度.&lt;br&gt;</span>
-<span class="source-line-no">023</span><span id="line-23"> *</span>
-<span class="source-line-no">024</span><span id="line-24"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneUpdate.svg" alt=""&gt;&lt;/p&gt;</span>
-<span class="source-line-no">025</span><span id="line-25"> */</span>
-<span class="source-line-no">026</span><span id="line-26">public class PheromoneUpdateOnSubsetPairs extends</span>
-<span class="source-line-no">027</span><span id="line-27">        AbstractPheromoneUpdate&lt;PheromoneOnSubsetPairs, SCPSolution&gt; {</span>
-<span class="source-line-no">028</span><span id="line-28"></span>
-<span class="source-line-no">029</span><span id="line-29">    /**</span>
-<span class="source-line-no">030</span><span id="line-30">     * 构造函数</span>
-<span class="source-line-no">031</span><span id="line-31">     *</span>
-<span class="source-line-no">032</span><span id="line-32">     * @param pheromoneStructure 信息素与 SCP 子集对的关联</span>
-<span class="source-line-no">033</span><span id="line-33">     * @param solutionQuality    解决方案的质量功能</span>
-<span class="source-line-no">034</span><span id="line-34">     */</span>
-<span class="source-line-no">035</span><span id="line-35">    public PheromoneUpdateOnSubsetPairs(PheromoneOnSubsetPairs pheromoneStructure,</span>
-<span class="source-line-no">036</span><span id="line-36">                                        AbstractSolutionQuality solutionQuality) {</span>
-<span class="source-line-no">037</span><span id="line-37">        super(pheromoneStructure, solutionQuality);</span>
-<span class="source-line-no">038</span><span id="line-38">    }</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">    /**</span>
-<span class="source-line-no">041</span><span id="line-41">     * 根据给定的SCP溶液，用信息素标记其中包含的所有子集对.&lt;br&gt;</span>
-<span class="source-line-no">042</span><span id="line-42">     * 为此，解决方案的质量首先通过 {@link #solutionQuality} 确定.&lt;br&gt;</span>
-<span class="source-line-no">043</span><span id="line-43">     * 然后根据解决方案的质量，将包含在 SCP 解决方案中的所有子集对都用信息素标记.&lt;br&gt;</span>
-<span class="source-line-no">044</span><span id="line-44">     * 为此，分配的成分信息素关联 ({@link #pheromoneStructure}) 用过的.&lt;br&gt;</span>
-<span class="source-line-no">045</span><span id="line-45">     * 一对 （i，j） 的标记是对称的。因此，关系 （i，j） 和 （j，i） 被平均标记.&lt;br&gt;</span>
-<span class="source-line-no">046</span><span id="line-46">     *</span>
-<span class="source-line-no">047</span><span id="line-47">     * @param solution 用信息素标记的SCP溶液或蚂蚁路径.</span>
-<span class="source-line-no">048</span><span id="line-48">     */</span>
-<span class="source-line-no">049</span><span id="line-49">    @Override</span>
-<span class="source-line-no">050</span><span id="line-50">    public void update(SCPSolution solution) {</span>
-<span class="source-line-no">051</span><span id="line-51">        float delta = this.solutionQuality.getQuality(solution);</span>
-<span class="source-line-no">052</span><span id="line-52">        List&lt;Integer&gt; varsList = solution.getSubsets();</span>
-<span class="source-line-no">053</span><span id="line-53">        int varListSize = varsList.size();</span>
-<span class="source-line-no">054</span><span id="line-54">        for (int i = 0; i &lt; varListSize; i++) {</span>
-<span class="source-line-no">055</span><span id="line-55">            for (int j = i + 1; j &lt; varListSize; j++) {</span>
-<span class="source-line-no">056</span><span id="line-56">                pheromoneStructure.addPheromone(varsList.get(i), varsList.get(j), delta);</span>
-<span class="source-line-no">057</span><span id="line-57">                pheromoneStructure.addPheromone(varsList.get(j), varsList.get(i), delta);</span>
-<span class="source-line-no">058</span><span id="line-58">            }</span>
-<span class="source-line-no">059</span><span id="line-59">        }</span>
-<span class="source-line-no">060</span><span id="line-60">        //ToDO: 第一个元素的单独标记可能是多余的</span>
-<span class="source-line-no">061</span><span id="line-61">        pheromoneStructure.addPheromone(varsList.get(0), varsList.get(0), delta);</span>
-<span class="source-line-no">062</span><span id="line-62">    }</span>
-<span class="source-line-no">063</span><span id="line-63">}</span>
+<span class="source-line-no">014</span><span id="line-14"> * &lt;br&gt;</span>
+<span class="source-line-no">015</span><span id="line-15"> * SCP问题子集对上的信息素标记 {@link PheromoneOnSubsets}, 相关解决方案中的那些 {@link SCPSolution} 被包含在内.&lt;br&gt;</span>
+<span class="source-line-no">016</span><span id="line-16"> * &lt;br&gt;</span>
+<span class="source-line-no">017</span><span id="line-17"> * 解决方案的标记 ({@link AbstractSolution}) 问题 ({@link eu.andredick.aco.problem.AbstractProblem}) 与信息素由主过程协调 ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess}),</span>
+<span class="source-line-no">018</span><span id="line-18"> * 为此目的，蚂蚁 ({@link eu.andredick.aco.ant.AbstractAnt}) 指南.&lt;br&gt;</span>
+<span class="source-line-no">019</span><span id="line-19"> * 为了执行此任务，蚂蚁具有成分信息素标记的表达式.&lt;br&gt;</span>
+<span class="source-line-no">020</span><span id="line-20"> * 对于要选择的蚂蚁溶液的实例 {@link AbstractSolution} 最初通过质量功能执行 ({@link AbstractSolutionQuality}) 确定要应用的信息素量.&lt;br&gt;</span>
+<span class="source-line-no">021</span><span id="line-21"> * 随后，通过成分信息素关联 ({@link AbstractPheromoneAssociation}) 可以增加溶液成分上的信息素浓度.&lt;br&gt;</span>
+<span class="source-line-no">022</span><span id="line-22"> *</span>
+<span class="source-line-no">023</span><span id="line-23"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneUpdate.svg" alt=""&gt;&lt;/p&gt;</span>
+<span class="source-line-no">024</span><span id="line-24"> */</span>
+<span class="source-line-no">025</span><span id="line-25">public class PheromoneUpdateOnSubsetPairs extends</span>
+<span class="source-line-no">026</span><span id="line-26">        AbstractPheromoneUpdate&lt;PheromoneOnSubsetPairs, SCPSolution&gt; {</span>
+<span class="source-line-no">027</span><span id="line-27"></span>
+<span class="source-line-no">028</span><span id="line-28">    /**</span>
+<span class="source-line-no">029</span><span id="line-29">     * 构造函数</span>
+<span class="source-line-no">030</span><span id="line-30">     *</span>
+<span class="source-line-no">031</span><span id="line-31">     * @param pheromoneStructure 信息素与 SCP 子集对的关联</span>
+<span class="source-line-no">032</span><span id="line-32">     * @param solutionQuality    解决方案的质量功能</span>
+<span class="source-line-no">033</span><span id="line-33">     */</span>
+<span class="source-line-no">034</span><span id="line-34">    public PheromoneUpdateOnSubsetPairs(PheromoneOnSubsetPairs pheromoneStructure,</span>
+<span class="source-line-no">035</span><span id="line-35">                                        AbstractSolutionQuality solutionQuality) {</span>
+<span class="source-line-no">036</span><span id="line-36">        super(pheromoneStructure, solutionQuality);</span>
+<span class="source-line-no">037</span><span id="line-37">    }</span>
+<span class="source-line-no">038</span><span id="line-38"></span>
+<span class="source-line-no">039</span><span id="line-39">    /**</span>
+<span class="source-line-no">040</span><span id="line-40">     * 根据给定的SCP溶液，用信息素标记其中包含的所有子集对.&lt;br&gt;</span>
+<span class="source-line-no">041</span><span id="line-41">     * 为此，解决方案的质量首先通过 {@link #solutionQuality} 确定.&lt;br&gt;</span>
+<span class="source-line-no">042</span><span id="line-42">     * 然后根据解决方案的质量，将包含在 SCP 解决方案中的所有子集对都用信息素标记.&lt;br&gt;</span>
+<span class="source-line-no">043</span><span id="line-43">     * 为此，分配的成分信息素关联 ({@link #pheromoneStructure}) 用过的.&lt;br&gt;</span>
+<span class="source-line-no">044</span><span id="line-44">     * 一对 （i，j） 的标记是对称的。因此，关系 （i，j） 和 （j，i） 被平均标记.&lt;br&gt;</span>
+<span class="source-line-no">045</span><span id="line-45">     *</span>
+<span class="source-line-no">046</span><span id="line-46">     * @param solution 用信息素标记的SCP溶液或蚂蚁路径.</span>
+<span class="source-line-no">047</span><span id="line-47">     */</span>
+<span class="source-line-no">048</span><span id="line-48">    @Override</span>
+<span class="source-line-no">049</span><span id="line-49">    public void update(SCPSolution solution) {</span>
+<span class="source-line-no">050</span><span id="line-50">        float delta = this.solutionQuality.getQuality(solution);</span>
+<span class="source-line-no">051</span><span id="line-51">        List&lt;Integer&gt; varsList = solution.getSubsets();</span>
+<span class="source-line-no">052</span><span id="line-52">        int varListSize = varsList.size();</span>
+<span class="source-line-no">053</span><span id="line-53">        for (int i = 0; i &lt; varListSize; i++) {</span>
+<span class="source-line-no">054</span><span id="line-54">            for (int j = i + 1; j &lt; varListSize; j++) {</span>
+<span class="source-line-no">055</span><span id="line-55">                pheromoneStructure.addPheromone(varsList.get(i), varsList.get(j), delta);</span>
+<span class="source-line-no">056</span><span id="line-56">                pheromoneStructure.addPheromone(varsList.get(j), varsList.get(i), delta);</span>
+<span class="source-line-no">057</span><span id="line-57">            }</span>
+<span class="source-line-no">058</span><span id="line-58">        }</span>
+<span class="source-line-no">059</span><span id="line-59">        //ToDO: 第一个元素的单独标记可能是多余的</span>
+<span class="source-line-no">060</span><span id="line-60">        pheromoneStructure.addPheromone(varsList.get(0), varsList.get(0), delta);</span>
+<span class="source-line-no">061</span><span id="line-61">    }</span>
+<span class="source-line-no">062</span><span id="line-62">}</span>
 
 
 

@@ -19,55 +19,54 @@
 <span class="source-line-no">006</span><span id="line-6"></span>
 <span class="source-line-no">007</span><span id="line-7">/**</span>
 <span class="source-line-no">008</span><span id="line-8"> * &lt;b&gt;信息素标记的抽象部分&lt;/b&gt;&lt;br&gt;</span>
-<span class="source-line-no">009</span><span id="line-9"> * 第3.3.11章，第45页，信息素标记&lt;br&gt;</span>
-<span class="source-line-no">010</span><span id="line-10"> * &lt;br&gt;</span>
-<span class="source-line-no">011</span><span id="line-11"> * 为解决方案中包含的实体进行信息素标记。&lt;br&gt;</span>
-<span class="source-line-no">012</span><span id="line-12"> * &lt;br&gt;</span>
-<span class="source-line-no">013</span><span id="line-13"> * 标记相关问题 ({@link eu.andredick.aco.problem.AbstractProblem})的解决方案 ({@link AbstractSolution}) 由主进程 ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess})调用，&lt;br&gt;</span>
-<span class="source-line-no">014</span><span id="line-14"> * 此过程与蚂蚁 ({@link eu.andredick.aco.ant.AbstractAnt})相关。&lt;br&gt;</span>
-<span class="source-line-no">015</span><span id="line-15"> * 为了执行此任务，蚂蚁具有对解的组成成分进行信息素标记的功能。&lt;br&gt;</span>
-<span class="source-line-no">016</span><span id="line-16"> * 对于要标记的蚂蚁解的实例 {@link AbstractSolution} 最初通过质量组件 ({@link AbstractSolutionQuality}) 确定信息素的量。&lt;br&gt;</span>
-<span class="source-line-no">017</span><span id="line-17"> * 随后，通过信息素关联组件 ({@link AbstractPheromoneAssociation})增加解组分上的信息素浓度。&lt;br&gt;</span>
-<span class="source-line-no">018</span><span id="line-18"> * &lt;br&gt;</span>
-<span class="source-line-no">019</span><span id="line-19"> * 必须根据信息素关联和问题解决的表现来确定该组分的派生类。&lt;br&gt;</span>
-<span class="source-line-no">020</span><span id="line-20"> * 这样做的原因是标记实体（解决方案组件）需要了解问题的结构和相关的信息素关联。&lt;br&gt;</span>
-<span class="source-line-no">021</span><span id="line-21"> * 这种依赖关系是通过泛型编程实现的。&lt;br&gt;</span>
-<span class="source-line-no">022</span><span id="line-22"> *</span>
-<span class="source-line-no">023</span><span id="line-23"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneUpdate.svg" alt=""&gt;&lt;/p&gt;</span>
-<span class="source-line-no">024</span><span id="line-24"> *</span>
-<span class="source-line-no">025</span><span id="line-25"> * @param &lt;E&gt; 信息素关联的表达</span>
-<span class="source-line-no">026</span><span id="line-26"> * @param &lt;S&gt; 与问题相关的解决方案的规范</span>
-<span class="source-line-no">027</span><span id="line-27"> */</span>
-<span class="source-line-no">028</span><span id="line-28">public abstract class AbstractPheromoneUpdate&lt;E extends AbstractPheromoneAssociation, S extends AbstractSolution&gt; {</span>
-<span class="source-line-no">029</span><span id="line-29"></span>
-<span class="source-line-no">030</span><span id="line-30">    /**</span>
-<span class="source-line-no">031</span><span id="line-31">     * 信息素关联作为通用引用</span>
-<span class="source-line-no">032</span><span id="line-32">     */</span>
-<span class="source-line-no">033</span><span id="line-33">    protected E pheromoneStructure;</span>
-<span class="source-line-no">034</span><span id="line-34"></span>
-<span class="source-line-no">035</span><span id="line-35">    /**</span>
-<span class="source-line-no">036</span><span id="line-36">     * 解决方案的质量组件</span>
-<span class="source-line-no">037</span><span id="line-37">     */</span>
-<span class="source-line-no">038</span><span id="line-38">    protected AbstractSolutionQuality solutionQuality;</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">    /**</span>
-<span class="source-line-no">041</span><span id="line-41">     * 构造函数</span>
-<span class="source-line-no">042</span><span id="line-42">     *</span>
-<span class="source-line-no">043</span><span id="line-43">     * @param pheromoneStructure 信息素关联作为通用引用</span>
-<span class="source-line-no">044</span><span id="line-44">     * @param solutionQuality    解决方案的质量组件</span>
-<span class="source-line-no">045</span><span id="line-45">     */</span>
-<span class="source-line-no">046</span><span id="line-46">    public AbstractPheromoneUpdate(E pheromoneStructure, AbstractSolutionQuality solutionQuality) {</span>
-<span class="source-line-no">047</span><span id="line-47">        this.pheromoneStructure = pheromoneStructure;</span>
-<span class="source-line-no">048</span><span id="line-48">        this.solutionQuality = solutionQuality;</span>
-<span class="source-line-no">049</span><span id="line-49">    }</span>
-<span class="source-line-no">050</span><span id="line-50"></span>
-<span class="source-line-no">051</span><span id="line-51">    /**</span>
-<span class="source-line-no">052</span><span id="line-52">     * 根据解决方案用信息素标记问题的相关实体。</span>
-<span class="source-line-no">053</span><span id="line-53">     *</span>
-<span class="source-line-no">054</span><span id="line-54">     * @param solution  用信息素标记的溶液或蚂蚁路径</span>
-<span class="source-line-no">055</span><span id="line-55">     */</span>
-<span class="source-line-no">056</span><span id="line-56">    public abstract void update(S solution);</span>
-<span class="source-line-no">057</span><span id="line-57">}</span>
+<span class="source-line-no">009</span><span id="line-9"> * &lt;br&gt;</span>
+<span class="source-line-no">010</span><span id="line-10"> * 为解决方案中包含的实体进行信息素标记。&lt;br&gt;</span>
+<span class="source-line-no">011</span><span id="line-11"> * &lt;br&gt;</span>
+<span class="source-line-no">012</span><span id="line-12"> * 标记相关问题 ({@link eu.andredick.aco.problem.AbstractProblem})的解决方案 ({@link AbstractSolution}) 由主进程 ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess})调用，&lt;br&gt;</span>
+<span class="source-line-no">013</span><span id="line-13"> * 此过程与蚂蚁 ({@link eu.andredick.aco.ant.AbstractAnt})相关。&lt;br&gt;</span>
+<span class="source-line-no">014</span><span id="line-14"> * 为了执行此任务，蚂蚁具有对解的组成成分进行信息素标记的功能。&lt;br&gt;</span>
+<span class="source-line-no">015</span><span id="line-15"> * 对于要标记的蚂蚁解的实例 {@link AbstractSolution} 最初通过质量组件 ({@link AbstractSolutionQuality}) 确定信息素的量。&lt;br&gt;</span>
+<span class="source-line-no">016</span><span id="line-16"> * 随后，通过信息素关联组件 ({@link AbstractPheromoneAssociation})增加解组分上的信息素浓度。&lt;br&gt;</span>
+<span class="source-line-no">017</span><span id="line-17"> * &lt;br&gt;</span>
+<span class="source-line-no">018</span><span id="line-18"> * 必须根据信息素关联和问题解决的表现来确定该组分的派生类。&lt;br&gt;</span>
+<span class="source-line-no">019</span><span id="line-19"> * 这样做的原因是标记实体（解决方案组件）需要了解问题的结构和相关的信息素关联。&lt;br&gt;</span>
+<span class="source-line-no">020</span><span id="line-20"> * 这种依赖关系是通过泛型编程实现的。&lt;br&gt;</span>
+<span class="source-line-no">021</span><span id="line-21"> *</span>
+<span class="source-line-no">022</span><span id="line-22"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneUpdate.svg" alt=""&gt;&lt;/p&gt;</span>
+<span class="source-line-no">023</span><span id="line-23"> *</span>
+<span class="source-line-no">024</span><span id="line-24"> * @param &lt;E&gt; 信息素关联的表达</span>
+<span class="source-line-no">025</span><span id="line-25"> * @param &lt;S&gt; 与问题相关的解决方案的规范</span>
+<span class="source-line-no">026</span><span id="line-26"> */</span>
+<span class="source-line-no">027</span><span id="line-27">public abstract class AbstractPheromoneUpdate&lt;E extends AbstractPheromoneAssociation, S extends AbstractSolution&gt; {</span>
+<span class="source-line-no">028</span><span id="line-28"></span>
+<span class="source-line-no">029</span><span id="line-29">    /**</span>
+<span class="source-line-no">030</span><span id="line-30">     * 信息素关联作为通用引用</span>
+<span class="source-line-no">031</span><span id="line-31">     */</span>
+<span class="source-line-no">032</span><span id="line-32">    protected E pheromoneStructure;</span>
+<span class="source-line-no">033</span><span id="line-33"></span>
+<span class="source-line-no">034</span><span id="line-34">    /**</span>
+<span class="source-line-no">035</span><span id="line-35">     * 解决方案的质量组件</span>
+<span class="source-line-no">036</span><span id="line-36">     */</span>
+<span class="source-line-no">037</span><span id="line-37">    protected AbstractSolutionQuality solutionQuality;</span>
+<span class="source-line-no">038</span><span id="line-38"></span>
+<span class="source-line-no">039</span><span id="line-39">    /**</span>
+<span class="source-line-no">040</span><span id="line-40">     * 构造函数</span>
+<span class="source-line-no">041</span><span id="line-41">     *</span>
+<span class="source-line-no">042</span><span id="line-42">     * @param pheromoneStructure 信息素关联作为通用引用</span>
+<span class="source-line-no">043</span><span id="line-43">     * @param solutionQuality    解决方案的质量组件</span>
+<span class="source-line-no">044</span><span id="line-44">     */</span>
+<span class="source-line-no">045</span><span id="line-45">    public AbstractPheromoneUpdate(E pheromoneStructure, AbstractSolutionQuality solutionQuality) {</span>
+<span class="source-line-no">046</span><span id="line-46">        this.pheromoneStructure = pheromoneStructure;</span>
+<span class="source-line-no">047</span><span id="line-47">        this.solutionQuality = solutionQuality;</span>
+<span class="source-line-no">048</span><span id="line-48">    }</span>
+<span class="source-line-no">049</span><span id="line-49"></span>
+<span class="source-line-no">050</span><span id="line-50">    /**</span>
+<span class="source-line-no">051</span><span id="line-51">     * 根据解决方案用信息素标记问题的相关实体。</span>
+<span class="source-line-no">052</span><span id="line-52">     *</span>
+<span class="source-line-no">053</span><span id="line-53">     * @param solution  用信息素标记的溶液或蚂蚁路径</span>
+<span class="source-line-no">054</span><span id="line-54">     */</span>
+<span class="source-line-no">055</span><span id="line-55">    public abstract void update(S solution);</span>
+<span class="source-line-no">056</span><span id="line-56">}</span>
 
 
 

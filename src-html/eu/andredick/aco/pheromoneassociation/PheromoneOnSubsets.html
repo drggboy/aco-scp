@@ -25,113 +25,112 @@
 <span class="source-line-no">012</span><span id="line-12"></span>
 <span class="source-line-no">013</span><span id="line-13">/**</span>
 <span class="source-line-no">014</span><span id="line-14"> * &lt;b&gt;信息素关联部分的实现&lt;/b&gt;, 与 SCP 问题的关联 ({@link SCProblem})。&lt;br&gt;</span>
-<span class="source-line-no">015</span><span id="line-15"> * 第3.3.1章，第24页，信息素关联&lt;br&gt;</span>
-<span class="source-line-no">016</span><span id="line-16"> * &lt;br&gt;</span>
-<span class="source-line-no">017</span><span id="line-17"> * SCP的每个子集被分配一个信息素浓度值.&lt;br&gt;</span>
-<span class="source-line-no">018</span><span id="line-18"> * 蚂蚁用信息素标记其解中包含的子集.&lt;br&gt;</span>
-<span class="source-line-no">019</span><span id="line-19"> * &lt;br&gt;</span>
-<span class="source-line-no">020</span><span id="line-20"> * 与特定问题实体相关的信息素可以作为一个层,&lt;br&gt;</span>
-<span class="source-line-no">021</span><span id="line-21"> * 信息素关联设计了一些规则（信息素蒸发和信息素起始）.&lt;br&gt;</span>
-<span class="source-line-no">022</span><span id="line-22"> * 定义了到特定问题实体的信息素浓度。&lt;br&gt;</span>
-<span class="source-line-no">023</span><span id="line-23"> * 因此，信息素关联的每种实现都对应特定的问题&lt;br&gt;</span>
-<span class="source-line-no">024</span><span id="line-24"> * 这种依赖关系由泛型编程 {@code &lt;P extends AbstractProblem&gt;} 确定实现.&lt;br&gt;</span>
-<span class="source-line-no">025</span><span id="line-25"> * 因此，在实现过程中需要确定信息素关联的具体问题。&lt;br&gt;</span>
-<span class="source-line-no">026</span><span id="line-26"> * &lt;br&gt;</span>
-<span class="source-line-no">027</span><span id="line-27"> * 以下组件中需要信息素关联:</span>
-<span class="source-line-no">028</span><span id="line-28"> * &lt;ul&gt;</span>
-<span class="source-line-no">029</span><span id="line-29"> * &lt;li&gt;主进程 {@link AbstractMasterProcess}&lt;/li&gt;</span>
-<span class="source-line-no">030</span><span id="line-30"> * &lt;li&gt;信息素起始 {@link AbstractPheromoneInit}&lt;/li&gt;</span>
-<span class="source-line-no">031</span><span id="line-31"> * &lt;li&gt;信息素蒸发 {@link AbstractPheromoneEvaporation}&lt;/li&gt;</span>
-<span class="source-line-no">032</span><span id="line-32"> * &lt;li&gt;候选方案的选择 {@link AbstractNextStepStrategy}&lt;/li&gt;</span>
-<span class="source-line-no">033</span><span id="line-33"> * &lt;li&gt;信息素标记  {@link AbstractPheromoneUpdate}&lt;/li&gt;</span>
-<span class="source-line-no">034</span><span id="line-34"> * &lt;/ul&gt;</span>
-<span class="source-line-no">035</span><span id="line-35"> * &lt;br&gt;</span>
-<span class="source-line-no">036</span><span id="line-36"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneAssociation-a.svg" alt=""&gt;&lt;/p&gt;</span>
-<span class="source-line-no">037</span><span id="line-37"> * &lt;br&gt;</span>
-<span class="source-line-no">038</span><span id="line-38"> */</span>
-<span class="source-line-no">039</span><span id="line-39">public class PheromoneOnSubsets extends AbstractPheromoneAssociation&lt;SCProblem&gt; {</span>
-<span class="source-line-no">040</span><span id="line-40"></span>
-<span class="source-line-no">041</span><span id="line-41">    /**</span>
-<span class="source-line-no">042</span><span id="line-42">     * 用数组表示的问题实体上的信息素浓度。&lt;br&gt;</span>
-<span class="source-line-no">043</span><span id="line-43">     * 数组的索引对应于问题实体的索引（唯一映射）。&lt;br&gt;</span>
-<span class="source-line-no">044</span><span id="line-44">     */</span>
-<span class="source-line-no">045</span><span id="line-45">    private float[] pheromoneValues;</span>
-<span class="source-line-no">046</span><span id="line-46"></span>
-<span class="source-line-no">047</span><span id="line-47">    /**</span>
-<span class="source-line-no">048</span><span id="line-48">     * 构造函数</span>
-<span class="source-line-no">049</span><span id="line-49">     *</span>
-<span class="source-line-no">050</span><span id="line-50">     * @param problem 集合覆盖问题的实例</span>
-<span class="source-line-no">051</span><span id="line-51">     */</span>
-<span class="source-line-no">052</span><span id="line-52">    public PheromoneOnSubsets(SCProblem problem) {</span>
-<span class="source-line-no">053</span><span id="line-53">        super(problem);</span>
-<span class="source-line-no">054</span><span id="line-54">        pheromoneValues = new float[problem.getStructure().subsetsSize()];</span>
-<span class="source-line-no">055</span><span id="line-55">    }</span>
-<span class="source-line-no">056</span><span id="line-56"></span>
-<span class="source-line-no">057</span><span id="line-57">    /**</span>
-<span class="source-line-no">058</span><span id="line-58">     * 设置信息素蒸发规则</span>
-<span class="source-line-no">059</span><span id="line-59">     * @param evaporation_rule 信息素起始规则</span>
-<span class="source-line-no">060</span><span id="line-60">     */</span>
-<span class="source-line-no">061</span><span id="line-61">    public void setEvaporationRule(AbstractPheromoneEvaporation evaporation_rule){</span>
-<span class="source-line-no">062</span><span id="line-62">        this.evaporationRule = evaporation_rule;</span>
-<span class="source-line-no">063</span><span id="line-63">    }</span>
-<span class="source-line-no">064</span><span id="line-64"></span>
-<span class="source-line-no">065</span><span id="line-65">    /**</span>
-<span class="source-line-no">066</span><span id="line-66">     * 启动整个信息素蒸发的时间步长。&lt;br&gt;</span>
-<span class="source-line-no">067</span><span id="line-67">     * 所有信息素浓度应符合蒸发规则 {@link #evaporationRule}。&lt;br&gt;</span>
-<span class="source-line-no">068</span><span id="line-68">     */</span>
-<span class="source-line-no">069</span><span id="line-69">    @Override</span>
-<span class="source-line-no">070</span><span id="line-70">    public void evaporatePheromones() {</span>
-<span class="source-line-no">071</span><span id="line-71">        PheromoneEvaporation evaporation_rule = new PheromoneEvaporation((float)0.1);</span>
-<span class="source-line-no">072</span><span id="line-72">        setEvaporationRule(evaporation_rule);</span>
-<span class="source-line-no">073</span><span id="line-73">        for (int i = 0; i &lt; this.pheromoneValues.length; i++) {</span>
-<span class="source-line-no">074</span><span id="line-74">            pheromoneValues[i] = this.evaporationRule.evaporate(pheromoneValues[i]);</span>
-<span class="source-line-no">075</span><span id="line-75">        }</span>
-<span class="source-line-no">076</span><span id="line-76">    }</span>
-<span class="source-line-no">077</span><span id="line-77"></span>
-<span class="source-line-no">078</span><span id="line-78">    /**</span>
-<span class="source-line-no">079</span><span id="line-79">     * 设置信息素起始规则</span>
-<span class="source-line-no">080</span><span id="line-80">     * @param pheromone_init_rule 信息素起始规则</span>
-<span class="source-line-no">081</span><span id="line-81">     */</span>
-<span class="source-line-no">082</span><span id="line-82">    public void setPheromoneInitRule(AbstractPheromoneInit pheromone_init_rule){</span>
-<span class="source-line-no">083</span><span id="line-83">        this.pheromoneInitRule = pheromone_init_rule;</span>
-<span class="source-line-no">084</span><span id="line-84">    }</span>
-<span class="source-line-no">085</span><span id="line-85"></span>
-<span class="source-line-no">086</span><span id="line-86">    /**</span>
-<span class="source-line-no">087</span><span id="line-87">     * 使用起始规则启动 SCP 子集的信息素浓度 {@link #pheromoneInitRule}.&lt;br&gt;</span>
-<span class="source-line-no">088</span><span id="line-88">     * 此方法建立整个信息素的初始状态，该状态在 ACO 算法启动时应存在.</span>
-<span class="source-line-no">089</span><span id="line-89">     */</span>
-<span class="source-line-no">090</span><span id="line-90">    @Override</span>
-<span class="source-line-no">091</span><span id="line-91">    public void initPheromones() {</span>
-<span class="source-line-no">092</span><span id="line-92">        PheromoneInit pheromone_init_rule = new PheromoneInit(0);</span>
-<span class="source-line-no">093</span><span id="line-93">        setPheromoneInitRule(pheromone_init_rule);</span>
-<span class="source-line-no">094</span><span id="line-94">        for (int i = 0; i &lt; this.pheromoneValues.length; i++) {</span>
-<span class="source-line-no">095</span><span id="line-95">            pheromoneValues[i] = this.pheromoneInitRule.initValue();</span>
-<span class="source-line-no">096</span><span id="line-96">        }</span>
-<span class="source-line-no">097</span><span id="line-97">    }</span>
+<span class="source-line-no">015</span><span id="line-15"> * &lt;br&gt;</span>
+<span class="source-line-no">016</span><span id="line-16"> * SCP的每个子集被分配一个信息素浓度值.&lt;br&gt;</span>
+<span class="source-line-no">017</span><span id="line-17"> * 蚂蚁用信息素标记其解中包含的子集.&lt;br&gt;</span>
+<span class="source-line-no">018</span><span id="line-18"> * &lt;br&gt;</span>
+<span class="source-line-no">019</span><span id="line-19"> * 与特定问题实体相关的信息素可以作为一个层,&lt;br&gt;</span>
+<span class="source-line-no">020</span><span id="line-20"> * 信息素关联设计了一些规则（信息素蒸发和信息素起始）.&lt;br&gt;</span>
+<span class="source-line-no">021</span><span id="line-21"> * 定义了到特定问题实体的信息素浓度。&lt;br&gt;</span>
+<span class="source-line-no">022</span><span id="line-22"> * 因此，信息素关联的每种实现都对应特定的问题&lt;br&gt;</span>
+<span class="source-line-no">023</span><span id="line-23"> * 这种依赖关系由泛型编程 {@code &lt;P extends AbstractProblem&gt;} 确定实现.&lt;br&gt;</span>
+<span class="source-line-no">024</span><span id="line-24"> * 因此，在实现过程中需要确定信息素关联的具体问题。&lt;br&gt;</span>
+<span class="source-line-no">025</span><span id="line-25"> * &lt;br&gt;</span>
+<span class="source-line-no">026</span><span id="line-26"> * 以下组件中需要信息素关联:</span>
+<span class="source-line-no">027</span><span id="line-27"> * &lt;ul&gt;</span>
+<span class="source-line-no">028</span><span id="line-28"> * &lt;li&gt;主进程 {@link AbstractMasterProcess}&lt;/li&gt;</span>
+<span class="source-line-no">029</span><span id="line-29"> * &lt;li&gt;信息素起始 {@link AbstractPheromoneInit}&lt;/li&gt;</span>
+<span class="source-line-no">030</span><span id="line-30"> * &lt;li&gt;信息素蒸发 {@link AbstractPheromoneEvaporation}&lt;/li&gt;</span>
+<span class="source-line-no">031</span><span id="line-31"> * &lt;li&gt;候选方案的选择 {@link AbstractNextStepStrategy}&lt;/li&gt;</span>
+<span class="source-line-no">032</span><span id="line-32"> * &lt;li&gt;信息素标记  {@link AbstractPheromoneUpdate}&lt;/li&gt;</span>
+<span class="source-line-no">033</span><span id="line-33"> * &lt;/ul&gt;</span>
+<span class="source-line-no">034</span><span id="line-34"> * &lt;br&gt;</span>
+<span class="source-line-no">035</span><span id="line-35"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneAssociation-a.svg" alt=""&gt;&lt;/p&gt;</span>
+<span class="source-line-no">036</span><span id="line-36"> * &lt;br&gt;</span>
+<span class="source-line-no">037</span><span id="line-37"> */</span>
+<span class="source-line-no">038</span><span id="line-38">public class PheromoneOnSubsets extends AbstractPheromoneAssociation&lt;SCProblem&gt; {</span>
+<span class="source-line-no">039</span><span id="line-39"></span>
+<span class="source-line-no">040</span><span id="line-40">    /**</span>
+<span class="source-line-no">041</span><span id="line-41">     * 用数组表示的问题实体上的信息素浓度。&lt;br&gt;</span>
+<span class="source-line-no">042</span><span id="line-42">     * 数组的索引对应于问题实体的索引（唯一映射）。&lt;br&gt;</span>
+<span class="source-line-no">043</span><span id="line-43">     */</span>
+<span class="source-line-no">044</span><span id="line-44">    private float[] pheromoneValues;</span>
+<span class="source-line-no">045</span><span id="line-45"></span>
+<span class="source-line-no">046</span><span id="line-46">    /**</span>
+<span class="source-line-no">047</span><span id="line-47">     * 构造函数</span>
+<span class="source-line-no">048</span><span id="line-48">     *</span>
+<span class="source-line-no">049</span><span id="line-49">     * @param problem 集合覆盖问题的实例</span>
+<span class="source-line-no">050</span><span id="line-50">     */</span>
+<span class="source-line-no">051</span><span id="line-51">    public PheromoneOnSubsets(SCProblem problem) {</span>
+<span class="source-line-no">052</span><span id="line-52">        super(problem);</span>
+<span class="source-line-no">053</span><span id="line-53">        pheromoneValues = new float[problem.getStructure().subsetsSize()];</span>
+<span class="source-line-no">054</span><span id="line-54">    }</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">    /**</span>
+<span class="source-line-no">057</span><span id="line-57">     * 设置信息素蒸发规则</span>
+<span class="source-line-no">058</span><span id="line-58">     * @param evaporation_rule 信息素起始规则</span>
+<span class="source-line-no">059</span><span id="line-59">     */</span>
+<span class="source-line-no">060</span><span id="line-60">    public void setEvaporationRule(AbstractPheromoneEvaporation evaporation_rule){</span>
+<span class="source-line-no">061</span><span id="line-61">        this.evaporationRule = evaporation_rule;</span>
+<span class="source-line-no">062</span><span id="line-62">    }</span>
+<span class="source-line-no">063</span><span id="line-63"></span>
+<span class="source-line-no">064</span><span id="line-64">    /**</span>
+<span class="source-line-no">065</span><span id="line-65">     * 启动整个信息素蒸发的时间步长。&lt;br&gt;</span>
+<span class="source-line-no">066</span><span id="line-66">     * 所有信息素浓度应符合蒸发规则 {@link #evaporationRule}。&lt;br&gt;</span>
+<span class="source-line-no">067</span><span id="line-67">     */</span>
+<span class="source-line-no">068</span><span id="line-68">    @Override</span>
+<span class="source-line-no">069</span><span id="line-69">    public void evaporatePheromones() {</span>
+<span class="source-line-no">070</span><span id="line-70">        PheromoneEvaporation evaporation_rule = new PheromoneEvaporation((float)0.1);</span>
+<span class="source-line-no">071</span><span id="line-71">        setEvaporationRule(evaporation_rule);</span>
+<span class="source-line-no">072</span><span id="line-72">        for (int i = 0; i &lt; this.pheromoneValues.length; i++) {</span>
+<span class="source-line-no">073</span><span id="line-73">            pheromoneValues[i] = this.evaporationRule.evaporate(pheromoneValues[i]);</span>
+<span class="source-line-no">074</span><span id="line-74">        }</span>
+<span class="source-line-no">075</span><span id="line-75">    }</span>
+<span class="source-line-no">076</span><span id="line-76"></span>
+<span class="source-line-no">077</span><span id="line-77">    /**</span>
+<span class="source-line-no">078</span><span id="line-78">     * 设置信息素起始规则</span>
+<span class="source-line-no">079</span><span id="line-79">     * @param pheromone_init_rule 信息素起始规则</span>
+<span class="source-line-no">080</span><span id="line-80">     */</span>
+<span class="source-line-no">081</span><span id="line-81">    public void setPheromoneInitRule(AbstractPheromoneInit pheromone_init_rule){</span>
+<span class="source-line-no">082</span><span id="line-82">        this.pheromoneInitRule = pheromone_init_rule;</span>
+<span class="source-line-no">083</span><span id="line-83">    }</span>
+<span class="source-line-no">084</span><span id="line-84"></span>
+<span class="source-line-no">085</span><span id="line-85">    /**</span>
+<span class="source-line-no">086</span><span id="line-86">     * 使用起始规则启动 SCP 子集的信息素浓度 {@link #pheromoneInitRule}.&lt;br&gt;</span>
+<span class="source-line-no">087</span><span id="line-87">     * 此方法建立整个信息素的初始状态，该状态在 ACO 算法启动时应存在.</span>
+<span class="source-line-no">088</span><span id="line-88">     */</span>
+<span class="source-line-no">089</span><span id="line-89">    @Override</span>
+<span class="source-line-no">090</span><span id="line-90">    public void initPheromones() {</span>
+<span class="source-line-no">091</span><span id="line-91">        PheromoneInit pheromone_init_rule = new PheromoneInit(0);</span>
+<span class="source-line-no">092</span><span id="line-92">        setPheromoneInitRule(pheromone_init_rule);</span>
+<span class="source-line-no">093</span><span id="line-93">        for (int i = 0; i &lt; this.pheromoneValues.length; i++) {</span>
+<span class="source-line-no">094</span><span id="line-94">            pheromoneValues[i] = this.pheromoneInitRule.initValue();</span>
+<span class="source-line-no">095</span><span id="line-95">        }</span>
+<span class="source-line-no">096</span><span id="line-96">    }</span>
+<span class="source-line-no">097</span><span id="line-97"></span>
 <span class="source-line-no">098</span><span id="line-98"></span>
-<span class="source-line-no">099</span><span id="line-99"></span>
-<span class="source-line-no">100</span><span id="line-100">    /**</span>
-<span class="source-line-no">101</span><span id="line-101">     * 提供与问题的 j 子集相关的信息素浓度</span>
-<span class="source-line-no">102</span><span id="line-102">     * @param j 问题子集的索引</span>
-<span class="source-line-no">103</span><span id="line-103">     * @return 信息素浓度与问题的子集j相关</span>
-<span class="source-line-no">104</span><span id="line-104">     */</span>
-<span class="source-line-no">105</span><span id="line-105">    @Override</span>
-<span class="source-line-no">106</span><span id="line-106">    public float getPheromone(int j) {</span>
-<span class="source-line-no">107</span><span id="line-107">        return this.pheromoneValues[j];</span>
-<span class="source-line-no">108</span><span id="line-108">    }</span>
-<span class="source-line-no">109</span><span id="line-109"></span>
-<span class="source-line-no">110</span><span id="line-110">    /**</span>
-<span class="source-line-no">111</span><span id="line-111">     * 在当前基础上添加额外的信息素.&lt;br&gt;</span>
-<span class="source-line-no">112</span><span id="line-112">     * 该方法由信息素标记组件 ({@link AbstractPheromoneUpdate}) 使用.</span>
-<span class="source-line-no">113</span><span id="line-113">     * @param j        问题实体的索引.</span>
-<span class="source-line-no">114</span><span id="line-114">     * @param ph_delta 增加的信息素浓度</span>
-<span class="source-line-no">115</span><span id="line-115">     */</span>
-<span class="source-line-no">116</span><span id="line-116">    @Override</span>
-<span class="source-line-no">117</span><span id="line-117">    public void addPheromone(int j, float ph_delta) {</span>
-<span class="source-line-no">118</span><span id="line-118">        this.pheromoneValues[j] += ph_delta;</span>
-<span class="source-line-no">119</span><span id="line-119">    }</span>
-<span class="source-line-no">120</span><span id="line-120"></span>
-<span class="source-line-no">121</span><span id="line-121">}</span>
+<span class="source-line-no">099</span><span id="line-99">    /**</span>
+<span class="source-line-no">100</span><span id="line-100">     * 提供与问题的 j 子集相关的信息素浓度</span>
+<span class="source-line-no">101</span><span id="line-101">     * @param j 问题子集的索引</span>
+<span class="source-line-no">102</span><span id="line-102">     * @return 信息素浓度与问题的子集j相关</span>
+<span class="source-line-no">103</span><span id="line-103">     */</span>
+<span class="source-line-no">104</span><span id="line-104">    @Override</span>
+<span class="source-line-no">105</span><span id="line-105">    public float getPheromone(int j) {</span>
+<span class="source-line-no">106</span><span id="line-106">        return this.pheromoneValues[j];</span>
+<span class="source-line-no">107</span><span id="line-107">    }</span>
+<span class="source-line-no">108</span><span id="line-108"></span>
+<span class="source-line-no">109</span><span id="line-109">    /**</span>
+<span class="source-line-no">110</span><span id="line-110">     * 在当前基础上添加额外的信息素.&lt;br&gt;</span>
+<span class="source-line-no">111</span><span id="line-111">     * 该方法由信息素标记组件 ({@link AbstractPheromoneUpdate}) 使用.</span>
+<span class="source-line-no">112</span><span id="line-112">     * @param j        问题实体的索引.</span>
+<span class="source-line-no">113</span><span id="line-113">     * @param ph_delta 增加的信息素浓度</span>
+<span class="source-line-no">114</span><span id="line-114">     */</span>
+<span class="source-line-no">115</span><span id="line-115">    @Override</span>
+<span class="source-line-no">116</span><span id="line-116">    public void addPheromone(int j, float ph_delta) {</span>
+<span class="source-line-no">117</span><span id="line-117">        this.pheromoneValues[j] += ph_delta;</span>
+<span class="source-line-no">118</span><span id="line-118">    }</span>
+<span class="source-line-no">119</span><span id="line-119"></span>
+<span class="source-line-no">120</span><span id="line-120">}</span>
 
 
 

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generiert durch Microsoft Visio, SVG Export PheromonePerception.svg Zeichenblatt-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="6.09309in" height="2.71711in"
+		viewBox="0 0 438.703 195.632" xml:space="preserve" color-interpolation-filters="sRGB" class="st19">
+	<v:documentProperties v:langID="1031" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff}
+		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st3 {fill:#000000;font-family:Calibri;font-size:1.00001em}
+		.st4 {font-size:1em}
+		.st5 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st6 {fill:#f2f2f2;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st7 {fill:#000000;font-family:Calibri;font-size:0.833336em}
+		.st8 {fill:#ffffff;fill-opacity:0}
+		.st9 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;visibility:hidden}
+		.st10 {fill:#f2f2f2;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st11 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st12 {fill:#000000;font-family:Courier New;font-size:0.75em}
+		.st13 {marker-end:url(#mrkr12-53);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st14 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.22935779816514}
+		.st15 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st16 {fill:#000000;font-family:Calibri;font-size:0.75em}
+		.st17 {marker-end:url(#mrkr12-53);stroke:#000000;stroke-dasharray:5.25,3.75;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st18 {fill:#000000;font-family:Calibri;font-size:0.666664em}
+		.st19 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend12">
+			<path d="M 3 1 L 0 0 L 3 -1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none"/>
+		</g>
+		<marker id="mrkr12-53" class="st14" v:arrowType="12" v:arrowSize="2" orient="auto" markerUnits="strokeWidth"
+				overflow="visible">
+			<use xlink:href="#lend12" transform="scale(-4.36,-4.36) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Zeichenblatt-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Verbinder" v:index="0"/>
+		<g id="group1385-1" transform="translate(326.76,-156.989)" v:mID="1385" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Callout)"/>
+				<v:ud v:nameU="msvSDTargetIntersection" v:prompt=""/>
+				<v:ud v:nameU="msvSDCalloutNoHighlight" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="Side" v:prompt="" v:val="VT0(4):26"/>
+				<v:ud v:nameU="LeaderEnd" v:prompt="" v:val="VT7(PNT(6.25MM,-0.28346456692913)):40"/>
+				<v:ud v:nameU="WHBoxIntersection" v:prompt="" v:val="VT7(PNT(10.096153846154MM,0)):40"/>
+				<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+				<v:ud v:nameU="msvSDTargetIntersection" v:prompt="" v:val="VT7(PNT(0.37022563722786,0.03745229192753)):40"/>
+				<v:ud v:nameU="Side" v:prompt="" v:val="VT0(3):26"/>
+				<v:ud v:nameU="LeaderEnd" v:prompt="" v:val="VT7(PNT(0.37022563722786,0.03745229192753)):40"/>
+				<v:ud v:nameU="WHBoxIntersection" v:prompt="" v:val="VT7(PNT(0,-0.26507733994694)):40"/>
+			</v:userDefs>
+			<title>Hinweis.1385</title>
+			<desc>Pheromon-Wahrnehmung</desc>
+			<g id="shape1385-2" v:mID="1385" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="46.7717" cy="176.498" width="93.55" height="36.8038"/>
+				<path d="M0 195.63 L93.54 195.63 L93.54 165.87 L85.04 157.36 L0 157.36 L0 195.63 Z" class="st1"/>
+				<path d="M0 195.63 L26.66 192.94" class="st2"/>
+				<path d="M0 195.63 L93.54 195.63 L93.54 165.87 L85.04 157.36 L0 157.36 L0 195.63" class="st2"/>
+				<text x="4" y="172.9" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>Pheromon-<tspan x="4" dy="1.2em"
+							class="st4">Wahrnehmung</tspan></text>			</g>
+			<g id="shape1386-8" v:mID="1386" v:groupContext="shape" transform="translate(85.0394,-29.7638)">
+				<title>Tabelle.1386</title>
+				<v:userDefs>
+					<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+				</v:userDefs>
+				<path d="M0 195.63 L8.5 195.63 L8.5 196.48 L8.5 195.63 L0 187.13 L-0.85 187.13 L0 187.13 L0 195.63 Z" class="st5"/>
+			</g>
+		</g>
+		<g id="group1366-10" transform="translate(0.375,-153.928)" v:mID="1366" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Callout)"/>
+				<v:ud v:nameU="msvSDTargetIntersection" v:prompt=""/>
+				<v:ud v:nameU="msvSDCalloutNoHighlight" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="Side" v:prompt="" v:val="VT0(4):26"/>
+				<v:ud v:nameU="LeaderEnd" v:prompt="" v:val="VT7(PNT(6.25MM,-0.28346456692913)):40"/>
+				<v:ud v:nameU="WHBoxIntersection" v:prompt="" v:val="VT7(PNT(10.096153846154MM,0)):40"/>
+				<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+				<v:ud v:nameU="msvSDTargetIntersection" v:prompt="" v:val="VT7(PNT(0.84457215411676,0.066929430411466)):40"/>
+				<v:ud v:nameU="Side" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="LeaderEnd" v:prompt="" v:val="VT7(PNT(0.84457215411676,0.066929430411466)):40"/>
+				<v:ud v:nameU="WHBoxIntersection" v:prompt="" v:val="VT7(PNT(1.1220472845444,-0.12763063590141)):40"/>
+			</v:userDefs>
+			<title>Hinweis.1366</title>
+			<desc>Alternativen-auswahl</desc>
+			<g id="shape1366-11" v:mID="1366" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="40.3937" cy="176.498" width="80.79" height="36.8038"/>
+				<path d="M0 195.63 L80.79 195.63 L80.79 165.87 L72.28 157.36 L0 157.36 L0 195.63 Z" class="st1"/>
+				<path d="M80.79 195.63 L60.81 190.81" class="st2"/>
+				<path d="M0 195.63 L80.79 195.63 L80.79 165.87 L72.28 157.36 L0 157.36 L0 195.63" class="st2"/>
+				<text x="12.72" y="172.9" class="st3" v:langID="1031"><v:paragraph v:horizAlign="2"/><v:tabList/>Alternativen-<tspan
+							x="36.66" dy="1.2em" class="st4">auswahl</tspan></text>			</g>
+			<g id="shape1367-17" v:mID="1367" v:groupContext="shape" transform="translate(72.2835,-29.7638)">
+				<title>Tabelle.1367</title>
+				<v:userDefs>
+					<v:ud v:nameU="FoldSize" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+				</v:userDefs>
+				<path d="M0 195.63 L8.5 195.63 L8.5 196.48 L8.5 195.63 L0 187.13 L-0.85 187.13 L0 187.13 L0 195.63 Z" class="st5"/>
+			</g>
+		</g>
+		<g id="group1368-19" transform="translate(42.8947,-98.1703)" v:mID="1368" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(List)"/>
+				<v:ud v:nameU="msvSDContainerResize" v:prompt="" v:val="VT0(2):26"/>
+				<v:ud v:nameU="msvSDContainerNoRibbon" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="msvSDListAlignment" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvSDListDirection" v:prompt="" v:val="VT0(2):26"/>
+				<v:ud v:nameU="msvSDListItemMaster1" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListItemMaster2" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListItemMaster3" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListRequiredCategories" v:prompt="" v:val="VT4(Member;Separator)"/>
+				<v:ud v:nameU="msvSDContainerMargin" v:prompt="" v:val="VT0(0.039370078740157):24"/>
+				<v:ud v:nameU="msvSDListSpacing" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="StereoTypeHgt" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+				<v:ud v:nameU="TextOffset" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="EntityName" v:prompt="" v:val="VT4(Klassenname)"/>
+				<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+				<v:ud v:nameU="BackGrnd" v:prompt="" v:val="VT5(#f2f2f2)"/>
+				<v:ud v:nameU="BackGrndLine" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="Test" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="TextOffset" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(1.5881080521619):1"/>
+				<v:ud v:nameU="EntityName" v:prompt="" v:val="VT4(NextStepStrategy)"/>
+				<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+			</v:userDefs>
+			<title>Klasse.1368</title>
+			<desc>NextStepStrategy</desc>
+			<g id="shape1369-20" v:mID="1369" v:groupContext="shape">
+				<title>Tabelle.1369</title>
+				<v:userDefs>
+					<v:ud v:nameU="DOPS" v:prompt="" v:val="VT0(1):27"/>
+					<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+					<v:ud v:nameU="EmblOffset" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Spacer" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+				</v:userDefs>
+				<path d="M0 195.63 L122.97 195.63 L122.97 177.96 L0 177.96 L0 195.63 Z" class="st6"/>
+			</g>
+			<g id="shape1370-22" v:mID="1370" v:groupContext="shape" transform="translate(0,-17.6693)">
+				<title>Tabelle.1370</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Heading)"/>
+					<v:ud v:nameU="msvSDContainerHeadingEdge" v:prompt="" v:val="VT4(Bottom)"/>
+					<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="StereoTypeHgt" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+					<v:ud v:nameU="EmblOffset" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Spacer" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="UsableHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Klassenname)"/>
+					<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(1):5"/>
+					<v:ud v:nameU="UsableHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(NextStepStrategy)"/>
+				</v:userDefs>
+				<path d="M0 195.63 L122.97 195.63 L122.97 152.72 L0 152.72 L0 195.63 Z" class="st5"/>
+			</g>
+			<g id="shape1371-24" v:mID="1371" v:groupContext="shape" transform="translate(0,-44.573)">
+				<title>Tabelle.1371</title>
+				<desc>&#60;&#60;abstract&#62;&#62;</desc>
+				<v:userDefs>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(&#60;&#60;Stereotyp&#62;&#62;)"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(&#60;&#60;abstract&#62;&#62;)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,0,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="61.4857" cy="187.63" width="122.98" height="16.0036"/>
+				<text x="4" y="192.63" class="st7" v:langID="1031"><v:paragraph/><v:tabList/>&#60;&#60;abstract&#62;&#62;</text>			</g>
+			<g id="shape1372-26" v:mID="1372" v:groupContext="shape" transform="translate(114.467,-60.5766)">
+				<title>Tabelle.1372</title>
+				<desc>Parameter</desc>
+				<v:userDefs>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="DOPS" v:prompt="" v:val="VT0(1):27"/>
+					<v:ud v:nameU="Rounding" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Parameter)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(2,4,2,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="0" cy="195.632" width="0" height="0"/>
+			</g>
+			<g id="shape1368-27" v:mID="1368" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,8.5,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="61.4857" cy="164.511" width="122.98" height="26.9037"/>
+				<text x="4" y="165.86" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>NextStepStrategy</text>			</g>
+		</g>
+		<g id="shape1373-29" v:mID="1373" v:groupContext="shape" transform="translate(45.7293,-101.005)">
+			<title>Mitglied.1373</title>
+			<v:userDefs>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(Member)"/>
+				<v:ud v:nameU="MemberName" v:prompt="" v:val="VT4(-mitgliedsName)"/>
+				<v:ud v:nameU="ContainerMargin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="UserWidth" v:prompt="" v:val="VT0(1.8897637795276):24"/>
+				<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="DarkColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(1)"/>
+				<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(0)"/>
+				<v:ud v:nameU="IsInstance" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="MemberName" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="ContainerMargin" v:prompt="" v:val="VT0(0.039370078740157):24"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#f2f2f2)"/>
+				<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsInstance" v:prompt="" v:val="VT0(1):5"/>
+			</v:userDefs>
+			<rect x="0" y="183.632" width="117.302" height="12" class="st8"/>
+			<rect x="0" y="183.632" width="117.302" height="12" class="st9"/>
+		</g>
+		<g id="group1374-32" transform="translate(224.984,-99.1055)" v:mID="1374" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(List)"/>
+				<v:ud v:nameU="msvSDContainerResize" v:prompt="" v:val="VT0(2):26"/>
+				<v:ud v:nameU="msvSDContainerNoRibbon" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="msvSDListAlignment" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvSDListDirection" v:prompt="" v:val="VT0(2):26"/>
+				<v:ud v:nameU="msvSDListItemMaster1" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListItemMaster2" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListItemMaster3" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListRequiredCategories" v:prompt="" v:val="VT4(Member;Separator)"/>
+				<v:ud v:nameU="msvSDContainerMargin" v:prompt="" v:val="VT0(0.039370078740157):24"/>
+				<v:ud v:nameU="msvSDListSpacing" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="StereoTypeHgt" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+				<v:ud v:nameU="TextOffset" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="EntityName" v:prompt="" v:val="VT4(Klassenname)"/>
+				<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+				<v:ud v:nameU="BackGrnd" v:prompt="" v:val="VT5(#f2f2f2)"/>
+				<v:ud v:nameU="BackGrndLine" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="Test" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="TextOffset" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(2.4749374283826):1"/>
+				<v:ud v:nameU="EntityName" v:prompt="" v:val="VT4(PheromonePerception)"/>
+				<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+			</v:userDefs>
+			<title>Klasse.1374</title>
+			<desc>PheromonePerception</desc>
+			<g id="shape1375-33" v:mID="1375" v:groupContext="shape">
+				<title>Tabelle.1375</title>
+				<v:userDefs>
+					<v:ud v:nameU="DOPS" v:prompt="" v:val="VT0(1):27"/>
+					<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+					<v:ud v:nameU="EmblOffset" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Spacer" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+				</v:userDefs>
+				<path d="M0 195.63 L182.73 195.63 L182.73 177.96 L0 177.96 L0 195.63 Z" class="st10"/>
+			</g>
+			<g id="shape1376-35" v:mID="1376" v:groupContext="shape" transform="translate(0,-17.6729)">
+				<title>Tabelle.1376</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Heading)"/>
+					<v:ud v:nameU="msvSDContainerHeadingEdge" v:prompt="" v:val="VT4(Bottom)"/>
+					<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="StereoTypeHgt" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+					<v:ud v:nameU="EmblOffset" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Spacer" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="UsableHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Klassenname)"/>
+					<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(1):5"/>
+					<v:ud v:nameU="UsableHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(PheromonePerception)"/>
+				</v:userDefs>
+				<path d="M0 195.63 L182.73 195.63 L182.73 152.72 L0 152.72 L0 195.63 Z" class="st11"/>
+			</g>
+			<g id="shape1377-37" v:mID="1377" v:groupContext="shape" transform="translate(0,-44.5766)">
+				<title>Tabelle.1377</title>
+				<desc>&#60;&#60;abstract&#62;&#62;</desc>
+				<v:userDefs>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(&#60;&#60;Stereotyp&#62;&#62;)"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(&#60;&#60;abstract&#62;&#62;)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,0,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="91.365" cy="187.63" width="182.74" height="16.0036"/>
+				<text x="4" y="192.63" class="st7" v:langID="1031"><v:paragraph/><v:tabList/>&#60;&#60;abstract&#62;&#62;</text>			</g>
+			<g id="shape1378-39" v:mID="1378" v:groupContext="shape" transform="translate(174.226,-60.5803)">
+				<title>Tabelle.1378</title>
+				<desc>Parameter</desc>
+				<v:userDefs>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="DOPS" v:prompt="" v:val="VT0(1):27"/>
+					<v:ud v:nameU="Rounding" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Parameter)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(2,4,2,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="0" cy="195.632" width="0" height="0"/>
+			</g>
+			<g id="shape1374-40" v:mID="1374" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,8.5,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="91.365" cy="164.507" width="182.74" height="26.9037"/>
+				<text x="4" y="165.86" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>PheromonePerception</text>			</g>
+		</g>
+		<g id="shape1379-42" v:mID="1379" v:groupContext="shape" transform="translate(227.818,-101.94)">
+			<title>Mitglied.1379</title>
+			<desc>+ getPerceptionValue(realValue)</desc>
+			<v:userDefs>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(Member)"/>
+				<v:ud v:nameU="MemberName" v:prompt="" v:val="VT4(-mitgliedsName)"/>
+				<v:ud v:nameU="ContainerMargin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="UserWidth" v:prompt="" v:val="VT0(1.8897637795276):24"/>
+				<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="DarkColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(1)"/>
+				<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(0)"/>
+				<v:ud v:nameU="IsInstance" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="MemberName" v:prompt="" v:val="VT4(+ getPerceptionValue(realValue))"/>
+				<v:ud v:nameU="ContainerMargin" v:prompt="" v:val="VT0(0.039370078740157):24"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#f2f2f2)"/>
+				<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsInstance" v:prompt="" v:val="VT0(1):5"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,8.50394)" v:tabSpace="42.5197"/>
+			<v:textRect cx="88.5304" cy="189.63" width="177.07" height="12.0036"/>
+			<rect x="0" y="183.628" width="177.061" height="12.0036" class="st8"/>
+			<rect x="0" y="183.628" width="177.061" height="12.0036" class="st9"/>
+			<text x="8.5" y="192.63" class="st12" v:langID="1031"><v:paragraph v:bulletSize="0.166667"/><v:tabList/>+ getPerceptionValue<tspan
+						class="st4" v:langID="1033">(</tspan>realValue)</text>		</g>
+		<g id="group1380-47" transform="translate(165.866,-121.372)" v:mID="1380" v:groupContext="group" v:layerMember="0">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="RelationshipName" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="ShowMulti" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="Identifying" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DXBegin" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="DYBegin" v:prompt="" v:val="VT0(-0.029527559055118):1"/>
+				<v:ud v:nameU="DXEnd" v:prompt="" v:val="VT0(0.029527559055118):1"/>
+				<v:ud v:nameU="DYEnd" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="BeginAngle" v:prompt="" v:val="VT0(-1.5707963267949):32"/>
+				<v:ud v:nameU="EndAngle" v:prompt="" v:val="VT0(0):32"/>
+				<v:ud v:nameU="RelationshipName" v:prompt="" v:val="VT4(benutzt)"/>
+				<v:ud v:nameU="DXBegin" v:prompt="" v:val="VT0(0.012316130952192):1"/>
+				<v:ud v:nameU="DYBegin" v:prompt="" v:val="VT0(-2.2204460492503E-16):1"/>
+				<v:ud v:nameU="DXEnd" v:prompt="" v:val="VT0(0.012316130952207):1"/>
+				<v:ud v:nameU="BeginAngle" v:prompt="" v:val="VT0(-1.8028762911579E-14):32"/>
+			</v:userDefs>
+			<title>Gerichtete Assoziation.1380</title>
+			<desc>benutzt</desc>
+			<g id="shape1380-48" v:mID="1380" v:groupContext="groupContent" v:layerMember="0">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="29.5587" cy="188.545" width="45" height="18.8036"/>
+				<path d="M0 188.55 L59.12 188.55" class="st13"/>
+				<rect v:rectContext="textBkgnd" x="15.4347" y="183.146" width="28.248" height="10.7998" class="st15"/>
+				<text x="15.43" y="191.25" class="st16" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>benutzt</text>			</g>
+		</g>
+		<g id="group1387-56" transform="translate(299.43,-0.375)" v:mID="1387" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(List)"/>
+				<v:ud v:nameU="msvSDContainerResize" v:prompt="" v:val="VT0(2):26"/>
+				<v:ud v:nameU="msvSDContainerNoRibbon" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="msvSDListAlignment" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="msvSDListDirection" v:prompt="" v:val="VT0(2):26"/>
+				<v:ud v:nameU="msvSDListItemMaster1" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListItemMaster2" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListItemMaster3" v:prompt="" v:val="VT0(254):26"/>
+				<v:ud v:nameU="msvSDListRequiredCategories" v:prompt="" v:val="VT4(Member;Separator)"/>
+				<v:ud v:nameU="msvSDContainerMargin" v:prompt="" v:val="VT0(0.039370078740157):24"/>
+				<v:ud v:nameU="msvSDListSpacing" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="StereoTypeHgt" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+				<v:ud v:nameU="TextOffset" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="EntityName" v:prompt="" v:val="VT4(Klassenname)"/>
+				<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+				<v:ud v:nameU="BackGrnd" v:prompt="" v:val="VT5(#f2f2f2)"/>
+				<v:ud v:nameU="BackGrndLine" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="Test" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="TextOffset" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(2.0248641861951):1"/>
+				<v:ud v:nameU="EntityName" v:prompt="" v:val="VT4(PeromonAssociation)"/>
+				<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+			</v:userDefs>
+			<title>Klasse.1387</title>
+			<desc>PeromonAssociation</desc>
+			<g id="shape1388-57" v:mID="1388" v:groupContext="shape">
+				<title>Tabelle.1388</title>
+				<v:userDefs>
+					<v:ud v:nameU="DOPS" v:prompt="" v:val="VT0(1):27"/>
+					<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+					<v:ud v:nameU="EmblOffset" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Spacer" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="HdrHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+				</v:userDefs>
+				<path d="M0 195.63 L138.9 195.63 L138.9 177.96 L0 177.96 L0 195.63 Z" class="st6"/>
+			</g>
+			<g id="shape1389-59" v:mID="1389" v:groupContext="shape" transform="translate(0,-17.6729)">
+				<title>Tabelle.1389</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvStructureType" v:prompt="" v:val="VT4(Heading)"/>
+					<v:ud v:nameU="msvSDContainerHeadingEdge" v:prompt="" v:val="VT4(Bottom)"/>
+					<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="StereoTypeHgt" v:prompt="" v:val="VT0(0.22227273084852):1"/>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+					<v:ud v:nameU="EmblOffset" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="Spacer" v:prompt="" v:val="VT0(0):26"/>
+					<v:ud v:nameU="UsableHgt" v:prompt="" v:val="VT0(0.43616263699002):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Klassenname)"/>
+					<v:ud v:nameU="StereoType" v:prompt="" v:val="VT0(1):5"/>
+					<v:ud v:nameU="UsableHgt" v:prompt="" v:val="VT0(0.59593536783854):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(PeromonAssociation)"/>
+				</v:userDefs>
+				<path d="M0 195.63 L138.9 195.63 L138.9 152.72 L0 152.72 L0 195.63 Z" class="st5"/>
+			</g>
+			<g id="shape1390-61" v:mID="1390" v:groupContext="shape" transform="translate(0,-44.5766)">
+				<title>Tabelle.1390</title>
+				<desc>&#60;&#60;abstract&#62;&#62;</desc>
+				<v:userDefs>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="TemplateParmHgt" v:prompt="" v:val="VT0(0):1"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(&#60;&#60;Stereotyp&#62;&#62;)"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(&#60;&#60;abstract&#62;&#62;)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,0,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="69.4488" cy="187.63" width="138.9" height="16.0036"/>
+				<text x="4" y="192.63" class="st7" v:langID="1031"><v:paragraph/><v:tabList/>&#60;&#60;abstract&#62;&#62;</text>			</g>
+			<g id="shape1391-63" v:mID="1391" v:groupContext="shape" transform="translate(130.394,-60.5803)">
+				<title>Tabelle.1391</title>
+				<desc>Parameter</desc>
+				<v:userDefs>
+					<v:ud v:nameU="TemplateParm" v:prompt="" v:val="VT0(0):5"/>
+					<v:ud v:nameU="DOPS" v:prompt="" v:val="VT0(1):27"/>
+					<v:ud v:nameU="Rounding" v:prompt="" v:val="VT0(0.11811023622047):24"/>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Parameter)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(2,4,2,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="0" cy="195.632" width="0" height="0"/>
+			</g>
+			<g id="shape1387-64" v:mID="1387" v:groupContext="groupContent">
+				<v:textBlock v:margins="rect(4,4,8.5,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="69.4488" cy="164.507" width="138.9" height="26.9037"/>
+				<text x="4" y="165.86" class="st3" v:langID="1031"><v:paragraph/><v:tabList/>PeromonAssociation</text>			</g>
+		</g>
+		<g id="shape1395-66" v:mID="1395" v:groupContext="shape" transform="translate(302.265,-3.20965)">
+			<title>Mitglied.1395</title>
+			<desc>+ getPheromone(Index)</desc>
+			<v:userDefs>
+				<v:ud v:nameU="msvShapeCategories" v:prompt="" v:val="VT4(Member)"/>
+				<v:ud v:nameU="MemberName" v:prompt="" v:val="VT4(-mitgliedsName)"/>
+				<v:ud v:nameU="ContainerMargin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="UserWidth" v:prompt="" v:val="VT0(1.8897637795276):24"/>
+				<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="DarkColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(1)"/>
+				<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(0)"/>
+				<v:ud v:nameU="IsInstance" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="MemberName" v:prompt="" v:val="VT4(+ getPheromone(Index))"/>
+				<v:ud v:nameU="ContainerMargin" v:prompt="" v:val="VT0(0.039370078740157):24"/>
+				<v:ud v:nameU="WidthMin" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#f2f2f2)"/>
+				<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="IsInstance" v:prompt="" v:val="VT0(1):5"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(0,0,0,8.50394)" v:tabSpace="42.5197"/>
+			<v:textRect cx="66.6142" cy="189.63" width="133.23" height="12.0036"/>
+			<rect x="0" y="183.628" width="133.228" height="12.0036" class="st8"/>
+			<rect x="0" y="183.628" width="133.228" height="12.0036" class="st9"/>
+			<text x="8.5" y="192.63" class="st12" v:langID="1031"><v:paragraph/><v:tabList/>+ getPheromone<tspan class="st4"
+						v:langID="1033">(</tspan>Index<tspan class="st4" v:langID="1033">)</tspan></text>		</g>
+		<g id="group1396-72" transform="translate(87.7082,-96.2708)" v:mID="1396" v:groupContext="group" v:layerMember="0">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="RelationshipName" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="ShowMulti" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="Identifying" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DXBegin" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="DYBegin" v:prompt="" v:val="VT0(-0.029527559055118):1"/>
+				<v:ud v:nameU="DXEnd" v:prompt="" v:val="VT0(0.029527559055118):1"/>
+				<v:ud v:nameU="DYEnd" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="BeginAngle" v:prompt="" v:val="VT0(-1.5707963267949):32"/>
+				<v:ud v:nameU="EndAngle" v:prompt="" v:val="VT0(0):32"/>
+				<v:ud v:nameU="RelationshipName" v:prompt="" v:val="VT4(benutzt)"/>
+				<v:ud v:nameU="DXBegin" v:prompt="" v:val="VT0(0):24"/>
+				<v:ud v:nameU="DYBegin" v:prompt="" v:val="VT0(-0.057776585166937):1"/>
+				<v:ud v:nameU="DXEnd" v:prompt="" v:val="VT0(0.05777658516704):24"/>
+			</v:userDefs>
+			<title>Gerichtete Assoziation.1396</title>
+			<desc>benutzt</desc>
+			<g id="shape1396-73" v:mID="1396" v:groupContext="groupContent" v:layerMember="0">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="73.0581" cy="261.238" width="45" height="18.8036"/>
+				<path d="M0 195.63 L0 261.24 L211.72 261.24" class="st13"/>
+				<rect v:rectContext="textBkgnd" x="58.9341" y="255.838" width="28.248" height="10.7998" class="st15"/>
+				<text x="58.93" y="263.94" class="st16" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>benutzt</text>			</g>
+		</g>
+		<g id="group1401-80" transform="translate(361.792,-60.9553)" v:mID="1401" v:groupContext="group" v:layerMember="0">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="RelationshipName" v:prompt="" v:val="VT4()"/>
+				<v:ud v:nameU="ShowMulti" v:prompt="" v:val="VT0(0):26"/>
+				<v:ud v:nameU="Identifying" v:prompt="" v:val="VT0(1):26"/>
+				<v:ud v:nameU="DXBegin" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="DYBegin" v:prompt="" v:val="VT0(-0.029527559055118):1"/>
+				<v:ud v:nameU="DXEnd" v:prompt="" v:val="VT0(0.029527559055118):1"/>
+				<v:ud v:nameU="DYEnd" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="BeginAngle" v:prompt="" v:val="VT0(-1.5707963267949):32"/>
+				<v:ud v:nameU="EndAngle" v:prompt="" v:val="VT0(0):32"/>
+				<v:ud v:nameU="RelationshipName" v:prompt="" v:val="VT4(tatsächliche  Pheromon-Konzentration)"/>
+				<v:ud v:nameU="DYBegin" v:prompt="" v:val="VT0(0.0085385086861264):1"/>
+				<v:ud v:nameU="DXEnd" v:prompt="" v:val="VT0(0):1"/>
+				<v:ud v:nameU="DYEnd" v:prompt="" v:val="VT0(0.0085385086861272):1"/>
+				<v:ud v:nameU="BeginAngle" v:prompt="" v:val="VT0(1.570796326795):32"/>
+				<v:ud v:nameU="EndAngle" v:prompt="" v:val="VT0(1.5707963267948):32"/>
+			</v:userDefs>
+			<title>Abhängigkeit.1401</title>
+			<desc>tatsächliche Pheromon-Konzentration</desc>
+			<g id="shape1401-81" v:mID="1401" v:groupContext="groupContent" v:layerMember="0">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="7.08661" cy="175.139" width="92.56" height="27.2035"/>
+				<path d="M7.09 195.63 L7.09 154.65" class="st17"/>
+				<rect v:rectContext="textBkgnd" x="-34.2859" y="165.54" width="82.7452" height="19.1997" class="st15"/>
+				<text x="-12.4" y="172.74" class="st18" v:langID="1031"><v:paragraph v:horizAlign="1"/><v:tabList/>tatsächliche <v:lf/><tspan
+							x="-34.29" dy="1.2em" class="st4">Pheromon</tspan>-Konzentration</text>			</g>
+		</g>
+	</g>
+</svg>

@@ -15,33 +15,32 @@
 <span class="source-line-no">002</span><span id="line-2"></span>
 <span class="source-line-no">003</span><span id="line-3">/**</span>
 <span class="source-line-no">004</span><span id="line-4"> * &lt;b&gt;对信息素的相同感知 - 信息素感知成分的实现&lt;/b&gt;&lt;br&gt;</span>
-<span class="source-line-no">005</span><span id="line-5"> * 第3.3.6章，第33页，信息素感知&lt;br&gt;</span>
-<span class="source-line-no">006</span><span id="line-6"> * &lt;br&gt;</span>
-<span class="source-line-no">007</span><span id="line-7"> * 在这种组分的表达中，感知到的信息素浓度等于实际的信息素浓度。&lt;br&gt;</span>
-<span class="source-line-no">008</span><span id="line-8"> * &lt;br&gt;</span>
-<span class="source-line-no">009</span><span id="line-9"> * 信息素感知用于蚂蚁的解构造。&lt;br&gt;</span>
-<span class="source-line-no">010</span><span id="line-10"> * 在解决方案设计中，解决方案组件的候选解以迭代方式进行。&lt;br&gt;</span>
-<span class="source-line-no">011</span><span id="line-11"> * 在选择候选解时，蚂蚁在其决策中不仅包括启发式信息，还包括与候选解相关的信息素。&lt;br&gt;</span>
-<span class="source-line-no">012</span><span id="line-12"> * 不是直接处理信息素浓度的值，而是使用“主观”的感知值。&lt;br&gt;</span>
-<span class="source-line-no">013</span><span id="line-13"> * 因此，信息素感知将实际的信息素浓度转换为感知值，以选择候选解。&lt;br&gt;</span>
-<span class="source-line-no">014</span><span id="line-14"> * &lt;br&gt;</span>
-<span class="source-line-no">015</span><span id="line-15"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromonePerception.svg" alt=""&gt;&lt;/p&gt;</span>
-<span class="source-line-no">016</span><span id="line-16"> */</span>
-<span class="source-line-no">017</span><span id="line-17">public class PerceptionSimple extends AbstractPheromonePerception {</span>
-<span class="source-line-no">018</span><span id="line-18"></span>
-<span class="source-line-no">019</span><span id="line-19">    /**</span>
-<span class="source-line-no">020</span><span id="line-20">     * 提供实际信息素浓度的感知值。&lt;br&gt;</span>
-<span class="source-line-no">021</span><span id="line-21">     * 在这里，实现了对信息素与实际浓度的相同感知。&lt;br&gt;</span>
-<span class="source-line-no">022</span><span id="line-22">     * 实际信息素浓度 = 感知信息素浓度&lt;br&gt;</span>
-<span class="source-line-no">023</span><span id="line-23">     *</span>
-<span class="source-line-no">024</span><span id="line-24">     * @param pheromoneConcentration 信息素的实际浓度</span>
-<span class="source-line-no">025</span><span id="line-25">     * @return 信息素的实际浓度</span>
-<span class="source-line-no">026</span><span id="line-26">     */</span>
-<span class="source-line-no">027</span><span id="line-27">    @Override</span>
-<span class="source-line-no">028</span><span id="line-28">    public float getPerceptionValue(float pheromoneConcentration) {</span>
-<span class="source-line-no">029</span><span id="line-29">        return pheromoneConcentration;</span>
-<span class="source-line-no">030</span><span id="line-30">    }</span>
-<span class="source-line-no">031</span><span id="line-31">}</span>
+<span class="source-line-no">005</span><span id="line-5"> * &lt;br&gt;</span>
+<span class="source-line-no">006</span><span id="line-6"> * 在这种组分的表达中，感知到的信息素浓度等于实际的信息素浓度。&lt;br&gt;</span>
+<span class="source-line-no">007</span><span id="line-7"> * &lt;br&gt;</span>
+<span class="source-line-no">008</span><span id="line-8"> * 信息素感知用于蚂蚁的解构造。&lt;br&gt;</span>
+<span class="source-line-no">009</span><span id="line-9"> * 在解决方案设计中，解决方案组件的候选解以迭代方式进行。&lt;br&gt;</span>
+<span class="source-line-no">010</span><span id="line-10"> * 在选择候选解时，蚂蚁在其决策中不仅包括启发式信息，还包括与候选解相关的信息素。&lt;br&gt;</span>
+<span class="source-line-no">011</span><span id="line-11"> * 不是直接处理信息素浓度的值，而是使用“主观”的感知值。&lt;br&gt;</span>
+<span class="source-line-no">012</span><span id="line-12"> * 因此，信息素感知将实际的信息素浓度转换为感知值，以选择候选解。&lt;br&gt;</span>
+<span class="source-line-no">013</span><span id="line-13"> * &lt;br&gt;</span>
+<span class="source-line-no">014</span><span id="line-14"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromonePerception.svg" alt=""&gt;&lt;/p&gt;</span>
+<span class="source-line-no">015</span><span id="line-15"> */</span>
+<span class="source-line-no">016</span><span id="line-16">public class PerceptionSimple extends AbstractPheromonePerception {</span>
+<span class="source-line-no">017</span><span id="line-17"></span>
+<span class="source-line-no">018</span><span id="line-18">    /**</span>
+<span class="source-line-no">019</span><span id="line-19">     * 提供实际信息素浓度的感知值。&lt;br&gt;</span>
+<span class="source-line-no">020</span><span id="line-20">     * 在这里，实现了对信息素与实际浓度的相同感知。&lt;br&gt;</span>
+<span class="source-line-no">021</span><span id="line-21">     * 实际信息素浓度 = 感知信息素浓度&lt;br&gt;</span>
+<span class="source-line-no">022</span><span id="line-22">     *</span>
+<span class="source-line-no">023</span><span id="line-23">     * @param pheromoneConcentration 信息素的实际浓度</span>
+<span class="source-line-no">024</span><span id="line-24">     * @return 信息素的实际浓度</span>
+<span class="source-line-no">025</span><span id="line-25">     */</span>
+<span class="source-line-no">026</span><span id="line-26">    @Override</span>
+<span class="source-line-no">027</span><span id="line-27">    public float getPerceptionValue(float pheromoneConcentration) {</span>
+<span class="source-line-no">028</span><span id="line-28">        return pheromoneConcentration;</span>
+<span class="source-line-no">029</span><span id="line-29">    }</span>
+<span class="source-line-no">030</span><span id="line-30">}</span>
 
 
 

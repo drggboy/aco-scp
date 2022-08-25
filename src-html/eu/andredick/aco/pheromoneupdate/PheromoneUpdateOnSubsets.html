@@ -21,48 +21,47 @@
 <span class="source-line-no">008</span><span id="line-8"></span>
 <span class="source-line-no">009</span><span id="line-9">/**</span>
 <span class="source-line-no">010</span><span id="line-10"> * &lt;b&gt;信息素标记组件的实现&lt;/b&gt;&lt;br&gt;</span>
-<span class="source-line-no">011</span><span id="line-11"> * 第3.3.11章，第45页，信息素标记&lt;br&gt;</span>
-<span class="source-line-no">012</span><span id="line-12"> * &lt;br&gt;</span>
-<span class="source-line-no">013</span><span id="line-13"> * SCP 问题中通过相关的解 {@link SCPSolution}对子集的信息素{@link PheromoneOnSubsets}进行标记。&lt;br&gt;</span>
-<span class="source-line-no">014</span><span id="line-14"> * &lt;br&gt;</span>
-<span class="source-line-no">015</span><span id="line-15"> * 问题 ({@link eu.andredick.aco.problem.AbstractProblem})的解决方案 ({@link AbstractSolution}) 的信息素标记对蚂蚁 ({@link eu.andredick.aco.ant.AbstractAnt})具有指导作用。&lt;br&gt;</span>
-<span class="source-line-no">016</span><span id="line-16"> * 由主进程 ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess})调用。&lt;br&gt;</span>
-<span class="source-line-no">017</span><span id="line-17"> * 为了执行此任务，蚂蚁具有信息素标记的功能。&lt;br&gt;</span>
-<span class="source-line-no">018</span><span id="line-18"> * 对于要选择的蚂蚁解的实例 {@link AbstractSolution} 首先使用质量函数 ({@link AbstractSolutionQuality}) 确定要应用的信息素的量，&lt;br&gt;</span>
-<span class="source-line-no">019</span><span id="line-19"> * 随后，通过成分信息素关联 ({@link AbstractPheromoneAssociation}) 增加解成分上的信息素浓度。&lt;br&gt;</span>
-<span class="source-line-no">020</span><span id="line-20"> *</span>
-<span class="source-line-no">021</span><span id="line-21"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneUpdate.svg" alt=""&gt;&lt;/p&gt;</span>
-<span class="source-line-no">022</span><span id="line-22"> */</span>
-<span class="source-line-no">023</span><span id="line-23">public class PheromoneUpdateOnSubsets extends</span>
-<span class="source-line-no">024</span><span id="line-24">        AbstractPheromoneUpdate&lt;PheromoneOnSubsets, SCPSolution&gt; {</span>
-<span class="source-line-no">025</span><span id="line-25"></span>
-<span class="source-line-no">026</span><span id="line-26">    /**</span>
-<span class="source-line-no">027</span><span id="line-27">     * 构造函数</span>
-<span class="source-line-no">028</span><span id="line-28">     *</span>
-<span class="source-line-no">029</span><span id="line-29">     * @param pheromoneStructure 信息素与SCP子群的关联</span>
-<span class="source-line-no">030</span><span id="line-30">     * @param solutionQuality    解决方案的质量组件</span>
-<span class="source-line-no">031</span><span id="line-31">     */</span>
-<span class="source-line-no">032</span><span id="line-32">    public PheromoneUpdateOnSubsets(PheromoneOnSubsets pheromoneStructure,</span>
-<span class="source-line-no">033</span><span id="line-33">                                    AbstractSolutionQuality solutionQuality) {</span>
-<span class="source-line-no">034</span><span id="line-34">        super(pheromoneStructure, solutionQuality);</span>
-<span class="source-line-no">035</span><span id="line-35">    }</span>
-<span class="source-line-no">036</span><span id="line-36"></span>
-<span class="source-line-no">037</span><span id="line-37">    /**</span>
-<span class="source-line-no">038</span><span id="line-38">     * 根据给定的 SCP 解决方案，用信息素标记包含的子集。&lt;br&gt;</span>
-<span class="source-line-no">039</span><span id="line-39">     * 为此，首先使用 {@link #solutionQuality} 确定解决方案的质量，&lt;br&gt;</span>
-<span class="source-line-no">040</span><span id="line-40">     * 然后根据解决方案的质量，将包含在 SCP 解决方案中的所有子集都用信息素标记。&lt;br&gt;</span>
-<span class="source-line-no">041</span><span id="line-41">     * 为此使用传入的信息素关联组件 ({@link #pheromoneStructure})。&lt;br&gt;</span>
-<span class="source-line-no">042</span><span id="line-42">     *</span>
-<span class="source-line-no">043</span><span id="line-43">     * @param solution 用信息素标记的SCP解或蚂蚁路径.</span>
-<span class="source-line-no">044</span><span id="line-44">     */</span>
-<span class="source-line-no">045</span><span id="line-45">    @Override</span>
-<span class="source-line-no">046</span><span id="line-46">    public void update(SCPSolution solution) {</span>
-<span class="source-line-no">047</span><span id="line-47">        float delta = this.solutionQuality.getQuality(solution);</span>
-<span class="source-line-no">048</span><span id="line-48">        for (Integer subset : solution.getSubsets()) {</span>
-<span class="source-line-no">049</span><span id="line-49">            this.pheromoneStructure.addPheromone(subset, delta);</span>
-<span class="source-line-no">050</span><span id="line-50">        }</span>
-<span class="source-line-no">051</span><span id="line-51">    }</span>
-<span class="source-line-no">052</span><span id="line-52">}</span>
+<span class="source-line-no">011</span><span id="line-11"> * &lt;br&gt;</span>
+<span class="source-line-no">012</span><span id="line-12"> * SCP 问题中通过相关的解 {@link SCPSolution}对子集的信息素{@link PheromoneOnSubsets}进行标记。&lt;br&gt;</span>
+<span class="source-line-no">013</span><span id="line-13"> * &lt;br&gt;</span>
+<span class="source-line-no">014</span><span id="line-14"> * 问题 ({@link eu.andredick.aco.problem.AbstractProblem})的解决方案 ({@link AbstractSolution}) 的信息素标记对蚂蚁 ({@link eu.andredick.aco.ant.AbstractAnt})具有指导作用。&lt;br&gt;</span>
+<span class="source-line-no">015</span><span id="line-15"> * 由主进程 ({@link eu.andredick.aco.masterprocess.AbstractMasterProcess})调用。&lt;br&gt;</span>
+<span class="source-line-no">016</span><span id="line-16"> * 为了执行此任务，蚂蚁具有信息素标记的功能。&lt;br&gt;</span>
+<span class="source-line-no">017</span><span id="line-17"> * 对于要选择的蚂蚁解的实例 {@link AbstractSolution} 首先使用质量函数 ({@link AbstractSolutionQuality}) 确定要应用的信息素的量，&lt;br&gt;</span>
+<span class="source-line-no">018</span><span id="line-18"> * 随后，通过成分信息素关联 ({@link AbstractPheromoneAssociation}) 增加解成分上的信息素浓度。&lt;br&gt;</span>
+<span class="source-line-no">019</span><span id="line-19"> *</span>
+<span class="source-line-no">020</span><span id="line-20"> * &lt;p&gt;&lt;img src="{@docRoot}/images/PheromoneUpdate.svg" alt=""&gt;&lt;/p&gt;</span>
+<span class="source-line-no">021</span><span id="line-21"> */</span>
+<span class="source-line-no">022</span><span id="line-22">public class PheromoneUpdateOnSubsets extends</span>
+<span class="source-line-no">023</span><span id="line-23">        AbstractPheromoneUpdate&lt;PheromoneOnSubsets, SCPSolution&gt; {</span>
+<span class="source-line-no">024</span><span id="line-24"></span>
+<span class="source-line-no">025</span><span id="line-25">    /**</span>
+<span class="source-line-no">026</span><span id="line-26">     * 构造函数</span>
+<span class="source-line-no">027</span><span id="line-27">     *</span>
+<span class="source-line-no">028</span><span id="line-28">     * @param pheromoneStructure 信息素与SCP子群的关联</span>
+<span class="source-line-no">029</span><span id="line-29">     * @param solutionQuality    解决方案的质量组件</span>
+<span class="source-line-no">030</span><span id="line-30">     */</span>
+<span class="source-line-no">031</span><span id="line-31">    public PheromoneUpdateOnSubsets(PheromoneOnSubsets pheromoneStructure,</span>
+<span class="source-line-no">032</span><span id="line-32">                                    AbstractSolutionQuality solutionQuality) {</span>
+<span class="source-line-no">033</span><span id="line-33">        super(pheromoneStructure, solutionQuality);</span>
+<span class="source-line-no">034</span><span id="line-34">    }</span>
+<span class="source-line-no">035</span><span id="line-35"></span>
+<span class="source-line-no">036</span><span id="line-36">    /**</span>
+<span class="source-line-no">037</span><span id="line-37">     * 根据给定的 SCP 解决方案，用信息素标记包含的子集。&lt;br&gt;</span>
+<span class="source-line-no">038</span><span id="line-38">     * 为此，首先使用 {@link #solutionQuality} 确定解决方案的质量，&lt;br&gt;</span>
+<span class="source-line-no">039</span><span id="line-39">     * 然后根据解决方案的质量，将包含在 SCP 解决方案中的所有子集都用信息素标记。&lt;br&gt;</span>
+<span class="source-line-no">040</span><span id="line-40">     * 为此使用传入的信息素关联组件 ({@link #pheromoneStructure})。&lt;br&gt;</span>
+<span class="source-line-no">041</span><span id="line-41">     *</span>
+<span class="source-line-no">042</span><span id="line-42">     * @param solution 用信息素标记的SCP解或蚂蚁路径.</span>
+<span class="source-line-no">043</span><span id="line-43">     */</span>
+<span class="source-line-no">044</span><span id="line-44">    @Override</span>
+<span class="source-line-no">045</span><span id="line-45">    public void update(SCPSolution solution) {</span>
+<span class="source-line-no">046</span><span id="line-46">        float delta = this.solutionQuality.getQuality(solution);</span>
+<span class="source-line-no">047</span><span id="line-47">        for (Integer subset : solution.getSubsets()) {</span>
+<span class="source-line-no">048</span><span id="line-48">            this.pheromoneStructure.addPheromone(subset, delta);</span>
+<span class="source-line-no">049</span><span id="line-49">        }</span>
+<span class="source-line-no">050</span><span id="line-50">    }</span>
+<span class="source-line-no">051</span><span id="line-51">}</span>
 
 
 

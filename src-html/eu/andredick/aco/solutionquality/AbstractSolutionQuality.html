@@ -18,29 +18,28 @@
 <span class="source-line-no">005</span><span id="line-5"></span>
 <span class="source-line-no">006</span><span id="line-6">/**</span>
 <span class="source-line-no">007</span><span id="line-7"> * &lt;b&gt;解决方案质量函数的抽象组件&lt;/b&gt;&lt;br&gt;</span>
-<span class="source-line-no">008</span><span id="line-8"> * 第 3.3.12 章，第 46 页，解的质量函数 &lt;br&gt;</span>
-<span class="source-line-no">009</span><span id="line-9"> * &lt;br&gt;</span>
-<span class="source-line-no">010</span><span id="line-10"> * 评价函数由信息素标记组件 ({@link AbstractPheromoneUpdate}) 调用。&lt;br&gt;</span>
-<span class="source-line-no">011</span><span id="line-11"> * 在标记解时，需要将信息素的量与目标函数值分离。&lt;br&gt;</span>
-<span class="source-line-no">012</span><span id="line-12"> * 因此，可以对信息素的量进行限制，例如，在一系列值内。&lt;br&gt;</span>
-<span class="source-line-no">013</span><span id="line-13"> * 为了确定质量，需要了解解决方案的性质 ({@link AbstractSolution})。&lt;br&gt;</span>
-<span class="source-line-no">014</span><span id="line-14"> * 因此，必须定义抽象质量函数的特征,</span>
-<span class="source-line-no">015</span><span id="line-15"> * 通过确定问题以及解决方案，可以确定质量。&lt;br&gt;</span>
-<span class="source-line-no">016</span><span id="line-16"> *</span>
-<span class="source-line-no">017</span><span id="line-17"> * &lt;p&gt;&lt;img src="{@docRoot}/images/SolutionQuality.svg" alt=""&gt;&lt;/p&gt;</span>
-<span class="source-line-no">018</span><span id="line-18"> *</span>
-<span class="source-line-no">019</span><span id="line-19"> * @param &lt;S&gt; 抽象类解的表达式</span>
-<span class="source-line-no">020</span><span id="line-20"> */</span>
-<span class="source-line-no">021</span><span id="line-21">public abstract class AbstractSolutionQuality&lt;S extends AbstractSolution&gt; {</span>
-<span class="source-line-no">022</span><span id="line-22"></span>
-<span class="source-line-no">023</span><span id="line-23">    /**</span>
-<span class="source-line-no">024</span><span id="line-24">     * 提供所提交解决方案的质量</span>
-<span class="source-line-no">025</span><span id="line-25">     * @param solution 待评估的解决方案</span>
-<span class="source-line-no">026</span><span id="line-26">     * @return 解决方案的质量</span>
-<span class="source-line-no">027</span><span id="line-27">     */</span>
-<span class="source-line-no">028</span><span id="line-28">    public abstract float getQuality(S solution);</span>
-<span class="source-line-no">029</span><span id="line-29"></span>
-<span class="source-line-no">030</span><span id="line-30">}</span>
+<span class="source-line-no">008</span><span id="line-8"> * &lt;br&gt;</span>
+<span class="source-line-no">009</span><span id="line-9"> * 评价函数由信息素标记组件 ({@link AbstractPheromoneUpdate}) 调用。&lt;br&gt;</span>
+<span class="source-line-no">010</span><span id="line-10"> * 在标记解时，需要将信息素的量与目标函数值分离。&lt;br&gt;</span>
+<span class="source-line-no">011</span><span id="line-11"> * 因此，可以对信息素的量进行限制，例如，在一系列值内。&lt;br&gt;</span>
+<span class="source-line-no">012</span><span id="line-12"> * 为了确定质量，需要了解解决方案的性质 ({@link AbstractSolution})。&lt;br&gt;</span>
+<span class="source-line-no">013</span><span id="line-13"> * 因此，必须定义抽象质量函数的特征,</span>
+<span class="source-line-no">014</span><span id="line-14"> * 通过确定问题以及解决方案，可以确定质量。&lt;br&gt;</span>
+<span class="source-line-no">015</span><span id="line-15"> *</span>
+<span class="source-line-no">016</span><span id="line-16"> * &lt;p&gt;&lt;img src="{@docRoot}/images/SolutionQuality.svg" alt=""&gt;&lt;/p&gt;</span>
+<span class="source-line-no">017</span><span id="line-17"> *</span>
+<span class="source-line-no">018</span><span id="line-18"> * @param &lt;S&gt; 抽象类解的表达式</span>
+<span class="source-line-no">019</span><span id="line-19"> */</span>
+<span class="source-line-no">020</span><span id="line-20">public abstract class AbstractSolutionQuality&lt;S extends AbstractSolution&gt; {</span>
+<span class="source-line-no">021</span><span id="line-21"></span>
+<span class="source-line-no">022</span><span id="line-22">    /**</span>
+<span class="source-line-no">023</span><span id="line-23">     * 提供所提交解决方案的质量</span>
+<span class="source-line-no">024</span><span id="line-24">     * @param solution 待评估的解决方案</span>
+<span class="source-line-no">025</span><span id="line-25">     * @return 解决方案的质量</span>
+<span class="source-line-no">026</span><span id="line-26">     */</span>
+<span class="source-line-no">027</span><span id="line-27">    public abstract float getQuality(S solution);</span>
+<span class="source-line-no">028</span><span id="line-28"></span>
+<span class="source-line-no">029</span><span id="line-29">}</span>
 
 
 

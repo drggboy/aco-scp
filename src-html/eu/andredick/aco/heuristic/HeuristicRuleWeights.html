@@ -20,32 +20,31 @@
 <span class="source-line-no">007</span><span id="line-7"></span>
 <span class="source-line-no">008</span><span id="line-8">/**</span>
 <span class="source-line-no">009</span><span id="line-9"> * &lt;b&gt;启发式信息组件的实现&lt;/b&gt;&lt;br&gt;</span>
-<span class="source-line-no">010</span><span id="line-10"> * 第 3.3.7 章，第 34 页，启发式信息&lt;br&gt;</span>
-<span class="source-line-no">011</span><span id="line-11"> * &lt;br&gt;</span>
-<span class="source-line-no">012</span><span id="line-12"> * 启发式信息的一种实现 &lt;b&gt;H_stat&lt;/b&gt;&lt;br&gt;</span>
-<span class="source-line-no">013</span><span id="line-13"> * 该组件用于选择候选方案 (参见 {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy})。&lt;br&gt;</span>
-<span class="source-line-no">014</span><span id="line-14"> * 通过权重，确定启发式信息的值。</span>
-<span class="source-line-no">015</span><span id="line-15"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Heuristics.svg" alt=""&gt;&lt;/p&gt;</span>
-<span class="source-line-no">016</span><span id="line-16"> */</span>
-<span class="source-line-no">017</span><span id="line-17">public class HeuristicRuleWeights implements HeuristicRule&lt;SCPSolution&gt; {</span>
-<span class="source-line-no">018</span><span id="line-18"></span>
-<span class="source-line-no">019</span><span id="line-19">    /**</span>
-<span class="source-line-no">020</span><span id="line-20">     * 确定子集&lt;i&gt;subset&lt;/i&gt;的成本。&lt;br&gt;</span>
-<span class="source-line-no">021</span><span id="line-21">     * 子集的成本由 SCP 的目标函数的权重向量定义。</span>
-<span class="source-line-no">022</span><span id="line-22">     * @see ObjectiveFunction#getWeights()</span>
-<span class="source-line-no">023</span><span id="line-23">     *</span>
-<span class="source-line-no">024</span><span id="line-24">     * @param solution         蚂蚁设计过程中的部分解</span>
-<span class="source-line-no">025</span><span id="line-25">     * @param availableSubsets 所有可用子集</span>
-<span class="source-line-no">026</span><span id="line-26">     * @param subset           待求的子集</span>
-<span class="source-line-no">027</span><span id="line-27">     * @return 启发式信息的值</span>
-<span class="source-line-no">028</span><span id="line-28">     */</span>
-<span class="source-line-no">029</span><span id="line-29">    @Override</span>
-<span class="source-line-no">030</span><span id="line-30">    public float getValue(SCPSolution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</span>
-<span class="source-line-no">031</span><span id="line-31">        // 权重越小，启发式值越大，越容易被选中</span>
-<span class="source-line-no">032</span><span id="line-32">        return 1f / solution.getProblem().getObjectiveFunction().getWeights()[subset];</span>
-<span class="source-line-no">033</span><span id="line-33"></span>
-<span class="source-line-no">034</span><span id="line-34">    }</span>
-<span class="source-line-no">035</span><span id="line-35">}</span>
+<span class="source-line-no">010</span><span id="line-10"> * &lt;br&gt;</span>
+<span class="source-line-no">011</span><span id="line-11"> * 启发式信息的一种实现 &lt;b&gt;H_stat&lt;/b&gt;&lt;br&gt;</span>
+<span class="source-line-no">012</span><span id="line-12"> * 该组件用于选择候选方案 (参见 {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy})。&lt;br&gt;</span>
+<span class="source-line-no">013</span><span id="line-13"> * 通过权重，确定启发式信息的值。</span>
+<span class="source-line-no">014</span><span id="line-14"> * &lt;p&gt;&lt;img src="{@docRoot}/images/Heuristics.svg" alt=""&gt;&lt;/p&gt;</span>
+<span class="source-line-no">015</span><span id="line-15"> */</span>
+<span class="source-line-no">016</span><span id="line-16">public class HeuristicRuleWeights implements HeuristicRule&lt;SCPSolution&gt; {</span>
+<span class="source-line-no">017</span><span id="line-17"></span>
+<span class="source-line-no">018</span><span id="line-18">    /**</span>
+<span class="source-line-no">019</span><span id="line-19">     * 确定子集&lt;i&gt;subset&lt;/i&gt;的成本。&lt;br&gt;</span>
+<span class="source-line-no">020</span><span id="line-20">     * 子集的成本由 SCP 的目标函数的权重向量定义。</span>
+<span class="source-line-no">021</span><span id="line-21">     * @see ObjectiveFunction#getWeights()</span>
+<span class="source-line-no">022</span><span id="line-22">     *</span>
+<span class="source-line-no">023</span><span id="line-23">     * @param solution         蚂蚁设计过程中的部分解</span>
+<span class="source-line-no">024</span><span id="line-24">     * @param availableSubsets 所有可用子集</span>
+<span class="source-line-no">025</span><span id="line-25">     * @param subset           待求的子集</span>
+<span class="source-line-no">026</span><span id="line-26">     * @return 启发式信息的值</span>
+<span class="source-line-no">027</span><span id="line-27">     */</span>
+<span class="source-line-no">028</span><span id="line-28">    @Override</span>
+<span class="source-line-no">029</span><span id="line-29">    public float getValue(SCPSolution solution, List&lt;Integer&gt; availableSubsets, Integer subset) {</span>
+<span class="source-line-no">030</span><span id="line-30">        // 权重越小，启发式值越大，越容易被选中</span>
+<span class="source-line-no">031</span><span id="line-31">        return 1f / solution.getProblem().getObjectiveFunction().getWeights()[subset];</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
+<span class="source-line-no">033</span><span id="line-33">    }</span>
+<span class="source-line-no">034</span><span id="line-34">}</span>
 
 
 
