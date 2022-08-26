@@ -9,7 +9,6 @@ import java.util.List;
 
 /**
  * <b>精英主程序 并行</b> - 规范具有并行执行的主进程的组件，其中只有迭代最佳蚂蚁才能用信息素标记其解决方案.<br>
- * 第 3.3.2 章，第 26 页，主流程<br>
  * <br>
  * 主流程的实现反映了 ACO 元启发式的上级序列,<br>
  * 通过启动和蒸发信息素 (see {@link AbstractPheromoneAssociation})<br>

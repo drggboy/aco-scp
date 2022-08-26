@@ -8,7 +8,6 @@ import eu.andredick.scp.SCPSolution;
 
 /**
  * <b>信息素标记组件的实现</b><br>
- * 第3.3.11章，第45页，信息素标记<br>
  * <br>
  * SCP 问题中通过相关的解 {@link SCPSolution}对子集的信息素{@link PheromoneOnSubsets}进行标记。<br>
  * <br>

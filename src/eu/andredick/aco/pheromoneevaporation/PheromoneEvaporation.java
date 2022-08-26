@@ -4,7 +4,6 @@ import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 
 /**
  * <b>信息素蒸发组件的实现</b><br>
- * 第3.3.10章，第45页和第14页，信息素的蒸发<br>
  * <br>
  * 此处通过指数递减函数对蒸发进行建模。<br>
  * 该组件模拟信息素的连续蒸发过程，通过对信息素浓度乘以递减因子，模拟蒸发过程<br>

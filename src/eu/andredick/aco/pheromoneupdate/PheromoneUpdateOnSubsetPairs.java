@@ -11,7 +11,6 @@ import java.util.List;
 
 /**
  * <b>信息素标记组分的表达</b><br>
- * 第 3.3.11 章，第 45 页，信息素标记<br>
  * <br>
  * SCP问题子集对上的信息素标记 {@link PheromoneOnSubsets}, 相关解决方案中的那些 {@link SCPSolution} 被包含在内.<br>
  * <br>

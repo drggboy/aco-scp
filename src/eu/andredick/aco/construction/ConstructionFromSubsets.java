@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * <b>实现启发式构造组件</b><br>
- * 第 3.3.4 章，第 30 页，启发式构造<br>
+ * 启发式构造<br>
  * <br>
  * <b>从子集开始</b>进行蚂蚁 SCP 解的构建<br>
  * 启发式构造由蚂蚁类 {@link eu.andredick.aco.ant.ACOAnt}用于构建新的解.<br>

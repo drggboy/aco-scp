@@ -10,7 +10,6 @@ import java.util.TreeSet;
 
 /**
  * <b>使用 Ant Cover 搜索策略实现局部搜索.</b><br>
- * 第 3.3.9 章，第 37 页，局部搜索<br>
  * <br>
  * 局部搜索由 {@link eu.andredick.aco.ant.ACOAnt} 类中的蚂蚁执行使用.<br>
  * 局部搜索基于先前构建的解，并在必要时提供改进的解.

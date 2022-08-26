@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * 抽象类用作具有不同组件的算法的配置工厂的模板.<br>
+ * 用于配置ACO算法不同组件的抽象模板<br>
  * 它包含一个要填充派生类的参数列表.<br>
  * 用于实现实例化并返回已配置算法的 create（） 方法,<br>
  * 以便它可以在此类之外执行.<br>
@@ -36,19 +36,19 @@ public abstract class AbstractAlgorithmConfiguration {
     }
 
     /**
-     * 类的主要方法.<br>
-     * 根据包含参数的配置生成算法实例<br>
+     * 类的主要方法。<br>
+     * 根据参数配置生成算法实例<br>
      *
-     * @param problem SCP 实例
+     * @param problem   SCP 实例
      * @return 算法实例
      */
 
     public abstract AbstractAlgorithm create(SCProblem problem);
 
     /**
-     * 派生类实现的抽象方法.<br>
-     * 这应该生成算法配置的所有必要参数并将它们添加到参数列表中.<br>
-     * 实例化配置时在构造函数中调用此方法.<br>
+     * 由派生类实现的抽象方法。<br>
+     * 本方法应该生成算法配置的所有必要参数并将它们添加到参数列表中。<br>
+     * 实例化配置时在构造函数中调用此方法。<br>
      */
     public abstract void prepareConfigParameters();
 

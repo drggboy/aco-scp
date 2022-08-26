@@ -5,8 +5,8 @@ import eu.andredick.aco.problem.AbstractProblem;
 import eu.andredick.aco.problem.AbstractSolution;
 
 /**
- * <b>抽象构造启发式.</b><br>
- * 第 3.3.4 章，第 30 页，构造启发式<br>
+ * <b>抽象构造启发式。</b><br>
+ * 启发式构造<br>
  * <br>
  * 此组件的特征由蚂蚁类 {@link eu.andredick.aco.ant.ACOAnt} 确定，用于构建新的解。<br>
  * 设计启发式和解的选择在逻辑上是相互依赖的。<br>

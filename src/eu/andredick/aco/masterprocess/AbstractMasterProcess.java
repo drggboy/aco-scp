@@ -7,10 +7,9 @@ import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 /**
  * <b>主流程的抽象组件</b><br>
- * 第 3.3.2 章，第 26 页，主进程<br>
  * <br>
- * 主进程的实现，<br>
- * 通过协调信息素的初始化和蒸发 (参见 {@link AbstractPheromoneAssociation})<br>
+ * 主进程负责协调信息素的初始化和蒸发 (参见 {@link AbstractPheromoneAssociation})<br>
+ * <br>
  * 以及蚂蚁种群 (参见 {@link AbstractAnt})来反映ACO元启发式的总体序列.<br>
  * 为此，需在方法 {@link #start()} 内实现迭代循环,<br>
  * 这取决于抽象终止标准 {@link AbstractTerminationCriterion} 来执行.<br>

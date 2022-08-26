@@ -6,7 +6,6 @@ import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 /**
  * <b>Masterprozess-Basic</b> - 主进程组件的基本设计<br>
- * 第 3.3.2 章，第 26 页，主流程<br>
  * <br>
  * 主进程的实现反映了 ACO元启发式 的算法逻辑，<br>
  * 涉及信息素的初始化和蒸发 (参见 {@link AbstractPheromoneAssociation})<br>

@@ -10,10 +10,9 @@ import eu.andredick.aco.problem.AbstractSolution;
 import java.util.List;
 
 /**
- * <b>候选方案的抽象组成部分</b><br>
- * 第3.3.5章，第32页，候选方案的选择<br>
+ * <b>候选方案组件的抽象</b><br>
  * <br>
- * Die Komponente Alternativenauswahl wird von Konstruktionsheuristik {@link AbstractConstruction} 使用,<br>
+ * 该组件由启发式构造组件 {@link AbstractConstruction} 调用用,<br>
  * 从给定候选方案（解决方案组件）中选择一项。<br>
  * 替代方案的选择基于启发式信息 {@link HeuristicInfoSet} <br>
  * 以及感知的信息素浓度 {@link AbstractPheromonePerception}。<br>

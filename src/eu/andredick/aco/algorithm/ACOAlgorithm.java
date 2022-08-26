@@ -3,10 +3,11 @@ package eu.andredick.aco.algorithm;
 import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 
 /**
- * <b>该类表示 ACO 算法流，实现了模板 {@link AbstractAlgorithm}.</b><br>
- * 每个 ACO 算法都有一个主进程 ({@link AbstractMasterProcess}).<br>
- * 一旦算法启动，主进程就会启动.<br>
- * ACO 算法从父类继承并行执行的能力。
+ * <b>该类表示 ACO 算法流，实现了模板 {@link AbstractAlgorithm}。</b><br>
+ * <br>
+ * 每个 ACO 算法都有一个主进程 ({@link AbstractMasterProcess})。<br>
+ * 一旦算法启动，主进程就会启动。<br>
+ * ACO 算法从父类继承并行执行的能力。<br>
  * <p><img src="{@docRoot}/images/ACOAlgorithm.svg" alt=""></p>
  */
 public class ACOAlgorithm extends AbstractAlgorithm {

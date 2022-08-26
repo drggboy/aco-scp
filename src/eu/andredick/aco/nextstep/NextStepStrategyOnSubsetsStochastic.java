@@ -12,7 +12,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * <b>随机候选集选择</b> - 候选集选择的实现。<br>
- * 第3.3.5章，第32页，候选集的选择<br>
  * <br>
  * 随机选择通过随机数{@code 0 <= z <= 1}确定候选集中的一个选择。<br>
  * 间隔 {@code [0.0, 1.0]} 被划分为与替代方案一样多的领域。

@@ -6,7 +6,6 @@ import eu.andredick.aco.termination.AbstractTerminationCriterion;
 
 /**
  * <b>主流程-精英策略</b> - 主过程的组件的实现，只允许迭代最佳蚂蚁进行信息素标记。<br>
- * 第 3.3.2 章，第 26 页，主流程<br>
  * <br>
  * 主流程的实现反映了 ACO 元启发式的算法逻辑,<br>
  * 通过初始化和蒸发信息素 (参见 {@link AbstractPheromoneAssociation})<br>

@@ -2,7 +2,7 @@ package eu.andredick.aco.combination;
 
 /**
  * <b>通过乘法实现组合功能.</b><br>
- * 第3.3.8章，第36页，组合函数<br>
+ * 组合函数<br>
  * <br>
  * <b>通过乘法</b>将感知到的信息素与启发式信息相结合。<br>
  * 以上两个值都通过相关的指数 alpha 和 beta 相对于彼此进行加权.<br>

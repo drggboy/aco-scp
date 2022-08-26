@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * <b>启发式信息类的接口</b><br>
- * 第 3.3.7 章，第 34 页，启发式信息<br>
  * <br>
  * 启发式信息组件的特征必须实现此接口.<br>
  * 该组件用于选择候选解 (参见 {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy})。<br>

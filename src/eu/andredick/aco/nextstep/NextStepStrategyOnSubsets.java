@@ -12,7 +12,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * <b>混合选择替代方案</b> 从随机和确定性替代选择，信息素与子集的关联<br>
- * 第3.3.5章，第32页，备选案文的选择<br>
  * <br>
  * 混合备选方案提供随机振荡的结果
  * (see {@link NextStepStrategyOnSubsetsStochastic}) 或确定性

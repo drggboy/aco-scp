@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * <b>启发式信息组件的实现</b><br>
- * 第 3.3.7 章，第 34 页，启发式信息<br>
  * <br>
  * 启发式信息的一种实现  <b>H_dyn</b><br>
  * 该组件用于选择候选方案 (参见 {@link eu.andredick.aco.nextstep.AbstractNextStepStrategy})。<br>

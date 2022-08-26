@@ -9,7 +9,6 @@ import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 
 /**
  * <b>信息素关联的抽象类</b><br>
- * 第3.3.1章，第24页，信息素关联<br>
  * <br>
  * 与特定问题实例相关的信息素可以作为一个层,<br>
  * 此处定义了信息素蒸发和初始化的规则.<br>

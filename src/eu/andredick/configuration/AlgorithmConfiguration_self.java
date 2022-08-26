@@ -5,17 +5,19 @@ import eu.andredick.aco.ant.ACOAnt;
 import eu.andredick.aco.algorithm.AbstractAlgorithm;
 import eu.andredick.aco.ant.AbstractAnt;
 import eu.andredick.aco.combination.CombinationFactor;
+import eu.andredick.aco.combination.CombinationSum;
 import eu.andredick.aco.construction.AbstractConstruction;
 import eu.andredick.aco.construction.ConstructionFromSubsets;
 import eu.andredick.aco.heuristic.HeuristicInfoSet;
-import eu.andredick.aco.heuristic.HeuristicRuleBestSubset;
-import eu.andredick.aco.heuristic.HeuristicRuleWeights;
 import eu.andredick.aco.localsearch.AbstractLocalSearch;
+import eu.andredick.aco.localsearch.LocalSearchAntCover;
 import eu.andredick.aco.localsearch.LocalSearchNone;
 import eu.andredick.aco.masterprocess.AbstractMasterProcess;
 import eu.andredick.aco.masterprocess.MasterProcessBasic;
+import eu.andredick.aco.masterprocess.MasterProcessElitist;
 import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
-import eu.andredick.aco.nextstep.NextStepStrategyOnSubsetsDeterministic;
+import eu.andredick.aco.nextstep.NextStepStrategyOnSubsets;
+import eu.andredick.aco.nextstep.NextStepStrategyOnSubsetsStochastic;
 import eu.andredick.aco.pheromoneassociation.PheromoneOnSubsets;
 import eu.andredick.aco.pheromoneevaporation.AbstractPheromoneEvaporation;
 import eu.andredick.aco.pheromoneevaporation.PheromoneEvaporation;
@@ -30,33 +32,33 @@ import eu.andredick.aco.termination.TerminationCriterion;
 import eu.andredick.scp.SCPSolution;
 import eu.andredick.scp.SCProblem;
 
-public class AlgorithmConfiguration_Greedy extends AbstractAlgorithmConfiguration {
+public class AlgorithmConfiguration_self extends AbstractAlgorithmConfiguration {
 
-    /**
-     * 在此类的构造函数中被调用
-     */
+
     @Override
     public void prepareConfigParameters() {
 
-        this.configName = "AlgorithmConfiguration_Greedy";
-        //
+        this.configName = "AlgorithmConfiguration_Randomwalk";
+        // 信息素初始值配置
         ConfigurationParameter<Float> phInitValue =
-                new ConfigurationParameter<>("pheromonInitValue", 1f);
+                new ConfigurationParameter<>("pheromonInitValue", 0f);
         this.addConfigurationParameter(phInitValue);
+//        phInitValue.setCurrentValue();
 
+        // 信息素蒸发因子设置
         ConfigurationParameter<Float> evapFactor =
-                new ConfigurationParameter<>("evaporationFactor", 1f);
+                new ConfigurationParameter<>("evaporationFactor", 0.1f);
         this.addConfigurationParameter(evapFactor);
-        //
-        ConfigurationParameter<Float> alpha =
-                new ConfigurationParameter<>("alpha", 0f);
-        this.addConfigurationParameter(alpha);
+//        evapFactor.setCurrentValue();
 
-        ConfigurationParameter<Float> beta =
-                new ConfigurationParameter<>("beta", 1f);
-        this.addConfigurationParameter(beta);
+        // 最大迭代次数设置
+        ConfigurationParameter<Integer> maxIterations =
+                new ConfigurationParameter<>("maxIterations", 100);
+        this.addConfigurationParameter(maxIterations);
+//        maxIterations.setCurrentValue();
 
-        this.getParameter("antsize").setCurrentValue(1);
+        // 蚂蚁种群数量设置
+        this.getParameter("antsize").setCurrentValue(500);
 
     }
 
@@ -71,8 +73,8 @@ public class AlgorithmConfiguration_Greedy extends AbstractAlgorithmConfiguratio
                 new PheromoneInit(phInitValue);
 
         float evapFactor = this.getParameter("evaporationFactor").getCurrentValue().floatValue();
-        AbstractPheromoneEvaporation evaporationRule =
-                new PheromoneEvaporation(evapFactor);
+        AbstractPheromoneEvaporation evaporationRule;
+        evaporationRule = new PheromoneEvaporation(evapFactor);
 
         pheromoneStructure.setEvaporationRule(evaporationRule);
         pheromoneStructure.setPheromoneInitRule(pheromoneInitRule);
@@ -80,38 +82,45 @@ public class AlgorithmConfiguration_Greedy extends AbstractAlgorithmConfiguratio
         AbstractPheromoneUpdate updateRule =
                 new PheromoneUpdateOnSubsets(pheromoneStructure, new SolutionQualityMin());
 
-        float alpha = this.getParameter("alpha").getCurrentValue().floatValue();
-        float beta = this.getParameter("beta").getCurrentValue().floatValue();
+        // 设置组合组件
+        // 乘积
+//        float alpha = 0f;
+//        float beta = 0f;
+//        CombinationFactor conbination = new CombinationFactor(alpha, beta);
+        // 加权和
+        float gamma = 0.5f;
+        CombinationSum conbination = new CombinationSum(gamma);
 
+        // 启发式信息设置
         HeuristicInfoSet heuristicInfoSet = new HeuristicInfoSet();
-        heuristicInfoSet.addRule(new HeuristicRuleWeights());
-        heuristicInfoSet.addRule(new HeuristicRuleBestSubset());
-
         AbstractPheromonePerception perceptionRule = new PerceptionSimple();
 
+        // 设置候选集选择组件
         AbstractNextStepStrategy nextStepRule =
-                new NextStepStrategyOnSubsetsDeterministic(
-                        pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta));
-
+                new NextStepStrategyOnSubsets(pheromoneStructure, perceptionRule, heuristicInfoSet, conbination, 0.5f);
+        // 设置解的构造组件
         AbstractConstruction constructionStrategy =
                 new ConstructionFromSubsets(nextStepRule);
-
+        //设置局部搜索组件
         AbstractLocalSearch localSearchStrategy =
-                new LocalSearchNone();
+                new LocalSearchAntCover();
 
+        // 设置蚁群数量
         int antSize = this.getParameter("antsize").getCurrentValue().intValue();
-
         AbstractAnt[] ants = new AbstractAnt[antSize];
         for (int i = 0; i < ants.length; i++) {
             ants[i] = new ACOAnt<SCPSolution, SCProblem>(problem, updateRule, constructionStrategy, localSearchStrategy);
         }
 
-        TerminationCriterion terminationCriterion = new TerminationCriterion(1);
+        // 设置迭代终止条件
+        TerminationCriterion terminationCriterion =
+                new TerminationCriterion(this.getParameter("maxIterations").getCurrentValue().intValue());
 
-        AbstractMasterProcess masterProcess =
-                new MasterProcessBasic(pheromoneStructure, ants, terminationCriterion);
+        // 精英策略
+        AbstractMasterProcess masterProcess = new MasterProcessElitist(pheromoneStructure, ants, terminationCriterion);
 
         return new ACOAlgorithm(masterProcess);
     }
 
 }
+

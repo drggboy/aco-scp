@@ -4,7 +4,6 @@ import eu.andredick.aco.problem.AbstractSolution;
 
 /**
  * <b>局部搜索的抽象组件</b><br>
- * 第 3.3.9 章，第 37 页，局部搜索<br>
  * <br>
  * 局部搜索由类中的蚂蚁执行 {@link eu.andredick.aco.ant.ACOAnt} 使用.<br>
  * 局部搜索基于先前构建的解，并在必要时提供改进的解.

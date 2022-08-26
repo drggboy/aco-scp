@@ -6,7 +6,6 @@ import eu.andredick.aco.problem.AbstractSolution;
 
 /**
  * <b>信息素标记的抽象部分</b><br>
- * 第3.3.11章，第45页，信息素标记<br>
  * <br>
  * 为解决方案中包含的实体进行信息素标记。<br>
  * <br>

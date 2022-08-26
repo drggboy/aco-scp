@@ -5,7 +5,6 @@ import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
 
 /**
  * <b>解决方案质量函数的抽象组件</b><br>
- * 第 3.3.12 章，第 46 页，解的质量函数 <br>
  * <br>
  * 评价函数由信息素标记组件 ({@link AbstractPheromoneUpdate}) 调用。<br>
  * 在标记解时，需要将信息素的量与目标函数值分离。<br>

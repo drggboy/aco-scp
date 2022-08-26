@@ -35,19 +35,25 @@ public class AlgorithmConfiguration_Randomwalk extends AbstractAlgorithmConfigur
     public void prepareConfigParameters() {
 
         this.configName = "AlgorithmConfiguration_Randomwalk";
-
+        // 信息素初始值配置
         ConfigurationParameter<Float> phInitValue =
                 new ConfigurationParameter<>("pheromonInitValue", 1f);
         this.addConfigurationParameter(phInitValue);
+//        phInitValue.setCurrentValue();
 
+        // 信息素蒸发因子设置
         ConfigurationParameter<Float> evapFactor =
                 new ConfigurationParameter<>("evaporationFactor", 0.0f);
         this.addConfigurationParameter(evapFactor);
+//        evapFactor.setCurrentValue();
 
+        // 最大迭代次数设置
         ConfigurationParameter<Integer> maxIterations =
                 new ConfigurationParameter<>("maxIterations", 100);
         this.addConfigurationParameter(maxIterations);
+//        maxIterations.setCurrentValue();
 
+        // 蚂蚁种群数量设置
         this.getParameter("antsize").setCurrentValue(10);
 
     }

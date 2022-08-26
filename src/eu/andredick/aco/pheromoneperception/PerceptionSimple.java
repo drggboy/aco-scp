@@ -2,7 +2,6 @@ package eu.andredick.aco.pheromoneperception;
 
 /**
  * <b>对信息素的相同感知 - 信息素感知成分的实现</b><br>
- * 第3.3.6章，第33页，信息素感知<br>
  * <br>
  * 在这种组分的表达中，感知到的信息素浓度等于实际的信息素浓度。<br>
  * <br>

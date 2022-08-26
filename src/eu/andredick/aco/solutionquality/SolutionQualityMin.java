@@ -5,8 +5,7 @@ import eu.andredick.scp.SCPSolution;
 import eu.andredick.aco.pheromoneupdate.AbstractPheromoneUpdate;
 
 /**
- * <b>SCP解决方案的简单质量功能</b><br>
- * 第 3.3.12 章，第 46 页，解的质量函数 <br>
+ * <b>SCP解决方案的简单质量函数</b><br>
  * <br>
  * 简单质量函数与目标函数值的倒数成正比.<br>
  * 为了增加值范围，将目标函数值的倒数乘以子集数.<br>

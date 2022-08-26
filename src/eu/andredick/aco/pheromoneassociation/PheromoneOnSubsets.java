@@ -12,7 +12,6 @@ import eu.andredick.scp.SCProblem;
 
 /**
  * <b>信息素关联部分的实现</b>, 与 SCP 问题的关联 ({@link SCProblem})。<br>
- * 第3.3.1章，第24页，信息素关联<br>
  * <br>
  * SCP的每个子集被分配一个信息素浓度值.<br>
  * 蚂蚁用信息素标记其解中包含的子集.<br>
@@ -44,6 +43,11 @@ public class PheromoneOnSubsets extends AbstractPheromoneAssociation<SCProblem> 
      */
     private float[] pheromoneValues;
 
+//    /**
+//     * 信息素蒸发因子
+//     */
+//    private float rho;
+
     /**
      * 构造函数
      *
@@ -55,33 +59,16 @@ public class PheromoneOnSubsets extends AbstractPheromoneAssociation<SCProblem> 
     }
 
     /**
-     * 设置信息素蒸发规则
-     * @param evaporation_rule 信息素起始规则
-     */
-    public void setEvaporationRule(AbstractPheromoneEvaporation evaporation_rule){
-        this.evaporationRule = evaporation_rule;
-    }
-
-    /**
      * 启动整个信息素蒸发的时间步长。<br>
      * 所有信息素浓度应符合蒸发规则 {@link #evaporationRule}。<br>
      */
     @Override
     public void evaporatePheromones() {
-        PheromoneEvaporation evaporation_rule = new PheromoneEvaporation((float)0.1);
-        setEvaporationRule(evaporation_rule);
         for (int i = 0; i < this.pheromoneValues.length; i++) {
             pheromoneValues[i] = this.evaporationRule.evaporate(pheromoneValues[i]);
         }
     }
 
-    /**
-     * 设置信息素起始规则
-     * @param pheromone_init_rule 信息素起始规则
-     */
-    public void setPheromoneInitRule(AbstractPheromoneInit pheromone_init_rule){
-        this.pheromoneInitRule = pheromone_init_rule;
-    }
 
     /**
      * 使用起始规则启动 SCP 子集的信息素浓度 {@link #pheromoneInitRule}.<br>
@@ -89,8 +76,6 @@ public class PheromoneOnSubsets extends AbstractPheromoneAssociation<SCProblem> 
      */
     @Override
     public void initPheromones() {
-        PheromoneInit pheromone_init_rule = new PheromoneInit(0);
-        setPheromoneInitRule(pheromone_init_rule);
         for (int i = 0; i < this.pheromoneValues.length; i++) {
             pheromoneValues[i] = this.pheromoneInitRule.initValue();
         }

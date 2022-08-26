@@ -3,8 +3,7 @@ package eu.andredick.aco.pheromoneinit;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 
 /**
- * <b>信息素初始化的抽象成分</b><br>
- * 第3.3.3章，第29页，信息素的初始化<br>
+ * <b>信息素初始化的抽象</b><br>
  * <br>
  * 初始化信息素值会为 aco 算法的后续迭代创建初始状态.<br>
  * 如何初始化信息素浓度应在该组分的子类中确定.<br>

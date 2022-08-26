@@ -5,7 +5,6 @@ import eu.andredick.aco.problem.AbstractProblem;
 /**
  * 该类表示 <b>集合覆盖问题 (SCP)</b>.<br>
  * 在 ACO 元启发式的背景下，SCP是抽象问题的一种表现形式。 ({@link AbstractProblem})。<br>
- * 第 2.3 章，第 17 页，集合覆盖问题 (SCP). <br>
  * <br>
  * <b>定义:</b> 给定一组由基本元素构成的集合.
  * 从中选取子集,

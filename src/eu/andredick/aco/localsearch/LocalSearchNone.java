@@ -4,7 +4,6 @@ import eu.andredick.scp.SCPSolution;
 
 /**
  * <b>局部搜索组件的抽象 - 返回初始解决方案</b><br>
- * 第 3.3.9 章，第 37 页，局部搜索<br>
  * <br>
  * 在不想执行局部搜索时使用。<br>
  * 局部搜索由类{@link eu.andredick.aco.ant.ACOAnt}中的蚂蚁执行使用。<br>

@@ -4,7 +4,7 @@ import eu.andredick.aco.nextstep.AbstractNextStepStrategy;
 
 /**
  * <b>组合函数的抽象</b><br>
- * 第3.3.8章，第36页，组合函数<br>
+ * 组合函数<br>
  * <br>
  * 将感知到的信息素与启发式信息相结合。<br>
  * 组合功能由备选选择组件 (参见 {@link AbstractNextStepStrategy})使用。<br>

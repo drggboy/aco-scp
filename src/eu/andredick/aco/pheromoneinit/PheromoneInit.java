@@ -3,8 +3,7 @@ package eu.andredick.aco.pheromoneinit;
 import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 
 /**
- * <b>信息素初始化成分的表达</b><br>
- * 第3.3.3章，第29页，信息素的初始化<br>
+ * <b>信息素初始化组件的实现</b><br>
  * <br>
  * 对于问题的所有相关实体，生成相同的信息素浓度起始值.<br>
  * 组件的参数表示信息素的初始值。<br>

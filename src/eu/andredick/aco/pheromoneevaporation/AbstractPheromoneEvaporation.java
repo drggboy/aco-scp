@@ -4,7 +4,6 @@ import eu.andredick.aco.pheromoneassociation.AbstractPheromoneAssociation;
 
 /**
  * <b>信息素蒸发的抽象类</b><br>
- * 第3.3.10章，第45页，信息素的蒸发<br>
  * <br>
  * 该组件模拟信息素的连续蒸发过程。<br>
  * 它在两个相邻迭代步骤的信息素浓度之间建立递归关系。<br>

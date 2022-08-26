@@ -6,7 +6,6 @@ import java.util.Random;
 /**
  * <b>集合覆盖问题的目标函数</b><br>
  * SCP 的目标函数是所有加权决策变量的总和.<br>
- * 第2.3章，第17页，设置覆盖问题（SCP）. <br>
  * <br>
  * c_j权重（也是成本、系数）被明确分配给SCP的子集j.<br>
  * 决策变量在 SCP 的解中 ({@link SCPSolution}) 明确定义.<br>

@@ -2,7 +2,6 @@ package eu.andredick.aco.pheromoneperception;
 
 /**
  * <b>信息素感知的抽象部分</b><br>
- * 第3.3.6章，第33页，信息素感知<br>
  * <br>
  * 信息素感知用于蚂蚁的解的构造。<br>
  * 在解决方案设计中，解决方案组件的候选解以迭代方式进行。<br>

@@ -2,7 +2,7 @@ package eu.andredick.aco.combination;
 
 /**
  * <b>通过加法实现组件组合功能.</b><br>
- * 第3.3.8章，第36页，组合函数<br>
+ * 组合函数<br>
  * <br>
  * <b>通过加法</b>将感知到的信息素与启发式信息相结合。<br>
  * 两个值通过加权因子 <b>gamma</b> 相对于彼此加权.<br>
