@@ -45,87 +45,89 @@
 <span class="source-line-no">032</span><span id="line-32"></span>
 <span class="source-line-no">033</span><span id="line-33">public class AlgorithmConfiguration_Greedy extends AbstractAlgorithmConfiguration {</span>
 <span class="source-line-no">034</span><span id="line-34"></span>
-<span class="source-line-no">035</span><span id="line-35"></span>
-<span class="source-line-no">036</span><span id="line-36">    @Override</span>
-<span class="source-line-no">037</span><span id="line-37">    public void prepareConfigParameters() {</span>
-<span class="source-line-no">038</span><span id="line-38"></span>
-<span class="source-line-no">039</span><span id="line-39">        this.configName = "AlgorithmConfiguration_Greedy";</span>
+<span class="source-line-no">035</span><span id="line-35">    /**</span>
+<span class="source-line-no">036</span><span id="line-36">     * 在此类的构造函数中被调用</span>
+<span class="source-line-no">037</span><span id="line-37">     */</span>
+<span class="source-line-no">038</span><span id="line-38">    @Override</span>
+<span class="source-line-no">039</span><span id="line-39">    public void prepareConfigParameters() {</span>
 <span class="source-line-no">040</span><span id="line-40"></span>
-<span class="source-line-no">041</span><span id="line-41">        ConfigurationParameter&lt;Float&gt; phInitValue =</span>
-<span class="source-line-no">042</span><span id="line-42">                new ConfigurationParameter&lt;&gt;("pheromonInitValue", 1f);</span>
-<span class="source-line-no">043</span><span id="line-43">        this.addConfigurationParameter(phInitValue);</span>
-<span class="source-line-no">044</span><span id="line-44"></span>
-<span class="source-line-no">045</span><span id="line-45">        ConfigurationParameter&lt;Float&gt; evapFactor =</span>
-<span class="source-line-no">046</span><span id="line-46">                new ConfigurationParameter&lt;&gt;("evaporationFactor", 1f);</span>
-<span class="source-line-no">047</span><span id="line-47">        this.addConfigurationParameter(evapFactor);</span>
-<span class="source-line-no">048</span><span id="line-48"></span>
-<span class="source-line-no">049</span><span id="line-49">        ConfigurationParameter&lt;Float&gt; alpha =</span>
-<span class="source-line-no">050</span><span id="line-50">                new ConfigurationParameter&lt;&gt;("alpha", 0f);</span>
-<span class="source-line-no">051</span><span id="line-51">        this.addConfigurationParameter(alpha);</span>
-<span class="source-line-no">052</span><span id="line-52"></span>
-<span class="source-line-no">053</span><span id="line-53">        ConfigurationParameter&lt;Float&gt; beta =</span>
-<span class="source-line-no">054</span><span id="line-54">                new ConfigurationParameter&lt;&gt;("beta", 1f);</span>
-<span class="source-line-no">055</span><span id="line-55">        this.addConfigurationParameter(beta);</span>
-<span class="source-line-no">056</span><span id="line-56"></span>
-<span class="source-line-no">057</span><span id="line-57">        this.getParameter("antsize").setCurrentValue(1);</span>
+<span class="source-line-no">041</span><span id="line-41">        this.configName = "AlgorithmConfiguration_Greedy";</span>
+<span class="source-line-no">042</span><span id="line-42">        //</span>
+<span class="source-line-no">043</span><span id="line-43">        ConfigurationParameter&lt;Float&gt; phInitValue =</span>
+<span class="source-line-no">044</span><span id="line-44">                new ConfigurationParameter&lt;&gt;("pheromonInitValue", 1f);</span>
+<span class="source-line-no">045</span><span id="line-45">        this.addConfigurationParameter(phInitValue);</span>
+<span class="source-line-no">046</span><span id="line-46"></span>
+<span class="source-line-no">047</span><span id="line-47">        ConfigurationParameter&lt;Float&gt; evapFactor =</span>
+<span class="source-line-no">048</span><span id="line-48">                new ConfigurationParameter&lt;&gt;("evaporationFactor", 1f);</span>
+<span class="source-line-no">049</span><span id="line-49">        this.addConfigurationParameter(evapFactor);</span>
+<span class="source-line-no">050</span><span id="line-50">        //</span>
+<span class="source-line-no">051</span><span id="line-51">        ConfigurationParameter&lt;Float&gt; alpha =</span>
+<span class="source-line-no">052</span><span id="line-52">                new ConfigurationParameter&lt;&gt;("alpha", 0f);</span>
+<span class="source-line-no">053</span><span id="line-53">        this.addConfigurationParameter(alpha);</span>
+<span class="source-line-no">054</span><span id="line-54"></span>
+<span class="source-line-no">055</span><span id="line-55">        ConfigurationParameter&lt;Float&gt; beta =</span>
+<span class="source-line-no">056</span><span id="line-56">                new ConfigurationParameter&lt;&gt;("beta", 1f);</span>
+<span class="source-line-no">057</span><span id="line-57">        this.addConfigurationParameter(beta);</span>
 <span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">    }</span>
+<span class="source-line-no">059</span><span id="line-59">        this.getParameter("antsize").setCurrentValue(1);</span>
 <span class="source-line-no">060</span><span id="line-60"></span>
-<span class="source-line-no">061</span><span id="line-61">    @Override</span>
-<span class="source-line-no">062</span><span id="line-62">    public AbstractAlgorithm create(SCProblem problem) {</span>
-<span class="source-line-no">063</span><span id="line-63"></span>
-<span class="source-line-no">064</span><span id="line-64">        PheromoneOnSubsets pheromoneStructure =</span>
-<span class="source-line-no">065</span><span id="line-65">                new PheromoneOnSubsets(problem);</span>
-<span class="source-line-no">066</span><span id="line-66"></span>
-<span class="source-line-no">067</span><span id="line-67">        float phInitValue = this.getParameter("pheromonInitValue").getCurrentValue().floatValue();</span>
-<span class="source-line-no">068</span><span id="line-68">        AbstractPheromoneInit pheromoneInitRule =</span>
-<span class="source-line-no">069</span><span id="line-69">                new PheromoneInit(phInitValue);</span>
-<span class="source-line-no">070</span><span id="line-70"></span>
-<span class="source-line-no">071</span><span id="line-71">        float evapFactor = this.getParameter("evaporationFactor").getCurrentValue().floatValue();</span>
-<span class="source-line-no">072</span><span id="line-72">        AbstractPheromoneEvaporation evaporationRule =</span>
-<span class="source-line-no">073</span><span id="line-73">                new PheromoneEvaporation(evapFactor);</span>
-<span class="source-line-no">074</span><span id="line-74"></span>
-<span class="source-line-no">075</span><span id="line-75">        pheromoneStructure.setEvaporationRule(evaporationRule);</span>
-<span class="source-line-no">076</span><span id="line-76">        pheromoneStructure.setPheromoneInitRule(pheromoneInitRule);</span>
-<span class="source-line-no">077</span><span id="line-77"></span>
-<span class="source-line-no">078</span><span id="line-78">        AbstractPheromoneUpdate updateRule =</span>
-<span class="source-line-no">079</span><span id="line-79">                new PheromoneUpdateOnSubsets(pheromoneStructure, new SolutionQualityMin());</span>
-<span class="source-line-no">080</span><span id="line-80"></span>
-<span class="source-line-no">081</span><span id="line-81">        float alpha = this.getParameter("alpha").getCurrentValue().floatValue();</span>
-<span class="source-line-no">082</span><span id="line-82">        float beta = this.getParameter("beta").getCurrentValue().floatValue();</span>
-<span class="source-line-no">083</span><span id="line-83"></span>
-<span class="source-line-no">084</span><span id="line-84">        HeuristicInfoSet heuristicInfoSet = new HeuristicInfoSet();</span>
-<span class="source-line-no">085</span><span id="line-85">        heuristicInfoSet.addRule(new HeuristicRuleWeights());</span>
-<span class="source-line-no">086</span><span id="line-86">        heuristicInfoSet.addRule(new HeuristicRuleBestSubset());</span>
-<span class="source-line-no">087</span><span id="line-87"></span>
-<span class="source-line-no">088</span><span id="line-88">        AbstractPheromonePerception perceptionRule = new PerceptionSimple();</span>
+<span class="source-line-no">061</span><span id="line-61">    }</span>
+<span class="source-line-no">062</span><span id="line-62"></span>
+<span class="source-line-no">063</span><span id="line-63">    @Override</span>
+<span class="source-line-no">064</span><span id="line-64">    public AbstractAlgorithm create(SCProblem problem) {</span>
+<span class="source-line-no">065</span><span id="line-65"></span>
+<span class="source-line-no">066</span><span id="line-66">        PheromoneOnSubsets pheromoneStructure =</span>
+<span class="source-line-no">067</span><span id="line-67">                new PheromoneOnSubsets(problem);</span>
+<span class="source-line-no">068</span><span id="line-68"></span>
+<span class="source-line-no">069</span><span id="line-69">        float phInitValue = this.getParameter("pheromonInitValue").getCurrentValue().floatValue();</span>
+<span class="source-line-no">070</span><span id="line-70">        AbstractPheromoneInit pheromoneInitRule =</span>
+<span class="source-line-no">071</span><span id="line-71">                new PheromoneInit(phInitValue);</span>
+<span class="source-line-no">072</span><span id="line-72"></span>
+<span class="source-line-no">073</span><span id="line-73">        float evapFactor = this.getParameter("evaporationFactor").getCurrentValue().floatValue();</span>
+<span class="source-line-no">074</span><span id="line-74">        AbstractPheromoneEvaporation evaporationRule =</span>
+<span class="source-line-no">075</span><span id="line-75">                new PheromoneEvaporation(evapFactor);</span>
+<span class="source-line-no">076</span><span id="line-76"></span>
+<span class="source-line-no">077</span><span id="line-77">        pheromoneStructure.setEvaporationRule(evaporationRule);</span>
+<span class="source-line-no">078</span><span id="line-78">        pheromoneStructure.setPheromoneInitRule(pheromoneInitRule);</span>
+<span class="source-line-no">079</span><span id="line-79"></span>
+<span class="source-line-no">080</span><span id="line-80">        AbstractPheromoneUpdate updateRule =</span>
+<span class="source-line-no">081</span><span id="line-81">                new PheromoneUpdateOnSubsets(pheromoneStructure, new SolutionQualityMin());</span>
+<span class="source-line-no">082</span><span id="line-82"></span>
+<span class="source-line-no">083</span><span id="line-83">        float alpha = this.getParameter("alpha").getCurrentValue().floatValue();</span>
+<span class="source-line-no">084</span><span id="line-84">        float beta = this.getParameter("beta").getCurrentValue().floatValue();</span>
+<span class="source-line-no">085</span><span id="line-85"></span>
+<span class="source-line-no">086</span><span id="line-86">        HeuristicInfoSet heuristicInfoSet = new HeuristicInfoSet();</span>
+<span class="source-line-no">087</span><span id="line-87">        heuristicInfoSet.addRule(new HeuristicRuleWeights());</span>
+<span class="source-line-no">088</span><span id="line-88">        heuristicInfoSet.addRule(new HeuristicRuleBestSubset());</span>
 <span class="source-line-no">089</span><span id="line-89"></span>
-<span class="source-line-no">090</span><span id="line-90">        AbstractNextStepStrategy nextStepRule =</span>
-<span class="source-line-no">091</span><span id="line-91">                new NextStepStrategyOnSubsetsDeterministic(</span>
-<span class="source-line-no">092</span><span id="line-92">                        pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta));</span>
-<span class="source-line-no">093</span><span id="line-93"></span>
-<span class="source-line-no">094</span><span id="line-94">        AbstractConstruction constructionStrategy =</span>
-<span class="source-line-no">095</span><span id="line-95">                new ConstructionFromSubsets(nextStepRule);</span>
-<span class="source-line-no">096</span><span id="line-96"></span>
-<span class="source-line-no">097</span><span id="line-97">        AbstractLocalSearch localSearchStrategy =</span>
-<span class="source-line-no">098</span><span id="line-98">                new LocalSearchNone();</span>
-<span class="source-line-no">099</span><span id="line-99"></span>
-<span class="source-line-no">100</span><span id="line-100">        int antSize = this.getParameter("antsize").getCurrentValue().intValue();</span>
+<span class="source-line-no">090</span><span id="line-90">        AbstractPheromonePerception perceptionRule = new PerceptionSimple();</span>
+<span class="source-line-no">091</span><span id="line-91"></span>
+<span class="source-line-no">092</span><span id="line-92">        AbstractNextStepStrategy nextStepRule =</span>
+<span class="source-line-no">093</span><span id="line-93">                new NextStepStrategyOnSubsetsDeterministic(</span>
+<span class="source-line-no">094</span><span id="line-94">                        pheromoneStructure, perceptionRule, heuristicInfoSet, new CombinationFactor(alpha, beta));</span>
+<span class="source-line-no">095</span><span id="line-95"></span>
+<span class="source-line-no">096</span><span id="line-96">        AbstractConstruction constructionStrategy =</span>
+<span class="source-line-no">097</span><span id="line-97">                new ConstructionFromSubsets(nextStepRule);</span>
+<span class="source-line-no">098</span><span id="line-98"></span>
+<span class="source-line-no">099</span><span id="line-99">        AbstractLocalSearch localSearchStrategy =</span>
+<span class="source-line-no">100</span><span id="line-100">                new LocalSearchNone();</span>
 <span class="source-line-no">101</span><span id="line-101"></span>
-<span class="source-line-no">102</span><span id="line-102">        AbstractAnt[] ants = new AbstractAnt[antSize];</span>
-<span class="source-line-no">103</span><span id="line-103">        for (int i = 0; i &lt; ants.length; i++) {</span>
-<span class="source-line-no">104</span><span id="line-104">            ants[i] = new ACOAnt&lt;SCPSolution, SCProblem&gt;(problem, updateRule, constructionStrategy, localSearchStrategy);</span>
-<span class="source-line-no">105</span><span id="line-105">        }</span>
-<span class="source-line-no">106</span><span id="line-106"></span>
-<span class="source-line-no">107</span><span id="line-107">        TerminationCriterion terminationCriterion = new TerminationCriterion(1);</span>
+<span class="source-line-no">102</span><span id="line-102">        int antSize = this.getParameter("antsize").getCurrentValue().intValue();</span>
+<span class="source-line-no">103</span><span id="line-103"></span>
+<span class="source-line-no">104</span><span id="line-104">        AbstractAnt[] ants = new AbstractAnt[antSize];</span>
+<span class="source-line-no">105</span><span id="line-105">        for (int i = 0; i &lt; ants.length; i++) {</span>
+<span class="source-line-no">106</span><span id="line-106">            ants[i] = new ACOAnt&lt;SCPSolution, SCProblem&gt;(problem, updateRule, constructionStrategy, localSearchStrategy);</span>
+<span class="source-line-no">107</span><span id="line-107">        }</span>
 <span class="source-line-no">108</span><span id="line-108"></span>
-<span class="source-line-no">109</span><span id="line-109">        AbstractMasterProcess masterProcess =</span>
-<span class="source-line-no">110</span><span id="line-110">                new MasterProcessBasic(pheromoneStructure, ants, terminationCriterion);</span>
-<span class="source-line-no">111</span><span id="line-111"></span>
-<span class="source-line-no">112</span><span id="line-112">        return new ACOAlgorithm(masterProcess);</span>
-<span class="source-line-no">113</span><span id="line-113">    }</span>
-<span class="source-line-no">114</span><span id="line-114"></span>
-<span class="source-line-no">115</span><span id="line-115">}</span>
+<span class="source-line-no">109</span><span id="line-109">        TerminationCriterion terminationCriterion = new TerminationCriterion(1);</span>
+<span class="source-line-no">110</span><span id="line-110"></span>
+<span class="source-line-no">111</span><span id="line-111">        AbstractMasterProcess masterProcess =</span>
+<span class="source-line-no">112</span><span id="line-112">                new MasterProcessBasic(pheromoneStructure, ants, terminationCriterion);</span>
+<span class="source-line-no">113</span><span id="line-113"></span>
+<span class="source-line-no">114</span><span id="line-114">        return new ACOAlgorithm(masterProcess);</span>
+<span class="source-line-no">115</span><span id="line-115">    }</span>
+<span class="source-line-no">116</span><span id="line-116"></span>
+<span class="source-line-no">117</span><span id="line-117">}</span>
 
 
 
