@@ -14,4 +14,4 @@
 String mat_name = "Coverage.mat";
 ~~~
 
-具体的参数配置，可在`src\eu\andredick\configuration\AlgorithmConfiguration_self.java`参数配置文件中调整，
+具体的参数配置，可在`src\eu\andredick\configuration\AlgorithmConfiguration_self.java`参数配置文件中调整。
