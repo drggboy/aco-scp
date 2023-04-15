@@ -16,6 +16,7 @@ import eu.andredick.aco.pheromoneinit.AbstractPheromoneInit;
 import eu.andredick.aco.pheromoneinit.PheromoneInit;
 import eu.andredick.aco.pheromoneperception.PerceptionSimple;
 import eu.andredick.aco.pheromoneupdate.PheromoneUpdateOnSubsets;
+import eu.andredick.aco.problem.AbstractSolution;
 import eu.andredick.aco.solutionquality.SolutionQualityMin;
 import eu.andredick.aco.termination.TerminationCriterion;
 import eu.andredick.configuration.*;
@@ -32,7 +33,8 @@ public class Main {
 
     public static void main(String[] args) {
         // 设置覆盖矩阵
-        String mat_name = "Coverage.mat";  // 指定mat文件名
+//        String mat_name = "Coverage.mat";  // 指定mat文件名
+        String mat_name = "Coverage_4x4.mat";  // 指定mat文件名
         SCProblem problem = MatConvert.Mat_to_SCP(mat_name);
         // 使用自定义策略
         AlgorithmConfiguration_self Alg_config = new AlgorithmConfiguration_self();
@@ -43,6 +45,8 @@ public class Main {
         // 获取统计信息
         Statistics statistics = aco_algorithm.getStatistics();
         float[] min_array = statistics.getIterationMinValuesArray();
+        SCPSolution solution = (SCPSolution) statistics.getGlobalMinSolution();
+        solution.print();
         //可视化迭代结果
         ChartTools chart = new ChartTools("迭代最优值", "iterations", "value");
         chart.addDataSeries("ants", min_array);
