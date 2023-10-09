@@ -36,4 +36,28 @@ public class MatConvert {
         return problem;
     }
 
+    /**
+     *
+     * @param mat_name
+     * @return
+     */
+    public static void ExportMat (double [][]){
+        String matPath = "resources\\mat\\";
+        File file = new File(matPath + mat_name);
+        Matrix data = null;
+        try {
+            data = ImportMatrixMAT.fromFile(file);
+        } catch (
+                IOException e) {
+            throw new RuntimeException(e);
+        }
+        boolean[][] Coverage = data.toBooleanArray();
+        Structure structure = new Structure(Coverage);
+        int cols = structure.subsetsSize();
+        Matrix objC = DenseMatrix.Factory.ones(1,cols);
+        float[] objCoeff = objC.toFloatArray()[0];
+        SCProblem problem = new SCProblem(Coverage, objCoeff);
+        return problem;
+    }
+
 }
